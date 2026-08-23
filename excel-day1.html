@@ -52,14 +52,28 @@
             border-radius: 10px;
         }
 
-        .back {
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .back,
+        .next {
             display: inline-block;
-            margin-top: 25px;
             padding: 12px 20px;
-            background: #2563eb;
             color: white;
             text-decoration: none;
             border-radius: 8px;
+        }
+
+        .back {
+            background: #2563eb;
+        }
+
+        .next {
+            background: #16a34a;
         }
     </style>
 </head>
@@ -76,9 +90,7 @@
 
         <h1>📗 Excel — Day 1</h1>
 
-        <p>
-            <b>Topic:</b> Introduction to Microsoft Excel
-        </p>
+        <p><b>Topic:</b> Introduction to Microsoft Excel</p>
 
         <h2>📌 What is Excel?</h2>
 
@@ -88,6 +100,7 @@
         </p>
 
         <div class="topic">
+
             <h3>Today You Will Learn</h3>
 
             <ul>
@@ -98,11 +111,13 @@
                 <li>Cells and Cell Address</li>
                 <li>Basic Excel Interface</li>
             </ul>
+
         </div>
 
         <h2>📚 Important Terms</h2>
 
         <div class="topic">
+
             <p><b>Workbook:</b> An Excel file.</p>
 
             <p><b>Worksheet:</b> A sheet inside a workbook.</p>
@@ -114,6 +129,7 @@
             <p><b>Row:</b> Horizontal arrangement of cells.</p>
 
             <p><b>Column:</b> Vertical arrangement of cells.</p>
+
         </div>
 
         <h2>💡 Example</h2>
@@ -146,9 +162,17 @@
 
         </div>
 
-        <a class="back" href="dashboard.html">
-            ← Back to Dashboard
-        </a>
+        <div class="navigation">
+
+            <a class="back" href="dashboard.html">
+                ← Dashboard
+            </a>
+
+            <a class="next" href="excel-day2.html">
+                Day 2 →
+            </a>
+
+        </div>
 
     </div>
 
