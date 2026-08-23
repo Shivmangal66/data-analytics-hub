@@ -93,7 +93,9 @@
 
     <div class="welcome">
 
-        <h1>👋 Welcome to your Dashboard!</h1>
+        <h1>👋 Welcome!</h1>
+
+        <p id="userEmail"></p>
 
         <p>
             Start learning Data Analytics step by step.
@@ -117,7 +119,7 @@
 
         <div class="card">
             <h3>🗄️ SQL</h3>
-            <p>Learn SQL and database concepts.</p>
+            <p>Learn SQL and databases.</p>
             <button>Start Learning</button>
         </div>
 
@@ -133,7 +135,22 @@
 
 <script>
 
+const token = localStorage.getItem("access_token");
+const email = localStorage.getItem("user_email");
+
+if (!token) {
+    window.location.href = "login.html";
+}
+
+document.getElementById("userEmail").textContent =
+    "Logged in as: " + email;
+
+
 function logout() {
+
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("user_email");
+
     window.location.href = "index.html";
 }
 
