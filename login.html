@@ -51,7 +51,11 @@
             border-radius: 7px;
             cursor: pointer;
             font-size: 16px;
-            margin-top: 10px;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 15px;
         }
 
         .signup {
@@ -72,11 +76,13 @@
 
     <h1>🔐 Login</h1>
 
-    <input type="email" placeholder="Enter Email">
+    <input id="email" type="email" placeholder="Enter Email">
 
-    <input type="password" placeholder="Enter Password">
+    <input id="password" type="password" placeholder="Enter Password">
 
-    <button>Login</button>
+    <button onclick="login()">Login</button>
+
+    <p id="message"></p>
 
     <div class="signup">
         Don't have an account?
@@ -84,6 +90,73 @@
     </div>
 
 </div>
+
+<script>
+
+const SUPABASE_URL = "https://kieigelxfjtuyueuoiow.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_kal13mMuw9LHg8wBs1n9lg_1Lph7md_";
+
+async function login() {
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const message = document.getElementById("message");
+
+    if (!email || !password) {
+        message.textContent = "Please enter email and password.";
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            SUPABASE_URL + "/auth/v1/token?grant_type=password",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json",
+                    "apikey": SUPABASE_KEY
+                },
+
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            message.textContent =
+                data.msg || data.message || "Invalid email or password.";
+            return;
+        }
+
+        localStorage.setItem(
+            "access_token",
+            data.access_token
+        );
+
+        localStorage.setItem(
+            "user_email",
+            email
+        );
+
+        window.location.href = "dashboard.html";
+
+    } catch (error) {
+
+        message.textContent =
+            "Something went wrong. Please try again.";
+
+        console.error(error);
+    }
+}
+
+</script>
 
 </body>
 </html>
