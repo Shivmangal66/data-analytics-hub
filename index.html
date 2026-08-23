@@ -1,96 +1,844 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Data Analytics Hub</title>
+<title>Data Analytics Hub | Learn Data Analytics</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f7fb;
-            color: #222;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
-        header {
-            background: #111827;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        .container {
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 20px;
-        }
+body{
+    background:#f8fafc;
+    color:#0f172a;
+}
 
-        .hero {
-            background: white;
-            padding: 50px 30px;
-            text-align: center;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
+/* NAVBAR */
 
-        h1 {
-            color: #2563eb;
-        }
+.navbar{
+    height:75px;
+    background:#0b1220;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:1px solid #ffffff12;
+}
 
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
+.logo{
+    color:white;
+    font-size:21px;
+    font-weight:800;
+}
 
-        button {
-            padding: 12px 25px;
-            margin: 10px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+.logo span{
+    color:#60a5fa;
+}
 
-        .login {
-            background: #2563eb;
-            color: white;
-        }
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:28px;
+}
 
-        .signup {
-            background: #16a34a;
-            color: white;
-        }
-    </style>
+.nav-links a{
+    color:#cbd5e1;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.login-btn{
+    padding:10px 18px;
+    border:1px solid #475569;
+    border-radius:9px;
+}
+
+.signup-btn{
+    padding:10px 18px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white !important;
+    border-radius:9px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:650px;
+    background:
+    radial-gradient(circle at 20% 20%,#2563eb40,transparent 35%),
+    radial-gradient(circle at 80% 20%,#7c3aed35,transparent 35%),
+    #080f1f;
+    color:white;
+    display:flex;
+    align-items:center;
+    padding:70px 7%;
+    overflow:hidden;
+}
+
+.hero-container{
+    max-width:1200px;
+    width:100%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:60px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff10;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-size:56px;
+    line-height:1.1;
+    margin-bottom:22px;
+}
+
+.hero h1 span{
+    background:linear-gradient(90deg,#60a5fa,#a78bfa);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:18px;
+    line-height:1.7;
+    max-width:620px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:14px;
+    margin-top:30px;
+}
+
+.primary-btn{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    text-decoration:none;
+    padding:14px 23px;
+    border-radius:10px;
+    font-weight:bold;
+    box-shadow:0 10px 30px #2563eb35;
+}
+
+.secondary-btn{
+    border:1px solid #475569;
+    color:white;
+    text-decoration:none;
+    padding:14px 23px;
+    border-radius:10px;
+}
+
+.secondary-btn:hover{
+    background:#ffffff0b;
+}
+
+/* HERO CARD */
+
+.dashboard-preview{
+    background:#111827cc;
+    border:1px solid #ffffff18;
+    border-radius:22px;
+    padding:22px;
+    box-shadow:0 30px 80px #00000070;
+    transform:rotate(2deg);
+}
+
+.preview-top{
+    display:flex;
+    gap:7px;
+    margin-bottom:20px;
+}
+
+.dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#475569;
+}
+
+.preview-box{
+    background:#0f172a;
+    border-radius:14px;
+    padding:20px;
+}
+
+.preview-title{
+    color:#94a3b8;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.chart{
+    height:150px;
+    display:flex;
+    align-items:end;
+    gap:12px;
+}
+
+.bar{
+    flex:1;
+    background:linear-gradient(to top,#2563eb,#8b5cf6);
+    border-radius:6px 6px 0 0;
+}
+
+.bar:nth-child(1){height:35%}
+.bar:nth-child(2){height:55%}
+.bar:nth-child(3){height:45%}
+.bar:nth-child(4){height:75%}
+.bar:nth-child(5){height:62%}
+.bar:nth-child(6){height:90%}
+
+/* STATS */
+
+.stats{
+    background:white;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    padding:35px 7%;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.stat{
+    text-align:center;
+    border-right:1px solid #e5e7eb;
+}
+
+.stat:last-child{
+    border-right:none;
+}
+
+.stat h2{
+    color:#2563eb;
+    font-size:30px;
+}
+
+.stat p{
+    color:#64748b;
+    margin-top:5px;
+    font-size:14px;
+}
+
+/* SECTION */
+
+.section{
+    max-width:1200px;
+    margin:auto;
+    padding:90px 25px;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-heading .small{
+    color:#2563eb;
+    font-weight:bold;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.section-heading h2{
+    font-size:36px;
+    margin:12px 0;
+}
+
+.section-heading p{
+    color:#64748b;
+}
+
+/* COURSES */
+
+.courses{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.course{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:17px;
+    padding:25px;
+    transition:.25s;
+}
+
+.course:hover{
+    transform:translateY(-7px);
+    box-shadow:0 20px 40px #00000012;
+}
+
+.course-icon{
+    width:55px;
+    height:55px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:14px;
+    background:#eff6ff;
+    font-size:27px;
+    margin-bottom:20px;
+}
+
+.course h3{
+    margin-bottom:10px;
+}
+
+.course p{
+    color:#64748b;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.course-link{
+    display:inline-block;
+    margin-top:20px;
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:14px;
+}
+
+/* FEATURES */
+
+.feature-section{
+    background:#0b1220;
+    color:white;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.feature{
+    background:#ffffff08;
+    border:1px solid #ffffff12;
+    padding:28px;
+    border-radius:16px;
+}
+
+.feature-icon{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.feature h3{
+    margin-bottom:10px;
+}
+
+.feature p{
+    color:#94a3b8;
+    line-height:1.6;
+    font-size:14px;
+}
+
+/* CTA */
+
+.cta{
+    margin:80px auto;
+    max-width:1100px;
+    padding:60px 30px;
+    text-align:center;
+    border-radius:25px;
+    background:
+    radial-gradient(circle at top left,#2563eb55,transparent 40%),
+    linear-gradient(135deg,#111827,#172554);
+    color:white;
+}
+
+.cta h2{
+    font-size:36px;
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:#94a3b8;
+    margin-bottom:28px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#070b14;
+    color:#94a3b8;
+    padding:35px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+footer strong{
+    color:white;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .hero-container{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard-preview{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .courses{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+        gap:25px;
+    }
+
+    .stat{
+        border-right:none;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .nav-links a:not(.login-btn):not(.signup-btn){
+        display:none;
+    }
+}
+
+@media(max-width:600px){
+
+    .navbar{
+        padding:0 20px;
+    }
+
+    .hero{
+        padding:60px 20px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero-buttons a{
+        text-align:center;
+    }
+
+    .courses{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+        padding:30px 15px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:15px;
+        text-align:center;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    <h2>📊 Data Analytics Hub</h2>
-</header>
+<!-- NAVBAR -->
 
-<div class="container">
+<nav class="navbar">
 
-    <div class="hero">
+    <div class="logo">
+        📊 Data <span>Analytics</span> Hub
+    </div>
 
-        <h1>Welcome to Data Analytics Hub 🚀</h1>
+    <div class="nav-links">
 
-        <p>Learn Data Analytics from Beginner to Advanced.</p>
+        <a href="#courses">Courses</a>
 
-        <p>Excel • SQL • Python • Power BI</p>
-<a href="login.html">
-    <button class="login">🔐 Login</button>
-</a>
+        <a href="#features">Features</a>
 
-<a href="signup.html">
-    <button class="signup">📝 Create Account</button>
-</a>
+        <a href="login.html" class="login-btn">
+            Login
+        </a>
+
+        <a href="signup.html" class="signup-btn">
+            Create Account
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-container">
+
+<div>
+
+    <div class="badge">
+        🚀 Learn • Practice • Grow
+    </div>
+
+    <h1>
+        Become a
+        <span>Data Analyst</span>
+        from Zero to Pro.
+    </h1>
+
+    <p>
+        Learn Excel, SQL, Python and Power BI
+        with structured courses, practical projects
+        and easy-to-follow learning resources.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="signup.html" class="primary-btn">
+            🚀 Start Learning Free
+        </a>
+
+        <a href="#courses" class="secondary-btn">
+            Explore Courses →
+        </a>
 
     </div>
 
 </div>
+
+
+<div class="dashboard-preview">
+
+    <div class="preview-top">
+
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+
+    </div>
+
+    <div class="preview-box">
+
+        <div class="preview-title">
+            📈 Your Learning Analytics
+        </div>
+
+        <h2 style="color:white;margin-bottom:20px;">
+            Learning Progress
+        </h2>
+
+        <div class="chart">
+
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+    <div class="stat">
+        <h2>4+</h2>
+        <p>Career Skills</p>
+    </div>
+
+    <div class="stat">
+        <h2>30+</h2>
+        <p>Learning Lessons</p>
+    </div>
+
+    <div class="stat">
+        <h2>100%</h2>
+        <p>Beginner Friendly</p>
+    </div>
+
+    <div class="stat">
+        <h2>Free</h2>
+        <p>To Get Started</p>
+    </div>
+
+</section>
+
+
+<!-- COURSES -->
+
+<section class="section" id="courses">
+
+<div class="section-heading">
+
+    <div class="small">
+        Our Learning Paths
+    </div>
+
+    <h2>
+        Build Real Data Skills
+    </h2>
+
+    <p>
+        Start with the tools used by modern data analysts.
+    </p>
+
+</div>
+
+
+<div class="courses">
+
+    <div class="course">
+
+        <div class="course-icon">
+            📗
+        </div>
+
+        <h3>Excel</h3>
+
+        <p>
+            Learn spreadsheets, formulas,
+            data cleaning and analysis.
+        </p>
+
+        <a href="login.html" class="course-link">
+            Start Excel →
+        </a>
+
+    </div>
+
+
+    <div class="course">
+
+        <div class="course-icon" style="background:#fefce8;">
+            🐍
+        </div>
+
+        <h3>Python</h3>
+
+        <p>
+            Learn Python programming
+            for data analysis and automation.
+        </p>
+
+        <a href="login.html" class="course-link">
+            Start Python →
+        </a>
+
+    </div>
+
+
+    <div class="course">
+
+        <div class="course-icon" style="background:#f0fdf4;">
+            🗄️
+        </div>
+
+        <h3>SQL</h3>
+
+        <p>
+            Master databases, queries,
+            filtering and data extraction.
+        </p>
+
+        <a href="login.html" class="course-link">
+            Start SQL →
+        </a>
+
+    </div>
+
+
+    <div class="course">
+
+        <div class="course-icon" style="background:#fff7ed;">
+            📊
+        </div>
+
+        <h3>Power BI</h3>
+
+        <p>
+            Create interactive dashboards
+            and business reports.
+        </p>
+
+        <a href="login.html" class="course-link">
+            Start Power BI →
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="feature-section" id="features">
+
+<div class="section">
+
+<div class="section-heading">
+
+    <div class="small">
+        Why Data Analytics Hub?
+    </div>
+
+    <h2>
+        Learn Smarter. Build Faster.
+    </h2>
+
+    <p style="color:#94a3b8;">
+        Everything you need to start your data analytics journey.
+    </p>
+
+</div>
+
+
+<div class="features">
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            🎯
+        </div>
+
+        <h3>
+            Structured Learning
+        </h3>
+
+        <p>
+            Follow a clear learning path
+            instead of jumping between random tutorials.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            💻
+        </div>
+
+        <h3>
+            Practical Skills
+        </h3>
+
+        <p>
+            Learn tools and concepts that
+            can be applied to real-world data.
+        </p>
+
+    </div>
+
+
+    <div class="feature">
+
+        <div class="feature-icon">
+            📈
+        </div>
+
+        <h3>
+            Track Your Progress
+        </h3>
+
+        <p>
+            Use your dashboard to continue
+            learning and monitor your progress.
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <h2>
+        Ready to Start Your Data Journey?
+    </h2>
+
+    <p>
+        Create your free account and start learning today.
+    </p>
+
+    <a href="signup.html" class="primary-btn">
+        Create Free Account →
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+        © 2026 <strong>Data Analytics Hub</strong>
+    </div>
+
+    <div>
+        Learn • Practice • Grow 🚀
+    </div>
+
+</footer>
 
 </body>
 </html>
