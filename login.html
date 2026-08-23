@@ -1,593 +1,526 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Login | Data Analytics Hub</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
-
     min-height:100vh;
-
     background:
-    radial-gradient(circle at top left,#2563eb55,transparent 35%),
-    radial-gradient(circle at bottom right,#7c3aed55,transparent 35%),
-    #070b18;
-
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed45,transparent 35%),
+    #080f1f;
+    color:white;
     display:flex;
     align-items:center;
     justify-content:center;
-
-    color:white;
+    padding:25px;
 }
 
-.login-wrapper{
-
+.wrapper{
     width:100%;
-    max-width:1000px;
-
-    display:flex;
-
-    background:#111827cc;
-
-    border:1px solid #ffffff18;
-
-    backdrop-filter:blur(20px);
-
-    border-radius:25px;
-
+    max-width:1050px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    background:#111827dd;
+    border:1px solid #ffffff15;
+    border-radius:24px;
     overflow:hidden;
-
-    box-shadow:0 25px 80px #00000080;
+    box-shadow:0 30px 90px #00000070;
 }
 
-
-/* LEFT SIDE */
+/* LEFT */
 
 .left{
-
-    width:50%;
-
     padding:60px;
-
-    background:
-    linear-gradient(135deg,#2563eb,#4f46e5);
-
+    background:linear-gradient(145deg,#1d4ed8,#4f46e5,#7c3aed);
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
 }
 
 .logo{
-
-    font-size:28px;
-
+    font-size:21px;
     font-weight:bold;
-
-    margin-bottom:25px;
+    margin-bottom:50px;
 }
 
 .left h1{
-
-    font-size:42px;
-
+    font-size:44px;
+    line-height:1.15;
     margin-bottom:20px;
 }
 
 .left p{
-
-    font-size:17px;
-
-    line-height:1.7;
-
     color:#e0e7ff;
+    line-height:1.7;
+    font-size:16px;
 }
 
 .features{
-
     margin-top:30px;
-
 }
 
 .feature{
-
-    margin:15px 0;
-
-    font-size:16px;
+    margin:16px 0;
+    font-size:15px;
 }
 
-
-/* RIGHT SIDE */
+/* RIGHT */
 
 .right{
-
-    width:50%;
-
     padding:55px 45px;
-
-    background:#0f172acc;
-
+    background:#0f172a;
 }
 
 .right h2{
-
-    font-size:32px;
-
-    margin-bottom:10px;
+    font-size:31px;
+    margin-bottom:8px;
 }
 
 .subtitle{
-
     color:#94a3b8;
-
     margin-bottom:30px;
 }
 
-
-.input-group{
-
+.input{
     margin-bottom:18px;
 }
 
-.input-group label{
-
+.input label{
     display:block;
-
-    margin-bottom:8px;
-
     color:#cbd5e1;
-
-}
-
-.input-group input{
-
-    width:100%;
-
-    padding:14px 15px;
-
-    background:#020617;
-
-    border:1px solid #334155;
-
-    border-radius:10px;
-
-    color:white;
-
-    outline:none;
-
-    font-size:15px;
-
-    transition:0.3s;
-}
-
-.input-group input:focus{
-
-    border-color:#3b82f6;
-
-    box-shadow:0 0 0 3px #3b82f622;
-}
-
-
-.login-btn{
-
-    width:100%;
-
-    padding:15px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:linear-gradient(90deg,#2563eb,#7c3aed);
-
-    color:white;
-
-    font-size:16px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:0.3s;
-
-    margin-top:5px;
-}
-
-.login-btn:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:0 10px 30px #2563eb55;
-}
-
-
-#message{
-
-    text-align:center;
-
-    margin-top:15px;
-
     font-size:14px;
+    margin-bottom:8px;
 }
 
+.input input{
+    width:100%;
+    padding:14px;
+    background:#020617;
+    border:1px solid #334155;
+    border-radius:10px;
+    color:white;
+    outline:none;
+    font-size:15px;
+}
 
-.signup{
+.input input:focus{
+    border-color:#3b82f6;
+    box-shadow:0 0 0 3px #2563eb22;
+}
 
-    text-align:center;
+.password-box{
+    position:relative;
+}
 
-    margin-top:25px;
+.password-box input{
+    padding-right:50px;
+}
 
+.show{
+    position:absolute;
+    right:14px;
+    top:13px;
+    cursor:pointer;
     color:#94a3b8;
 }
 
-.signup a{
+.options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:5px 0 22px;
+    color:#94a3b8;
+    font-size:13px;
+}
 
+.options a{
     color:#60a5fa;
-
     text-decoration:none;
+}
 
+.login-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.login-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 30px #2563eb40;
+}
+
+#message{
+    text-align:center;
+    margin-top:15px;
+    font-size:14px;
+}
+
+.signup{
+    text-align:center;
+    margin-top:25px;
+    color:#94a3b8;
+    font-size:14px;
+}
+
+.signup a{
+    color:#60a5fa;
+    text-decoration:none;
     font-weight:bold;
 }
 
-.signup a:hover{
-
-    text-decoration:underline;
+.back{
+    display:block;
+    text-align:center;
+    margin-top:22px;
+    color:#64748b;
+    text-decoration:none;
+    font-size:13px;
 }
-
 
 /* MOBILE */
 
 @media(max-width:750px){
 
-    .login-wrapper{
-
-        margin:20px;
-
-        flex-direction:column;
+    body{
+        padding:15px;
     }
 
-    .left,
-    .right{
-
-        width:100%;
+    .wrapper{
+        grid-template-columns:1fr;
     }
 
     .left{
-
         padding:35px;
-
-        text-align:center;
     }
 
     .left h1{
-
         font-size:32px;
     }
 
-    .right{
-
-        padding:35px 25px;
+    .features{
+        display:none;
     }
 
+    .right{
+        padding:35px 25px;
+    }
 }
-
 </style>
-
 </head>
-
 
 <body>
 
+<div class="wrapper">
 
-<div class="login-wrapper">
+    <!-- LEFT -->
+
+    <div class="left">
+
+        <div class="logo">
+            📊 Data Analytics Hub
+        </div>
+
+        <h1>
+            Welcome Back 👋
+        </h1>
+
+        <p>
+            Continue learning and build the
+            skills you need to become a
+            professional Data Analyst.
+        </p>
+
+        <div class="features">
+
+            <div class="feature">
+                📗 Excel & Data Analysis
+            </div>
+
+            <div class="feature">
+                🐍 Python for Data Analytics
+            </div>
+
+            <div class="feature">
+                🗄️ SQL & Databases
+            </div>
+
+            <div class="feature">
+                📊 Power BI Dashboards
+            </div>
+
+            <div class="feature">
+                🏆 Track Your Progress
+            </div>
+
+        </div>
+
+    </div>
 
 
-<!-- LEFT -->
+    <!-- RIGHT -->
 
-<div class="left">
+    <div class="right">
 
-<div class="logo">
+        <h2>Login</h2>
 
-📊 Data Analytics Hub
+        <p class="subtitle">
+            Access your learning dashboard
+        </p>
+
+
+        <div class="input">
+
+            <label>Email Address</label>
+
+            <input
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+            >
+
+        </div>
+
+
+        <div class="input">
+
+            <label>Password</label>
+
+            <div class="password-box">
+
+                <input
+                    id="password"
+                    type="password"
+                    placeholder="Enter your password"
+                >
+
+                <span
+                    class="show"
+                    onclick="togglePassword()"
+                >
+                    👁️
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="options">
+
+            <label>
+                <input
+                    type="checkbox"
+                    id="remember"
+                >
+                Remember me
+            </label>
+
+            <a href="#">
+                Forgot Password?
+            </a>
+
+        </div>
+
+
+        <button
+            class="login-btn"
+            id="loginButton"
+        >
+            🔐 Login to Dashboard
+        </button>
+
+
+        <p id="message"></p>
+
+
+        <div class="signup">
+
+            Don't have an account?
+
+            <a href="signup.html">
+                Create Account
+            </a>
+
+        </div>
+
+
+        <a href="index.html" class="back">
+            ← Back to Home
+        </a>
+
+    </div>
 
 </div>
-
-<h1>
-
-Welcome Back 👋
-
-</h1>
-
-<p>
-
-Continue your journey to become
-a professional Data Analyst.
-
-</p>
-
-
-<div class="features">
-
-<div class="feature">
-
-📗 Excel & Data Analysis
-
-</div>
-
-<div class="feature">
-
-🐍 Python for Data Analytics
-
-</div>
-
-<div class="feature">
-
-🗄️ SQL & Databases
-
-</div>
-
-<div class="feature">
-
-📊 Power BI Dashboards
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- RIGHT -->
-
-<div class="right">
-
-<h2>
-
-Login
-
-</h2>
-
-<p class="subtitle">
-
-Access your learning dashboard
-
-</p>
-
-
-<div class="input-group">
-
-<label>Email</label>
-
-<input
-id="email"
-type="email"
-placeholder="Enter your email"
->
-
-</div>
-
-
-<div class="input-group">
-
-<label>Password</label>
-
-<input
-id="password"
-type="password"
-placeholder="Enter your password"
->
-
-</div>
-
-
-<button
-class="login-btn"
-id="loginButton"
-type="button"
->
-
-🔐 Login to Dashboard
-
-</button>
-
-
-<p id="message"></p>
-
-
-<div class="signup">
-
-Don't have an account?
-
-<a href="signup.html">
-
-Create Account
-
-</a>
-
-</div>
-
-
-</div>
-
-</div>
-
 
 
 <script>
 
-
 const SUPABASE_URL =
 "https://kieigelxfjtuyueuoiow.supabase.co";
-
 
 const SUPABASE_KEY =
 "sb_publishable_kal13mMuw9LHg8wBs1n9lg_1Lph7md_";
 
 
+function togglePassword(){
+
+    const input =
+    document.getElementById("password");
+
+    const icon =
+    document.querySelector(".show");
+
+    if(input.type === "password"){
+
+        input.type = "text";
+        icon.textContent = "🙈";
+
+    }else{
+
+        input.type = "password";
+        icon.textContent = "👁️";
+
+    }
+}
+
+
 document
 .getElementById("loginButton")
-.addEventListener("click", login);
+.addEventListener("click",login);
 
 
 async function login(){
 
+    const email =
+    document.getElementById("email")
+    .value.trim();
 
-const email =
-document
-.getElementById("email")
-.value
-.trim();
+    const password =
+    document.getElementById("password")
+    .value;
 
-
-const password =
-document
-.getElementById("password")
-.value;
+    const message =
+    document.getElementById("message");
 
 
-const message =
-document
-.getElementById("message");
+    if(!email || !password){
+
+        message.textContent =
+        "❌ Please enter email and password.";
+
+        message.style.color="#f87171";
+
+        return;
+    }
 
 
-if(!email || !password){
+    message.textContent =
+    "⏳ Logging in...";
 
-message.textContent =
-"❌ Please enter email and password.";
-
-message.style.color="#f87171";
-
-return;
-
-}
+    message.style.color="#60a5fa";
 
 
-message.textContent =
-"⏳ Logging in...";
+    try{
 
-message.style.color="#60a5fa";
+        const response =
+        await fetch(
 
+            SUPABASE_URL +
+            "/auth/v1/token?grant_type=password",
 
-try{
+            {
+                method:"POST",
 
+                headers:{
+                    "Content-Type":"application/json",
+                    "apikey":SUPABASE_KEY
+                },
 
-const response =
-await fetch(
-
-SUPABASE_URL +
-"/auth/v1/token?grant_type=password",
-
-{
-
-method:"POST",
-
-headers:{
-
-"Content-Type":
-"application/json",
-
-"apikey":
-SUPABASE_KEY
-
-},
-
-body:JSON.stringify({
-
-email:email,
-
-password:password
-
-})
-
-});
+                body:JSON.stringify({
+                    email:email,
+                    password:password
+                })
+            }
+        );
 
 
-const data =
-await response.json();
+        const data =
+        await response.json();
 
 
-if(!response.ok){
+        if(!response.ok){
 
-message.textContent =
-"❌ " +
-(
-data.msg ||
-data.message ||
-"Invalid email or password."
-);
+            message.textContent =
+            "❌ " +
+            (
+                data.msg ||
+                data.message ||
+                "Invalid email or password."
+            );
 
-message.style.color="#f87171";
+            message.style.color="#f87171";
 
-return;
-
-}
-
-
-localStorage.setItem(
-
-"access_token",
-
-data.access_token
-
-);
+            return;
+        }
 
 
-localStorage.setItem(
+        localStorage.setItem(
+            "access_token",
+            data.access_token
+        );
 
-"user_email",
-
-email
-
-);
-
-
-message.textContent =
-"✅ Login successful!";
-
-message.style.color="#4ade80";
+        localStorage.setItem(
+            "user_email",
+            email
+        );
 
 
-setTimeout(()=>{
+        message.textContent =
+        "✅ Login successful!";
 
-window.location.href=
-"dashboard.html";
-
-},700);
+        message.style.color="#4ade80";
 
 
-}
+        setTimeout(()=>{
 
-catch(error){
+            window.location.href =
+            "dashboard.html";
 
-console.error(error);
+        },700);
 
-message.textContent =
-"❌ Connection error.";
 
-message.style.color="#f87171";
+    }catch(error){
 
-}
+        console.error(error);
+
+        message.textContent =
+        "❌ Connection error.";
+
+        message.style.color="#f87171";
+
+    }
 
 }
 
 </script>
 
-
 </body>
-
 </html>
