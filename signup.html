@@ -40,6 +40,7 @@
             margin: 8px 0;
             border: 1px solid #ddd;
             border-radius: 7px;
+            font-size: 15px;
         }
 
         button {
@@ -54,9 +55,14 @@
             margin-top: 15px;
         }
 
+        button:hover {
+            background: #15803d;
+        }
+
         #message {
             text-align: center;
             margin-top: 15px;
+            font-weight: bold;
         }
 
         .login {
@@ -85,7 +91,9 @@
 
     <input id="confirmPassword" type="password" placeholder="Confirm Password">
 
-    <button onclick="createAccount()">Create Account</button>
+    <button id="signupButton" type="button">
+        Create Account
+    </button>
 
     <p id="message"></p>
 
@@ -96,34 +104,77 @@
 
 </div>
 
-<script type="module">
+<script>
 
-const SUPABASE_URL = "https://kieigelxfjtuyueuoiow.supabase.co";
+const SUPABASE_URL =
+    "https://kieigelxfjtuyueuoiow.supabase.co";
 
-const SUPABASE_KEY = "sb_publishable_kal13mMuw9LHg8wBs1n9lg_1Lph7md_";
+const SUPABASE_KEY =
+    "sb_publishable_kal13mMuw9LHg8wBs1n9lg_1Lph7md_";
+
+
+document.getElementById("signupButton").addEventListener("click", createAccount);
+
 
 async function createAccount() {
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
-    const message = document.getElementById("message");
+    const name =
+        document.getElementById("name").value.trim();
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    const confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+    const message =
+        document.getElementById("message");
+
+
+    message.textContent = "";
+
 
     if (!name || !email || !password || !confirmPassword) {
-        message.textContent = "Please fill all fields.";
+
+        message.textContent =
+            "❌ Please fill all fields.";
+
+        message.style.color = "red";
+
         return;
     }
+
 
     if (password !== confirmPassword) {
-        message.textContent = "Passwords do not match.";
+
+        message.textContent =
+            "❌ Passwords do not match.";
+
+        message.style.color = "red";
+
         return;
     }
 
+
     if (password.length < 6) {
-        message.textContent = "Password must be at least 6 characters.";
+
+        message.textContent =
+            "❌ Password must be at least 6 characters.";
+
+        message.style.color = "red";
+
         return;
     }
+
+
+    message.textContent =
+        "⏳ Creating account...";
+
+    message.style.color = "blue";
+
 
     try {
 
@@ -147,24 +198,48 @@ async function createAccount() {
             }
         );
 
+
         const data = await response.json();
 
+
         if (!response.ok) {
+
             message.textContent =
-                data.msg || data.message || "Account creation failed.";
+                "❌ " +
+                (data.msg ||
+                 data.message ||
+                 data.error_description ||
+                 "Account creation failed.");
+
+            message.style.color = "red";
+
             return;
         }
 
+
         message.textContent =
-            "✅ Account created! Check your email for verification.";
+            "✅ Account created successfully!";
+
+        message.style.color = "green";
+
+
+        setTimeout(function() {
+
+            window.location.href = "login.html";
+
+        }, 2000);
+
 
     } catch (error) {
 
-        message.textContent =
-            "Something went wrong. Please try again.";
-
         console.error(error);
+
+        message.textContent =
+            "❌ Connection error. Please try again.";
+
+        message.style.color = "red";
     }
+
 }
 
 </script>
