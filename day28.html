@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 28 | Advanced Excel Formulas</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+.navbar{
+    background:#080f1f;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.back{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.hero{
+    background:
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),
+    #080f1f;
+    color:white;
+    padding:70px 7%;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin:20px 0 12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+    max-width:800px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.topic{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.topic h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.topic p{
+    font-size:14px;
+}
+
+.steps{
+    margin-top:20px;
+}
+
+.step{
+    display:flex;
+    gap:15px;
+    margin:17px 0;
+    align-items:flex-start;
+}
+
+.number{
+    min-width:35px;
+    height:35px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.formula{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:22px;
+    border-radius:12px;
+    margin-top:20px;
+    line-height:2;
+    overflow-x:auto;
+    font-family:monospace;
+}
+
+.formula span{
+    color:#60a5fa;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    text-align:left;
+}
+
+th{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.tip{
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:18px;
+    border-radius:8px;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.warning{
+    background:#fff7ed;
+    border-left:5px solid #f97316;
+    padding:18px;
+    border-radius:8px;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+footer{
+    background:#080f1f;
+    color:#94a3b8;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .container{
+        padding:30px 18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        📊 Data <span>Analytics</span> Hub
+    </div>
+
+    <a href="excel.html" class="back">
+        ← Excel Course
+    </a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            DAY 28 • EXCEL MASTERY
+        </span>
+
+        <h1>
+            Advanced Formulas & Conditional Logic
+        </h1>
+
+        <p>
+            Learn how to use logical formulas to make
+            decisions, classify data and build smarter
+            Excel reports.
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="card">
+
+    <h2>🎯 Today's Goal</h2>
+
+    <p>
+        Today you will learn how Excel can automatically
+        make decisions based on conditions.
+    </p>
+
+    <div class="tip">
+
+        💡 Conditional formulas are extremely useful
+        for Data Analysis, reporting and automation.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📚 What You Will Learn</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>🧠 IF</h3>
+
+            <p>
+                Return one result when a condition is
+                TRUE and another when it is FALSE.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔗 AND</h3>
+
+            <p>
+                Check whether multiple conditions are
+                all TRUE.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔀 OR</h3>
+
+            <p>
+                Check whether at least one condition
+                is TRUE.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🪜 IFS</h3>
+
+            <p>
+                Evaluate multiple conditions in a
+                structured way.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💡 What is Conditional Logic?</h2>
+
+    <p>
+        Conditional Logic means checking whether a
+        condition is true or false and then performing
+        an action based on the result.
+    </p>
+
+    <div class="tip">
+
+        Example: If marks are 40 or above, display
+        <b>"Pass"</b>; otherwise display
+        <b>"Fail"</b>.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📋 Sample Student Data</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Student</th>
+                <th>Marks</th>
+                <th>Attendance</th>
+            </tr>
+
+            <tr>
+                <td>Rahul</td>
+                <td>85</td>
+                <td>92%</td>
+            </tr>
+
+            <tr>
+                <td>Aman</td>
+                <td>72</td>
+                <td>88%</td>
+            </tr>
+
+            <tr>
+                <td>Priya</td>
+                <td>35</td>
+                <td>76%</td>
+            </tr>
+
+            <tr>
+                <td>Neha</td>
+                <td>91</td>
+                <td>95%</td>
+            </tr>
+
+            <tr>
+                <td>Ravi</td>
+                <td>42</td>
+                <td>68%</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>1️⃣ IF Function</h2>
+
+    <p>
+        The IF function checks a condition and returns
+        one value if the condition is TRUE and another
+        value if it is FALSE.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =IF(condition, value_if_true, value_if_false)
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧮 IF Example</h2>
+
+    <p>
+        Suppose marks are stored in cell B2.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =IF(B2>=40,"Pass","Fail")
+        </span>
+
+    </div>
+
+    <div class="tip">
+
+        Marks ≥ 40 → <b>Pass</b><br>
+        Marks &lt; 40 → <b>Fail</b>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>2️⃣ AND Function</h2>
+
+    <p>
+        AND returns TRUE only when all specified
+        conditions are TRUE.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =AND(condition1, condition2)
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧮 AND + IF Example</h2>
+
+    <p>
+        A student passes only when marks are at least
+        40 and attendance is at least 75%.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =IF(AND(B2>=40,C2>=75%),"Pass","Fail")
+        </span>
+
+    </div>
+
+    <div class="tip">
+
+        Both conditions must be TRUE.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>3️⃣ OR Function</h2>
+
+    <p>
+        OR returns TRUE when at least one of the
+        specified conditions is TRUE.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =OR(condition1, condition2)
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧮 OR + IF Example</h2>
+
+    <p>
+        Suppose a customer receives a discount if
+        their sales are above ₹50,000 OR they are
+        a premium customer.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =IF(OR(B2>50000,C2="Premium"),"Discount","No Discount")
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>4️⃣ IFS Function</h2>
+
+    <p>
+        IFS is useful when you need to check multiple
+        conditions without creating many nested IF
+        statements.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =IFS(B2>=90,"A+",B2>=80,"A",B2>=70,"B",B2>=60,"C",TRUE,"Fail")
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📊 Grade Classification Example</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Marks</th>
+                <th>Grade</th>
+            </tr>
+
+            <tr>
+                <td>90 – 100</td>
+                <td>A+</td>
+            </tr>
+
+            <tr>
+                <td>80 – 89</td>
+                <td>A</td>
+            </tr>
+
+            <tr>
+                <td>70 – 79</td>
+                <td>B</td>
+            </tr>
+
+            <tr>
+                <td>60 – 69</td>
+                <td>C</td>
+            </tr>
+
+            <tr>
+                <td>Below 60</td>
+                <td>Fail</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔢 COUNTIF</h2>
+
+    <p>
+        COUNTIF counts cells that meet a specific
+        condition.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =COUNTIF(range, criteria)
+        </span>
+
+    </div>
+
+    <p style="margin-top:20px;">
+        Example:
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =COUNTIF(B2:B20,">=40")
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>➕ SUMIF</h2>
+
+    <p>
+        SUMIF adds values that meet a specified
+        condition.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =SUMIF(range, criteria, sum_range)
+        </span>
+
+    </div>
+
+    <p style="margin-top:20px;">
+        Example:
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =SUMIF(A2:A20,"North",B2:B20)
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📊 AVERAGEIF</h2>
+
+    <p>
+        AVERAGEIF calculates the average of values
+        that meet a specific condition.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =AVERAGEIF(range, criteria, average_range)
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧩 Useful Conditional Functions</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>IF</h3>
+
+            <p>
+                Make a decision based on a condition.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>AND</h3>
+
+            <p>
+                All conditions must be TRUE.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>OR</h3>
+
+            <p>
+                At least one condition must be TRUE.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>COUNTIF</h3>
+
+            <p>
+                Count values matching a condition.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>SUMIF</h3>
+
+            <p>
+                Sum values matching a condition.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>AVERAGEIF</h3>
+
+            <p>
+                Calculate average based on a condition.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💼 Real-World Uses</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>🎓 Student Analysis</h3>
+
+            <p>
+                Automatically classify students as
+                Pass, Fail or different grades.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>💰 Sales Analysis</h3>
+
+            <p>
+                Identify high-performing salespeople
+                and regions.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>👨‍💼 Employee Analysis</h3>
+
+            <p>
+                Identify employees meeting performance
+                conditions.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📦 Inventory</h3>
+
+            <p>
+                Identify products that need restocking.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⚠️ Common Mistakes</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>❌ Missing Quotes</h3>
+
+            <p>
+                Text results such as "Pass" should be
+                written inside quotation marks.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Wrong Cell Reference</h3>
+
+            <p>
+                Check that your formula points to the
+                correct cells.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Incorrect Condition</h3>
+
+            <p>
+                Carefully check operators such as
+                &gt;, &lt;, &gt;= and &lt;=.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Complex Formula</h3>
+
+            <p>
+                Break complicated logic into smaller
+                steps when necessary.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📝 Practice Task</h2>
+
+    <p>
+        Create a Student Performance Sheet with:
+    </p>
+
+    <br>
+
+    <p>
+        Student Name | Marks | Attendance | Grade | Result
+    </p>
+
+    <br>
+
+    <p>
+        1️⃣ Use <b>IF</b> to calculate Pass/Fail.
+    </p>
+
+    <br>
+
+    <p>
+        2️⃣ Use <b>AND + IF</b> to check Marks and
+        Attendance together.
+    </p>
+
+    <br>
+
+    <p>
+        3️⃣ Use <b>IFS</b> to assign grades.
+    </p>
+
+    <br>
+
+    <p>
+        4️⃣ Use <b>COUNTIF</b> to count students who passed.
+    </p>
+
+    <br>
+
+    <p>
+        5️⃣ Use <b>AVERAGEIF</b> to calculate the average
+        marks of students who passed.
+    </p>
+
+    <div class="tip">
+
+        🏆 Challenge:
+        Create an Employee Performance Report where
+        employees are automatically classified as
+        <b>Excellent, Good, Average or Needs Improvement</b>
+        based on their performance score.
+
+    </div>
+
+
+    <div class="actions">
+
+        <a href="day27.html" class="btn secondary">
+            ← Previous Day
+        </a>
+
+        <a href="day29.html" class="btn primary">
+            Next: Day 29 →
+        </a>
+
+        <a href="excel.html" class="btn secondary">
+            📚 All Lessons
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Data Analytics Hub
+• Learn • Practice • Grow 🚀
+
+</footer>
+
+
+</body>
+
+</html>
