@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 12 | Data Validation & Dropdown Lists</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+.navbar{
+    background:#080f1f;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.back{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.hero{
+    background:
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),
+    #080f1f;
+
+    color:white;
+    padding:70px 7%;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin:20px 0 12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+    max-width:760px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.topic{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.topic h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.topic p{
+    font-size:14px;
+}
+
+.example{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:22px;
+    border-radius:12px;
+    margin-top:20px;
+    line-height:2;
+}
+
+.example span{
+    color:#60a5fa;
+    font-weight:bold;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    text-align:left;
+}
+
+th{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+footer{
+    background:#080f1f;
+    color:#94a3b8;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .container{
+        padding:30px 18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        📊 Data <span>Analytics</span> Hub
+    </div>
+
+    <a href="excel.html" class="back">
+        ← Excel Course
+    </a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            DAY 12 • EXCEL MASTERY
+        </span>
+
+        <h1>
+            Data Validation & Dropdown Lists
+        </h1>
+
+        <p>
+            Learn how to control what users can enter
+            into Excel cells and create professional
+            dropdown lists for clean and consistent data.
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="card">
+
+    <h2>🎯 Today's Goal</h2>
+
+    <p>
+        Learn how Data Validation can restrict incorrect
+        entries and how dropdown lists can make data
+        entry faster, easier and more accurate.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📚 What You Will Learn</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>✅ Data Validation</h3>
+
+            <p>
+                Control the type of information that
+                users can enter into a cell.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>⬇️ Dropdown Lists</h3>
+
+            <p>
+                Create a list of predefined choices
+                for users to select.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔢 Number Restrictions</h3>
+
+            <p>
+                Allow only numbers within a specified
+                range.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>⚠️ Error Alerts</h3>
+
+            <p>
+                Display a warning when invalid data
+                is entered.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💡 What is Data Validation?</h2>
+
+    <p>
+        Data Validation is an Excel feature used to
+        control what kind of data can be entered into
+        a cell.
+    </p>
+
+    <div class="example">
+
+        <span>Example:</span>
+
+        <br><br>
+
+        Suppose a column contains employee departments.
+
+        <br><br>
+
+        Instead of allowing users to type anything,
+        create a dropdown containing:
+
+        <br><br>
+
+        IT • HR • Sales • Finance
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⬇️ Creating a Dropdown List</h2>
+
+    <p>
+        Follow these steps in Excel:
+    </p>
+
+    <div class="example">
+
+        1. Select the cells
+
+        <br>
+
+        2. Go to <b>Data</b>
+
+        <br>
+
+        3. Select <b>Data Validation</b>
+
+        <br>
+
+        4. Choose <b>List</b>
+
+        <br>
+
+        5. Enter your allowed values
+
+        <br>
+
+        6. Click <b>OK</b>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📊 Example</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Employee</th>
+                <th>Department</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>Shiv</td>
+                <td>IT</td>
+                <td>Active</td>
+            </tr>
+
+            <tr>
+                <td>Rahul</td>
+                <td>Sales</td>
+                <td>Active</td>
+            </tr>
+
+            <tr>
+                <td>Aman</td>
+                <td>HR</td>
+                <td>Inactive</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="example">
+
+        <span>Department Dropdown:</span>
+
+        <br><br>
+
+        IT | HR | Sales | Finance
+
+        <br><br>
+
+        <span>Status Dropdown:</span>
+
+        <br><br>
+
+        Active | Inactive
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔢 Number Validation</h2>
+
+    <p>
+        Data Validation can also restrict numerical
+        values.
+    </p>
+
+    <div class="example">
+
+        Example:
+
+        <br><br>
+
+        Allow only numbers between
+
+        <br>
+
+        <span>0 and 100</span>
+
+        <br><br>
+
+        This is useful for marks, percentages,
+        ratings and scores.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⚠️ Error Alert</h2>
+
+    <p>
+        You can configure Excel to display an error
+        message when someone enters invalid information.
+    </p>
+
+    <div class="example">
+
+        <span>Example Error:</span>
+
+        <br><br>
+
+        "Please select a valid department
+        from the dropdown."
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📝 Practice Task</h2>
+
+    <p>
+        Create an employee table with the columns:
+        Name, Department and Status.
+    </p>
+
+    <br>
+
+    <p>
+        Create a dropdown for Department containing:
+        IT, HR, Sales and Finance.
+    </p>
+
+    <br>
+
+    <p>
+        Create another dropdown for Status containing:
+        Active and Inactive.
+    </p>
+
+    <br>
+
+    <p>
+        Finally, create a marks column where only
+        numbers from 0 to 100 are allowed.
+    </p>
+
+
+    <div class="actions">
+
+        <a href="day11.html" class="btn secondary">
+            ← Previous Day
+        </a>
+
+        <a href="day13.html" class="btn primary">
+            Next: Day 13 →
+        </a>
+
+        <a href="excel.html" class="btn secondary">
+            📚 All Lessons
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+    © 2026 Data Analytics Hub
+    • Learn • Practice • Grow 🚀
+
+</footer>
+
+
+</body>
+</html>
