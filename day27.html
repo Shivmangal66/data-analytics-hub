@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 27 | VLOOKUP, HLOOKUP & XLOOKUP</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+.navbar{
+    background:#080f1f;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.back{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.hero{
+    background:
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),
+    #080f1f;
+    color:white;
+    padding:70px 7%;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin:20px 0 12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+    max-width:800px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.topic{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.topic h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.topic p{
+    font-size:14px;
+}
+
+.steps{
+    margin-top:20px;
+}
+
+.step{
+    display:flex;
+    gap:15px;
+    margin:17px 0;
+    align-items:flex-start;
+}
+
+.number{
+    min-width:35px;
+    height:35px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    text-align:left;
+}
+
+th{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.tip{
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:18px;
+    border-radius:8px;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.formula{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:22px;
+    border-radius:12px;
+    margin-top:20px;
+    line-height:2;
+    overflow-x:auto;
+    font-family:monospace;
+}
+
+.formula span{
+    color:#60a5fa;
+}
+
+.compare{
+    margin-top:20px;
+}
+
+.bad{
+    color:#dc2626;
+    font-weight:bold;
+}
+
+.good{
+    color:#16a34a;
+    font-weight:bold;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+footer{
+    background:#080f1f;
+    color:#94a3b8;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .container{
+        padding:30px 18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        📊 Data <span>Analytics</span> Hub
+    </div>
+
+    <a href="excel.html" class="back">
+        ← Excel Course
+    </a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            DAY 27 • EXCEL MASTERY
+        </span>
+
+        <h1>
+            VLOOKUP, HLOOKUP & XLOOKUP
+        </h1>
+
+        <p>
+            Learn how to search for information in
+            Excel and automatically return the related
+            value from another table.
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="card">
+
+    <h2>🎯 Today's Goal</h2>
+
+    <p>
+        Today you will learn Excel Lookup Functions.
+        These functions are extremely useful when
+        working with multiple datasets.
+    </p>
+
+    <div class="tip">
+
+        💡 Lookup functions help you find a value
+        from one table and bring the related information
+        from another table.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📚 What You Will Learn</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>🔎 VLOOKUP</h3>
+
+            <p>
+                Search vertically through the first
+                column of a table.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>↔️ HLOOKUP</h3>
+
+            <p>
+                Search horizontally through the first
+                row of a table.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🚀 XLOOKUP</h3>
+
+            <p>
+                A modern and flexible lookup function
+                for Excel.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>⚠️ IFERROR</h3>
+
+            <p>
+                Handle lookup errors and display
+                meaningful messages.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💡 What is a Lookup Function?</h2>
+
+    <p>
+        A Lookup Function searches for a specific
+        value in a range and returns related information
+        from another column or row.
+    </p>
+
+    <div class="tip">
+
+        Example: Enter an Employee ID and automatically
+        find the employee's Name, Department and Salary.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📋 Sample Employee Data</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Salary</th>
+            </tr>
+
+            <tr>
+                <td>E101</td>
+                <td>Rahul</td>
+                <td>Sales</td>
+                <td>35000</td>
+            </tr>
+
+            <tr>
+                <td>E102</td>
+                <td>Aman</td>
+                <td>IT</td>
+                <td>45000</td>
+            </tr>
+
+            <tr>
+                <td>E103</td>
+                <td>Priya</td>
+                <td>HR</td>
+                <td>40000</td>
+            </tr>
+
+            <tr>
+                <td>E104</td>
+                <td>Neha</td>
+                <td>Finance</td>
+                <td>48000</td>
+            </tr>
+
+            <tr>
+                <td>E105</td>
+                <td>Ravi</td>
+                <td>Marketing</td>
+                <td>42000</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔎 VLOOKUP</h2>
+
+    <p>
+        VLOOKUP means <b>Vertical Lookup</b>.
+        It searches for a value in the first column
+        of a table and returns a value from another
+        column.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =VLOOKUP(lookup_value, table_array, col_index_num, FALSE)
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧮 VLOOKUP Example</h2>
+
+    <p>
+        Suppose cell A2 contains:
+    </p>
+
+    <div class="formula">
+
+        A2 = <span>"E103"</span>
+
+    </div>
+
+    <p style="margin-top:20px;">
+        To find the employee's name:
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =VLOOKUP(A2,A2:D6,2,FALSE)
+        </span>
+
+    </div>
+
+    <div class="tip">
+
+        Result: <b>Priya</b>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧩 VLOOKUP Arguments</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Argument</th>
+                <th>Meaning</th>
+            </tr>
+
+            <tr>
+                <td>lookup_value</td>
+                <td>Value you want to search.</td>
+            </tr>
+
+            <tr>
+                <td>table_array</td>
+                <td>Range containing your data.</td>
+            </tr>
+
+            <tr>
+                <td>col_index_num</td>
+                <td>Column number to return.</td>
+            </tr>
+
+            <tr>
+                <td>FALSE</td>
+                <td>Exact match.</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>↔️ HLOOKUP</h2>
+
+    <p>
+        HLOOKUP means <b>Horizontal Lookup</b>.
+        It searches for a value across the first row
+        of a table.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =HLOOKUP(lookup_value, table_array, row_index_num, FALSE)
+        </span>
+
+    </div>
+
+    <div class="tip">
+
+        💡 VLOOKUP searches vertically.
+        HLOOKUP searches horizontally.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🚀 XLOOKUP</h2>
+
+    <p>
+        XLOOKUP is a modern lookup function that is
+        more flexible than traditional VLOOKUP and
+        HLOOKUP.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =XLOOKUP(lookup_value, lookup_array, return_array)
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧮 XLOOKUP Example</h2>
+
+    <p>
+        Find the employee name using Employee ID.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =XLOOKUP(A2,A2:A6,B2:B6)
+        </span>
+
+    </div>
+
+    <div class="tip">
+
+        If A2 contains <b>E103</b>, the result will be
+        <b>Priya</b>.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⭐ VLOOKUP vs XLOOKUP</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Feature</th>
+                <th>VLOOKUP</th>
+                <th>XLOOKUP</th>
+            </tr>
+
+            <tr>
+                <td>Search Direction</td>
+                <td>Mostly vertical</td>
+                <td>Flexible</td>
+            </tr>
+
+            <tr>
+                <td>Return Left Value</td>
+                <td class="bad">Limited</td>
+                <td class="good">Yes</td>
+            </tr>
+
+            <tr>
+                <td>Exact Match</td>
+                <td>Possible</td>
+                <td>Default behavior</td>
+            </tr>
+
+            <tr>
+                <td>Flexible Return</td>
+                <td class="bad">Limited</td>
+                <td class="good">Yes</td>
+            </tr>
+
+            <tr>
+                <td>Modern Excel</td>
+                <td>Older function</td>
+                <td class="good">Recommended</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🛡️ IFERROR with Lookup</h2>
+
+    <p>
+        Sometimes a lookup value does not exist.
+        Excel may show an error such as #N/A.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =IFERROR(XLOOKUP(A2,A2:A6,B2:B6),"Not Found")
+        </span>
+
+    </div>
+
+    <div class="tip">
+
+        Instead of displaying an error, Excel will
+        display <b>Not Found</b>.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💼 Real-World Uses</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>👨‍💼 Employee Data</h3>
+
+            <p>
+                Find employee name, department and salary
+                using Employee ID.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📦 Product Data</h3>
+
+            <p>
+                Find product price using Product ID.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🎓 Student Records</h3>
+
+            <p>
+                Find student marks and course using
+                Roll Number.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>💰 Sales Data</h3>
+
+            <p>
+                Match customer IDs with sales information.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⚠️ Common VLOOKUP Mistakes</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>❌ Wrong Column Number</h3>
+
+            <p>
+                Check the column index carefully.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Missing FALSE</h3>
+
+            <p>
+                Use FALSE when you need an exact match.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Lookup Column</h3>
+
+            <p>
+                VLOOKUP searches in the first column
+                of the selected table.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Spelling Differences</h3>
+
+            <p>
+                Make sure lookup values match correctly.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📝 Practice Task</h2>
+
+    <p>
+        Create an Employee table containing:
+    </p>
+
+    <br>
+
+    <p>
+        Employee ID | Name | Department | Salary
+    </p>
+
+    <br>
+
+    <p>
+        1️⃣ Use <b>VLOOKUP</b> to find the employee's
+        department.
+    </p>
+
+    <br>
+
+    <p>
+        2️⃣ Use <b>VLOOKUP</b> to find the employee's
+        salary.
+    </p>
+
+    <br>
+
+    <p>
+        3️⃣ Use <b>XLOOKUP</b> to find the employee's name.
+    </p>
+
+    <br>
+
+    <p>
+        4️⃣ Use <b>IFERROR</b> to display
+        "Employee Not Found" when the ID doesn't exist.
+    </p>
+
+    <div class="tip">
+
+        🏆 Challenge:
+        Create a small Student Lookup System where
+        entering a Roll Number automatically displays
+        Name, Course and Marks.
+
+    </div>
+
+
+    <div class="actions">
+
+        <a href="day26.html" class="btn secondary">
+            ← Previous Day
+        </a>
+
+        <a href="day28.html" class="btn primary">
+            Next: Day 28 →
+        </a>
+
+        <a href="excel.html" class="btn secondary">
+            📚 All Lessons
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Data Analytics Hub
+• Learn • Practice • Grow 🚀
+
+</footer>
+
+
+</body>
+
+</html>
