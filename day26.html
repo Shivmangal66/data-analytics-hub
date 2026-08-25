@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 26 | Pivot Tables & Pivot Charts</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+.navbar{
+    background:#080f1f;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.back{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.hero{
+    background:
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),
+    #080f1f;
+    color:white;
+    padding:70px 7%;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin:20px 0 12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+    max-width:800px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.topic{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.topic h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.topic p{
+    font-size:14px;
+}
+
+.steps{
+    margin-top:20px;
+}
+
+.step{
+    display:flex;
+    gap:15px;
+    margin:17px 0;
+    align-items:flex-start;
+}
+
+.number{
+    min-width:35px;
+    height:35px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    text-align:left;
+}
+
+th{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.tip{
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:18px;
+    border-radius:8px;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.formula{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:22px;
+    border-radius:12px;
+    margin-top:20px;
+    line-height:2;
+    overflow-x:auto;
+    font-family:monospace;
+}
+
+.formula span{
+    color:#60a5fa;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+footer{
+    background:#080f1f;
+    color:#94a3b8;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .container{
+        padding:30px 18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        📊 Data <span>Analytics</span> Hub
+    </div>
+
+    <a href="excel.html" class="back">
+        ← Excel Course
+    </a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            DAY 26 • EXCEL MASTERY
+        </span>
+
+        <h1>
+            Pivot Tables & Pivot Charts
+        </h1>
+
+        <p>
+            Learn how to summarize large datasets,
+            analyze business information and create
+            interactive reports using Pivot Tables.
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="card">
+
+    <h2>🎯 Today's Goal</h2>
+
+    <p>
+        Learn how to quickly summarize hundreds or
+        thousands of rows of data without writing
+        complicated formulas.
+    </p>
+
+    <div class="tip">
+
+        💡 Pivot Tables are one of the most important
+        Excel tools for Data Analysts.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📚 What You Will Learn</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>📊 Pivot Table</h3>
+
+            <p>
+                Summarize and analyze large datasets
+                quickly.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔄 Rows & Columns</h3>
+
+            <p>
+                Organize your data into meaningful
+                categories.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🧮 Values</h3>
+
+            <p>
+                Calculate Sum, Count, Average and
+                other summaries.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📈 Pivot Chart</h3>
+
+            <p>
+                Turn Pivot Table results into
+                interactive charts.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💡 What is a Pivot Table?</h2>
+
+    <p>
+        A Pivot Table is an Excel tool used to
+        summarize, analyze and present large amounts
+        of data in a simple report.
+    </p>
+
+    <div class="tip">
+
+        Example: If you have 1,000 sales records,
+        a Pivot Table can quickly show total sales
+        by region, product or month.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📋 Sample Dataset</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Order ID</th>
+                <th>Product</th>
+                <th>Region</th>
+                <th>Category</th>
+                <th>Sales</th>
+            </tr>
+
+            <tr>
+                <td>1001</td>
+                <td>Laptop</td>
+                <td>North</td>
+                <td>Electronics</td>
+                <td>55000</td>
+            </tr>
+
+            <tr>
+                <td>1002</td>
+                <td>Mouse</td>
+                <td>West</td>
+                <td>Accessories</td>
+                <td>2500</td>
+            </tr>
+
+            <tr>
+                <td>1003</td>
+                <td>Monitor</td>
+                <td>South</td>
+                <td>Electronics</td>
+                <td>18000</td>
+            </tr>
+
+            <tr>
+                <td>1004</td>
+                <td>Keyboard</td>
+                <td>East</td>
+                <td>Accessories</td>
+                <td>4500</td>
+            </tr>
+
+            <tr>
+                <td>1005</td>
+                <td>Laptop</td>
+                <td>West</td>
+                <td>Electronics</td>
+                <td>62000</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🛠️ How to Create a Pivot Table</h2>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Select your complete dataset including
+                the column headings.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Go to the <b>Insert</b> tab.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                Click <b>PivotTable</b>.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <p>
+                Select where you want to place the
+                Pivot Table.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">5</div>
+
+            <p>
+                Drag fields into <b>Rows, Columns,
+                Values</b> or <b>Filters</b>.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧩 Pivot Table Fields</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>📌 Rows</h3>
+
+            <p>
+                Used to display categories vertically.
+                Example: Region.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📌 Columns</h3>
+
+            <p>
+                Used to compare categories horizontally.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📌 Values</h3>
+
+            <p>
+                Used for calculations such as Sum,
+                Count and Average.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📌 Filters</h3>
+
+            <p>
+                Used to filter the entire Pivot Table
+                based on selected criteria.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📊 Example: Sales by Region</h2>
+
+    <p>
+        Suppose you want to know how much total sales
+        each region generated.
+    </p>
+
+    <div class="formula">
+
+        Rows:
+
+        <br>
+
+        <span>Region</span>
+
+        <br><br>
+
+        Values:
+
+        <br>
+
+        <span>Sum of Sales</span>
+
+    </div>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Region</th>
+                <th>Total Sales</th>
+            </tr>
+
+            <tr>
+                <td>North</td>
+                <td>₹55,000</td>
+            </tr>
+
+            <tr>
+                <td>South</td>
+                <td>₹18,000</td>
+            </tr>
+
+            <tr>
+                <td>East</td>
+                <td>₹4,500</td>
+            </tr>
+
+            <tr>
+                <td>West</td>
+                <td>₹64,500</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧮 Common Pivot Table Calculations</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>SUM</h3>
+
+            <p>
+                Calculates total values.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>COUNT</h3>
+
+            <p>
+                Counts the number of records.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>AVERAGE</h3>
+
+            <p>
+                Calculates the average value.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>MAX / MIN</h3>
+
+            <p>
+                Finds the highest or lowest value.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📈 Pivot Chart</h2>
+
+    <p>
+        A Pivot Chart is a visual representation of
+        Pivot Table data.
+    </p>
+
+    <div class="tip">
+
+        💡 When you change or filter the Pivot Table,
+        the Pivot Chart can update accordingly.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🛠️ How to Create a Pivot Chart</h2>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Click anywhere inside your Pivot Table.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Go to <b>PivotTable Analyze</b> or
+                <b>Insert</b>.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                Select <b>PivotChart</b>.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <p>
+                Select a suitable chart type.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">5</div>
+
+            <p>
+                Format the chart and add a meaningful
+                title.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🎯 Real-World Questions You Can Answer</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>💰 Sales</h3>
+
+            <p>
+                Which region has the highest sales?
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📦 Products</h3>
+
+            <p>
+                Which product generates the most revenue?
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🌍 Region</h3>
+
+            <p>
+                Which region performs the best?
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📊 Category</h3>
+
+            <p>
+                Which product category contributes
+                the most sales?
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⚠️ Common Mistakes</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>❌ Blank Headers</h3>
+
+            <p>
+                Make sure every column has a proper
+                heading.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Empty Rows</h3>
+
+            <p>
+                Avoid unnecessary blank rows inside
+                your dataset.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Wrong Field</h3>
+
+            <p>
+                Put categories in Rows and numerical
+                data in Values where appropriate.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Forgetting Refresh</h3>
+
+            <p>
+                Refresh the Pivot Table when the
+                source data changes.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📝 Practice Task</h2>
+
+    <p>
+        Create a sales dataset containing at least
+        <b>100 records</b>.
+    </p>
+
+    <br>
+
+    <p>
+        Create a Pivot Table showing
+        <b>Total Sales by Region</b>.
+    </p>
+
+    <br>
+
+    <p>
+        Create another Pivot Table showing
+        <b>Total Sales by Product</b>.
+    </p>
+
+    <br>
+
+    <p>
+        Create a Pivot Table showing
+        <b>Average Sales by Category</b>.
+    </p>
+
+    <br>
+
+    <p>
+        Finally, create a <b>Pivot Chart</b> for
+        your regional sales analysis.
+    </p>
+
+
+    <div class="tip">
+
+        🏆 Challenge:
+        Add a Region filter and try changing the
+        selected region. Observe how your Pivot
+        Table and Pivot Chart respond.
+
+    </div>
+
+
+    <div class="actions">
+
+        <a href="day25.html" class="btn secondary">
+            ← Previous Day
+        </a>
+
+        <a href="day27.html" class="btn primary">
+            Next: Day 27 →
+        </a>
+
+        <a href="excel.html" class="btn secondary">
+            📚 All Lessons
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Data Analytics Hub
+• Learn • Practice • Grow 🚀
+
+</footer>
+
+
+</body>
+
+</html>
