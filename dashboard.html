@@ -4,9 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Dashboard | Data Analytics Hub</title>
 
@@ -24,648 +22,316 @@ body{
     color:#0f172a;
 }
 
-/* ================= NAVBAR ================= */
+/* NAVBAR */
 
 .navbar{
-
-    height:72px;
-
     background:#080f1f;
-
     color:white;
-
+    padding:18px 7%;
     display:flex;
-
-    align-items:center;
-
     justify-content:space-between;
-
-    padding:0 6%;
-
-    position:sticky;
-
-    top:0;
-
-    z-index:1000;
-
-    border-bottom:1px solid #ffffff15;
+    align-items:center;
 }
 
 .logo{
-
     font-size:21px;
-
-    font-weight:800;
+    font-weight:bold;
 }
 
 .logo span{
-
     color:#60a5fa;
 }
 
-.nav-right{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-}
-
-.home-btn{
-
-    color:#cbd5e1;
-
-    text-decoration:none;
-
-    font-size:14px;
-}
-
-.logout-btn{
-
-    border:1px solid #475569;
-
-    background:transparent;
-
+.logout{
+    background:#ef4444;
     color:white;
-
-    padding:9px 16px;
-
+    border:none;
+    padding:10px 17px;
     border-radius:8px;
-
     cursor:pointer;
+    font-weight:bold;
 }
 
-.logout-btn:hover{
-
-    background:#ffffff10;
-}
-
-
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
-
     background:
-
-    radial-gradient(
-        circle at 15% 20%,
-        #2563eb45,
-        transparent 35%
-    ),
-
-    radial-gradient(
-        circle at 85% 80%,
-        #7c3aed40,
-        transparent 35%
-    ),
-
+    radial-gradient(circle at 15% 20%,#2563eb55,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed50,transparent 35%),
     #080f1f;
-
     color:white;
-
-    padding:55px 6%;
+    padding:60px 7%;
 }
 
-.hero-container{
-
-    max-width:1200px;
-
+.hero-content{
+    max-width:1100px;
     margin:auto;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:40px;
 }
 
-.welcome-small{
-
+.badge{
+    display:inline-block;
+    background:#ffffff12;
+    border:1px solid #ffffff20;
     color:#93c5fd;
-
-    font-size:14px;
-
-    margin-bottom:10px;
+    padding:7px 13px;
+    border-radius:30px;
+    font-size:12px;
 }
 
 .hero h1{
-
     font-size:42px;
-
-    margin-bottom:12px;
-}
-
-.hero h1 span{
-
-    background:
-    linear-gradient(
-        90deg,
-        #60a5fa,
-        #a78bfa
-    );
-
-    -webkit-background-clip:text;
-
-    color:transparent;
+    margin:18px 0 10px;
 }
 
 .hero p{
-
     color:#94a3b8;
-
-    line-height:1.6;
-
-    max-width:650px;
+    line-height:1.7;
 }
 
-.profile-card{
-
-    min-width:230px;
-
-    background:#ffffff0b;
-
-    border:1px solid #ffffff15;
-
-    border-radius:16px;
-
-    padding:22px;
-}
-
-.profile-title{
-
-    color:#94a3b8;
-
-    font-size:12px;
-
-    margin-bottom:10px;
-}
-
-.profile-name{
-
-    font-size:19px;
-
-    font-weight:bold;
-
-    margin-bottom:6px;
-}
-
-.profile-email{
-
-    color:#94a3b8;
-
-    font-size:13px;
-
-    word-break:break-all;
-}
-
-
-/* ================= MAIN ================= */
+/* MAIN */
 
 .container{
-
-    max-width:1200px;
-
+    max-width:1100px;
     margin:auto;
-
-    padding:45px 25px;
+    padding:40px 20px;
 }
 
-.section-header{
+/* USER CARD */
 
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:25px;
+.user-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:25px;
+    margin-bottom:30px;
+    box-shadow:0 8px 25px #00000008;
 }
 
-.section-header h2{
-
-    font-size:25px;
+.user-card h2{
+    margin-bottom:15px;
 }
 
-.section-header p{
-
-    color:#64748b;
-
-    font-size:14px;
-}
-
-
-/* ================= COURSES ================= */
-
-.courses{
-
+.user-info{
     display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:20px;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
 }
+
+.info-box{
+    background:#f8fafc;
+    padding:15px;
+    border-radius:10px;
+}
+
+.info-box small{
+    color:#64748b;
+}
+
+.info-box strong{
+    display:block;
+    margin-top:6px;
+}
+
+/* SECTION */
+
+.section-title{
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+/* COURSE GRID */
+
+.course-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+/* COURSE CARD */
 
 .course-card{
-
     background:white;
-
-    border:1px solid #e5e7eb;
-
-    border-radius:18px;
-
-    padding:24px;
-
+    border:1px solid #e2e8f0;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 10px 30px #00000008;
     transition:.25s;
-
-    box-shadow:
-    0 5px 20px #00000006;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
 }
 
 .course-card:hover{
-
-    transform:translateY(-6px);
-
-    box-shadow:
-    0 20px 40px #00000012;
+    transform:translateY(-5px);
+    box-shadow:0 18px 40px #00000015;
 }
 
 .course-icon{
-
-    width:58px;
-
-    height:58px;
-
+    width:62px;
+    height:62px;
+    border-radius:16px;
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
-    border-radius:15px;
-
-    background:#eff6ff;
-
-    font-size:28px;
-
+    font-size:30px;
     margin-bottom:18px;
 }
 
-.course-card:nth-child(2)
-.course-icon{
-
-    background:#f0fdf4;
+.excel-icon{
+    background:#dcfce7;
 }
 
-.course-card:nth-child(3)
-.course-icon{
-
-    background:#fefce8;
+.python-icon{
+    background:#fef3c7;
 }
 
-.course-card:nth-child(4)
-.course-icon{
-
-    background:#fff7ed;
-}
-
-.course-card h3{
-
-    font-size:19px;
-
+.course-card h2{
     margin-bottom:9px;
 }
 
 .course-card p{
-
     color:#64748b;
-
-    font-size:13px;
-
     line-height:1.6;
-
-    min-height:63px;
 }
 
-.course-btn{
+/* BADGE */
 
-    display:block;
-
-    text-align:center;
-
-    margin-top:20px;
-
-    padding:11px;
-
-    border-radius:9px;
-
-    text-decoration:none;
-
-    background:
-    linear-gradient(
-        135deg,
-        #2563eb,
-        #7c3aed
-    );
-
-    color:white;
-
-    font-size:13px;
-
+.course-badge{
+    display:inline-block;
+    margin-top:15px;
+    padding:6px 11px;
+    border-radius:20px;
+    font-size:11px;
     font-weight:bold;
 }
 
-.course-btn:hover{
+.free-badge{
+    background:#dcfce7;
+    color:#15803d;
+}
 
+.premium-badge{
+    background:#ede9fe;
+    color:#6d28d9;
+}
+
+/* BUTTONS */
+
+.course-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:11px 16px;
+    border-radius:9px;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.primary-btn{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary-btn{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+.btn:hover{
     opacity:.9;
 }
 
-/* ================= PYTHON DUAL BUTTONS ================= */
+/* PYTHON PREMIUM */
 
-.py-btn-group {
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:8px;
-
-    margin-top:20px;
-}
-
-.py-btn-pdf {
-
-    display:block;
-
-    text-align:center;
-
-    padding:10px;
-
-    border-radius:9px;
-
-    text-decoration:none;
-
-    background:#10b981;
-
-    color:white;
-
-    font-size:13px;
-
-    font-weight:bold;
-
-    transition:.25s;
-}
-
-.py-btn-pdf:hover {
-
-    background:#059669;
-}
-
-
-/* ================= PROGRESS ================= */
-
-.progress-section{
-
-    margin-top:45px;
-}
-
-.progress-card{
-
-    background:white;
-
-    border:1px solid #e5e7eb;
-
-    border-radius:18px;
-
-    padding:28px;
-}
-
-.progress-top{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    margin-bottom:15px;
-}
-
-.progress-top h3{
-
-    font-size:18px;
-}
-
-.progress-percent{
-
-    color:#2563eb;
-
-    font-weight:bold;
-}
-
-.progress-bar{
-
-    width:100%;
-
-    height:10px;
-
-    background:#e2e8f0;
-
-    border-radius:20px;
-
-    overflow:hidden;
-}
-
-.progress-fill{
-
-    width:15%;
-
-    height:100%;
-
+.python-card{
     background:
-    linear-gradient(
-        90deg,
-        #2563eb,
-        #7c3aed
-    );
-
-    border-radius:20px;
-}
-
-.progress-text{
-
-    color:#64748b;
-
-    font-size:13px;
-
-    margin-top:12px;
-}
-
-
-/* ================= QUICK ACTIONS ================= */
-
-.quick{
-
-    margin-top:45px;
-}
-
-.quick-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:20px;
-}
-
-.quick-card{
-
-    background:#0f172a;
-
+    radial-gradient(circle at 90% 10%,#7c3aed30,transparent 30%),
+    linear-gradient(135deg,#0f172a,#1e293b);
     color:white;
-
-    padding:25px;
-
-    border-radius:17px;
-
-    border:1px solid #ffffff08;
+    border:1px solid #334155;
 }
 
-.quick-card-icon{
-
-    font-size:26px;
-
-    margin-bottom:15px;
+.python-card p{
+    color:#cbd5e1;
 }
 
-.quick-card h3{
-
-    margin-bottom:8px;
+.python-card .secondary-btn{
+    background:#334155;
+    color:white;
 }
 
-.quick-card p{
-
-    color:#94a3b8;
-
-    font-size:13px;
-
-    line-height:1.6;
+.python-card .course-icon{
+    background:linear-gradient(135deg,#facc15,#3b82f6);
 }
 
+/* STATS */
 
-/* ================= FOOTER ================= */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:30px;
+}
+
+.stat{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:15px;
+    padding:22px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-size:28px;
+    color:#2563eb;
+    margin-bottom:6px;
+}
+
+.stat span{
+    color:#64748b;
+    font-size:14px;
+}
+
+/* FOOTER */
 
 footer{
-
-    margin-top:40px;
-
     background:#080f1f;
-
     color:#94a3b8;
-
-    padding:30px 6%;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    font-size:13px;
+    text-align:center;
+    padding:30px;
+    margin-top:50px;
 }
 
-footer strong{
+/* MOBILE */
 
-    color:white;
-}
-
-
-/* ================= MOBILE ================= */
-
-@media(max-width:1000px){
-
-    .courses{
-
-        grid-template-columns:
-        repeat(2,1fr);
-    }
-
-    .hero-container{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-    }
-
-    .profile-card{
-
-        width:100%;
-    }
-
-}
-
-@media(max-width:650px){
+@media(max-width:750px){
 
     .navbar{
-
-        padding:0 20px;
-    }
-
-    .home-btn{
-
-        display:none;
+        padding:16px 20px;
     }
 
     .hero{
-
-        padding:45px 20px;
+        padding:50px 20px;
     }
 
     .hero h1{
-
         font-size:34px;
     }
 
-    .container{
-
-        padding:35px 18px;
-    }
-
-    .courses{
-
+    .user-info{
         grid-template-columns:1fr;
     }
 
-    .quick-grid{
-
+    .course-grid{
         grid-template-columns:1fr;
     }
 
-    .section-header{
-
-        display:block;
-    }
-
-    .section-header p{
-
-        margin-top:6px;
-    }
-
-    footer{
-
-        flex-direction:column;
-
-        gap:10px;
-
-        text-align:center;
+    .stats{
+        grid-template-columns:1fr;
     }
 
 }
@@ -678,404 +344,233 @@ footer strong{
 <body>
 
 
-<!-- ================= NAVBAR ================= -->
+<!-- NAVBAR -->
 
 <nav class="navbar">
 
     <div class="logo">
-
-        📊 Data
-        <span>Analytics</span>
-        Hub
-
+        📊 Data <span>Analytics</span> Hub
     </div>
 
-
-    <div class="nav-right">
-
-        <a
-            href="index.html"
-            class="home-btn"
-        >
-            🏠 Home
-        </a>
-
-
-        <button
-            class="logout-btn"
-            onclick="logout()"
-        >
-            🚪 Logout
-        </button>
-
-    </div>
+    <button class="logout" onclick="logoutUser()">
+        Logout
+    </button>
 
 </nav>
 
 
-
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <section class="hero">
 
-<div class="hero-container">
+    <div class="hero-content">
 
-
-    <div>
-
-        <div class="welcome-small">
-            YOUR LEARNING DASHBOARD
-        </div>
-
+        <span class="badge">
+            STUDENT DASHBOARD
+        </span>
 
         <h1>
-            Welcome back,
-            <span id="studentName">
-                Student
-            </span>
-            👋
+            Welcome Back! 👋
         </h1>
 
-
         <p>
-            Continue your learning journey
-            and build professional Data Analytics
-            skills step by step.
+            Continue your Data Analytics learning journey
+            and build real-world skills.
         </p>
 
     </div>
-
-
-
-    <div class="profile-card">
-
-        <div class="profile-title">
-            ACCOUNT
-        </div>
-
-
-        <div
-            class="profile-name"
-            id="profileName"
-        >
-            Student
-        </div>
-
-
-        <div
-            class="profile-email"
-            id="profileEmail"
-        >
-            Loading...
-        </div>
-
-    </div>
-
-
-</div>
 
 </section>
 
 
-
-<!-- ================= MAIN ================= -->
-
 <main class="container">
+
+
+<!-- USER INFORMATION -->
+
+<div class="user-card">
+
+    <h2>👤 Student Profile</h2>
+
+    <div class="user-info">
+
+        <div class="info-box">
+
+            <small>Name</small>
+
+            <strong id="studentName">
+                Student
+            </strong>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <small>Email</small>
+
+            <strong id="studentEmail">
+                Loading...
+            </strong>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <small>Course</small>
+
+            <strong>
+                Data Analytics
+            </strong>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 <!-- COURSES -->
 
-<div class="section-header">
-
-    <div>
-
-        <h2>
-            🎓 My Learning
-        </h2>
-
-        <p>
-            Choose a course and start learning.
-        </p>
-
-    </div>
-
-</div>
+<h2 class="section-title">
+    📚 My Courses
+</h2>
 
 
+<div class="course-grid">
 
-<div class="courses">
 
-
-<!-- EXCEL -->
+<!-- EXCEL COURSE -->
 
 <div class="course-card">
 
-    <div class="course-icon">
-        📗
+    <div class="course-icon excel-icon">
+        📊
     </div>
 
-    <h3>
-        Excel Mastery
-    </h3>
+    <h2>
+        Excel Data Analytics
+    </h2>
 
     <p>
-        Master Excel from beginner to
-        advanced with a complete
-        30-day learning program.
+        Learn Excel from basics to advanced
+        Data Analytics with practical projects.
     </p>
 
-    <a
-        href="excel.html"
-        class="course-btn"
-    >
-        📖 Open Excel Course
-    </a>
+    <span class="course-badge free-badge">
+        30 DAYS COURSE
+    </span>
+
+    <div class="course-buttons">
+
+        <a
+            href="excel.html"
+            class="btn primary-btn">
+
+            📖 Continue Learning
+
+        </a>
+
+    </div>
 
 </div>
 
 
+<!-- PYTHON PREMIUM COURSE -->
 
-<!-- PYTHON COURSE (FREE WITH PDF) -->
-
-<div class="course-card">
+<div class="course-card python-card">
 
     <div class="course-icon">
         🐍
     </div>
 
-    <h3>
+    <span class="course-badge premium-badge">
+        PREMIUM NOTES
+    </span>
+
+    <h2>
         Python Programming
-    </h3>
+    </h2>
 
     <p>
-        Learn Python programming step-by-step from beginner to advanced with complete PDF notes.
+        Complete Python Notes — Beginner to Pro.
+        Learn Python programming with concepts,
+        code examples and projects.
     </p>
 
-    <div class="py-btn-group">
-        <a
-            href="python.html"
-            class="course-btn"
-            style="margin-top:0;"
-        >
-            📖 View Course
-        </a>
+    <p style="margin-top:8px;font-size:13px;">
+        Syntax • Functions • OOP • Files • APIs • Databases
+    </p>
+
+    <div class="course-buttons">
+
+        <!-- OPEN PDF -->
+
         <a
             href="python-notes.pdf"
             target="_blank"
-            class="py-btn-pdf"
-        >
-            📄 Download Python PDF
+            class="btn primary-btn">
+
+            📖 Read Python Notes
+
         </a>
-    </div>
-
-</div>
 
 
+        <!-- DOWNLOAD PDF -->
 
-<!-- SQL -->
+        <a
+            href="python-notes.pdf"
+            download
+            class="btn secondary-btn">
 
-<div class="course-card">
+            ⬇️ Download PDF
 
-    <div class="course-icon">
-        🗄️
-    </div>
-
-    <h3>
-        SQL
-    </h3>
-
-    <p>
-        Learn databases, SQL queries,
-        filtering and extracting
-        useful data.
-    </p>
-
-    <a
-        href="#"
-        class="course-btn"
-        onclick="comingSoon(event)"
-    >
-        🚀 Coming Soon
-    </a>
-
-</div>
-
-
-
-<!-- POWER BI -->
-
-<div class="course-card">
-
-    <div class="course-icon">
-        📊
-    </div>
-
-    <h3>
-        Power BI
-    </h3>
-
-    <p>
-        Build interactive dashboards
-        and professional business
-        reports.
-    </p>
-
-    <a
-        href="#"
-        class="course-btn"
-        onclick="comingSoon(event)"
-    >
-        🚀 Coming Soon
-    </a>
-
-</div>
-
-
-</div>
-
-
-
-<!-- ================= PROGRESS ================= -->
-
-<div class="progress-section">
-
-<div class="section-header">
-
-    <div>
-
-        <h2>
-            📈 Learning Progress
-        </h2>
-
-        <p>
-            Keep learning to complete your journey.
-        </p>
+        </a>
 
     </div>
 
 </div>
 
 
+</div>
 
-<div class="progress-card">
 
-    <div class="progress-top">
+<!-- STATS -->
 
-        <h3>
-            Excel Mastery
-        </h3>
+<div class="stats">
 
-        <span
-            class="progress-percent"
-        >
-            15%
+    <div class="stat">
+
+        <strong>30</strong>
+
+        <span>
+            Excel Lessons
         </span>
 
     </div>
 
 
-    <div class="progress-bar">
+    <div class="stat">
 
-        <div class="progress-fill"></div>
+        <strong>1</strong>
 
-    </div>
-
-
-    <p class="progress-text">
-
-        You're getting started.
-        Complete more lessons to increase
-        your progress.
-
-    </p>
-
-</div>
-
-</div>
-
-
-
-<!-- ================= QUICK ACTIONS ================= -->
-
-<div class="quick">
-
-<div class="section-header">
-
-    <div>
-
-        <h2>
-            ⚡ Quick Actions
-        </h2>
+        <span>
+            Python Complete Notes
+        </span>
 
     </div>
 
-</div>
 
+    <div class="stat">
 
+        <strong>100%</strong>
 
-<div class="quick-grid">
+        <span>
+            Learning Journey
+        </span>
 
-
-<div class="quick-card">
-
-    <div class="quick-card-icon">
-        📕
     </div>
-
-    <h3>
-        Excel Notes
-    </h3>
-
-    <p>
-        Access the complete Excel
-        30-Day course and study
-        material.
-    </p>
-
-</div>
-
-
-
-<div class="quick-card">
-
-    <div class="quick-card-icon">
-        🎯
-    </div>
-
-    <h3>
-        Practice
-    </h3>
-
-    <p>
-        Practice your skills using
-        real-world examples and
-        projects.
-    </p>
-
-</div>
-
-
-
-<div class="quick-card">
-
-    <div class="quick-card-icon">
-        🏆
-    </div>
-
-    <h3>
-        Your Goal
-    </h3>
-
-    <p>
-        Complete all lessons and
-        become confident with
-        Data Analytics tools.
-    </p>
-
-</div>
-
-
-</div>
 
 </div>
 
@@ -1083,108 +578,49 @@ footer strong{
 </main>
 
 
-
-<!-- ================= FOOTER ================= -->
-
 <footer>
 
-    <div>
-
-        © 2026
-        <strong>
-            Data Analytics Hub
-        </strong>
-
-    </div>
-
-
-    <div>
-
-        Learn • Practice • Grow 🚀
-
-    </div>
+    © 2026 Data Analytics Hub
+    • Learn • Practice • Grow 🚀
 
 </footer>
 
 
-
 <script>
 
+/* USER DATA */
 
-/* ================= USER DATA ================= */
+const savedName =
+    localStorage.getItem("studentName");
 
-const userEmail =
-localStorage.getItem("user_email");
-
-
-/*
-    Name is saved during signup
-    in Supabase user metadata.
-
-    If name isn't available locally,
-    email username is used.
-*/
-
-let displayName = "Student";
+const savedEmail =
+    localStorage.getItem("studentEmail");
 
 
-if(userEmail){
+if(savedName){
 
-    displayName =
-    userEmail
-    .split("@")[0];
+    document.getElementById("studentName")
+    .textContent = savedName;
 
 }
 
 
-/* ================= DISPLAY USER ================= */
+if(savedEmail){
 
-document
-.getElementById("studentName")
-.textContent =
-displayName;
-
-
-document
-.getElementById("profileName")
-.textContent =
-displayName;
-
-
-document
-.getElementById("profileEmail")
-.textContent =
-userEmail ||
-"Not available";
-
-
-/* ================= LOGOUT ================= */
-
-function logout(){
-
-    localStorage.removeItem(
-        "access_token"
-    );
-
-    localStorage.removeItem(
-        "user_email"
-    );
-
-    window.location.href =
-    "index.html";
+    document.getElementById("studentEmail")
+    .textContent = savedEmail;
 
 }
 
 
-/* ================= COMING SOON ================= */
+/* LOGOUT */
 
-function comingSoon(event){
+function logoutUser(){
 
-    event.preventDefault();
+    localStorage.removeItem("studentName");
+    localStorage.removeItem("studentEmail");
 
-    alert(
-        "🚀 This course is coming soon!"
-    );
+    window.location.href = "index.html";
 
 }
 
