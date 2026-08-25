@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 25 | Excel Dashboard Project</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+.navbar{
+    background:#080f1f;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.back{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.hero{
+    background:
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),
+    #080f1f;
+    color:white;
+    padding:70px 7%;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin:20px 0 12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+    max-width:800px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.topic{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.topic h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.topic p{
+    font-size:14px;
+}
+
+.steps{
+    margin-top:20px;
+}
+
+.step{
+    display:flex;
+    gap:15px;
+    margin:17px 0;
+    align-items:flex-start;
+}
+
+.number{
+    min-width:35px;
+    height:35px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    text-align:left;
+}
+
+th{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.tip{
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:18px;
+    border-radius:8px;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.formula{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:22px;
+    border-radius:12px;
+    margin-top:20px;
+    line-height:2;
+    overflow-x:auto;
+    font-family:monospace;
+}
+
+.formula span{
+    color:#60a5fa;
+}
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.stat{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:22px;
+    text-align:center;
+}
+
+.stat h3{
+    color:#64748b;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.stat strong{
+    font-size:25px;
+    color:#2563eb;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+footer{
+    background:#080f1f;
+    color:#94a3b8;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:750px){
+
+    .dashboard{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .container{
+        padding:30px 18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        📊 Data <span>Analytics</span> Hub
+    </div>
+
+    <a href="excel.html" class="back">
+        ← Excel Course
+    </a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            DAY 25 • EXCEL PROJECT
+        </span>
+
+        <h1>
+            Excel Dashboard Project
+        </h1>
+
+        <p>
+            Build a professional Sales Dashboard by
+            combining Excel formulas, tables, charts
+            and data visualization.
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="card">
+
+    <h2>🎯 Today's Goal</h2>
+
+    <p>
+        Today you will combine everything you have
+        learned so far and create your first complete
+        Excel Dashboard.
+    </p>
+
+    <div class="tip">
+
+        🚀 This project will help you understand how
+        Excel is used for real-world Data Analytics.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📚 Project Skills</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>📊 Data Preparation</h3>
+
+            <p>
+                Organize and clean your raw sales data.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🧮 Excel Formulas</h3>
+
+            <p>
+                Use formulas to calculate important
+                business metrics.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📈 Charts</h3>
+
+            <p>
+                Convert data into meaningful visualizations.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🎨 Dashboard Design</h3>
+
+            <p>
+                Arrange KPIs and charts into a professional
+                dashboard.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📋 Project Dataset</h2>
+
+    <p>
+        Create a sales dataset with the following columns:
+    </p>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Region</th>
+                <th>Sales</th>
+            </tr>
+
+            <tr>
+                <td>1001</td>
+                <td>01-Jan-2026</td>
+                <td>Laptop</td>
+                <td>Electronics</td>
+                <td>North</td>
+                <td>55000</td>
+            </tr>
+
+            <tr>
+                <td>1002</td>
+                <td>05-Jan-2026</td>
+                <td>Mouse</td>
+                <td>Accessories</td>
+                <td>West</td>
+                <td>2500</td>
+            </tr>
+
+            <tr>
+                <td>1003</td>
+                <td>10-Jan-2026</td>
+                <td>Monitor</td>
+                <td>Electronics</td>
+                <td>South</td>
+                <td>18000</td>
+            </tr>
+
+            <tr>
+                <td>1004</td>
+                <td>15-Jan-2026</td>
+                <td>Keyboard</td>
+                <td>Accessories</td>
+                <td>East</td>
+                <td>4500</td>
+            </tr>
+
+            <tr>
+                <td>1005</td>
+                <td>20-Jan-2026</td>
+                <td>Laptop</td>
+                <td>Electronics</td>
+                <td>West</td>
+                <td>62000</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="tip">
+
+        💡 For your actual project, create at least
+        <b>50–100 rows</b> of sales data.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧮 Step 1 — Calculate KPIs</h2>
+
+    <p>
+        Your dashboard should contain important
+        Key Performance Indicators (KPIs).
+    </p>
+
+    <div class="dashboard">
+
+        <div class="stat">
+
+            <h3>Total Sales</h3>
+
+            <strong>₹1.42L</strong>
+
+        </div>
+
+        <div class="stat">
+
+            <h3>Total Orders</h3>
+
+            <strong>50</strong>
+
+        </div>
+
+        <div class="stat">
+
+            <h3>Products</h3>
+
+            <strong>12</strong>
+
+        </div>
+
+        <div class="stat">
+
+            <h3>Regions</h3>
+
+            <strong>4</strong>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔢 Useful Formulas</h2>
+
+    <div class="formula">
+
+        Total Sales:
+
+        <br>
+
+        <span>
+        =SUM(F2:F101)
+        </span>
+
+        <br><br>
+
+        Total Orders:
+
+        <br>
+
+        <span>
+        =COUNTA(A2:A101)
+        </span>
+
+        <br><br>
+
+        Average Sales:
+
+        <br>
+
+        <span>
+        =AVERAGE(F2:F101)
+        </span>
+
+        <br><br>
+
+        Maximum Sale:
+
+        <br>
+
+        <span>
+        =MAX(F2:F101)
+        </span>
+
+        <br><br>
+
+        Minimum Sale:
+
+        <br>
+
+        <span>
+        =MIN(F2:F101)
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📊 Step 2 — Create Charts</h2>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Create a <b>Column Chart</b> for
+                Sales by Region.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Create a <b>Line Chart</b> for
+                Monthly Sales.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                Create a <b>Bar Chart</b> for
+                Product Sales.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <p>
+                Create a <b>Pie Chart</b> for
+                Category Contribution.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🎨 Step 3 — Design Dashboard</h2>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Put the dashboard title at the top.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Place KPI cards below the title.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                Place your charts below the KPI section.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <p>
+                Keep fonts, spacing and formatting
+                consistent.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">5</div>
+
+            <p>
+                Remove unnecessary gridlines and
+                clutter.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📌 Recommended Dashboard Layout</h2>
+
+    <div class="formula">
+
+        ┌─────────────────────────────────────┐
+
+        <br>
+
+        │        SALES DASHBOARD              │
+
+        <br>
+
+        ├────────┬────────┬────────┬─────────┤
+
+        <br>
+
+        │ Sales  │ Orders │ Product│ Regions │
+
+        <br>
+
+        ├────────┴────────┴────────┴─────────┤
+
+        <br>
+
+        │          Monthly Sales             │
+
+        <br>
+
+        │             CHART                  │
+
+        <br>
+
+        ├─────────────────┬───────────────────┤
+
+        <br>
+
+        │ Sales by Region │ Product Sales     │
+
+        <br>
+
+        │     CHART       │      CHART        │
+
+        <br>
+
+        └─────────────────┴───────────────────┘
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💼 Real-World Dashboard</h2>
+
+    <p>
+        A professional Sales Dashboard can help a
+        company answer questions such as:
+    </p>
+
+    <br>
+
+    <p>
+        📌 How much did we sell?
+    </p>
+
+    <br>
+
+    <p>
+        📌 Which product sells the most?
+    </p>
+
+    <br>
+
+    <p>
+        📌 Which region performs best?
+    </p>
+
+    <br>
+
+    <p>
+        📌 How are sales changing over time?
+    </p>
+
+    <br>
+
+    <p>
+        📌 Which category contributes the most revenue?
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⚠️ Dashboard Mistakes to Avoid</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>❌ Too Many Charts</h3>
+
+            <p>
+                Use only charts that communicate
+                useful information.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Too Many Colors</h3>
+
+            <p>
+                Keep the dashboard clean and
+                professional.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ No KPIs</h3>
+
+            <p>
+                Important numbers should be visible
+                at a glance.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Poor Alignment</h3>
+
+            <p>
+                Keep charts and KPI cards properly
+                aligned.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🏆 Final Project Challenge</h2>
+
+    <p>
+        Build a complete Excel Sales Dashboard using
+        at least <b>100 sales records</b>.
+    </p>
+
+    <br>
+
+    <p>
+        Your dashboard must contain:
+    </p>
+
+    <br>
+
+    <p>
+        ✅ Total Sales
+    </p>
+
+    <p>
+        ✅ Total Orders
+    </p>
+
+    <p>
+        ✅ Average Sales
+    </p>
+
+    <p>
+        ✅ Monthly Sales Chart
+    </p>
+
+    <p>
+        ✅ Regional Sales Chart
+    </p>
+
+    <p>
+        ✅ Product Sales Chart
+    </p>
+
+    <p>
+        ✅ Category Contribution Chart
+    </p>
+
+    <p>
+        ✅ Professional Dashboard Design
+    </p>
+
+    <div class="tip">
+
+        🎉 Congratulations! After completing this
+        project, you have completed the first major
+        Excel Analytics project of this course.
+
+    </div>
+
+
+    <div class="actions">
+
+        <a href="day24.html" class="btn secondary">
+            ← Previous Day
+        </a>
+
+        <a href="day26.html" class="btn primary">
+            Next: Day 26 →
+        </a>
+
+        <a href="excel.html" class="btn secondary">
+            📚 All Lessons
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Data Analytics Hub
+• Learn • Practice • Grow 🚀
+
+</footer>
+
+
+</body>
+
+</html>
