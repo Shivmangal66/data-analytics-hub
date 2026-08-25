@@ -567,228 +567,96 @@ footer{
 </div>
 
 
-```html
-<!-- COURSE TRACKER -->
+<!-- STATS -->
 
-<div class="tracker-section">
+<div class="stats">
 
-    <div class="tracker-header">
+    <div class="stat">
 
-        <div>
-            <span class="tracker-badge">
-                📈 LEARNING PROGRESS
-            </span>
+        <strong>30</strong>
 
-            <h2>Course Tracker</h2>
-
-            <p>
-                Track your progress across all your courses.
-            </p>
-        </div>
+        <span>
+            Excel Lessons
+        </span>
 
     </div>
 
+    <div class="stat">
 
-    <div class="tracker-grid">
+        <strong>1</strong>
 
+        <span>
+            Python Notes
+        </span>
 
-        <!-- EXCEL -->
+    </div>
 
-        <div class="tracker-card">
+    <div class="stat">
 
-            <div class="tracker-top">
+        <strong>4</strong>
 
-                <div class="tracker-icon excel-tracker">
-                    📊
-                </div>
-
-                <div>
-                    <h3>Excel Data Analytics</h3>
-                    <span id="excelProgressText">
-                        0 / 30 Lessons
-                    </span>
-                </div>
-
-            </div>
-
-            <div class="progress-bar">
-
-                <div
-                    id="excelProgress"
-                    class="progress-fill excel-fill">
-                </div>
-
-            </div>
-
-            <div class="tracker-bottom">
-
-                <span id="excelPercent">
-                    0%
-                </span>
-
-                <button
-                    onclick="completeExcelLesson()"
-                    class="tracker-btn">
-
-                    + Complete Lesson
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- PYTHON -->
-
-        <div class="tracker-card">
-
-            <div class="tracker-top">
-
-                <div class="tracker-icon python-tracker">
-                    🐍
-                </div>
-
-                <div>
-                    <h3>Python Programming</h3>
-
-                    <span id="pythonProgressText">
-                        Not Started
-                    </span>
-
-                </div>
-
-            </div>
-
-            <div class="progress-bar">
-
-                <div
-                    id="pythonProgress"
-                    class="progress-fill python-fill">
-                </div>
-
-            </div>
-
-            <div class="tracker-bottom">
-
-                <span id="pythonPercent">
-                    0%
-                </span>
-
-                <button
-                    onclick="completePython()"
-                    class="tracker-btn">
-
-                    ✓ Mark Complete
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- SQL -->
-
-        <div class="tracker-card">
-
-            <div class="tracker-top">
-
-                <div class="tracker-icon sql-tracker">
-                    🗄️
-                </div>
-
-                <div>
-
-                    <h3>SQL for Data Analytics</h3>
-
-                    <span id="sqlProgressText">
-                        0%
-                    </span>
-
-                </div>
-
-            </div>
-
-            <div class="progress-bar">
-
-                <div
-                    id="sqlProgress"
-                    class="progress-fill sql-fill">
-                </div>
-
-            </div>
-
-            <div class="tracker-bottom">
-
-                <span id="sqlPercent">
-                    0%
-                </span>
-
-                <button
-                    onclick="increaseCourse('sql')"
-                    class="tracker-btn">
-
-                    + 10%
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- POWER BI -->
-
-        <div class="tracker-card">
-
-            <div class="tracker-top">
-
-                <div class="tracker-icon powerbi-tracker">
-                    📈
-                </div>
-
-                <div>
-
-                    <h3>Power BI</h3>
-
-                    <span id="powerbiProgressText">
-                        0%
-                    </span>
-
-                </div>
-
-            </div>
-
-            <div class="progress-bar">
-
-                <div
-                    id="powerbiProgress"
-                    class="progress-fill powerbi-fill">
-                </div>
-
-            </div>
-
-            <div class="tracker-bottom">
-
-                <span id="powerbiPercent">
-                    0%
-                </span>
-
-                <button
-                    onclick="increaseCourse('powerbi')"
-                    class="tracker-btn">
-
-                    + 10%
-
-                </button>
-
-            </div>
-
-        </div>
-
+        <span>
+            Learning Courses
+        </span>
 
     </div>
 
 </div>
+
+
+</main>
+
+
+<footer>
+
+    © 2026 Data Analytics Hub
+    • Learn • Practice • Grow 🚀
+
+</footer>
+
+
+<script>
+
+/* USER DATA */
+
+const savedName =
+    localStorage.getItem("studentName");
+
+const savedEmail =
+    localStorage.getItem("studentEmail");
+
+
+if(savedName){
+
+    document.getElementById("studentName")
+    .textContent = savedName;
+
+}
+
+
+if(savedEmail){
+
+    document.getElementById("studentEmail")
+    .textContent = savedEmail;
+
+}
+
+
+/* LOGOUT */
+
+function logoutUser(){
+
+    localStorage.removeItem("studentName");
+    localStorage.removeItem("studentEmail");
+
+    window.location.href = "index.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
 ```
