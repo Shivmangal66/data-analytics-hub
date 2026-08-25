@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 30 | Excel Data Analytics Final Project</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+.navbar{
+    background:#080f1f;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.back{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.hero{
+    background:
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),
+    #080f1f;
+    color:white;
+    padding:75px 7%;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin:20px 0 12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+    max-width:850px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.topic{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.topic h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.topic p{
+    font-size:14px;
+}
+
+.steps{
+    margin-top:20px;
+}
+
+.step{
+    display:flex;
+    gap:15px;
+    margin:18px 0;
+    align-items:flex-start;
+}
+
+.number{
+    min-width:35px;
+    height:35px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    text-align:left;
+}
+
+th{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.tip{
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:18px;
+    border-radius:8px;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.success{
+    background:#f0fdf4;
+    border-left:5px solid #16a34a;
+    padding:18px;
+    border-radius:8px;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.formula{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:22px;
+    border-radius:12px;
+    margin-top:20px;
+    line-height:2;
+    overflow-x:auto;
+    font-family:monospace;
+}
+
+.formula span{
+    color:#60a5fa;
+}
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.kpi{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.kpi h3{
+    color:#64748b;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.kpi strong{
+    font-size:24px;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+footer{
+    background:#080f1f;
+    color:#94a3b8;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:750px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .container{
+        padding:30px 18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+}
+
+@media(max-width:450px){
+
+    .dashboard{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        📊 Data <span>Analytics</span> Hub
+    </div>
+
+    <a href="excel.html" class="back">
+        ← Excel Course
+    </a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            DAY 30 • FINAL PROJECT
+        </span>
+
+        <h1>
+            Excel Data Analytics Final Project
+        </h1>
+
+        <p>
+            Put everything you learned during the
+            30-Day Excel journey together and build
+            a professional Sales Analytics Dashboard.
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="card">
+
+    <h2>🏆 Congratulations!</h2>
+
+    <p>
+        You have reached <b>Day 30</b> of your Excel
+        Data Analytics journey.
+    </p>
+
+    <p style="margin-top:12px;">
+        Today you will combine Excel formulas,
+        Pivot Tables, charts, data cleaning and
+        analytical thinking into one complete project.
+    </p>
+
+    <div class="success">
+
+        🎉 This is your final 30-Day Excel project.
+        Complete it and add it to your Data Analytics
+        portfolio.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🎯 Final Project Objective</h2>
+
+    <p>
+        Build a Sales Analytics Dashboard that helps
+        a business understand its sales performance.
+    </p>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>💰 Sales</h3>
+
+            <p>
+                Analyze total revenue and sales trends.
+            </p>
+
+        </div>
+
+        <div class="topic">
+
+            <h3>📦 Products</h3>
+
+            <p>
+                Identify the best and worst performing
+                products.
+            </p>
+
+        </div>
+
+        <div class="topic">
+
+            <h3>🌍 Regions</h3>
+
+            <p>
+                Compare performance across regions.
+            </p>
+
+        </div>
+
+        <div class="topic">
+
+            <h3>👨‍💼 Customers</h3>
+
+            <p>
+                Analyze customer and order information.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📋 Step 1 — Create the Dataset</h2>
+
+    <p>
+        Create an Excel table containing at least
+        <b>100–500 sales records</b>.
+    </p>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Column</th>
+                <th>Example</th>
+            </tr>
+
+            <tr>
+                <td>Order ID</td>
+                <td>ORD1001</td>
+            </tr>
+
+            <tr>
+                <td>Order Date</td>
+                <td>25-08-2026</td>
+            </tr>
+
+            <tr>
+                <td>Customer</td>
+                <td>Rahul</td>
+            </tr>
+
+            <tr>
+                <td>Product</td>
+                <td>Laptop</td>
+            </tr>
+
+            <tr>
+                <td>Category</td>
+                <td>Electronics</td>
+            </tr>
+
+            <tr>
+                <td>Region</td>
+                <td>North</td>
+            </tr>
+
+            <tr>
+                <td>Quantity</td>
+                <td>3</td>
+            </tr>
+
+            <tr>
+                <td>Unit Price</td>
+                <td>55000</td>
+            </tr>
+
+            <tr>
+                <td>Sales</td>
+                <td>165000</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧹 Step 2 — Clean the Data</h2>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Remove duplicate records.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Remove unnecessary spaces.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                Standardize names and categories.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <p>
+                Check missing values.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">5</div>
+
+            <p>
+                Correct dates and numerical data types.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="tip">
+
+        💡 You can use the Power Query techniques
+        learned on Day 29 for this step.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧮 Step 3 — Calculate Sales</h2>
+
+    <p>
+        If Quantity is in column G and Unit Price
+        is in column H, calculate Sales:
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =G2*H2
+        </span>
+
+    </div>
+
+    <p style="margin-top:20px;">
+        Copy the formula down for all records.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔎 Step 4 — Use Lookup Functions</h2>
+
+    <p>
+        Use the lookup functions from Day 27 to
+        retrieve information from supporting tables.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =XLOOKUP(A2,ProductID,ProductName)
+        </span>
+
+        <br><br>
+
+        <span>
+        =VLOOKUP(A2,ProductTable,2,FALSE)
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧠 Step 5 — Add Conditional Logic</h2>
+
+    <p>
+        Create a Performance column using IF or IFS.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =IFS(I2>=100000,"Excellent",
+        I2>=50000,"Good",
+        I2>=20000,"Average",
+        TRUE,"Low")
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📊 Step 6 — Create Pivot Tables</h2>
+
+    <p>
+        Create at least four Pivot Tables.
+    </p>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>Pivot 1</h3>
+
+            <p>
+                Total Sales by Region
+            </p>
+
+        </div>
+
+        <div class="topic">
+
+            <h3>Pivot 2</h3>
+
+            <p>
+                Total Sales by Product
+            </p>
+
+        </div>
+
+        <div class="topic">
+
+            <h3>Pivot 3</h3>
+
+            <p>
+                Sales by Category
+            </p>
+
+        </div>
+
+        <div class="topic">
+
+            <h3>Pivot 4</h3>
+
+            <p>
+                Monthly Sales
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📈 Step 7 — Create Charts</h2>
+
+    <p>
+        Convert your Pivot Table results into
+        meaningful visualizations.
+    </p>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>📊 Column Chart</h3>
+
+            <p>
+                Sales by Region
+            </p>
+
+        </div>
+
+        <div class="topic">
+
+            <h3>📈 Line Chart</h3>
+
+            <p>
+                Monthly Sales Trend
+            </p>
+
+        </div>
+
+        <div class="topic">
+
+            <h3>🥧 Pie / Doughnut</h3>
+
+            <p>
+                Sales by Category
+            </p>
+
+        </div>
+
+        <div class="topic">
+
+            <h3>📊 Bar Chart</h3>
+
+            <p>
+                Top Products
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🎨 Step 8 — Build Your Dashboard</h2>
+
+    <p>
+        Create a separate worksheet called
+        <b>Dashboard</b>.
+    </p>
+
+    <div class="dashboard">
+
+        <div class="kpi">
+
+            <h3>TOTAL SALES</h3>
+
+            <strong>₹12.5L</strong>
+
+        </div>
+
+        <div class="kpi">
+
+            <h3>TOTAL ORDERS</h3>
+
+            <strong>500</strong>
+
+        </div>
+
+        <div class="kpi">
+
+            <h3>TOP REGION</h3>
+
+            <strong>North</strong>
+
+        </div>
+
+        <div class="kpi">
+
+            <h3>TOP PRODUCT</h3>
+
+            <strong>Laptop</strong>
+
+        </div>
+
+    </div>
+
+    <div class="tip">
+
+        ⚠️ The numbers above are only examples.
+        Your dashboard should display the actual
+        results from your dataset.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🎯 Recommended Dashboard Layout</h2>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Put KPI cards at the top.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Place Sales Trend below the KPI section.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                Add Sales by Region.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <p>
+                Add Top Products.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">5</div>
+
+            <p>
+                Add Category Analysis.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="number">6</div>
+
+            <p>
+                Add filters or slicers where useful.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📌 Step 9 — Add Slicers</h2>
+
+    <p>
+        Use Slicers to make your Pivot Tables and
+        dashboard interactive.
+    </p>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>🌍 Region</h3>
+
+            <p>
+                Filter dashboard by region.
+            </p>
+
+        </div>
+
+        <div class="topic">
+
+            <h3>📦 Category</h3>
+
+            <p>
+                Filter products by category.
+            </p>
+
+        </div>
+
+        <div class="topic">
+
+            <h3>📅 Date</h3>
+
+            <p>
+                Analyze different time periods.
+            </p>
+
+        </div>
+
+        <div class="topic">
+
+            <h3>👨‍💼 Salesperson</h3>
+
+            <p>
+                Compare individual performance.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔍 Step 10 — Find Business Insights</h2>
+
+    <p>
+        A Data Analyst should not only create charts.
+        You must explain what the data means.
+    </p>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>Insight 1</h3>
+
+            <p>
+                Which region generated the highest
+                revenue?
+            </p>
+
+        </div>
+
+        <div class="topic">
+
+            <h3>Insight 2</h3>
+
+            <p>
+                Which product generated the most sales?
+            </p>
+
+        </div>
+
+        <div class="topic">
+
+            <h3>Insight 3</h3>
+
+            <p>
+                Which month had the highest sales?
+            </p>
+
+        </div>
+
+        <div class="topic">
+
+            <h3>Insight 4</h3>
+
+            <p>
+                Which category needs improvement?
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💼 Final Project Checklist</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Task</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>Dataset Created</td>
+                <td>☐</td>
+            </tr>
+
+            <tr>
+                <td>Data Cleaned</td>
+                <td>☐</td>
+            </tr>
+
+            <tr>
+                <td>Formulas Added</td>
+                <td>☐</td>
+            </tr>
+
+            <tr>
+                <td>Lookup Functions Used</td>
+                <td>☐</td>
+            </tr>
+
+            <tr>
+                <td>Pivot Tables Created</td>
+                <td>☐</td>
+            </tr>
+
+            <tr>
+                <td>Charts Created</td>
+                <td>☐</td>
+            </tr>
+
+            <tr>
+                <td>Dashboard Created</td>
+                <td>☐</td>
+            </tr>
+
+            <tr>
+                <td>Slicers Added</td>
+                <td>☐</td>
+            </tr>
+
+            <tr>
+                <td>Business Insights Written</td>
+                <td>☐</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🏆 Final Challenge</h2>
+
+    <p>
+        Create a complete professional Excel Sales
+        Analytics Dashboard using everything you have
+        learned in the 30-Day challenge.
+    </p>
+
+    <br>
+
+    <p>
+        Your final workbook should contain:
+    </p>
+
+    <br>
+
+    <p>
+        📁 Raw Data
+    </p>
+
+    <p>
+        🧹 Clean Data
+    </p>
+
+    <p>
+        📊 Pivot Tables
+    </p>
+
+    <p>
+        📈 Charts
+    </p>
+
+    <p>
+        🎛️ Slicers
+    </p>
+
+    <p>
+        📋 Dashboard
+    </p>
+
+    <p>
+        💡 Business Insights
+    </p>
+
+    <div class="success">
+
+        🎓 <b>30-Day Excel Challenge Completed!</b><br><br>
+
+        You have now practiced the core Excel skills
+        needed for beginner-level Data Analytics.
+
+    </div>
+
+    <div class="actions">
+
+        <a href="day29.html" class="btn secondary">
+            ← Previous Day
+        </a>
+
+        <a href="excel.html" class="btn primary">
+            📚 All Excel Lessons
+        </a>
+
+        <a href="dashboard.html" class="btn secondary">
+            🏠 Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Data Analytics Hub
+• Learn • Practice • Grow 🚀
+
+</footer>
+
+
+</body>
+
+</html>
