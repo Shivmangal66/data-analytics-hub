@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 23 | Conditional Formatting</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+.navbar{
+    background:#080f1f;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.back{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.hero{
+    background:
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),
+    #080f1f;
+    color:white;
+    padding:70px 7%;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin:20px 0 12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+    max-width:800px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.topic{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.topic h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.topic p{
+    font-size:14px;
+}
+
+.steps{
+    margin-top:20px;
+}
+
+.step{
+    display:flex;
+    gap:15px;
+    margin:17px 0;
+    align-items:flex-start;
+}
+
+.number{
+    min-width:35px;
+    height:35px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.formula{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:22px;
+    border-radius:12px;
+    margin-top:20px;
+    line-height:2;
+    overflow-x:auto;
+    font-family:monospace;
+}
+
+.formula span{
+    color:#60a5fa;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    text-align:left;
+}
+
+th{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.tip{
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:18px;
+    border-radius:8px;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+footer{
+    background:#080f1f;
+    color:#94a3b8;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .container{
+        padding:30px 18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        📊 Data <span>Analytics</span> Hub
+    </div>
+
+    <a href="excel.html" class="back">
+        ← Excel Course
+    </a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            DAY 23 • EXCEL MASTERY
+        </span>
+
+        <h1>
+            Conditional Formatting
+        </h1>
+
+        <p>
+            Learn how to automatically highlight important
+            values, trends and patterns in Excel data.
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="card">
+
+    <h2>🎯 Today's Goal</h2>
+
+    <p>
+        Learn how Conditional Formatting can automatically
+        change the appearance of cells based on their
+        values or conditions.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📚 What You Will Learn</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>🎨 Highlight Rules</h3>
+
+            <p>
+                Highlight cells based on numbers,
+                text or dates.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📊 Data Bars</h3>
+
+            <p>
+                Display bars inside cells to compare
+                numerical values visually.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🌈 Color Scales</h3>
+
+            <p>
+                Use different colors to identify
+                low, medium and high values.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔹 Icon Sets</h3>
+
+            <p>
+                Display icons to show performance,
+                status or trends.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💡 What is Conditional Formatting?</h2>
+
+    <p>
+        Conditional Formatting is an Excel feature that
+        automatically formats cells when they meet a
+        specific condition.
+    </p>
+
+    <div class="tip">
+
+        💡 Example: In a marksheet, you can automatically
+        highlight marks below <b>40</b> so that failed
+        students are easy to identify.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🛠️ How to Apply Conditional Formatting</h2>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Select the cells you want to format.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Go to the <b>Home</b> tab.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                Click <b>Conditional Formatting</b>.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <p>
+                Choose the rule you need.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">5</div>
+
+            <p>
+                Select the formatting style.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">6</div>
+
+            <p>
+                Click <b>OK</b>.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📊 Sample Student Data</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Name</th>
+                <th>Marks</th>
+                <th>Attendance</th>
+            </tr>
+
+            <tr>
+                <td>Shiv</td>
+                <td>85</td>
+                <td>92%</td>
+            </tr>
+
+            <tr>
+                <td>Rahul</td>
+                <td>35</td>
+                <td>68%</td>
+            </tr>
+
+            <tr>
+                <td>Aman</td>
+                <td>72</td>
+                <td>88%</td>
+            </tr>
+
+            <tr>
+                <td>Priya</td>
+                <td>28</td>
+                <td>61%</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔴 Highlight Cells Rules</h2>
+
+    <p>
+        Excel provides ready-made rules for highlighting
+        cells based on their values.
+    </p>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>Greater Than</h3>
+
+            <p>
+                Highlight values greater than a
+                specified number.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>Less Than</h3>
+
+            <p>
+                Highlight values below a
+                specified number.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>Equal To</h3>
+
+            <p>
+                Highlight cells containing a
+                specific value.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>Duplicate Values</h3>
+
+            <p>
+                Quickly identify duplicate records
+                in a dataset.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📊 Data Bars</h2>
+
+    <p>
+        Data Bars display a horizontal bar inside each
+        cell. Larger values receive longer bars.
+    </p>
+
+    <div class="tip">
+
+        Example: If sales values are
+        10,000, 30,000 and 50,000, the 50,000 value
+        will have the longest data bar.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🌈 Color Scales</h2>
+
+    <p>
+        Color Scales use different colors to represent
+        low, medium and high values.
+    </p>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Sales</th>
+                <th>Interpretation</th>
+            </tr>
+
+            <tr>
+                <td>10,000</td>
+                <td>Low</td>
+            </tr>
+
+            <tr>
+                <td>35,000</td>
+                <td>Medium</td>
+            </tr>
+
+            <tr>
+                <td>80,000</td>
+                <td>High</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔹 Icon Sets</h2>
+
+    <p>
+        Icon Sets add symbols to cells based on their
+        values or performance.
+    </p>
+
+    <div class="tip">
+
+        Example: Sales performance can be displayed
+        using arrows such as <b>↑</b>, <b>→</b> and
+        <b>↓</b>.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧠 Formula-Based Formatting</h2>
+
+    <p>
+        You can also create your own Conditional
+        Formatting rule using an Excel formula.
+    </p>
+
+    <div class="formula">
+
+        Example:
+
+        <br><br>
+
+        <span>
+        =B2&lt;40
+        </span>
+
+        <br><br>
+
+        This condition can be used to identify
+        students whose marks are below 40.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💼 Real-World Uses</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>📈 Sales Analysis</h3>
+
+            <p>
+                Highlight high and low performing
+                sales values.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🎓 Student Results</h3>
+
+            <p>
+                Highlight failed or high-scoring
+                students.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📦 Inventory</h3>
+
+            <p>
+                Identify products with low stock.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>👨‍💼 Employee Data</h3>
+
+            <p>
+                Highlight attendance or performance
+                issues.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⚠️ Common Mistakes</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>❌ Wrong Range</h3>
+
+            <p>
+                Always select the correct range before
+                applying a formatting rule.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Too Many Rules</h3>
+
+            <p>
+                Too many overlapping rules can make
+                your report confusing.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Wrong Condition</h3>
+
+            <p>
+                Check your condition carefully before
+                applying the rule.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Ignoring Duplicates</h3>
+
+            <p>
+                Duplicate highlighting is useful when
+                cleaning datasets.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📝 Practice Task</h2>
+
+    <p>
+        Create a sales dataset with at least 20 records.
+    </p>
+
+    <br>
+
+    <p>
+        Highlight sales values greater than
+        <b>50,000</b>.
+    </p>
+
+    <br>
+
+    <p>
+        Highlight sales values below
+        <b>20,000</b>.
+    </p>
+
+    <br>
+
+    <p>
+        Apply <b>Data Bars</b> to the Sales column.
+    </p>
+
+    <br>
+
+    <p>
+        Apply a <b>Color Scale</b> to compare
+        performance.
+    </p>
+
+    <br>
+
+    <p>
+        Identify duplicate Employee IDs using
+        Conditional Formatting.
+    </p>
+
+
+    <div class="actions">
+
+        <a href="day22.html" class="btn secondary">
+            ← Previous Day
+        </a>
+
+        <a href="day24.html" class="btn primary">
+            Next: Day 24 →
+        </a>
+
+        <a href="excel.html" class="btn secondary">
+            📚 All Lessons
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Data Analytics Hub
+• Learn • Practice • Grow 🚀
+
+</footer>
+
+
+</body>
+
+</html>
