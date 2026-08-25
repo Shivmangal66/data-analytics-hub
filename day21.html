@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 21 | IF, AND & OR Functions</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+.navbar{
+    background:#080f1f;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.back{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.hero{
+    background:
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),
+    #080f1f;
+    color:white;
+    padding:70px 7%;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin:20px 0 12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+    max-width:800px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.topic{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.topic h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.topic p{
+    font-size:14px;
+}
+
+.formula{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:22px;
+    border-radius:12px;
+    margin-top:20px;
+    line-height:2;
+    overflow-x:auto;
+    font-family:monospace;
+}
+
+.formula span{
+    color:#60a5fa;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    text-align:left;
+}
+
+th{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.steps{
+    margin-top:20px;
+}
+
+.step{
+    display:flex;
+    gap:15px;
+    margin:17px 0;
+    align-items:flex-start;
+}
+
+.number{
+    min-width:35px;
+    height:35px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.tip{
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:18px;
+    border-radius:8px;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+footer{
+    background:#080f1f;
+    color:#94a3b8;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .container{
+        padding:30px 18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        📊 Data <span>Analytics</span> Hub
+    </div>
+
+    <a href="excel.html" class="back">
+        ← Excel Course
+    </a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            DAY 21 • EXCEL MASTERY
+        </span>
+
+        <h1>
+            IF, AND & OR Functions
+        </h1>
+
+        <p>
+            Learn how to make logical decisions in Excel
+            using IF, AND and OR functions.
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="card">
+
+    <h2>🎯 Today's Goal</h2>
+
+    <p>
+        Learn how Excel can automatically evaluate
+        conditions and return different results based
+        on whether those conditions are TRUE or FALSE.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📚 What You Will Learn</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>🧠 IF</h3>
+
+            <p>
+                Returns one result when a condition is
+                TRUE and another when it is FALSE.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔗 AND</h3>
+
+            <p>
+                Checks whether all specified conditions
+                are TRUE.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔀 OR</h3>
+
+            <p>
+                Checks whether at least one of the
+                specified conditions is TRUE.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🚀 Combined Logic</h3>
+
+            <p>
+                Combine IF with AND or OR to create
+                advanced decision-making formulas.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧠 IF Function</h2>
+
+    <p>
+        The IF function checks a condition and returns
+        one value if the condition is TRUE and another
+        value if the condition is FALSE.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =IF(logical_test,value_if_true,value_if_false)
+        </span>
+
+        <br><br>
+
+        Example:
+
+        <br>
+
+        <span>
+        =IF(A2>=40,"Pass","Fail")
+        </span>
+
+    </div>
+
+    <div class="tip">
+
+        If the value in A2 is 40 or more,
+        the result will be <b>Pass</b>.
+        Otherwise, it will be <b>Fail</b>.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔗 AND Function</h2>
+
+    <p>
+        AND returns TRUE only when all the specified
+        conditions are TRUE.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =AND(A2>=40,B2>=40)
+        </span>
+
+        <br><br>
+
+        Both conditions must be TRUE.
+
+    </div>
+
+    <div class="tip">
+
+        Example: A student must score at least 40
+        in both subjects to satisfy the condition.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔀 OR Function</h2>
+
+    <p>
+        OR returns TRUE when at least one of the
+        specified conditions is TRUE.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =OR(A2>=40,B2>=40)
+        </span>
+
+        <br><br>
+
+        At least one condition must be TRUE.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📊 Sample Student Data</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Name</th>
+                <th>Maths</th>
+                <th>English</th>
+                <th>Result</th>
+            </tr>
+
+            <tr>
+                <td>Shiv</td>
+                <td>75</td>
+                <td>80</td>
+                <td>Pass</td>
+            </tr>
+
+            <tr>
+                <td>Rahul</td>
+                <td>35</td>
+                <td>70</td>
+                <td>Fail</td>
+            </tr>
+
+            <tr>
+                <td>Aman</td>
+                <td>45</td>
+                <td>55</td>
+                <td>Pass</td>
+            </tr>
+
+            <tr>
+                <td>Priya</td>
+                <td>30</td>
+                <td>35</td>
+                <td>Fail</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🚀 IF + AND</h2>
+
+    <p>
+        IF and AND can be combined when multiple
+        conditions must be satisfied.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =IF(AND(B2>=40,C2>=40),"Pass","Fail")
+        </span>
+
+    </div>
+
+    <p style="margin-top:20px">
+
+        In this example, the student must score at
+        least 40 in both Maths and English.
+
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🚀 IF + OR</h2>
+
+    <p>
+        IF and OR can be combined when at least one
+        condition should be satisfied.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =IF(OR(B2>=80,C2>=80),"Excellent","Normal")
+        </span>
+
+    </div>
+
+    <p style="margin-top:20px">
+
+        If the student scores 80 or more in either
+        subject, the result becomes <b>Excellent</b>.
+
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🛠️ Step-by-Step Example</h2>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Enter student names and their marks.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Create a Result column.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                Use IF with AND to check whether the
+                student passed both subjects.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <p>
+                Copy the formula down for all students.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">5</div>
+
+            <p>
+                Experiment by changing the marks and
+                observe the result.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📋 Quick Comparison</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Function</th>
+                <th>Purpose</th>
+                <th>Example</th>
+            </tr>
+
+            <tr>
+                <td>IF</td>
+                <td>Make a decision</td>
+                <td>=IF(A2>=40,"Pass","Fail")</td>
+            </tr>
+
+            <tr>
+                <td>AND</td>
+                <td>All conditions must be TRUE</td>
+                <td>=AND(A2>40,B2>40)</td>
+            </tr>
+
+            <tr>
+                <td>OR</td>
+                <td>At least one condition TRUE</td>
+                <td>=OR(A2>40,B2>40)</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⚠️ Common Mistakes</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>❌ Missing Quotes</h3>
+
+            <p>
+                Text results such as "Pass" and "Fail"
+                should be written inside quotation marks.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Wrong Comparison</h3>
+
+            <p>
+                Check whether you need >, <, >=,
+                <= or =.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Confusing AND & OR</h3>
+
+            <p>
+                AND requires all conditions while OR
+                requires only one condition.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Missing Brackets</h3>
+
+            <p>
+                Always check the parentheses in
+                nested formulas.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📝 Practice Task</h2>
+
+    <p>
+        Create a student marksheet containing
+        Name, Maths, English and Computer marks.
+    </p>
+
+    <br>
+
+    <p>
+        Use IF to display <b>Pass</b> or <b>Fail</b>
+        based on the marks.
+    </p>
+
+    <br>
+
+    <p>
+        Use AND to check whether a student passed
+        all three subjects.
+    </p>
+
+    <br>
+
+    <p>
+        Use OR to identify students who scored
+        80 or more in at least one subject.
+    </p>
+
+    <br>
+
+    <p>
+        Finally, create an IF + AND formula that
+        displays <b>"Eligible"</b> only when all
+        required conditions are satisfied.
+    </p>
+
+
+    <div class="actions">
+
+        <a href="day20.html" class="btn secondary">
+            ← Previous Day
+        </a>
+
+        <a href="day22.html" class="btn primary">
+            Next: Day 22 →
+        </a>
+
+        <a href="excel.html" class="btn secondary">
+            📚 All Lessons
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Data Analytics Hub
+• Learn • Practice • Grow 🚀
+
+</footer>
+
+
+</body>
+
+</html>
