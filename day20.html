@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 20 | Excel Text Functions</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+.navbar{
+    background:#080f1f;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.back{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.hero{
+    background:
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),
+    #080f1f;
+    color:white;
+    padding:70px 7%;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin:20px 0 12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+    max-width:800px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.topic{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.topic h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.topic p{
+    font-size:14px;
+}
+
+.formula{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:22px;
+    border-radius:12px;
+    margin-top:20px;
+    line-height:2;
+    overflow-x:auto;
+    font-family:monospace;
+}
+
+.formula span{
+    color:#60a5fa;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    text-align:left;
+}
+
+th{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.steps{
+    margin-top:20px;
+}
+
+.step{
+    display:flex;
+    gap:15px;
+    margin:17px 0;
+    align-items:flex-start;
+}
+
+.number{
+    min-width:35px;
+    height:35px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.tip{
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:18px;
+    border-radius:8px;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+footer{
+    background:#080f1f;
+    color:#94a3b8;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .container{
+        padding:30px 18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        📊 Data <span>Analytics</span> Hub
+    </div>
+
+    <a href="excel.html" class="back">
+        ← Excel Course
+    </a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            DAY 20 • EXCEL MASTERY
+        </span>
+
+        <h1>
+            Text Functions
+        </h1>
+
+        <p>
+            Learn how to clean, extract, combine and
+            manipulate text data using powerful Excel
+            text functions.
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="card">
+
+    <h2>🎯 Today's Goal</h2>
+
+    <p>
+        Learn the most useful Excel Text Functions
+        for data cleaning, formatting and preparing
+        real-world datasets for analysis.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📚 What You Will Learn</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>🔤 LEFT</h3>
+
+            <p>
+                Extract characters from the beginning
+                of a text string.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔤 RIGHT</h3>
+
+            <p>
+                Extract characters from the end
+                of a text string.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔤 MID</h3>
+
+            <p>
+                Extract characters from a specific
+                position in a text string.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📏 LEN</h3>
+
+            <p>
+                Count the number of characters
+                in a text string.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔗 CONCAT</h3>
+
+            <p>
+                Combine text from multiple cells.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🧹 TRIM</h3>
+
+            <p>
+                Remove unnecessary spaces from text.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔤 LEFT Function</h2>
+
+    <p>
+        LEFT returns a specified number of characters
+        from the beginning of a text string.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =LEFT(text, num_chars)
+        </span>
+
+        <br><br>
+
+        Example:
+
+        <br>
+
+        <span>
+        =LEFT("SHIVMISHRA",4)
+        </span>
+
+        <br><br>
+
+        Result → <b>SHIV</b>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔤 RIGHT Function</h2>
+
+    <p>
+        RIGHT returns characters from the end of
+        a text string.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =RIGHT("SHIVMISHRA",5)
+        </span>
+
+        <br><br>
+
+        Result → <b>ISHRA</b>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔤 MID Function</h2>
+
+    <p>
+        MID extracts characters starting from a
+        specific position.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =MID("SHIVMISHRA",5,5)
+        </span>
+
+        <br><br>
+
+        Result → <b>MISHR</b>
+
+    </div>
+
+    <div class="tip">
+
+        💡 MID syntax:
+
+        <b>MID(text, start_num, num_chars)</b>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📏 LEN Function</h2>
+
+    <p>
+        LEN counts the total number of characters
+        in a text string, including spaces.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =LEN("SHIV MISHRA")
+        </span>
+
+        <br><br>
+
+        Result → <b>11</b>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔗 CONCAT Function</h2>
+
+    <p>
+        CONCAT combines text from different cells
+        into a single text value.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =CONCAT(A2," ",B2)
+        </span>
+
+        <br><br>
+
+        If A2 = Shiv
+
+        <br>
+
+        If B2 = Mishra
+
+        <br><br>
+
+        Result → <b>Shiv Mishra</b>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧹 TRIM Function</h2>
+
+    <p>
+        TRIM removes extra spaces from text while
+        keeping single spaces between words.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =TRIM(A2)
+        </span>
+
+    </div>
+
+    <div class="tip">
+
+        💡 TRIM is extremely useful when cleaning
+        imported or copied datasets.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📊 Practical Example</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Full Name</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+
+            <tr>
+                <td>Shiv Mishra</td>
+                <td>Shiv</td>
+                <td>Mishra</td>
+            </tr>
+
+            <tr>
+                <td>Rahul Kumar</td>
+                <td>Rahul</td>
+                <td>Kumar</td>
+            </tr>
+
+            <tr>
+                <td>Priya Sharma</td>
+                <td>Priya</td>
+                <td>Sharma</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="tip">
+
+        Data analysts frequently need to split and
+        clean names, emails, IDs and other text fields.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🛠️ Common Text Functions</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Function</th>
+                <th>Purpose</th>
+                <th>Example</th>
+            </tr>
+
+            <tr>
+                <td>LEFT</td>
+                <td>Extract from beginning</td>
+                <td>=LEFT(A2,5)</td>
+            </tr>
+
+            <tr>
+                <td>RIGHT</td>
+                <td>Extract from end</td>
+                <td>=RIGHT(A2,4)</td>
+            </tr>
+
+            <tr>
+                <td>MID</td>
+                <td>Extract from middle</td>
+                <td>=MID(A2,3,5)</td>
+            </tr>
+
+            <tr>
+                <td>LEN</td>
+                <td>Count characters</td>
+                <td>=LEN(A2)</td>
+            </tr>
+
+            <tr>
+                <td>CONCAT</td>
+                <td>Combine text</td>
+                <td>=CONCAT(A2,B2)</td>
+            </tr>
+
+            <tr>
+                <td>TRIM</td>
+                <td>Remove extra spaces</td>
+                <td>=TRIM(A2)</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⚠️ Common Mistakes</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>❌ Wrong Character Count</h3>
+
+            <p>
+                Check the number of characters you
+                actually want to extract.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Ignoring Spaces</h3>
+
+            <p>
+                Spaces are also characters and can
+                affect your results.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Wrong Starting Position</h3>
+
+            <p>
+                MID requires the correct starting
+                position.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Dirty Data</h3>
+
+            <p>
+                Use TRIM when imported data contains
+                unnecessary spaces.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📝 Practice Task</h2>
+
+    <p>
+        Create a list containing at least 10 full names.
+    </p>
+
+    <br>
+
+    <p>
+        Use text functions to extract the first
+        characters and last characters.
+    </p>
+
+    <br>
+
+    <p>
+        Use LEN to calculate the length of each name.
+    </p>
+
+    <br>
+
+    <p>
+        Create separate First Name and Last Name
+        columns.
+    </p>
+
+    <br>
+
+    <p>
+        Use CONCAT to combine the names again.
+    </p>
+
+    <br>
+
+    <p>
+        Finally, use TRIM to clean extra spaces.
+    </p>
+
+
+    <div class="actions">
+
+        <a href="day19.html" class="btn secondary">
+            ← Previous Day
+        </a>
+
+        <a href="day21.html" class="btn primary">
+            Next: Day 21 →
+        </a>
+
+        <a href="excel.html" class="btn secondary">
+            📚 All Lessons
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Data Analytics Hub
+• Learn • Practice • Grow 🚀
+
+</footer>
+
+
+</body>
+
+</html>
