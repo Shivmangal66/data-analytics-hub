@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 10 | COUNTIF & SUMIF</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f5f7fb;color:#0f172a}
+.navbar{background:#080f1f;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:20px;font-weight:bold}.logo span{color:#60a5fa}
+.back{color:#cbd5e1;text-decoration:none}
+.hero{background:radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),#080f1f;color:white;padding:70px 7%}
+.hero-content{max-width:1100px;margin:auto}
+.badge{display:inline-block;padding:8px 14px;border-radius:30px;background:#ffffff12;color:#93c5fd;font-size:13px}
+.hero h1{font-size:46px;margin:20px 0 12px}
+.hero p{color:#94a3b8;font-size:17px;line-height:1.7}
+.container{max-width:1000px;margin:auto;padding:45px 25px}
+.card{background:white;border:1px solid #e5e7eb;border-radius:18px;padding:30px;margin-bottom:22px;box-shadow:0 8px 25px #00000008}
+.card h2{margin-bottom:15px}.card p{color:#475569;line-height:1.8}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:20px}
+.topic{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:20px}
+.topic h3{color:#2563eb;margin-bottom:8px}
+.formula{background:#0f172a;color:#e2e8f0;padding:22px;border-radius:12px;margin-top:20px;line-height:2;font-family:monospace;overflow-x:auto}
+.formula span{color:#60a5fa}
+.table-wrap{overflow-x:auto;margin-top:20px}
+table{width:100%;border-collapse:collapse}
+th,td{padding:12px;border:1px solid #cbd5e1}
+th{background:#eff6ff;color:#1d4ed8}
+.actions{display:flex;gap:15px;margin-top:30px;flex-wrap:wrap}
+.btn{padding:13px 20px;border-radius:9px;text-decoration:none;font-weight:bold}
+.primary{background:linear-gradient(135deg,#2563eb,#7c3aed);color:white}
+.secondary{background:#e2e8f0;color:#0f172a}
+footer{background:#080f1f;color:#94a3b8;text-align:center;padding:30px}
+@media(max-width:650px){.hero{padding:50px 20px}.hero h1{font-size:35px}.container{padding:30px 18px}.grid{grid-template-columns:1fr}.actions{flex-direction:column}.btn{text-align:center}}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="logo">📊 Data <span>Analytics</span> Hub</div>
+<a href="excel.html" class="back">← Excel Course</a>
+</nav>
+
+<section class="hero">
+<div class="hero-content">
+<span class="badge">DAY 10 • EXCEL MASTERY</span>
+<h1>COUNTIF, COUNTIFS, SUMIF & SUMIFS</h1>
+<p>Learn how to count and total data based on one or more conditions.</p>
+</div>
+</section>
+
+<main class="container">
+
+<div class="card">
+<h2>🎯 Today's Goal</h2>
+<p>Use conditional counting and summing to analyze only the rows that meet your conditions.</p>
+</div>
+
+<div class="card">
+<h2>📚 Functions</h2>
+
+<div class="grid">
+
+<div class="topic">
+<h3>🔢 COUNTIF</h3>
+<p>Counts cells matching one condition.</p>
+</div>
+
+<div class="topic">
+<h3>🔢 COUNTIFS</h3>
+<p>Counts rows matching several conditions.</p>
+</div>
+
+<div class="topic">
+<h3>➕ SUMIF</h3>
+<p>Adds numbers matching one condition.</p>
+</div>
+
+<div class="topic">
+<h3>➕ SUMIFS</h3>
+<p>Adds numbers matching several conditions.</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<h2>📊 Sales Example</h2>
+
+<div class="table-wrap">
+<table>
+<tr><th>Region</th><th>Sales</th></tr>
+<tr><td>North</td><td>4500</td></tr>
+<tr><td>South</td><td>3200</td></tr>
+<tr><td>North</td><td>5100</td></tr>
+<tr><td>East</td><td>2900</td></tr>
+<tr><td>North</td><td>3900</td></tr>
+</table>
+</div>
+</div>
+
+<div class="card">
+<h2>💡 Formulas</h2>
+
+<div class="formula">
+
+<span>COUNTIF</span>
+<br>
+=COUNTIF(A2:A6,"North")
+<br>
+Result → 3
+
+<br><br>
+
+<span>COUNTIFS</span>
+<br>
+=COUNTIFS(A2:A6,"North",B2:B6,">4000")
+<br>
+Result → 2
+
+<br><br>
+
+<span>SUMIF</span>
+<br>
+=SUMIF(A2:A6,"North",B2:B6)
+<br>
+Result → 13500
+
+<br><br>
+
+<span>SUMIFS</span>
+<br>
+=SUMIFS(B2:B6,A2:A6,"North",B2:B6,">4000")
+<br>
+Result → 9600
+
+</div>
+</div>
+
+<div class="card">
+<h2>📌 Quick Comparison</h2>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>Function</th>
+<th>Question</th>
+</tr>
+
+<tr>
+<td>COUNTIF</td>
+<td>How many rows match ONE condition?</td>
+</tr>
+
+<tr>
+<td>COUNTIFS</td>
+<td>How many rows match SEVERAL conditions?</td>
+</tr>
+
+<tr>
+<td>SUMIF</td>
+<td>What's the total for ONE condition?</td>
+</tr>
+
+<tr>
+<td>SUMIFS</td>
+<td>What's the total for SEVERAL conditions?</td>
+</tr>
+
+</table>
+</div>
+</div>
+
+<div class="card">
+<h2>📝 Practice Task</h2>
+
+<p>
+Create a 12-row sales table with Region, Product
+and Amount columns. Write a COUNTIF for one region
+and a SUMIFS for one region AND one product.
+</p>
+
+<p style="margin-top:15px">
+⚠️ Remember: text criteria should be written inside
+quotes, such as <b>"North"</b> or <b>">4000"</b>.
+</p>
+
+<div class="actions">
+<a href="day9.html" class="btn secondary">← Previous Day</a>
+<a href="Master_Excel_in_30_Days-1.pdf" target="_blank" class="btn primary">📖 Open Course PDF</a>
+<a href="excel.html" class="btn secondary">📚 All Lessons</a>
+</div>
+
+</div>
+
+</main>
+
+<footer>© 2026 Data Analytics Hub • Learn • Practice • Grow 🚀</footer>
+
+</body>
+</html>
