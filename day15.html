@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 15 | Introduction to Charts</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+.navbar{
+    background:#080f1f;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.back{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.hero{
+    background:
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),
+    #080f1f;
+    color:white;
+    padding:70px 7%;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin:20px 0 12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+    max-width:780px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.topic{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.topic h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.topic p{
+    font-size:14px;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    text-align:left;
+}
+
+th{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.steps{
+    margin-top:20px;
+}
+
+.step{
+    display:flex;
+    gap:15px;
+    margin:16px 0;
+    align-items:flex-start;
+}
+
+.number{
+    min-width:35px;
+    height:35px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.chart-box{
+    margin-top:25px;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:15px;
+    padding:25px;
+}
+
+.bar-chart{
+    display:flex;
+    align-items:flex-end;
+    gap:25px;
+    height:220px;
+    padding:20px;
+    border-left:2px solid #94a3b8;
+    border-bottom:2px solid #94a3b8;
+}
+
+.bar{
+    width:55px;
+    background:linear-gradient(180deg,#2563eb,#7c3aed);
+    border-radius:7px 7px 0 0;
+    position:relative;
+}
+
+.bar span{
+    position:absolute;
+    top:-25px;
+    left:50%;
+    transform:translateX(-50%);
+    font-weight:bold;
+    font-size:13px;
+}
+
+.bar-labels{
+    display:flex;
+    gap:35px;
+    padding:10px 15px 0;
+}
+
+.bar-labels span{
+    width:55px;
+    text-align:center;
+    font-size:13px;
+    color:#475569;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+footer{
+    background:#080f1f;
+    color:#94a3b8;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .container{
+        padding:30px 18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+    .bar-chart{
+        gap:10px;
+    }
+
+    .bar-labels{
+        gap:20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        📊 Data <span>Analytics</span> Hub
+    </div>
+
+    <a href="excel.html" class="back">
+        ← Excel Course
+    </a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            DAY 15 • EXCEL MASTERY
+        </span>
+
+        <h1>
+            Introduction to Charts
+        </h1>
+
+        <p>
+            Learn how to turn Excel data into visual
+            charts that make comparisons, trends and
+            patterns easier to understand.
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="card">
+
+    <h2>🎯 Today's Goal</h2>
+
+    <p>
+        Understand the basics of Excel charts and learn
+        how to select data and create a suitable chart
+        for presenting information visually.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📚 What You Will Learn</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>📊 Column Chart</h3>
+
+            <p>
+                Useful for comparing values between
+                different categories.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📈 Line Chart</h3>
+
+            <p>
+                Useful for showing changes and trends
+                over time.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🥧 Pie Chart</h3>
+
+            <p>
+                Useful for showing how categories
+                contribute to a total.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📉 Bar Chart</h3>
+
+            <p>
+                Useful for comparing categories
+                horizontally.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💡 What is a Chart?</h2>
+
+    <p>
+        A chart is a visual representation of data.
+        Instead of looking only at numbers in rows and
+        columns, charts help us understand information
+        quickly.
+    </p>
+
+    <div class="chart-box">
+
+        <div class="bar-chart">
+
+            <div class="bar" style="height:90px;">
+                <span>40</span>
+            </div>
+
+            <div class="bar" style="height:140px;">
+                <span>65</span>
+            </div>
+
+            <div class="bar" style="height:180px;">
+                <span>85</span>
+            </div>
+
+            <div class="bar" style="height:120px;">
+                <span>55</span>
+            </div>
+
+        </div>
+
+        <div class="bar-labels">
+
+            <span>Jan</span>
+            <span>Feb</span>
+            <span>Mar</span>
+            <span>Apr</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📊 Example Data</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Month</th>
+                <th>Sales</th>
+            </tr>
+
+            <tr>
+                <td>January</td>
+                <td>40</td>
+            </tr>
+
+            <tr>
+                <td>February</td>
+                <td>65</td>
+            </tr>
+
+            <tr>
+                <td>March</td>
+                <td>85</td>
+            </tr>
+
+            <tr>
+                <td>April</td>
+                <td>55</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <p style="margin-top:20px">
+        This data can be converted into a column chart
+        to compare monthly sales.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🛠️ How to Create a Chart in Excel</h2>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Enter your data into rows and columns.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Select the complete data range.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                Go to the <b>Insert</b> tab.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <p>
+                Choose a suitable chart type.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">5</div>
+
+            <p>
+                Add a chart title and format the chart
+                as required.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🎯 Choosing the Right Chart</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>Column</h3>
+
+            <p>
+                Best for comparing categories.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>Line</h3>
+
+            <p>
+                Best for trends over time.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>Pie</h3>
+
+            <p>
+                Best for parts of a whole.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>Bar</h3>
+
+            <p>
+                Best for horizontal comparisons.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📝 Practice Task</h2>
+
+    <p>
+        Create a table containing monthly sales for
+        six months.
+    </p>
+
+    <br>
+
+    <p>
+        Select the data and create a <b>Column Chart</b>.
+    </p>
+
+    <br>
+
+    <p>
+        Give your chart a meaningful title such as
+        <b>"Monthly Sales Report"</b>.
+    </p>
+
+    <br>
+
+    <p>
+        Now create a <b>Line Chart</b> using the same
+        data and compare which chart makes the trend
+        easier to understand.
+    </p>
+
+
+    <div class="actions">
+
+        <a href="day14.html" class="btn secondary">
+            ← Previous Day
+        </a>
+
+        <a href="day16.html" class="btn primary">
+            Next: Day 16 →
+        </a>
+
+        <a href="excel.html" class="btn secondary">
+            📚 All Lessons
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Data Analytics Hub
+• Learn • Practice • Grow 🚀
+
+</footer>
+
+
+</body>
+</html>
