@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,8 +22,6 @@ body{
     background:#f5f7fb;
     color:#0f172a;
 }
-
-/* NAVBAR */
 
 .navbar{
     background:#080f1f;
@@ -51,8 +50,6 @@ body{
     cursor:pointer;
     font-weight:bold;
 }
-
-/* HERO */
 
 .hero{
     background:
@@ -88,15 +85,11 @@ body{
     line-height:1.7;
 }
 
-/* MAIN */
-
 .container{
     max-width:1100px;
     margin:auto;
     padding:40px 20px;
 }
-
-/* USER CARD */
 
 .user-card{
     background:white;
@@ -132,22 +125,16 @@ body{
     margin-top:6px;
 }
 
-/* SECTION */
-
 .section-title{
     font-size:28px;
     margin-bottom:20px;
 }
-
-/* COURSE GRID */
 
 .course-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:22px;
 }
-
-/* COURSE CARD */
 
 .course-card{
     background:white;
@@ -182,6 +169,14 @@ body{
     background:#fef3c7;
 }
 
+.sql-icon{
+    background:#dbeafe;
+}
+
+.powerbi-icon{
+    background:#fef3c7;
+}
+
 .course-card h2{
     margin-bottom:9px;
 }
@@ -190,8 +185,6 @@ body{
     color:#64748b;
     line-height:1.6;
 }
-
-/* BADGE */
 
 .course-badge{
     display:inline-block;
@@ -207,12 +200,20 @@ body{
     color:#15803d;
 }
 
-.premium-badge{
-    background:#ede9fe;
-    color:#6d28d9;
+.notes-badge{
+    background:#fef3c7;
+    color:#92400e;
 }
 
-/* BUTTONS */
+.sql-badge{
+    background:#dbeafe;
+    color:#1d4ed8;
+}
+
+.powerbi-badge{
+    background:#fef3c7;
+    color:#92400e;
+}
 
 .course-buttons{
     display:flex;
@@ -244,31 +245,6 @@ body{
     opacity:.9;
 }
 
-/* PYTHON PREMIUM */
-
-.python-card{
-    background:
-    radial-gradient(circle at 90% 10%,#7c3aed30,transparent 30%),
-    linear-gradient(135deg,#0f172a,#1e293b);
-    color:white;
-    border:1px solid #334155;
-}
-
-.python-card p{
-    color:#cbd5e1;
-}
-
-.python-card .secondary-btn{
-    background:#334155;
-    color:white;
-}
-
-.python-card .course-icon{
-    background:linear-gradient(135deg,#facc15,#3b82f6);
-}
-
-/* STATS */
-
 .stats{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -296,8 +272,6 @@ body{
     font-size:14px;
 }
 
-/* FOOTER */
-
 footer{
     background:#080f1f;
     color:#94a3b8;
@@ -305,8 +279,6 @@ footer{
     padding:30px;
     margin-top:50px;
 }
-
-/* MOBILE */
 
 @media(max-width:750px){
 
@@ -339,7 +311,6 @@ footer{
 </style>
 
 </head>
-
 
 <body>
 
@@ -404,7 +375,6 @@ footer{
 
         </div>
 
-
         <div class="info-box">
 
             <small>Email</small>
@@ -414,7 +384,6 @@ footer{
             </strong>
 
         </div>
-
 
         <div class="info-box">
 
@@ -441,7 +410,7 @@ footer{
 <div class="course-grid">
 
 
-<!-- EXCEL COURSE -->
+<!-- 1. EXCEL -->
 
 <div class="course-card">
 
@@ -477,35 +446,28 @@ footer{
 </div>
 
 
-<!-- PYTHON PREMIUM COURSE -->
+<!-- 2. PYTHON -->
 
-<div class="course-card python-card">
+<div class="course-card">
 
-    <div class="course-icon">
+    <div class="course-icon python-icon">
         🐍
     </div>
-
-    <span class="course-badge premium-badge">
-        PREMIUM NOTES
-    </span>
 
     <h2>
         Python Programming
     </h2>
 
     <p>
-        Complete Python Notes — Beginner to Pro.
-        Learn Python programming with concepts,
-        code examples and projects.
+        Complete Python programming notes with
+        concepts, examples and practical projects.
     </p>
 
-    <p style="margin-top:8px;font-size:13px;">
-        Syntax • Functions • OOP • Files • APIs • Databases
-    </p>
+    <span class="course-badge notes-badge">
+        COMPLETE NOTES
+    </span>
 
     <div class="course-buttons">
-
-        <!-- OPEN PDF -->
 
         <a
             href="python-notes.pdf"
@@ -516,15 +478,84 @@ footer{
 
         </a>
 
-
-        <!-- DOWNLOAD PDF -->
-
         <a
             href="python-notes.pdf"
             download
             class="btn secondary-btn">
 
             ⬇️ Download PDF
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- 3. SQL -->
+
+<div class="course-card">
+
+    <div class="course-icon sql-icon">
+        🗄️
+    </div>
+
+    <h2>
+        SQL for Data Analytics
+    </h2>
+
+    <p>
+        Learn SQL queries, databases, filtering,
+        joins, aggregation and data analysis.
+    </p>
+
+    <span class="course-badge sql-badge">
+        SQL COURSE
+    </span>
+
+    <div class="course-buttons">
+
+        <a
+            href="sql.html"
+            class="btn primary-btn">
+
+            📖 Start SQL
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- 4. POWER BI -->
+
+<div class="course-card">
+
+    <div class="course-icon powerbi-icon">
+        📈
+    </div>
+
+    <h2>
+        Power BI
+    </h2>
+
+    <p>
+        Learn Power BI dashboards, data visualization,
+        Power Query and business intelligence.
+    </p>
+
+    <span class="course-badge powerbi-badge">
+        POWER BI COURSE
+    </span>
+
+    <div class="course-buttons">
+
+        <a
+            href="powerbi.html"
+            class="btn primary-btn">
+
+            📖 Start Power BI
 
         </a>
 
@@ -550,24 +581,22 @@ footer{
 
     </div>
 
-
     <div class="stat">
 
         <strong>1</strong>
 
         <span>
-            Python Complete Notes
+            Python Notes
         </span>
 
     </div>
 
-
     <div class="stat">
 
-        <strong>100%</strong>
+        <strong>4</strong>
 
         <span>
-            Learning Journey
+            Learning Courses
         </span>
 
     </div>
@@ -630,3 +659,4 @@ function logoutUser(){
 </body>
 
 </html>
+```
