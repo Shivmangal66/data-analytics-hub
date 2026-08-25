@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 17 | PivotTables Basics</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+.navbar{
+    background:#080f1f;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.back{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.hero{
+    background:
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),
+    #080f1f;
+    color:white;
+    padding:70px 7%;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin:20px 0 12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+    max-width:780px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.topic{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.topic h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.topic p{
+    font-size:14px;
+}
+
+.steps{
+    margin-top:20px;
+}
+
+.step{
+    display:flex;
+    gap:15px;
+    margin:17px 0;
+    align-items:flex-start;
+}
+
+.number{
+    min-width:35px;
+    height:35px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    text-align:left;
+}
+
+th{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.formula{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:20px;
+    border-radius:12px;
+    margin-top:20px;
+    line-height:1.8;
+    overflow-x:auto;
+}
+
+.formula span{
+    color:#60a5fa;
+}
+
+.tip{
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:18px;
+    border-radius:8px;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+footer{
+    background:#080f1f;
+    color:#94a3b8;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .container{
+        padding:30px 18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        📊 Data <span>Analytics</span> Hub
+    </div>
+
+    <a href="excel.html" class="back">
+        ← Excel Course
+    </a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            DAY 17 • EXCEL MASTERY
+        </span>
+
+        <h1>
+            PivotTables Basics
+        </h1>
+
+        <p>
+            Learn how to summarize large amounts of
+            Excel data quickly using PivotTables.
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="card">
+
+    <h2>🎯 Today's Goal</h2>
+
+    <p>
+        Understand what PivotTables are, why they are
+        useful, and how to create a basic PivotTable
+        from an Excel data table.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💡 What is a PivotTable?</h2>
+
+    <p>
+        A PivotTable is an Excel tool that helps you
+        summarize, analyze and organize large datasets
+        without changing the original data.
+    </p>
+
+    <div class="tip">
+
+        💡 <b>Simple Example:</b>
+        If you have thousands of sales records,
+        a PivotTable can quickly show total sales
+        by department, employee or month.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📚 What You Will Learn</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>📊 Create PivotTable</h3>
+
+            <p>
+                Convert a normal data table into
+                a PivotTable.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📝 Rows</h3>
+
+            <p>
+                Use fields in Rows to group similar
+                records together.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔢 Values</h3>
+
+            <p>
+                Calculate Sum, Count, Average and
+                other summaries.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔍 Filters</h3>
+
+            <p>
+                Filter the PivotTable to focus on
+                specific information.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📋 Sample Sales Data</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Employee</th>
+                <th>Department</th>
+                <th>Month</th>
+                <th>Sales</th>
+            </tr>
+
+            <tr>
+                <td>Shiv</td>
+                <td>IT</td>
+                <td>January</td>
+                <td>50000</td>
+            </tr>
+
+            <tr>
+                <td>Rahul</td>
+                <td>Sales</td>
+                <td>January</td>
+                <td>45000</td>
+            </tr>
+
+            <tr>
+                <td>Aman</td>
+                <td>HR</td>
+                <td>February</td>
+                <td>40000</td>
+            </tr>
+
+            <tr>
+                <td>Priya</td>
+                <td>Finance</td>
+                <td>February</td>
+                <td>60000</td>
+            </tr>
+
+            <tr>
+                <td>Shiv</td>
+                <td>IT</td>
+                <td>March</td>
+                <td>70000</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🛠️ How to Create a PivotTable</h2>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Select your complete dataset including
+                the column headings.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Go to the <b>Insert</b> tab in Excel.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                Click <b>PivotTable</b>.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <p>
+                Select the location where you want
+                the PivotTable.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">5</div>
+
+            <p>
+                Drag fields into Rows, Columns,
+                Values or Filters.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🎯 Understanding PivotTable Areas</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>Rows</h3>
+
+            <p>
+                Groups your data into categories.
+                Example: Department.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>Columns</h3>
+
+            <p>
+                Displays categories horizontally.
+                Example: Month.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>Values</h3>
+
+            <p>
+                Performs calculations such as
+                Sum or Average.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>Filters</h3>
+
+            <p>
+                Allows you to display only selected
+                portions of the data.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📈 Example PivotTable</h2>
+
+    <p>
+        Suppose you want to find total sales
+        by department.
+    </p>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Department</th>
+                <th>Total Sales</th>
+            </tr>
+
+            <tr>
+                <td>IT</td>
+                <td>120000</td>
+            </tr>
+
+            <tr>
+                <td>Sales</td>
+                <td>45000</td>
+            </tr>
+
+            <tr>
+                <td>HR</td>
+                <td>40000</td>
+            </tr>
+
+            <tr>
+                <td>Finance</td>
+                <td>60000</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <p style="margin-top:20px">
+
+        The original dataset can contain hundreds
+        or thousands of rows, but the PivotTable
+        summarizes it into a simple report.
+
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⚠️ Common Mistakes</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>❌ Missing Headers</h3>
+
+            <p>
+                Every column should have a clear
+                heading.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Blank Rows</h3>
+
+            <p>
+                Avoid unnecessary blank rows inside
+                your dataset.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Wrong Field Area</h3>
+
+            <p>
+                Place fields in the correct PivotTable
+                areas.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Forgetting Refresh</h3>
+
+            <p>
+                Refresh your PivotTable when the
+                source data changes.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📝 Practice Task</h2>
+
+    <p>
+        Create a sales dataset containing at least
+        20 records with Employee, Department,
+        Month and Sales columns.
+    </p>
+
+    <br>
+
+    <p>
+        Create a PivotTable that shows
+        <b>Total Sales by Department</b>.
+    </p>
+
+    <br>
+
+    <p>
+        Then add Month to the Columns area and
+        observe how the report changes.
+    </p>
+
+    <br>
+
+    <p>
+        Finally, add Department to the Filter area
+        and practice filtering your report.
+    </p>
+
+
+    <div class="actions">
+
+        <a href="day16.html" class="btn secondary">
+            ← Previous Day
+        </a>
+
+        <a href="day18.html" class="btn primary">
+            Next: Day 18 →
+        </a>
+
+        <a href="excel.html" class="btn secondary">
+            📚 All Lessons
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Data Analytics Hub
+• Learn • Practice • Grow 🚀
+
+</footer>
+
+
+</body>
+
+</html>
