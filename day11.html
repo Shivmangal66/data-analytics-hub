@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 11 | Advanced Conditional Formatting</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+.navbar{
+    background:#080f1f;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.back{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.hero{
+    background:
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),
+    #080f1f;
+
+    color:white;
+    padding:70px 7%;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin:20px 0 12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+    max-width:750px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.topic{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.topic h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.example{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:22px;
+    border-radius:12px;
+    margin-top:20px;
+    line-height:2;
+    overflow-x:auto;
+}
+
+.example span{
+    color:#60a5fa;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #cbd5e1;
+}
+
+th{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+footer{
+    background:#080f1f;
+    color:#94a3b8;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .container{
+        padding:30px 18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+📊 Data <span>Analytics</span> Hub
+</div>
+
+<a href="excel.html" class="back">
+← Excel Course
+</a>
+
+</nav>
+
+
+<section class="hero">
+
+<div class="hero-content">
+
+<span class="badge">
+DAY 11 • EXCEL MASTERY
+</span>
+
+<h1>
+Advanced Conditional Formatting
+</h1>
+
+<p>
+Learn how to use formula-based conditional formatting
+to automatically highlight important information in
+your Excel datasets.
+</p>
+
+</div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="card">
+
+<h2>🎯 Today's Goal</h2>
+
+<p>
+Learn how to create advanced conditional formatting
+rules using formulas so Excel can automatically
+highlight cells or complete rows based on conditions.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>📚 What You Will Learn</h2>
+
+<div class="grid">
+
+<div class="topic">
+
+<h3>🎨 Formula-Based Formatting</h3>
+
+<p>
+Create your own formula to decide when formatting
+should be applied.
+</p>
+
+</div>
+
+
+<div class="topic">
+
+<h3>🔴 Highlight Rows</h3>
+
+<p>
+Automatically highlight an entire row when a condition
+is satisfied.
+</p>
+
+</div>
+
+
+<div class="topic">
+
+<h3>📊 Multiple Conditions</h3>
+
+<p>
+Combine logical conditions with AND and OR.
+</p>
+
+</div>
+
+
+<div class="topic">
+
+<h3>⚡ Dynamic Formatting</h3>
+
+<p>
+Formatting changes automatically when the underlying
+data changes.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>💡 Formula-Based Conditional Formatting</h2>
+
+<p>
+Suppose you have a student table and want to highlight
+students who failed.
+</p>
+
+<div class="example">
+
+<span>Formula:</span>
+
+<br><br>
+
+=$D2="Fail"
+
+<br><br>
+
+This rule can be applied to the complete data range
+to highlight rows where the Status column contains
+"Fail".
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>📊 Worked Example</h2>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Math</th>
+<th>Science</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Aisha</td>
+<td>88</td>
+<td>92</td>
+<td>Pass</td>
+</tr>
+
+<tr>
+<td>Ravi</td>
+<td>35</td>
+<td>45</td>
+<td>Fail</td>
+</tr>
+
+<tr>
+<td>Meera</td>
+<td>78</td>
+<td>81</td>
+<td>Pass</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="example">
+
+<span>Example rule:</span>
+
+<br>
+
+=$D2="Fail"
+
+<br><br>
+
+Result → Ravi's complete row can be highlighted.
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>🔗 Using AND</h2>
+
+<p>
+You can use AND when multiple conditions must be
+true at the same time.
+</p>
+
+<div class="example">
+
+=AND($B2&lt;40,$C2&lt;40)
+
+<br><br>
+
+This can identify students who scored below 40
+in both subjects.
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>📝 Practice Task</h2>
+
+<p>
+Create a student marks table with Name, Math,
+Science and Status columns.
+</p>
+
+<br>
+
+<p>
+Create a formula-based conditional formatting rule
+that highlights the complete row whenever Status
+equals "Fail".
+</p>
+
+<br>
+
+<p>
+Then create another rule to identify students who
+scored below 40 in both subjects.
+</p>
+
+
+<div class="actions">
+
+<a href="day10.html" class="btn secondary">
+← Previous Day
+</a>
+
+<a href="day12.html" class="btn primary">
+Next: Day 12 →
+</a>
+
+<a href="excel.html" class="btn secondary">
+📚 All Lessons
+</a>
+
+</div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Data Analytics Hub
+• Learn • Practice • Grow 🚀
+
+</footer>
+
+</body>
+</html>
