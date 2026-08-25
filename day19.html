@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 19 | INDEX & MATCH</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+.navbar{
+    background:#080f1f;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.back{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.hero{
+    background:
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),
+    #080f1f;
+    color:white;
+    padding:70px 7%;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin:20px 0 12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+    max-width:800px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.topic{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.topic h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.topic p{
+    font-size:14px;
+}
+
+.formula{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:22px;
+    border-radius:12px;
+    margin-top:20px;
+    line-height:2;
+    overflow-x:auto;
+    font-family:monospace;
+}
+
+.formula span{
+    color:#60a5fa;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    text-align:left;
+}
+
+th{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.steps{
+    margin-top:20px;
+}
+
+.step{
+    display:flex;
+    gap:15px;
+    margin:17px 0;
+    align-items:flex-start;
+}
+
+.number{
+    min-width:35px;
+    height:35px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.tip{
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:18px;
+    border-radius:8px;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+footer{
+    background:#080f1f;
+    color:#94a3b8;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .container{
+        padding:30px 18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        📊 Data <span>Analytics</span> Hub
+    </div>
+
+    <a href="excel.html" class="back">
+        ← Excel Course
+    </a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            DAY 19 • EXCEL MASTERY
+        </span>
+
+        <h1>
+            INDEX & MATCH
+        </h1>
+
+        <p>
+            Learn how INDEX and MATCH work together
+            to create flexible lookup solutions in Excel.
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="card">
+
+    <h2>🎯 Today's Goal</h2>
+
+    <p>
+        Understand INDEX and MATCH separately and then
+        combine them to look up information from a table.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📚 What You Will Learn</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>🔎 MATCH</h3>
+
+            <p>
+                Finds the position of a value inside
+                a selected range.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📍 INDEX</h3>
+
+            <p>
+                Returns a value from a specified
+                position in a range.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔗 INDEX + MATCH</h3>
+
+            <p>
+                Combine both functions to create
+                a flexible lookup formula.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>💼 Practical Lookup</h3>
+
+            <p>
+                Use the combination to retrieve
+                employee or sales information.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💡 What is MATCH?</h2>
+
+    <p>
+        MATCH searches for a value in a range and
+        returns its position.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =MATCH(lookup_value, lookup_array, 0)
+        </span>
+
+    </div>
+
+    <div class="tip">
+
+        Example: If "Aman" is the third name in a list,
+        MATCH can return <b>3</b>.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📍 What is INDEX?</h2>
+
+    <p>
+        INDEX returns a value from a particular
+        position in a range.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =INDEX(array, row_num)
+        </span>
+
+    </div>
+
+    <div class="tip">
+
+        Example: If the third cell in a salary range
+        contains 50,000, INDEX can return <b>50,000</b>.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📊 Sample Data</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Salary</th>
+            </tr>
+
+            <tr>
+                <td>101</td>
+                <td>Shiv</td>
+                <td>IT</td>
+                <td>55000</td>
+            </tr>
+
+            <tr>
+                <td>102</td>
+                <td>Rahul</td>
+                <td>Sales</td>
+                <td>45000</td>
+            </tr>
+
+            <tr>
+                <td>103</td>
+                <td>Aman</td>
+                <td>HR</td>
+                <td>50000</td>
+            </tr>
+
+            <tr>
+                <td>104</td>
+                <td>Priya</td>
+                <td>Finance</td>
+                <td>60000</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔗 INDEX + MATCH</h2>
+
+    <p>
+        INDEX and MATCH can be combined to find a
+        value based on a lookup value.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =INDEX(D2:D5,MATCH(F2,A2:A5,0))
+        </span>
+
+    </div>
+
+    <p style="margin-top:20px">
+
+        Here, Excel first uses MATCH to find the
+        position of the Employee ID and then INDEX
+        returns the corresponding Salary.
+
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🛠️ How It Works</h2>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Enter an Employee ID in cell F2.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                MATCH searches for that ID in
+                A2:A5.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                MATCH returns the position of
+                the employee.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <p>
+                INDEX uses that position to return
+                the corresponding salary.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💰 Example</h2>
+
+    <p>
+        If F2 contains Employee ID <b>103</b>:
+    </p>
+
+    <div class="formula">
+
+        F2 = 103
+
+        <br><br>
+
+        <span>
+        =INDEX(D2:D5,MATCH(F2,A2:A5,0))
+        </span>
+
+        <br><br>
+
+        Result → <b>50000</b>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⚖️ INDEX + MATCH vs VLOOKUP</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Feature</th>
+                <th>VLOOKUP</th>
+                <th>INDEX + MATCH</th>
+            </tr>
+
+            <tr>
+                <td>Lookup</td>
+                <td>Vertical</td>
+                <td>Flexible</td>
+            </tr>
+
+            <tr>
+                <td>Formula</td>
+                <td>Simple</td>
+                <td>More advanced</td>
+            </tr>
+
+            <tr>
+                <td>Learning</td>
+                <td>Beginner friendly</td>
+                <td>Intermediate</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⚠️ Common Mistakes</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>❌ Wrong Range</h3>
+
+            <p>
+                Make sure INDEX and MATCH ranges
+                correspond correctly.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Missing 0</h3>
+
+            <p>
+                Use 0 in MATCH when you need
+                an exact match.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Different Range Sizes</h3>
+
+            <p>
+                Keep the lookup and result ranges
+                aligned.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Wrong Lookup Value</h3>
+
+            <p>
+                Check that the lookup value actually
+                exists in the source data.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📝 Practice Task</h2>
+
+    <p>
+        Create an employee table with Employee ID,
+        Name, Department and Salary.
+    </p>
+
+    <br>
+
+    <p>
+        Enter an Employee ID into a separate cell.
+    </p>
+
+    <br>
+
+    <p>
+        Use INDEX + MATCH to return the employee's
+        Name.
+    </p>
+
+    <br>
+
+    <p>
+        Create another INDEX + MATCH formula to
+        return the employee's Salary.
+    </p>
+
+
+    <div class="actions">
+
+        <a href="day18.html" class="btn secondary">
+            ← Previous Day
+        </a>
+
+        <a href="day20.html" class="btn primary">
+            Next: Day 20 →
+        </a>
+
+        <a href="excel.html" class="btn secondary">
+            📚 All Lessons
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Data Analytics Hub
+• Learn • Practice • Grow 🚀
+
+</footer>
+
+
+</body>
+
+</html>
