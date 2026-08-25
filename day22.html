@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 22 | Data Validation</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+.navbar{
+    background:#080f1f;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.back{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.hero{
+    background:
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),
+    #080f1f;
+    color:white;
+    padding:70px 7%;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin:20px 0 12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+    max-width:800px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.topic{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.topic h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.topic p{
+    font-size:14px;
+}
+
+.formula{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:22px;
+    border-radius:12px;
+    margin-top:20px;
+    line-height:2;
+    overflow-x:auto;
+    font-family:monospace;
+}
+
+.formula span{
+    color:#60a5fa;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    text-align:left;
+}
+
+th{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.steps{
+    margin-top:20px;
+}
+
+.step{
+    display:flex;
+    gap:15px;
+    margin:17px 0;
+    align-items:flex-start;
+}
+
+.number{
+    min-width:35px;
+    height:35px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.tip{
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:18px;
+    border-radius:8px;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+footer{
+    background:#080f1f;
+    color:#94a3b8;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .container{
+        padding:30px 18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        📊 Data <span>Analytics</span> Hub
+    </div>
+
+    <a href="excel.html" class="back">
+        ← Excel Course
+    </a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            DAY 22 • EXCEL MASTERY
+        </span>
+
+        <h1>
+            Data Validation
+        </h1>
+
+        <p>
+            Learn how to control data entry, create
+            drop-down lists and reduce mistakes in
+            Excel worksheets.
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="card">
+
+    <h2>🎯 Today's Goal</h2>
+
+    <p>
+        Learn how Data Validation helps you control
+        what users can enter into an Excel cell and
+        how to create professional drop-down lists.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📚 What You Will Learn</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>✅ Data Validation</h3>
+
+            <p>
+                Control the type of information that
+                can be entered into a cell.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔽 Drop-down List</h3>
+
+            <p>
+                Create selectable options inside
+                an Excel cell.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔢 Number Rules</h3>
+
+            <p>
+                Restrict cells to specific numbers
+                or ranges.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📅 Date Rules</h3>
+
+            <p>
+                Allow users to enter only valid
+                dates within a selected range.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💡 What is Data Validation?</h2>
+
+    <p>
+        Data Validation is an Excel feature used to
+        control the type of data that users can enter
+        into a cell.
+    </p>
+
+    <div class="tip">
+
+        💡 Example: If a Department column should
+        contain only <b>IT, HR, Sales or Finance</b>,
+        you can create a drop-down list instead of
+        allowing users to type anything.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔽 Create a Drop-down List</h2>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Select the cell or cells where you
+                want the drop-down list.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Go to the <b>Data</b> tab.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                Select <b>Data Validation</b>.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <p>
+                Choose <b>List</b> as the validation
+                criteria.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">5</div>
+
+            <p>
+                Enter your options, for example:
+                IT, HR, Sales, Finance.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">6</div>
+
+            <p>
+                Click <b>OK</b>.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📊 Example Dataset</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Employee</th>
+                <th>Department</th>
+                <th>Experience</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>Shiv</td>
+                <td>IT</td>
+                <td>2</td>
+                <td>Active</td>
+            </tr>
+
+            <tr>
+                <td>Rahul</td>
+                <td>Sales</td>
+                <td>3</td>
+                <td>Active</td>
+            </tr>
+
+            <tr>
+                <td>Aman</td>
+                <td>HR</td>
+                <td>1</td>
+                <td>Inactive</td>
+            </tr>
+
+            <tr>
+                <td>Priya</td>
+                <td>Finance</td>
+                <td>4</td>
+                <td>Active</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔢 Number Validation</h2>
+
+    <p>
+        Data Validation can also restrict numbers.
+        For example, you may want Experience to be
+        between 0 and 40 years.
+    </p>
+
+    <div class="formula">
+
+        Validation Rule:
+
+        <br><br>
+
+        <span>
+        Whole Number → between → 0 and 40
+        </span>
+
+    </div>
+
+    <div class="tip">
+
+        This prevents users from accidentally entering
+        values such as <b>-5</b> or <b>100</b>.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📅 Date Validation</h2>
+
+    <p>
+        You can restrict a cell to accept dates only
+        within a specific period.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        Date → between → Start Date → End Date
+        </span>
+
+    </div>
+
+    <p style="margin-top:20px">
+
+        This is useful for attendance sheets,
+        employee records, sales reports and project
+        tracking.
+
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⚠️ Input Message</h2>
+
+    <p>
+        Data Validation can display a message when
+        a user selects the cell.
+    </p>
+
+    <div class="tip">
+
+        Example:
+
+        <br><br>
+
+        <b>Title:</b> Department
+
+        <br>
+
+        <b>Message:</b> Please select a department
+        from the drop-down list.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🚫 Error Alert</h2>
+
+    <p>
+        Error Alerts can warn users when they enter
+        invalid data.
+    </p>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>🛑 Stop</h3>
+
+            <p>
+                Prevents invalid data from being
+                entered.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>⚠️ Warning</h3>
+
+            <p>
+                Warns the user but can allow the
+                entry.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>ℹ️ Information</h3>
+
+            <p>
+                Shows an information message about
+                the validation rule.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💼 Real-World Uses</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>👨‍💼 Employee Data</h3>
+
+            <p>
+                Department and employee status
+                drop-downs.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🎓 Student Data</h3>
+
+            <p>
+                Course, semester and result
+                selection.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>💰 Sales Data</h3>
+
+            <p>
+                Product category and sales status
+                selection.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📦 Inventory</h3>
+
+            <p>
+                Product type and stock status
+                selection.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⚠️ Common Mistakes</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>❌ Wrong Range</h3>
+
+            <p>
+                Make sure the correct cells are
+                selected before applying validation.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Wrong List Items</h3>
+
+            <p>
+                Check that all required options are
+                included in the list.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ No Error Alert</h3>
+
+            <p>
+                Configure an appropriate error alert
+                for invalid entries.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Manual Typing</h3>
+
+            <p>
+                Use drop-down lists when users should
+                choose from fixed options.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📝 Practice Task</h2>
+
+    <p>
+        Create an employee data sheet with the
+        following columns:
+    </p>
+
+    <br>
+
+    <p>
+        <b>Name | Department | Gender | Status | Experience</b>
+    </p>
+
+    <br>
+
+    <p>
+        Create a drop-down list for Department:
+        <b>IT, HR, Sales, Finance</b>.
+    </p>
+
+    <br>
+
+    <p>
+        Create a drop-down list for Status:
+        <b>Active, Inactive</b>.
+    </p>
+
+    <br>
+
+    <p>
+        Apply number validation to Experience so
+        only values between <b>0 and 40</b> are allowed.
+    </p>
+
+    <br>
+
+    <p>
+        Finally, add an error message for invalid
+        entries.
+    </p>
+
+
+    <div class="actions">
+
+        <a href="day21.html" class="btn secondary">
+            ← Previous Day
+        </a>
+
+        <a href="day23.html" class="btn primary">
+            Next: Day 23 →
+        </a>
+
+        <a href="excel.html" class="btn secondary">
+            📚 All Lessons
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Data Analytics Hub
+• Learn • Practice • Grow 🚀
+
+</footer>
+
+
+</body>
+
+</html>
