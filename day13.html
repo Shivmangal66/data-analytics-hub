@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 13 | VLOOKUP | Data Analytics Hub</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+.navbar{
+    background:#080f1f;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.back{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.hero{
+    background:
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),
+    #080f1f;
+
+    color:white;
+    padding:70px 7%;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:48px;
+    margin:20px 0 12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+    max-width:780px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.topic{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.topic h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.topic p{
+    font-size:14px;
+}
+
+.formula{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:22px;
+    border-radius:12px;
+    margin-top:20px;
+    line-height:2;
+    font-family:monospace;
+    overflow-x:auto;
+}
+
+.formula span{
+    color:#60a5fa;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    text-align:left;
+}
+
+th{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+footer{
+    background:#080f1f;
+    color:#94a3b8;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .container{
+        padding:30px 18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        📊 Data <span>Analytics</span> Hub
+    </div>
+
+    <a href="excel.html" class="back">
+        ← Excel Course
+    </a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            DAY 13 • EXCEL MASTERY
+        </span>
+
+        <h1>
+            VLOOKUP
+        </h1>
+
+        <p>
+            Learn how VLOOKUP can search for a value
+            in a table and return related information
+            automatically.
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="card">
+
+    <h2>🎯 Today's Goal</h2>
+
+    <p>
+        Understand how VLOOKUP works and use it to
+        retrieve information from a table using a
+        lookup value.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📚 What You Will Learn</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>🔎 Lookup Value</h3>
+
+            <p>
+                The value you want Excel to search for
+                in the first column of your table.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📋 Table Array</h3>
+
+            <p>
+                The range containing the lookup data
+                and the information you want to return.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔢 Column Index</h3>
+
+            <p>
+                The number of the column from which
+                Excel should return the result.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🎯 Exact Match</h3>
+
+            <p>
+                Use FALSE when you want an exact match
+                for the lookup value.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💡 VLOOKUP Syntax</h2>
+
+    <div class="formula">
+
+        <span>
+        =VLOOKUP(lookup_value, table_array, col_index_num, FALSE)
+        </span>
+
+    </div>
+
+    <p style="margin-top:20px">
+
+        VLOOKUP searches vertically through the first
+        column of a selected table and returns a value
+        from another column in the same row.
+
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📊 Worked Example</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Salary</th>
+            </tr>
+
+            <tr>
+                <td>101</td>
+                <td>Shiv</td>
+                <td>IT</td>
+                <td>55000</td>
+            </tr>
+
+            <tr>
+                <td>102</td>
+                <td>Rahul</td>
+                <td>Sales</td>
+                <td>45000</td>
+            </tr>
+
+            <tr>
+                <td>103</td>
+                <td>Aman</td>
+                <td>HR</td>
+                <td>50000</td>
+            </tr>
+
+            <tr>
+                <td>104</td>
+                <td>Priya</td>
+                <td>Finance</td>
+                <td>60000</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔍 Find an Employee's Name</h2>
+
+    <p>
+        Suppose cell F2 contains Employee ID:
+    </p>
+
+    <div class="formula">
+
+        F2 = 103
+
+        <br><br>
+
+        <span>
+        =VLOOKUP(F2,A2:D5,2,FALSE)
+        </span>
+
+        <br><br>
+
+        Result → Aman
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💰 Find Salary</h2>
+
+    <p>
+        To return the Salary column, use column
+        number 4.
+    </p>
+
+    <div class="formula">
+
+        <span>
+        =VLOOKUP(F2,A2:D5,4,FALSE)
+        </span>
+
+        <br><br>
+
+        Result → 50000
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⚠️ Common Mistakes</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>❌ Wrong Column</h3>
+
+            <p>
+                The lookup value must be in the
+                first column of the selected table.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Wrong Column Number</h3>
+
+            <p>
+                Check the column index carefully.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Missing FALSE</h3>
+
+            <p>
+                Use FALSE when an exact match
+                is required.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Incorrect Range</h3>
+
+            <p>
+                Make sure the table range includes
+                both the lookup and result columns.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📝 Practice Task</h2>
+
+    <p>
+        Create an employee table with ID, Name,
+        Department and Salary.
+    </p>
+
+    <br>
+
+    <p>
+        Enter an Employee ID in another cell and use
+        VLOOKUP to automatically display the employee's
+        Name.
+    </p>
+
+    <br>
+
+    <p>
+        Then create another VLOOKUP formula to return
+        the employee's Salary.
+    </p>
+
+
+    <div class="actions">
+
+        <a href="day12.html" class="btn secondary">
+            ← Previous Day
+        </a>
+
+        <a href="day14.html" class="btn primary">
+            Next: Day 14 →
+        </a>
+
+        <a href="excel.html" class="btn secondary">
+            📚 All Lessons
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Data Analytics Hub
+• Learn • Practice • Grow 🚀
+
+</footer>
+
+
+</body>
+</html>
