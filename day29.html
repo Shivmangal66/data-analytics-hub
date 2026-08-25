@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 29 | Power Query & Data Cleaning</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#0f172a;
+}
+
+.navbar{
+    background:#080f1f;
+    color:white;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.back{
+    color:#cbd5e1;
+    text-decoration:none;
+}
+
+.hero{
+    background:
+    radial-gradient(circle at 15% 20%,#2563eb45,transparent 35%),
+    radial-gradient(circle at 85% 80%,#7c3aed40,transparent 35%),
+    #080f1f;
+    color:white;
+    padding:70px 7%;
+}
+
+.hero-content{
+    max-width:1100px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff18;
+    color:#93c5fd;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin:20px 0 12px;
+}
+
+.hero p{
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
+    max-width:800px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:22px;
+    box-shadow:0 8px 25px #00000008;
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#475569;
+    line-height:1.8;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:20px;
+}
+
+.topic{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:20px;
+}
+
+.topic h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.topic p{
+    font-size:14px;
+}
+
+.steps{
+    margin-top:20px;
+}
+
+.step{
+    display:flex;
+    gap:15px;
+    margin:17px 0;
+    align-items:flex-start;
+}
+
+.number{
+    min-width:35px;
+    height:35px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #cbd5e1;
+    text-align:left;
+}
+
+th{
+    background:#eff6ff;
+    color:#1d4ed8;
+}
+
+.tip{
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:18px;
+    border-radius:8px;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.warning{
+    background:#fff7ed;
+    border-left:5px solid #f97316;
+    padding:18px;
+    border-radius:8px;
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.formula{
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:22px;
+    border-radius:12px;
+    margin-top:20px;
+    line-height:2;
+    overflow-x:auto;
+    font-family:monospace;
+}
+
+.formula span{
+    color:#60a5fa;
+}
+
+.actions{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.secondary{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+footer{
+    background:#080f1f;
+    color:#94a3b8;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding:50px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .container{
+        padding:30px 18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        📊 Data <span>Analytics</span> Hub
+    </div>
+
+    <a href="excel.html" class="back">
+        ← Excel Course
+    </a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            DAY 29 • EXCEL MASTERY
+        </span>
+
+        <h1>
+            Power Query & Data Cleaning
+        </h1>
+
+        <p>
+            Learn how to import, clean, transform and
+            prepare messy data for professional analysis
+            using Excel Power Query.
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="container">
+
+
+<div class="card">
+
+    <h2>🎯 Today's Goal</h2>
+
+    <p>
+        Today you will learn how to turn messy raw data
+        into clean and analysis-ready data using
+        Power Query.
+    </p>
+
+    <div class="tip">
+
+        💡 Data Analysts often spend a large amount of
+        time cleaning data before starting analysis.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📚 What You Will Learn</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>📥 Import Data</h3>
+
+            <p>
+                Import data from Excel files, CSV files
+                and other supported sources.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🧹 Clean Data</h3>
+
+            <p>
+                Remove duplicates, errors and unwanted
+                information.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔄 Transform Data</h3>
+
+            <p>
+                Change columns, rows, data types and
+                formats.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>⚡ Refresh Data</h3>
+
+            <p>
+                Refresh queries when the source data
+                changes.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💡 What is Power Query?</h2>
+
+    <p>
+        Power Query is an Excel feature used to import,
+        connect, clean and transform data before using
+        it for analysis.
+    </p>
+
+    <div class="tip">
+
+        Think of Power Query as a data preparation
+        tool that lets you repeat the same cleaning
+        process efficiently.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧹 What is Data Cleaning?</h2>
+
+    <p>
+        Data Cleaning means finding and fixing problems
+        in raw data so that the data becomes accurate,
+        consistent and ready for analysis.
+    </p>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>❌ Duplicates</h3>
+
+            <p>
+                Remove repeated records.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>⚠️ Missing Values</h3>
+
+            <p>
+                Identify and handle blank values.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔤 Text Problems</h3>
+
+            <p>
+                Fix extra spaces and inconsistent text.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>🔢 Data Types</h3>
+
+            <p>
+                Make sure numbers, dates and text have
+                the correct data type.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📋 Example of Messy Data</h2>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Sales</th>
+            </tr>
+
+            <tr>
+                <td> Rahul </td>
+                <td>Delhi</td>
+                <td>50000</td>
+            </tr>
+
+            <tr>
+                <td>Rahul</td>
+                <td>Delhi</td>
+                <td>50000</td>
+            </tr>
+
+            <tr>
+                <td>PRIYA</td>
+                <td>delhi</td>
+                <td>45000</td>
+            </tr>
+
+            <tr>
+                <td>Aman</td>
+                <td></td>
+                <td>35000</td>
+            </tr>
+
+            <tr>
+                <td>Neha</td>
+                <td>Mumbai</td>
+                <td>invalid</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="warning">
+
+        ⚠️ Problems include duplicate records,
+        extra spaces, inconsistent text and invalid
+        values.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🛠️ Open Power Query</h2>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Open Excel.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Go to the <b>Data</b> tab.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                Look for the <b>Get & Transform Data</b>
+                section.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <p>
+                Choose a data source such as
+                <b>From Table/Range</b> or
+                <b>From Text/CSV</b>.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">5</div>
+
+            <p>
+                The Power Query Editor will open.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🧹 Remove Duplicates</h2>
+
+    <p>
+        Duplicate records can affect your analysis.
+        Power Query allows you to remove duplicate rows.
+    </p>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Select the column or columns you want
+                to check.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Go to <b>Home → Remove Rows</b>.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                Select <b>Remove Duplicates</b>.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>✂️ Remove Extra Spaces</h2>
+
+    <p>
+        Extra spaces can cause matching and analysis
+        problems.
+    </p>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Select the required text column.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Go to <b>Transform → Format</b>.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                Select <b>Trim</b>.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="tip">
+
+        Trim removes unnecessary spaces from the
+        beginning and end of text.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔠 Change Text Case</h2>
+
+    <p>
+        Power Query can transform text into different
+        formats.
+    </p>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>UPPERCASE</h3>
+
+            <p>
+                Converts text to capital letters.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>lowercase</h3>
+
+            <p>
+                Converts text to small letters.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>Capitalize Each Word</h3>
+
+            <p>
+                Makes the first letter of each word
+                uppercase.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>Trim</h3>
+
+            <p>
+                Removes unnecessary spaces.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔢 Change Data Type</h2>
+
+    <p>
+        Correct data types are important for accurate
+        calculations and analysis.
+    </p>
+
+    <div class="table-wrap">
+
+        <table>
+
+            <tr>
+                <th>Data</th>
+                <th>Correct Type</th>
+            </tr>
+
+            <tr>
+                <td>50000</td>
+                <td>Whole Number / Decimal Number</td>
+            </tr>
+
+            <tr>
+                <td>25-08-2026</td>
+                <td>Date</td>
+            </tr>
+
+            <tr>
+                <td>Rahul</td>
+                <td>Text</td>
+            </tr>
+
+            <tr>
+                <td>85.5</td>
+                <td>Decimal Number</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>❌ Handle Errors</h2>
+
+    <p>
+        Power Query can identify cells containing
+        errors so that they can be replaced or removed.
+    </p>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Select the column containing errors.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Use the options under
+                <b>Remove Rows</b> or
+                <b>Replace Values</b>.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>➕ Fill Missing Values</h2>
+
+    <p>
+        Missing values can sometimes be filled using
+        a previous or next value, depending on the
+        structure of your dataset.
+    </p>
+
+    <div class="tip">
+
+        💡 Always understand why a value is missing
+        before replacing it. Do not blindly fill every
+        blank cell.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔀 Split Columns</h2>
+
+    <p>
+        A single column can sometimes contain multiple
+        pieces of information.
+    </p>
+
+    <div class="formula">
+
+        Example:
+
+        <br><br>
+
+        <span>Shiv Mishra</span>
+
+        <br><br>
+
+        Can be split into:
+
+        <br>
+
+        <span>First Name | Last Name</span>
+
+    </div>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Select the column.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Select <b>Split Column</b>.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                Choose a separator such as space,
+                comma or another delimiter.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔗 Merge Queries</h2>
+
+    <p>
+        Merge Queries allows you to combine information
+        from two tables based on a common column.
+    </p>
+
+    <div class="tip">
+
+        Example: Combine an Employee table with a
+        Department table using Employee ID.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📚 Append Queries</h2>
+
+    <p>
+        Append Queries is used to stack rows from
+        multiple tables with similar columns.
+    </p>
+
+    <div class="tip">
+
+        Example: Combine January, February and March
+        sales tables into one complete sales table.
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>🔄 Refresh Power Query</h2>
+
+    <p>
+        One of the biggest advantages of Power Query
+        is that your transformation steps can be
+        repeated when new source data arrives.
+    </p>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <p>
+                Update the source data.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <p>
+                Refresh the query.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <p>
+                Power Query applies the saved
+                transformation steps to the refreshed
+                data.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>💼 Real-World Uses</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>📊 Sales Reports</h3>
+
+            <p>
+                Combine and clean monthly sales data.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>👨‍💼 Employee Data</h3>
+
+            <p>
+                Clean employee records from multiple
+                files.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📦 Inventory</h3>
+
+            <p>
+                Combine inventory files and standardize
+                product information.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>📈 Data Analytics</h3>
+
+            <p>
+                Prepare clean data before creating
+                dashboards and reports.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>⚠️ Common Mistakes</h2>
+
+    <div class="grid">
+
+        <div class="topic">
+
+            <h3>❌ Wrong Data Type</h3>
+
+            <p>
+                Numbers stored as text can cause
+                calculation problems.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Blindly Removing Data</h3>
+
+            <p>
+                Understand the data before deleting
+                rows or columns.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Ignoring Duplicates</h3>
+
+            <p>
+                Duplicate records can produce incorrect
+                analysis.
+            </p>
+
+        </div>
+
+
+        <div class="topic">
+
+            <h3>❌ Not Refreshing</h3>
+
+            <p>
+                Refresh the query after source data
+                changes.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>📝 Practice Task</h2>
+
+    <p>
+        Create a messy sales dataset containing at least
+        <b>100 records</b>.
+    </p>
+
+    <br>
+
+    <p>
+        Your dataset should contain duplicate rows,
+        extra spaces, inconsistent city names and
+        some blank values.
+    </p>
+
+    <br>
+
+    <p>
+        1️⃣ Import the dataset into Power Query.
+    </p>
+
+    <br>
+
+    <p>
+        2️⃣ Remove duplicate records.
+    </p>
+
+    <br>
+
+    <p>
+        3️⃣ Trim unnecessary spaces.
+    </p>
+
+    <br>
+
+    <p>
+        4️⃣ Standardize text formatting.
+    </p>
+
+    <br>
+
+    <p>
+        5️⃣ Correct the data types.
+    </p>
+
+    <br>
+
+    <p>
+        6️⃣ Handle missing values.
+    </p>
+
+    <br>
+
+    <p>
+        7️⃣ Load the cleaned data back into Excel.
+    </p>
+
+    <div class="tip">
+
+        🏆 Challenge:
+        Combine three monthly sales files using
+        Power Query and create one clean master table.
+
+    </div>
+
+
+    <div class="actions">
+
+        <a href="day28.html" class="btn secondary">
+            ← Previous Day
+        </a>
+
+        <a href="day30.html" class="btn primary">
+            Next: Day 30 →
+        </a>
+
+        <a href="excel.html" class="btn secondary">
+            📚 All Lessons
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Data Analytics Hub
+• Learn • Practice • Grow 🚀
+
+</footer>
+
+
+</body>
+
+</html>
