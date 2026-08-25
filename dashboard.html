@@ -284,8 +284,6 @@ body{
     box-shadow:
     0 5px 20px #00000006;
 
-    position:relative;
-
     display:flex;
 
     flex-direction:column;
@@ -391,169 +389,45 @@ body{
     opacity:.9;
 }
 
+/* ================= PYTHON CARD DUAL BUTTONS ================= */
 
-/* ================= PYTHON PREMIUM CARD STYLES ================= */
+.btn-group {
 
-.course-card.premium-card {
+    display:flex;
 
-    border: 2px solid #eab308;
+    flex-direction:column;
 
-    background: linear-gradient(180deg, #ffffff 0%, #fffdf0 100%);
+    gap:8px;
 
-    box-shadow: 0 8px 25px rgba(234, 179, 8, 0.15);
+    margin-top:20px;
 }
 
-.premium-badge {
+.btn-pdf {
 
-    position: absolute;
+    display:block;
 
-    top: 15px;
+    text-align:center;
 
-    right: 15px;
+    padding:10px;
 
-    background: linear-gradient(135deg, #eab308, #ca8a04);
+    border-radius:9px;
 
-    color: white;
+    text-decoration:none;
 
-    font-size: 11px;
+    background:#059669;
 
-    font-weight: 800;
+    color:white;
 
-    padding: 4px 10px;
+    font-size:13px;
 
-    border-radius: 20px;
+    font-weight:bold;
 
-    text-transform: uppercase;
-
-    letter-spacing: 0.5px;
-
-    box-shadow: 0 2px 8px rgba(234, 179, 8, 0.4);
+    transition:.25s;
 }
 
-.course-card.premium-card .course-icon {
+.btn-pdf:hover {
 
-    background: #fef9c3;
-}
-
-.python-features {
-
-    list-style: none;
-
-    margin: 12px 0;
-
-    padding: 0;
-}
-
-.python-features li {
-
-    font-size: 12px;
-
-    color: #475569;
-
-    margin-bottom: 6px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 6px;
-}
-
-.price-tag {
-
-    margin-top: 10px;
-
-    font-size: 18px;
-
-    font-weight: 800;
-
-    color: #0f172a;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-}
-
-.original-price {
-
-    font-size: 13px;
-
-    color: #94a3b8;
-
-    text-decoration: line-through;
-
-    font-weight: normal;
-}
-
-.action-buttons {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 8px;
-
-    margin-top: 15px;
-}
-
-.btn-buy {
-
-    background: linear-gradient(135deg, #eab308, #ca8a04);
-
-    color: white;
-
-    text-align: center;
-
-    padding: 10px;
-
-    border-radius: 8px;
-
-    font-size: 13px;
-
-    font-weight: bold;
-
-    text-decoration: none;
-
-    transition: 0.2s;
-}
-
-.btn-buy:hover {
-
-    opacity: 0.95;
-
-    transform: translateY(-1px);
-}
-
-.btn-view {
-
-    background: transparent;
-
-    color: #475569;
-
-    border: 1px solid #cbd5e1;
-
-    text-align: center;
-
-    padding: 8px;
-
-    border-radius: 8px;
-
-    font-size: 12px;
-
-    font-weight: bold;
-
-    text-decoration: none;
-
-    transition: 0.2s;
-}
-
-.btn-view:hover {
-
-    background: #f1f5f9;
-
-    color: #0f172a;
+    background:#047857;
 }
 
 
@@ -961,40 +835,36 @@ footer strong{
 
 
 
-<!-- PYTHON PREMIUM COURSE -->
+<!-- PYTHON COURSE (WITH PDF LINK) -->
 
-<div class="course-card premium-card">
-
-    <span class="premium-badge">👑 PREMIUM</span>
+<div class="course-card">
 
     <div class="course-icon">
         🐍
     </div>
 
     <h3>
-        Python Premium
+        Python Programming
     </h3>
 
     <p>
-        Complete Python programming course with notes, real projects & Data Analytics modules.
+        Learn Python programming step-by-step from beginner to advanced with complete PDF notes.
     </p>
 
-    <ul class="python-features">
-        <li>📚 Complete Python Notes</li>
-        <li>🎯 Beginner → Advanced</li>
-        <li>💡 Projects & Practice</li>
-    </ul>
-
-    <div class="price-tag">
-        ₹499 <span class="original-price">₹1,999</span>
-    </div>
-
-    <div class="action-buttons">
-        <a href="https://rzp.io/l/your-razorpay-link" class="btn-buy" target="_blank">
-            💰 Buy Now
-        </a>
-        <a href="python.html" class="btn-view">
+    <div class="btn-group">
+        <a
+            href="python.html"
+            class="course-btn"
+            style="margin-top: 0;"
+        >
             📖 View Course
+        </a>
+        <a
+            href="python-notes.pdf"
+            target="_blank"
+            class="btn-pdf"
+        >
+            📄 Download Python PDF Notes
         </a>
     </div>
 
