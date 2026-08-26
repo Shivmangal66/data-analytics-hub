@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Excel Mastery | Data Analytics Hub</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -19,11 +22,17 @@ body{
     color:#0f172a;
 }
 
+
+/* =========================
+   HERO
+========================= */
+
 .hero{
     background:
     radial-gradient(circle at 10% 20%,#2563eb45,transparent 35%),
     radial-gradient(circle at 90% 80%,#7c3aed40,transparent 35%),
     #080f1f;
+
     color:white;
     padding:55px 7%;
 }
@@ -31,6 +40,7 @@ body{
 .nav{
     max-width:1200px;
     margin:auto;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -50,6 +60,10 @@ body{
     text-decoration:none;
 }
 
+.back:hover{
+    color:white;
+}
+
 .hero-content{
     max-width:1200px;
     margin:65px auto 20px;
@@ -57,10 +71,13 @@ body{
 
 .badge{
     display:inline-block;
+
     background:#ffffff12;
     border:1px solid #ffffff18;
+
     padding:8px 14px;
     border-radius:30px;
+
     color:#93c5fd;
     font-size:13px;
 }
@@ -78,8 +95,10 @@ h1{
 
 .buttons{
     margin-top:28px;
+
     display:flex;
     gap:12px;
+    flex-wrap:wrap;
 }
 
 .btn{
@@ -90,7 +109,9 @@ h1{
 }
 
 .primary{
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    background:
+    linear-gradient(135deg,#2563eb,#7c3aed);
+
     color:white;
 }
 
@@ -99,16 +120,147 @@ h1{
     color:white;
 }
 
+.secondary:hover{
+    background:#ffffff10;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
 .container{
     max-width:1200px;
     margin:auto;
     padding:50px 25px;
 }
 
+
+/* =========================
+   PREMIUM PROGRESS
+========================= */
+
+.progress-panel{
+    background:
+    radial-gradient(
+        circle at 10% 10%,
+        #2563eb30,
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 90% 90%,
+        #7c3aed25,
+        transparent 30%
+    ),
+    linear-gradient(
+        135deg,
+        #07111f,
+        #111c32
+    );
+
+    border:1px solid #334155;
+    border-radius:24px;
+
+    padding:25px;
+    margin-bottom:35px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.18);
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.progress-title{
+    color:white;
+}
+
+.progress-title span{
+    display:inline-block;
+
+    background:
+    linear-gradient(135deg,#2563eb,#7c3aed);
+
+    padding:6px 12px;
+    border-radius:20px;
+
+    font-size:11px;
+    font-weight:bold;
+}
+
+.progress-title h2{
+    margin-top:10px;
+    font-size:24px;
+}
+
+.progress-title p{
+    color:#94a3b8;
+    margin-top:5px;
+    font-size:13px;
+}
+
+.progress-percent{
+    font-size:32px;
+    font-weight:bold;
+    color:white;
+}
+
+.main-progress{
+    width:100%;
+    height:12px;
+
+    background:#1e293b;
+    border-radius:20px;
+
+    overflow:hidden;
+    margin-top:22px;
+}
+
+.main-progress-fill{
+    height:100%;
+    width:0%;
+
+    background:
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #7c3aed,
+        #c084fc
+    );
+
+    border-radius:20px;
+
+    transition:
+    width .5s ease;
+
+    box-shadow:
+    0 0 20px #7c3aed80;
+}
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+
+    margin-top:12px;
+
+    color:#94a3b8;
+    font-size:13px;
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
 .section-title{
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     margin-bottom:25px;
 }
 
@@ -121,30 +273,73 @@ h1{
     font-weight:bold;
 }
 
+
+/* =========================
+   DAYS GRID
+========================= */
+
 .days{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:18px;
 }
 
+
+/* =========================
+   DAY CARD
+========================= */
+
 .day{
+    position:relative;
+
     background:white;
+
     border:1px solid #e5e7eb;
     border-radius:15px;
+
     padding:22px;
-    transition:.2s;
+
+    transition:.25s;
+
+    overflow:hidden;
 }
 
 .day:hover{
     transform:translateY(-4px);
-    box-shadow:0 15px 35px #00000012;
+
+    box-shadow:
+    0 15px 35px #00000012;
+}
+
+.day.completed{
+    border-color:#22c55e;
+
+    box-shadow:
+    0 10px 30px #22c55e18;
+}
+
+.day.completed::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:4px;
+    height:100%;
+
+    background:#22c55e;
 }
 
 .day-number{
     color:#2563eb;
+
     font-size:12px;
     font-weight:bold;
+
     text-transform:uppercase;
+
     margin-bottom:10px;
 }
 
@@ -155,21 +350,36 @@ h1{
 
 .day p{
     color:#64748b;
+
     font-size:13px;
     line-height:1.5;
 }
 
+
+/* =========================
+   LESSON BUTTON
+========================= */
+
 .lesson{
     display:block;
+
     margin-top:17px;
+
     text-align:center;
+
     background:#eff6ff;
     color:#2563eb;
+
     padding:10px;
+
     border-radius:8px;
+
     text-decoration:none;
+
     font-weight:bold;
     font-size:13px;
+
+    transition:.2s;
 }
 
 .lesson:hover{
@@ -177,13 +387,51 @@ h1{
     color:white;
 }
 
+.day.completed .lesson{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.day.completed .lesson:hover{
+    background:#16a34a;
+    color:white;
+}
+
+
+/* =========================
+   COMPLETED LABEL
+========================= */
+
+.completed-label{
+    display:none;
+
+    margin-top:10px;
+
+    color:#15803d;
+
+    font-size:12px;
+    font-weight:bold;
+}
+
+.day.completed .completed-label{
+    display:block;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:850px){
+
     .days{
         grid-template-columns:repeat(2,1fr);
     }
+
 }
 
 @media(max-width:600px){
+
     h1{
         font-size:36px;
     }
@@ -200,11 +448,28 @@ h1{
         display:block;
         margin-top:8px;
     }
+
+    .progress-top{
+        display:block;
+    }
+
+    .progress-percent{
+        margin-top:15px;
+    }
+
 }
+
 </style>
+
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -214,11 +479,16 @@ h1{
             📊 Data <span>Analytics</span> Hub
         </div>
 
-        <a href="dashboard.html" class="back">
+        <a
+            href="dashboard.html"
+            class="back">
+
             ← Dashboard
+
         </a>
 
     </div>
+
 
     <div class="hero-content">
 
@@ -235,22 +505,26 @@ h1{
             Charts, PivotTables & Automation.
         </p>
 
+
         <div class="buttons">
 
             <a
-              href="Master_Excel_in_30_Days-1.pdf"
+                href="Master_Excel_in_30_Days-1.pdf"
                 target="_blank"
-                class="btn primary"
-            >
+                class="btn primary">
+
                 📖 Read Full PDF
+
             </a>
+
 
             <a
                 href="Master_Excel_in_30_Days-1.pdf"
                 download
-                class="btn secondary"
-            >
+                class="btn secondary">
+
                 ⬇ Download PDF
+
             </a>
 
         </div>
@@ -262,264 +536,1251 @@ h1{
 
 <main class="container">
 
-    <div class="section-title">
 
-        <h2>
-            30 Days of Learning
-        </h2>
+<!-- =========================
+     PREMIUM TRACKER
+========================= -->
 
-        <span class="progress">
-            30 Lessons
+<div class="progress-panel">
+
+    <div class="progress-top">
+
+        <div class="progress-title">
+
+            <span>
+                ✨ COURSE PROGRESS
+            </span>
+
+            <h2>
+                Excel Learning Progress
+            </h2>
+
+            <p>
+                Complete each lesson to update your dashboard.
+            </p>
+
+        </div>
+
+
+        <div
+            class="progress-percent"
+            id="progressPercent">
+
+            0%
+
+        </div>
+
+    </div>
+
+
+    <div class="main-progress">
+
+        <div
+            id="mainProgressFill"
+            class="main-progress-fill">
+        </div>
+
+    </div>
+
+
+    <div class="progress-info">
+
+        <span id="progressText">
+            0 of 30 lessons completed
+        </span>
+
+        <span>
+            Excel • 30 Lessons
         </span>
 
     </div>
 
-
-    <div class="days">
-
-
-        <div class="day">
-            <div class="day-number">Day 01</div>
-            <h3>Getting to Know Excel</h3>
-            <p>Interface, cells, workbook and worksheet.</p>
-            <a href="day1.html"" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
+</div>
 
 
-        <div class="day">
-            <div class="day-number">Day 02</div>
-            <h3>Entering & Editing Data</h3>
-            <p>Data types, AutoFill and Flash Fill.</p>
-            <a "href="day2.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
+<!-- =========================
+     LESSON TITLE
+========================= -->
+
+<div class="section-title">
+
+    <h2>
+        30 Days of Learning
+    </h2>
+
+    <span
+        class="progress"
+        id="lessonCount">
+
+        0 / 30 Completed
+
+    </span>
+
+</div>
 
 
-        <div class="day">
-            <div class="day-number">Day 03</div>
-            <h3>Basic Formulas & Cell References</h3>
-            <p>Operators and relative vs absolute references.</p>
-            <a href="day3.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
+<!-- =========================
+     DAYS
+========================= -->
+
+<div class="days">
 
 
-        <div class="day">
-            <div class="day-number">Day 04</div>
-            <h3>Formatting Cells</h3>
-            <p>Number formats and conditional formatting.</p>
-            <a href="day4.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
+<!-- DAY 01 -->
 
+<div class="day" data-day="1">
 
-        <div class="day">
-            <div class="day-number">Day 05</div>
-            <h3>Rows, Columns, Sheets & Freeze Panes</h3>
-            <p>Work with rows, columns, sheets and freeze panes.</p>
-            <a href="day5.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 06</div>
-            <h3>Basic Functions</h3>
-            <p>SUM, AVERAGE, MIN, MAX and COUNT.</p>
-            <a href="day6.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 07</div>
-            <h3>Week 1 Review + Mini Project</h3>
-            <p>Review and personal budget mini project.</p>
-            <a href="day7.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 08</div>
-            <h3>Sorting & Filtering Data</h3>
-            <p>Organize and filter your datasets.</p>
-            <a href="day8.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 09</div>
-            <h3>The IF Function</h3>
-            <p>Logical tests and conditional results.</p>
-            <a href="day9.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 10</div>
-            <h3>COUNTIF, COUNTIFS, SUMIF, SUMIFS</h3>
-            <p>Conditional counting and summing.</p>
-            <a href="day10.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 11</div>
-            <h3>Advanced Conditional Formatting</h3>
-            <p>Create smarter visual formatting rules.</p>
-            <a href="day11.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 12</div>
-            <h3>Data Validation & Dropdown Lists</h3>
-            <p>Control data entry with validation.</p>
-            <a href="day12.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 13</div>
-            <h3>VLOOKUP</h3>
-            <p>Learn Excel's classic lookup function.</p>
-            <a href="day13.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 14</div>
-            <h3>Week 2 Review + Mini Project</h3>
-            <p>Review data management and logic skills.</p>
-            <a href="day14.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 15</div>
-            <h3>Introduction to Charts</h3>
-            <p>Start creating useful Excel charts.</p>
-            <a href="day15.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 16</div>
-            <h3>Advanced Charts & Formatting</h3>
-            <p>Improve charts and presentation.</p>
-            <a href="day16.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 17</div>
-            <h3>PivotTables Basics</h3>
-            <p>Summarize and analyze data using PivotTables.</p>
-            <a href="day17.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 18</div>
-            <h3>PivotTables: Slicers & Grouping</h3>
-            <p>Use slicers, grouping and calculated fields.</p>
-            <a href="day18.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 19</div>
-            <h3>INDEX & MATCH</h3>
-            <p>Build powerful lookup solutions.</p>
-            <a href="da19.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 20</div>
-            <h3>Text Functions</h3>
-            <p>LEFT, RIGHT, MID, TRIM, CONCAT and TEXTJOIN.</p>
-            <a href="day20.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 21</div>
-            <h3>Week 3 Review + Mini Project</h3>
-            <p>Build a sales dashboard mini project.</p>
-            <a href="day21.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 22</div>
-            <h3>Date & Time Functions</h3>
-            <p>Work with dates, deadlines and business days.</p>
-            <a href="day22.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 23</div>
-            <h3>Nested Formulas</h3>
-            <p>IFS, AND and OR for advanced logic.</p>
-            <a href="day23.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 24</div>
-            <h3>What-If Analysis</h3>
-            <p>Goal Seek, Data Tables and Scenarios.</p>
-            <a href="day24.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 25</div>
-            <h3>Macros & VBA</h3>
-            <p>Introduction to automation with macros and VBA.</p>
-            <a href="day25.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 26</div>
-            <h3>Power Query Basics</h3>
-            <p>Import and clean data with Power Query.</p>
-            <a href="day26.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 27</div>
-            <h3>Dashboards & Visualization</h3>
-            <p>Learn dashboard and visualization best practices.</p>
-            <a href="day27.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 28</div>
-            <h3>Error Handling</h3>
-            <p>IFERROR, ISNA and formula auditing.</p>
-            <a href="day28.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 29</div>
-            <h3>Shortcuts & Excel Tables</h3>
-            <p>Keyboard shortcuts, tables and teaching tips.</p>
-            <a href="day29.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
-
-        <div class="day">
-            <div class="day-number">Day 30</div>
-            <h3>Capstone Project + Recap</h3>
-            <p>Complete the final project and review the course.</p>
-            <a href="day30.html" target="_blank" class="lesson">📖 Read Lesson</a>
-        </div>
-
+    <div class="day-number">
+        Day 01
     </div>
+
+    <h3>
+        Getting to Know Excel
+    </h3>
+
+    <p>
+        Interface, cells, workbook and worksheet.
+    </p>
+
+    <a
+        href="day1.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(1)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 02 -->
+
+<div class="day" data-day="2">
+
+    <div class="day-number">
+        Day 02
+    </div>
+
+    <h3>
+        Entering & Editing Data
+    </h3>
+
+    <p>
+        Data types, AutoFill and Flash Fill.
+    </p>
+
+    <a
+        href="day2.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(2)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 03 -->
+
+<div class="day" data-day="3">
+
+    <div class="day-number">
+        Day 03
+    </div>
+
+    <h3>
+        Basic Formulas & Cell References
+    </h3>
+
+    <p>
+        Operators and relative vs absolute references.
+    </p>
+
+    <a
+        href="day3.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(3)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 04 -->
+
+<div class="day" data-day="4">
+
+    <div class="day-number">
+        Day 04
+    </div>
+
+    <h3>
+        Formatting Cells
+    </h3>
+
+    <p>
+        Number formats and conditional formatting.
+    </p>
+
+    <a
+        href="day4.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(4)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 05 -->
+
+<div class="day" data-day="5">
+
+    <div class="day-number">
+        Day 05
+    </div>
+
+    <h3>
+        Rows, Columns, Sheets & Freeze Panes
+    </h3>
+
+    <p>
+        Work with rows, columns, sheets and freeze panes.
+    </p>
+
+    <a
+        href="day5.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(5)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 06 -->
+
+<div class="day" data-day="6">
+
+    <div class="day-number">
+        Day 06
+    </div>
+
+    <h3>
+        Basic Functions
+    </h3>
+
+    <p>
+        SUM, AVERAGE, MIN, MAX and COUNT.
+    </p>
+
+    <a
+        href="day6.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(6)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 07 -->
+
+<div class="day" data-day="7">
+
+    <div class="day-number">
+        Day 07
+    </div>
+
+    <h3>
+        Week 1 Review + Mini Project
+    </h3>
+
+    <p>
+        Review and personal budget mini project.
+    </p>
+
+    <a
+        href="day7.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(7)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 08 -->
+
+<div class="day" data-day="8">
+
+    <div class="day-number">
+        Day 08
+    </div>
+
+    <h3>
+        Sorting & Filtering Data
+    </h3>
+
+    <p>
+        Organize and filter your datasets.
+    </p>
+
+    <a
+        href="day8.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(8)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 09 -->
+
+<div class="day" data-day="9">
+
+    <div class="day-number">
+        Day 09
+    </div>
+
+    <h3>
+        The IF Function
+    </h3>
+
+    <p>
+        Logical tests and conditional results.
+    </p>
+
+    <a
+        href="day9.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(9)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 10 -->
+
+<div class="day" data-day="10">
+
+    <div class="day-number">
+        Day 10
+    </div>
+
+    <h3>
+        COUNTIF, COUNTIFS, SUMIF, SUMIFS
+    </h3>
+
+    <p>
+        Conditional counting and summing.
+    </p>
+
+    <a
+        href="day10.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(10)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 11 -->
+
+<div class="day" data-day="11">
+
+    <div class="day-number">
+        Day 11
+    </div>
+
+    <h3>
+        Advanced Conditional Formatting
+    </h3>
+
+    <p>
+        Create smarter visual formatting rules.
+    </p>
+
+    <a
+        href="day11.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(11)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 12 -->
+
+<div class="day" data-day="12">
+
+    <div class="day-number">
+        Day 12
+    </div>
+
+    <h3>
+        Data Validation & Dropdown Lists
+    </h3>
+
+    <p>
+        Control data entry with validation.
+    </p>
+
+    <a
+        href="day12.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(12)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 13 -->
+
+<div class="day" data-day="13">
+
+    <div class="day-number">
+        Day 13
+    </div>
+
+    <h3>
+        VLOOKUP
+    </h3>
+
+    <p>
+        Learn Excel's classic lookup function.
+    </p>
+
+    <a
+        href="day13.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(13)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 14 -->
+
+<div class="day" data-day="14">
+
+    <div class="day-number">
+        Day 14
+    </div>
+
+    <h3>
+        Week 2 Review + Mini Project
+    </h3>
+
+    <p>
+        Review data management and logic skills.
+    </p>
+
+    <a
+        href="day14.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(14)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 15 -->
+
+<div class="day" data-day="15">
+
+    <div class="day-number">
+        Day 15
+    </div>
+
+    <h3>
+        Introduction to Charts
+    </h3>
+
+    <p>
+        Start creating useful Excel charts.
+    </p>
+
+    <a
+        href="day15.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(15)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 16 -->
+
+<div class="day" data-day="16">
+
+    <div class="day-number">
+        Day 16
+    </div>
+
+    <h3>
+        Advanced Charts & Formatting
+    </h3>
+
+    <p>
+        Improve charts and presentation.
+    </p>
+
+    <a
+        href="day16.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(16)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 17 -->
+
+<div class="day" data-day="17">
+
+    <div class="day-number">
+        Day 17
+    </div>
+
+    <h3>
+        PivotTables Basics
+    </h3>
+
+    <p>
+        Summarize and analyze data using PivotTables.
+    </p>
+
+    <a
+        href="day17.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(17)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 18 -->
+
+<div class="day" data-day="18">
+
+    <div class="day-number">
+        Day 18
+    </div>
+
+    <h3>
+        PivotTables: Slicers & Grouping
+    </h3>
+
+    <p>
+        Use slicers, grouping and calculated fields.
+    </p>
+
+    <a
+        href="day18.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(18)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 19 -->
+
+<div class="day" data-day="19">
+
+    <div class="day-number">
+        Day 19
+    </div>
+
+    <h3>
+        INDEX & MATCH
+    </h3>
+
+    <p>
+        Build powerful lookup solutions.
+    </p>
+
+    <a
+        href="da19.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(19)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 20 -->
+
+<div class="day" data-day="20">
+
+    <div class="day-number">
+        Day 20
+    </div>
+
+    <h3>
+        Text Functions
+    </h3>
+
+    <p>
+        LEFT, RIGHT, MID, TRIM, CONCAT and TEXTJOIN.
+    </p>
+
+    <a
+        href="day20.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(20)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 21 -->
+
+<div class="day" data-day="21">
+
+    <div class="day-number">
+        Day 21
+    </div>
+
+    <h3>
+        Week 3 Review + Mini Project
+    </h3>
+
+    <p>
+        Build a sales dashboard mini project.
+    </p>
+
+    <a
+        href="day21.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(21)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 22 -->
+
+<div class="day" data-day="22">
+
+    <div class="day-number">
+        Day 22
+    </div>
+
+    <h3>
+        Date & Time Functions
+    </h3>
+
+    <p>
+        Work with dates, deadlines and business days.
+    </p>
+
+    <a
+        href="day22.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(22)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 23 -->
+
+<div class="day" data-day="23">
+
+    <div class="day-number">
+        Day 23
+    </div>
+
+    <h3>
+        Nested Formulas
+    </h3>
+
+    <p>
+        IFS, AND and OR for advanced logic.
+    </p>
+
+    <a
+        href="day23.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(23)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 24 -->
+
+<div class="day" data-day="24">
+
+    <div class="day-number">
+        Day 24
+    </div>
+
+    <h3>
+        What-If Analysis
+    </h3>
+
+    <p>
+        Goal Seek, Data Tables and Scenarios.
+    </p>
+
+    <a
+        href="day24.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(24)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 25 -->
+
+<div class="day" data-day="25">
+
+    <div class="day-number">
+        Day 25
+    </div>
+
+    <h3>
+        Macros & VBA
+    </h3>
+
+    <p>
+        Introduction to automation with macros and VBA.
+    </p>
+
+    <a
+        href="day25.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(25)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 26 -->
+
+<div class="day" data-day="26">
+
+    <div class="day-number">
+        Day 26
+    </div>
+
+    <h3>
+        Power Query Basics
+    </h3>
+
+    <p>
+        Import and clean data with Power Query.
+    </p>
+
+    <a
+        href="day26.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(26)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 27 -->
+
+<div class="day" data-day="27">
+
+    <div class="day-number">
+        Day 27
+    </div>
+
+    <h3>
+        Dashboards & Visualization
+    </h3>
+
+    <p>
+        Learn dashboard and visualization best practices.
+    </p>
+
+    <a
+        href="day27.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(27)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 28 -->
+
+<div class="day" data-day="28">
+
+    <div class="day-number">
+        Day 28
+    </div>
+
+    <h3>
+        Error Handling
+    </h3>
+
+    <p>
+        IFERROR, ISNA and formula auditing.
+    </p>
+
+    <a
+        href="day28.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(28)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 29 -->
+
+<div class="day" data-day="29">
+
+    <div class="day-number">
+        Day 29
+    </div>
+
+    <h3>
+        Shortcuts & Excel Tables
+    </h3>
+
+    <p>
+        Keyboard shortcuts, tables and teaching tips.
+    </p>
+
+    <a
+        href="day29.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(29)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+<!-- DAY 30 -->
+
+<div class="day" data-day="30">
+
+    <div class="day-number">
+        Day 30
+    </div>
+
+    <h3>
+        Capstone Project + Recap
+    </h3>
+
+    <p>
+        Complete the final project and review the course.
+    </p>
+
+    <a
+        href="day30.html"
+        target="_blank"
+        class="lesson"
+        onclick="completeDay(30)">
+
+        📖 Read Lesson
+
+    </a>
+
+    <div class="completed-label">
+        ✓ Completed
+    </div>
+
+</div>
+
+
+</div>
 
 </main>
 
+
+<script>
+
+/* =================================
+   EXCEL COURSE TRACKER
+================================= */
+
+
+/* Get saved completed days */
+
+let completedDays =
+    JSON.parse(
+        localStorage.getItem("excelCompletedDays")
+    ) || [];
+
+
+/* =================================
+   COMPLETE DAY
+================================= */
+
+function completeDay(day){
+
+    /*
+       Add day only once.
+       So clicking the same lesson
+       multiple times won't increase
+       progress again.
+    */
+
+    if(!completedDays.includes(day)){
+
+        completedDays.push(day);
+
+        completedDays.sort(
+            function(a,b){
+                return a-b;
+            }
+        );
+
+        localStorage.setItem(
+            "excelCompletedDays",
+            JSON.stringify(completedDays)
+        );
+
+    }
+
+    updateProgress();
+
+}
+
+
+/* =================================
+   UPDATE PROGRESS
+================================= */
+
+function updateProgress(){
+
+    const totalLessons = 30;
+
+    const completed =
+        completedDays.length;
+
+    const percentage =
+        Math.round(
+            (completed / totalLessons) * 100
+        );
+
+
+    /* Main progress bar */
+
+    document.getElementById(
+        "mainProgressFill"
+    ).style.width =
+        percentage + "%";
+
+
+    /* Percentage */
+
+    document.getElementById(
+        "progressPercent"
+    ).textContent =
+        percentage + "%";
+
+
+    /* Text */
+
+    document.getElementById(
+        "progressText"
+    ).textContent =
+        completed +
+        " of 30 lessons completed";
+
+
+    /* Lesson count */
+
+    document.getElementById(
+        "lessonCount"
+    ).textContent =
+        completed +
+        " / 30 Completed";
+
+
+    /* =================================
+       Update individual cards
+    ================================= */
+
+    document
+        .querySelectorAll(".day")
+        .forEach(function(card){
+
+            const day =
+                parseInt(
+                    card.dataset.day
+                );
+
+            if(
+                completedDays.includes(day)
+            ){
+
+                card.classList.add(
+                    "completed"
+                );
+
+            }else{
+
+                card.classList.remove(
+                    "completed"
+                );
+
+            }
+
+        });
+
+
+    /* =================================
+       Dashboard compatibility
+    =================================
+
+       Dashboard tracker already uses
+       excelLessons.
+
+       Keep it synchronized.
+    */
+
+    localStorage.setItem(
+        "excelLessons",
+        completed
+    );
+
+}
+
+
+/* =================================
+   LOAD SAVED PROGRESS
+================================= */
+
+updateProgress();
+
+</script>
+
+
 </body>
+
 </html>
