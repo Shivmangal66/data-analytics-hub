@@ -11,6 +11,10 @@
 
 <style>
 
+/* ================================
+   RESET
+================================ */
+
 *{
     margin:0;
     padding:0;
@@ -22,6 +26,11 @@ body{
     background:#f5f7fb;
     color:#0f172a;
 }
+
+
+/* ================================
+   NAVBAR
+================================ */
 
 .navbar{
     background:#080f1f;
@@ -50,6 +59,15 @@ body{
     cursor:pointer;
     font-weight:bold;
 }
+
+.logout:hover{
+    background:#dc2626;
+}
+
+
+/* ================================
+   HERO
+================================ */
 
 .hero{
     background:
@@ -85,11 +103,21 @@ body{
     line-height:1.7;
 }
 
+
+/* ================================
+   MAIN
+================================ */
+
 .container{
     max-width:1100px;
     margin:auto;
     padding:40px 20px;
 }
+
+
+/* ================================
+   USER CARD
+================================ */
 
 .user-card{
     background:white;
@@ -123,7 +151,13 @@ body{
 .info-box strong{
     display:block;
     margin-top:6px;
+    word-break:break-word;
 }
+
+
+/* ================================
+   COURSE SECTION
+================================ */
 
 .section-title{
     font-size:28px;
@@ -135,6 +169,11 @@ body{
     grid-template-columns:repeat(2,1fr);
     gap:22px;
 }
+
+
+/* ================================
+   COURSE CARD
+================================ */
 
 .course-card{
     background:white;
@@ -186,6 +225,11 @@ body{
     line-height:1.6;
 }
 
+
+/* ================================
+   BADGES
+================================ */
+
 .course-badge{
     display:inline-block;
     margin-top:15px;
@@ -215,6 +259,11 @@ body{
     color:#92400e;
 }
 
+
+/* ================================
+   BUTTONS
+================================ */
+
 .course-buttons{
     display:flex;
     gap:10px;
@@ -229,6 +278,7 @@ body{
     border-radius:9px;
     font-weight:bold;
     font-size:14px;
+    cursor:pointer;
 }
 
 .primary-btn{
@@ -245,40 +295,345 @@ body{
     opacity:.9;
 }
 
-.stats{
+
+/* ================================
+   PREMIUM COURSE TRACKER
+================================ */
+
+.tracker-section{
+    margin-top:40px;
+    padding:30px;
+    border-radius:28px;
+
+    background:
+    radial-gradient(
+        circle at 10% 10%,
+        #2563eb30,
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 90% 90%,
+        #7c3aed30,
+        transparent 30%
+    ),
+    linear-gradient(
+        135deg,
+        #07111f,
+        #111c32
+    );
+
+    border:1px solid #334155;
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.25);
+}
+
+.tracker-header{
+    margin-bottom:25px;
+}
+
+.tracker-badge{
+    display:inline-block;
+
+    padding:7px 14px;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    );
+
+    color:white;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    letter-spacing:.5px;
+
+    box-shadow:
+    0 5px 20px #2563eb40;
+}
+
+.tracker-header h2{
+    color:white;
+    font-size:30px;
+    margin:12px 0 6px;
+}
+
+.tracker-header p{
+    color:#94a3b8;
+}
+
+.tracker-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    margin-top:30px;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
 }
 
-.stat{
-    background:white;
-    border:1px solid #e5e7eb;
-    border-radius:15px;
+
+/* TRACKER CARD */
+
+.tracker-card{
+    position:relative;
+    overflow:hidden;
+
+    background:
+    rgba(255,255,255,.06);
+
+    border:
+    1px solid rgba(255,255,255,.12);
+
+    border-radius:20px;
+
     padding:22px;
-    text-align:center;
+
+    color:white;
+
+    backdrop-filter:blur(15px);
+
+    transition:.3s;
 }
 
-.stat strong{
-    display:block;
+.tracker-card:hover{
+    transform:translateY(-5px);
+
+    border-color:#60a5fa;
+
+    box-shadow:
+    0 15px 35px
+    rgba(37,99,235,.20);
+}
+
+
+/* TRACKER TOP */
+
+.tracker-top{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.tracker-icon{
+    width:58px;
+    height:58px;
+
+    border-radius:16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
     font-size:28px;
-    color:#2563eb;
-    margin-bottom:6px;
+
+    box-shadow:
+    inset 0 0 20px
+    rgba(255,255,255,.15);
 }
 
-.stat span{
-    color:#64748b;
-    font-size:14px;
+.excel-tracker{
+    background:
+    linear-gradient(
+        135deg,
+        #16a34a,
+        #22c55e
+    );
 }
+
+.python-tracker{
+    background:
+    linear-gradient(
+        135deg,
+        #f59e0b,
+        #facc15
+    );
+}
+
+.sql-tracker{
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #38bdf8
+    );
+}
+
+.powerbi-tracker{
+    background:
+    linear-gradient(
+        135deg,
+        #eab308,
+        #facc15
+    );
+}
+
+.tracker-top h3{
+    color:white;
+    margin-bottom:6px;
+    font-size:18px;
+}
+
+.tracker-top span{
+    color:#94a3b8;
+    font-size:13px;
+}
+
+
+/* PROGRESS BAR */
+
+.progress-bar{
+    width:100%;
+    height:10px;
+
+    background:#1e293b;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-top:22px;
+
+    box-shadow:
+    inset 0 2px 5px
+    rgba(0,0,0,.3);
+}
+
+.progress-fill{
+    height:100%;
+
+    width:0%;
+
+    border-radius:20px;
+
+    transition:
+    width .5s ease;
+}
+
+.excel-fill{
+    background:
+    linear-gradient(
+        90deg,
+        #16a34a,
+        #4ade80
+    );
+
+    box-shadow:
+    0 0 15px #22c55e80;
+}
+
+.python-fill{
+    background:
+    linear-gradient(
+        90deg,
+        #f59e0b,
+        #fde047
+    );
+
+    box-shadow:
+    0 0 15px #facc1580;
+}
+
+.sql-fill{
+    background:
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #38bdf8
+    );
+
+    box-shadow:
+    0 0 15px #3b82f680;
+}
+
+.powerbi-fill{
+    background:
+    linear-gradient(
+        90deg,
+        #eab308,
+        #fde047
+    );
+
+    box-shadow:
+    0 0 15px #facc1580;
+}
+
+
+/* TRACKER BOTTOM */
+
+.tracker-bottom{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:17px;
+}
+
+.tracker-bottom span{
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+}
+
+.tracker-btn{
+    border:
+    1px solid #475569;
+
+    background:#ffffff0d;
+
+    color:white;
+
+    padding:9px 14px;
+
+    border-radius:9px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:.2s;
+}
+
+.tracker-btn:hover{
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    );
+
+    border-color:transparent;
+
+    transform:translateY(-1px);
+}
+
+
+/* ================================
+   FOOTER
+================================ */
 
 footer{
     background:#080f1f;
+
     color:#94a3b8;
+
     text-align:center;
+
     padding:30px;
+
     margin-top:50px;
 }
+
+
+/* ================================
+   MOBILE
+================================ */
 
 @media(max-width:750px){
 
@@ -302,8 +657,16 @@ footer{
         grid-template-columns:1fr;
     }
 
-    .stats{
+    .tracker-section{
+        padding:20px;
+    }
+
+    .tracker-grid{
         grid-template-columns:1fr;
+    }
+
+    .tracker-header h2{
+        font-size:25px;
     }
 
 }
@@ -312,10 +675,13 @@ footer{
 
 </head>
 
+
 <body>
 
 
-<!-- NAVBAR -->
+<!-- ================================
+     NAVBAR
+================================ -->
 
 <nav class="navbar">
 
@@ -323,14 +689,20 @@ footer{
         📊 Data <span>Analytics</span> Hub
     </div>
 
-    <button class="logout" onclick="logoutUser()">
+    <button
+        class="logout"
+        onclick="logoutUser()">
+
         Logout
+
     </button>
 
 </nav>
 
 
-<!-- HERO -->
+<!-- ================================
+     HERO
+================================ -->
 
 <section class="hero">
 
@@ -357,17 +729,23 @@ footer{
 <main class="container">
 
 
-<!-- USER INFORMATION -->
+<!-- ================================
+     USER PROFILE
+================================ -->
 
 <div class="user-card">
 
-    <h2>👤 Student Profile</h2>
+    <h2>
+        👤 Student Profile
+    </h2>
 
     <div class="user-info">
 
         <div class="info-box">
 
-            <small>Name</small>
+            <small>
+                Name
+            </small>
 
             <strong id="studentName">
                 Student
@@ -375,9 +753,12 @@ footer{
 
         </div>
 
+
         <div class="info-box">
 
-            <small>Email</small>
+            <small>
+                Email
+            </small>
 
             <strong id="studentEmail">
                 Loading...
@@ -385,9 +766,12 @@ footer{
 
         </div>
 
+
         <div class="info-box">
 
-            <small>Course</small>
+            <small>
+                Course
+            </small>
 
             <strong>
                 Data Analytics
@@ -400,7 +784,9 @@ footer{
 </div>
 
 
-<!-- COURSES -->
+<!-- ================================
+     COURSES
+================================ -->
 
 <h2 class="section-title">
     📚 My Courses
@@ -567,37 +953,249 @@ footer{
 </div>
 
 
-<!-- STATS -->
+<!-- ================================
+     PREMIUM COURSE TRACKER
+================================ -->
 
-<div class="stats">
+<div class="tracker-section">
 
-    <div class="stat">
 
-        <strong>30</strong>
+    <div class="tracker-header">
 
-        <span>
-            Excel Lessons
+        <span class="tracker-badge">
+            ✨ PREMIUM LEARNING CENTER
         </span>
+
+        <h2>
+            Course Tracker
+        </h2>
+
+        <p>
+            Track your progress across Excel, Python,
+            SQL and Power BI.
+        </p>
 
     </div>
 
-    <div class="stat">
 
-        <strong>1</strong>
+    <div class="tracker-grid">
 
-        <span>
-            Python Notes
-        </span>
 
-    </div>
+        <!-- EXCEL TRACKER -->
 
-    <div class="stat">
+        <div class="tracker-card">
 
-        <strong>4</strong>
+            <div class="tracker-top">
 
-        <span>
-            Learning Courses
-        </span>
+                <div class="tracker-icon excel-tracker">
+                    📊
+                </div>
+
+                <div>
+
+                    <h3>
+                        Excel Data Analytics
+                    </h3>
+
+                    <span id="excelProgressText">
+                        0 / 30 Lessons
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    id="excelProgress"
+                    class="progress-fill excel-fill">
+                </div>
+
+            </div>
+
+
+            <div class="tracker-bottom">
+
+                <span id="excelPercent">
+                    0%
+                </span>
+
+                <button
+                    onclick="completeExcelLesson()"
+                    class="tracker-btn">
+
+                    + Complete Lesson
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PYTHON TRACKER -->
+
+        <div class="tracker-card">
+
+            <div class="tracker-top">
+
+                <div class="tracker-icon python-tracker">
+                    🐍
+                </div>
+
+                <div>
+
+                    <h3>
+                        Python Programming
+                    </h3>
+
+                    <span id="pythonProgressText">
+                        Not Started
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    id="pythonProgress"
+                    class="progress-fill python-fill">
+                </div>
+
+            </div>
+
+
+            <div class="tracker-bottom">
+
+                <span id="pythonPercent">
+                    0%
+                </span>
+
+                <button
+                    onclick="completePython()"
+                    class="tracker-btn">
+
+                    ✓ Mark Complete
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- SQL TRACKER -->
+
+        <div class="tracker-card">
+
+            <div class="tracker-top">
+
+                <div class="tracker-icon sql-tracker">
+                    🗄️
+                </div>
+
+                <div>
+
+                    <h3>
+                        SQL for Data Analytics
+                    </h3>
+
+                    <span id="sqlProgressText">
+                        0% Complete
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    id="sqlProgress"
+                    class="progress-fill sql-fill">
+                </div>
+
+            </div>
+
+
+            <div class="tracker-bottom">
+
+                <span id="sqlPercent">
+                    0%
+                </span>
+
+                <button
+                    onclick="increaseCourse('sql')"
+                    class="tracker-btn">
+
+                    + 10%
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- POWER BI TRACKER -->
+
+        <div class="tracker-card">
+
+            <div class="tracker-top">
+
+                <div class="tracker-icon powerbi-tracker">
+                    📈
+                </div>
+
+                <div>
+
+                    <h3>
+                        Power BI
+                    </h3>
+
+                    <span id="powerbiProgressText">
+                        0% Complete
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    id="powerbiProgress"
+                    class="progress-fill powerbi-fill">
+                </div>
+
+            </div>
+
+
+            <div class="tracker-bottom">
+
+                <span id="powerbiPercent">
+                    0%
+                </span>
+
+                <button
+                    onclick="increaseCourse('powerbi')"
+                    class="tracker-btn">
+
+                    + 10%
+
+                </button>
+
+            </div>
+
+        </div>
+
 
     </div>
 
@@ -606,6 +1204,10 @@ footer{
 
 </main>
 
+
+<!-- ================================
+     FOOTER
+================================ -->
 
 <footer>
 
@@ -617,7 +1219,10 @@ footer{
 
 <script>
 
-/* USER DATA */
+
+/* ================================
+   USER DATA
+================================ */
 
 const savedName =
     localStorage.getItem("studentName");
@@ -642,14 +1247,255 @@ if(savedEmail){
 }
 
 
-/* LOGOUT */
+/* ================================
+   EXCEL TRACKER
+================================ */
+
+let excelLessons =
+    parseInt(
+        localStorage.getItem("excelLessons")
+    ) || 0;
+
+
+function completeExcelLesson(){
+
+    if(excelLessons < 30){
+
+        excelLessons++;
+
+        localStorage.setItem(
+            "excelLessons",
+            excelLessons
+        );
+
+    }
+
+    updateTracker();
+
+}
+
+
+/* ================================
+   PYTHON TRACKER
+================================ */
+
+let pythonCompleted =
+    localStorage.getItem(
+        "pythonCompleted"
+    ) === "true";
+
+
+function completePython(){
+
+    pythonCompleted = true;
+
+    localStorage.setItem(
+        "pythonCompleted",
+        "true"
+    );
+
+    updateTracker();
+
+}
+
+
+/* ================================
+   SQL TRACKER
+================================ */
+
+let sqlProgress =
+    parseInt(
+        localStorage.getItem("sqlProgress")
+    ) || 0;
+
+
+/* ================================
+   POWER BI TRACKER
+================================ */
+
+let powerbiProgress =
+    parseInt(
+        localStorage.getItem("powerbiProgress")
+    ) || 0;
+
+
+/* ================================
+   INCREASE SQL / POWER BI
+================================ */
+
+function increaseCourse(course){
+
+
+    if(course === "sql"){
+
+        sqlProgress += 10;
+
+        if(sqlProgress > 100){
+
+            sqlProgress = 100;
+
+        }
+
+        localStorage.setItem(
+            "sqlProgress",
+            sqlProgress
+        );
+
+    }
+
+
+    if(course === "powerbi"){
+
+        powerbiProgress += 10;
+
+        if(powerbiProgress > 100){
+
+            powerbiProgress = 100;
+
+        }
+
+        localStorage.setItem(
+            "powerbiProgress",
+            powerbiProgress
+        );
+
+    }
+
+
+    updateTracker();
+
+}
+
+
+/* ================================
+   UPDATE TRACKER
+================================ */
+
+function updateTracker(){
+
+
+    /* EXCEL */
+
+    let excelPercent =
+        Math.round(
+            (excelLessons / 30) * 100
+        );
+
+
+    document.getElementById(
+        "excelProgress"
+    ).style.width =
+        excelPercent + "%";
+
+
+    document.getElementById(
+        "excelPercent"
+    ).textContent =
+        excelPercent + "%";
+
+
+    document.getElementById(
+        "excelProgressText"
+    ).textContent =
+        excelLessons +
+        " / 30 Lessons";
+
+
+    /* PYTHON */
+
+    let pythonPercent =
+        pythonCompleted
+        ? 100
+        : 0;
+
+
+    document.getElementById(
+        "pythonProgress"
+    ).style.width =
+        pythonPercent + "%";
+
+
+    document.getElementById(
+        "pythonPercent"
+    ).textContent =
+        pythonPercent + "%";
+
+
+    document.getElementById(
+        "pythonProgressText"
+    ).textContent =
+        pythonCompleted
+        ? "Completed"
+        : "Not Started";
+
+
+    /* SQL */
+
+    document.getElementById(
+        "sqlProgress"
+    ).style.width =
+        sqlProgress + "%";
+
+
+    document.getElementById(
+        "sqlPercent"
+    ).textContent =
+        sqlProgress + "%";
+
+
+    document.getElementById(
+        "sqlProgressText"
+    ).textContent =
+        sqlProgress +
+        "% Complete";
+
+
+    /* POWER BI */
+
+    document.getElementById(
+        "powerbiProgress"
+    ).style.width =
+        powerbiProgress + "%";
+
+
+    document.getElementById(
+        "powerbiPercent"
+    ).textContent =
+        powerbiProgress + "%";
+
+
+    document.getElementById(
+        "powerbiProgressText"
+    ).textContent =
+        powerbiProgress +
+        "% Complete";
+
+}
+
+
+/* ================================
+   LOAD TRACKER
+================================ */
+
+updateTracker();
+
+
+/* ================================
+   LOGOUT
+================================ */
 
 function logoutUser(){
 
-    localStorage.removeItem("studentName");
-    localStorage.removeItem("studentEmail");
+    localStorage.removeItem(
+        "studentName"
+    );
 
-    window.location.href = "index.html";
+    localStorage.removeItem(
+        "studentEmail"
+    );
+
+    window.location.href =
+        "index.html";
 
 }
 
