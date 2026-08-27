@@ -1,9 +1,182 @@
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-<loc>https://shivmangal66.github.io/data-analytics-hub/</loc>
-</url>
+    <!-- Home -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/</loc>
+    </url>
+
+    <!-- Excel -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/excel.html</loc>
+    </url>
+
+    <!-- Day 1 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day1.html</loc>
+    </url>
+
+    <!-- Day 2 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day2.html</loc>
+    </url>
+
+    <!-- Day 3 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day3.html</loc>
+    </url>
+
+    <!-- Day 4 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day4.html</loc>
+    </url>
+
+    <!-- Day 5 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day5.html</loc>
+    </url>
+
+    <!-- Day 6 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day6.html</loc>
+    </url>
+
+    <!-- Day 7 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day7.html</loc>
+    </url>
+
+    <!-- Day 8 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day8.html</loc>
+    </url>
+
+    <!-- Day 9 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day9.html</loc>
+    </url>
+
+    <!-- Day 10 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day10.html</loc>
+    </url>
+
+    <!-- Day 11 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day11.html</loc>
+    </url>
+
+    <!-- Day 12 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day12.html</loc>
+    </url>
+
+    <!-- Day 13 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day13.html</loc>
+    </url>
+
+    <!-- Day 14 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day14.html</loc>
+    </url>
+
+    <!-- Day 15 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day15.html</loc>
+    </url>
+
+    <!-- Day 16 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day16.html</loc>
+    </url>
+
+    <!-- Day 17 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day17.html</loc>
+    </url>
+
+    <!-- Day 18 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day18.html</loc>
+    </url>
+
+    <!-- Day 19 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day19.html</loc>
+    </url>
+
+    <!-- Day 20 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day20.html</loc>
+    </url>
+
+    <!-- Day 21 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day21.html</loc>
+    </url>
+
+    <!-- Day 22 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day22.html</loc>
+    </url>
+
+    <!-- Day 23 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day23.html</loc>
+    </url>
+
+    <!-- Day 24 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day24.html</loc>
+    </url>
+
+    <!-- Day 25 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day25.html</loc>
+    </url>
+
+    <!-- Day 26 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day26.html</loc>
+    </url>
+
+    <!-- Day 27 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day27.html</loc>
+    </url>
+
+    <!-- Day 28 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day28.html</loc>
+    </url>
+
+    <!-- Day 29 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day29.html</loc>
+    </url>
+
+    <!-- Day 30 -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/day30.html</loc>
+    </url>
+
+    <!-- Python Notes PDF -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/python-notes.pdf</loc>
+    </url>
+
+    <!-- SQL -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/sql.html</loc>
+    </url>
+
+    <!-- Power BI -->
+    <url>
+        <loc>https://shivmangal66.github.io/data-analytics-hub/powerbi.html</loc>
+    </url>
 
 </urlset>
+```
