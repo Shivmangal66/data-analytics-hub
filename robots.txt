@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shivmangal66.github.io/data-analytics-hub/sitemap.xml
