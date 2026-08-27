@@ -169,14 +169,11 @@
     </url>
 
     <!-- SQL -->
-    <url>
-        <loc>https://shivmangal66.github.io/data-analytics-hub/sql.html</loc>
-    </url>
+   <url>
+    <loc>https://shivmangal66.github.io/data-analytics-hub/sql-notes.pdf</loc>
+</url>
 
-    <!-- Power BI -->
-    <url>
-        <loc>https://shivmangal66.github.io/data-analytics-hub/powerbi.html</loc>
-    </url>
-
-</urlset>
-```
+    <!-- Power bi -->
+<url>
+    <loc>https://shivmangal66.github.io/data-analytics-hub/powerbi-notes.pdf</loc>
+</url>
