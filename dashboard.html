@@ -10,6 +10,47 @@
 <title>Dashboard | Data Analytics Hub</title>
 
 <style>
+   /* PREMIUM DATA ANALYTICS COURSE */
+
+.premium-course {
+    position: relative;
+    border: 2px solid #f59e0b;
+    background: linear-gradient(135deg, #fff7ed, #ffffff);
+}
+
+.premium-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #f59e0b;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.course-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #16a34a;
+    margin: 8px 0;
+}
+
+.premium-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #f59e0b;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.premium-btn:hover {
+    transform: translateY(-2px);
+}
 
 /* =========================
    RESET
@@ -929,6 +970,32 @@ footer{
 </div>
 
 
+</div> 
+   <!-- DATA ANALYTICS FULL COURSE - PREMIUM -->
+<div class="course-card premium-course">
+
+    <div class="course-icon">📊</div>
+
+    <h3>Data Analytics Full Course</h3>
+
+    <span class="premium-badge">🔐 PREMIUM COURSE</span>
+
+    <p class="course-price">Only ₹11</p>
+
+    <p>
+        Excel + SQL + Python + Power BI
+    </p>
+
+    <p>
+        🎯 Beginner to Advanced<br>
+        🏆 Practical Projects<br>
+        📚 Complete Learning
+    </p>
+
+    <button class="premium-btn" onclick="buyDataAnalytics()">
+        🔓 BUY NOW – ₹11
+    </button>
+
 </div>
 
 
@@ -1464,7 +1531,9 @@ function logoutUser(){
         "index.html";
 
 }
-
+function buyDataAnalytics() {
+    alert("Data Analytics Full Course\n\nPrice: ₹11\n\nPayment system will be connected here.");
+}
 </script>
 
 
