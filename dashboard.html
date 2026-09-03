@@ -991,23 +991,7 @@ footer{
         🏆 Practical Projects<br>
         📚 Complete Learning
     </p>
-async function checkPremiumAccess() {
 
-    const response = await fetch(
-        "https://data-analytics-backend-1-tfgz.onrender.com/api/premium-access"
-    );
-
-    const data = await response.json();
-
-    if (data.access === true) {
-
-        window.open("premium-course.html", "_blank");
-
-    } else {
-
-        alert("❌ Payment required. Please buy the course first.");
-
-    }
 }
     <button class="premium-btn" onclick="buyDataAnalytics()">
         🔓 BUY NOW – ₹11
