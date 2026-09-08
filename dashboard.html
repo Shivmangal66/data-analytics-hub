@@ -1003,6 +1003,47 @@ footer{
 
 </div>
 
+   <!-- HTML PREMIUM COURSE -->
+<div class="course-card html-premium-card">
+
+    <div class="course-icon">
+        🌐
+    </div>
+
+    <span class="premium-badge">
+        🔐 PREMIUM COURSE
+    </span>
+
+    <h3>HTML</h3>
+
+    <p>
+        Learn HTML from basic to advanced
+        concepts with practical examples
+        and projects.
+    </p>
+
+    <div class="course-price">
+        Only ₹21
+    </div>
+
+    <div class="html-buttons">
+
+        <button
+            class="html-buy-btn"
+            onclick="buyHTMLCourse()">
+            🛒 BUY NOW – ₹21
+        </button>
+
+        <button
+            class="html-open-btn"
+            onclick="openHTMLCourse()">
+            📖 OPEN
+        </button>
+
+    </div>
+
+</div>
+
 
 
 <!-- =========================
@@ -1343,7 +1384,93 @@ if(savedEmail){
     .textContent = savedEmail;
 
 }
+/* HTML PREMIUM COURSE */
 
+.html-premium-card {
+    position: relative;
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 25px;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.html-premium-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+}
+
+.html-premium-card .course-icon {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff7ed;
+    border-radius: 14px;
+    font-size: 29px;
+    margin-bottom: 16px;
+}
+
+.html-premium-card h3 {
+    font-size: 23px;
+    margin-bottom: 10px;
+    color: #0f172a;
+}
+
+.html-premium-card p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 68px;
+}
+
+.premium-badge {
+    display: inline-block;
+    padding: 6px 10px;
+    background: #fff7ed;
+    color: #ea580c;
+    border: 1px solid #fed7aa;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.html-premium-card .course-price {
+    font-size: 21px;
+    font-weight: bold;
+    color: #ea580c;
+    margin: 18px 0;
+}
+
+.html-buttons {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.html-buy-btn,
+.html-open-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.html-buy-btn {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    color: white;
+}
+
+.html-open-btn {
+    background: #0f172a;
+    color: white;
+}
 
 
 /* =========================
@@ -1568,6 +1695,26 @@ async function openPremiumPDF() {
 
     }
 }
+   // ===============================
+// HTML PREMIUM COURSE
+// ===============================
+
+function buyHTMLCourse() {
+
+    window.location.href =
+        "YOUR_HTML_RAZORPAY_PAYMENT_LINK";
+
+}
+
+function openHTMLCourse() {
+
+    window.open(
+        "html.html",
+        "_blank"
+    );
+
+}
+
 </script>
 
 
