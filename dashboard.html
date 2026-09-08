@@ -5,52 +5,12 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Dashboard | Data Analytics Hub</title>
 
 <style>
-   /* PREMIUM DATA ANALYTICS COURSE */
-
-.premium-course {
-    position: relative;
-    border: 2px solid #f59e0b;
-    background: linear-gradient(135deg, #fff7ed, #ffffff);
-}
-
-.premium-badge {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 20px;
-    background: #f59e0b;
-    color: white;p
-    font-size: 12px;
-    font-weight: bold;
-    margin: 8px 0;
-}
-
-.course-price {
-    font-size: 24px;
-    font-weight: bold;
-    color: #16a34a;
-    margin: 8px 0;
-}
-
-.premium-btn {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    background: #f59e0b;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.premium-btn:hover {
-    transform: translateY(-2px);
-}
 
 /* =========================
    RESET
@@ -60,7 +20,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
@@ -112,8 +72,16 @@ body{
 
 .hero{
     background:
-    radial-gradient(circle at 15% 20%,#2563eb55,transparent 35%),
-    radial-gradient(circle at 85% 80%,#7c3aed50,transparent 35%),
+    radial-gradient(
+        circle at 15% 20%,
+        #2563eb55,
+        transparent 35%
+    ),
+    radial-gradient(
+        circle at 85% 80%,
+        #7c3aed50,
+        transparent 35%
+    ),
     #080f1f;
 
     color:white;
@@ -214,7 +182,8 @@ body{
 
 .course-grid{
     display:grid;
-    grid-template-columns:repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
     gap:22px;
     align-items:stretch;
 }
@@ -279,6 +248,11 @@ body{
 }
 
 .course-card h2{
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.course-card h3{
     font-size:24px;
     margin-bottom:10px;
 }
@@ -349,7 +323,13 @@ body{
 }
 
 .primary-btn{
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
     color:white;
 }
 
@@ -369,8 +349,16 @@ body{
 
 .python-card{
     background:
-    radial-gradient(circle at 90% 10%,#7c3aed30,transparent 30%),
-    linear-gradient(135deg,#0f172a,#1e293b);
+    radial-gradient(
+        circle at 90% 10%,
+        #7c3aed30,
+        transparent 30%
+    ),
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b
+    );
 
     color:white;
 
@@ -387,7 +375,92 @@ body{
 }
 
 .python-card .course-icon{
-    background:linear-gradient(135deg,#facc15,#3b82f6);
+    background:
+        linear-gradient(
+            135deg,
+            #facc15,
+            #3b82f6
+        );
+}
+
+
+/* =========================
+   PREMIUM DATA ANALYTICS
+========================= */
+
+.premium-course{
+    position:relative;
+
+    border:2px solid #f59e0b;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7ed,
+            #ffffff
+        );
+}
+
+.premium-badge{
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    background:#f59e0b;
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    margin:8px 0;
+}
+
+.course-price{
+    font-size:24px !important;
+
+    font-weight:bold;
+
+    color:#16a34a !important;
+
+    margin:8px 0;
+}
+
+.premium-btn{
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#f59e0b;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    margin-top:10px;
+
+    text-align:center;
+
+    display:block;
+
+    text-decoration:none;
+}
+
+.premium-btn:hover{
+    background:#d97706;
+
+    transform:translateY(-2px);
 }
 
 
@@ -399,8 +472,16 @@ body{
     margin-top:40px;
 
     background:
-    radial-gradient(circle at 90% 0%,#7c3aed35,transparent 35%),
-    linear-gradient(135deg,#0f172a,#172554);
+    radial-gradient(
+        circle at 90% 0%,
+        #7c3aed35,
+        transparent 35%
+    ),
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #172554
+    );
 
     color:white;
 
@@ -413,8 +494,11 @@ body{
 
 .tracker-header{
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     gap:20px;
 
     margin-bottom:25px;
@@ -425,7 +509,13 @@ body{
 }
 
 .premium-label{
-    background:linear-gradient(135deg,#facc15,#f59e0b);
+    background:
+        linear-gradient(
+            135deg,
+            #facc15,
+            #f59e0b
+        );
+
     color:#422006;
 
     padding:8px 13px;
@@ -440,16 +530,23 @@ body{
 }
 
 
-/* TRACKER GRID */
+/* =========================
+   TRACKER GRID
+========================= */
 
 .tracker-grid{
     display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
     gap:18px;
 }
 
 
-/* TRACKER CARD */
+/* =========================
+   TRACKER CARD
+========================= */
 
 .tracker-card{
     background:#ffffff0d;
@@ -463,7 +560,9 @@ body{
 
 .tracker-top{
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
     margin-bottom:14px;
@@ -471,19 +570,24 @@ body{
 
 .tracker-name{
     font-weight:bold;
+
     font-size:17px;
 }
 
 .tracker-percent{
     color:#93c5fd;
+
     font-weight:bold;
 }
 
 
-/* PROGRESS BAR */
+/* =========================
+   PROGRESS BAR
+========================= */
 
 .progress-bg{
     width:100%;
+
     height:10px;
 
     background:#ffffff18;
@@ -500,7 +604,12 @@ body{
 
     width:0%;
 
-    background:linear-gradient(90deg,#3b82f6,#a855f7);
+    background:
+        linear-gradient(
+            90deg,
+            #3b82f6,
+            #a855f7
+        );
 
     border-radius:20px;
 
@@ -508,11 +617,15 @@ body{
 }
 
 
-/* TRACKER BUTTONS */
+/* =========================
+   TRACKER BUTTONS
+========================= */
 
 .tracker-actions{
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     gap:10px;
@@ -554,7 +667,8 @@ body{
 .stats{
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:
+        repeat(3,1fr);
 
     gap:18px;
 
@@ -643,6 +757,7 @@ footer{
 
     .tracker-header{
         align-items:flex-start;
+
         flex-direction:column;
     }
 
@@ -677,7 +792,6 @@ footer{
 </nav>
 
 
-
 <!-- =========================
      HERO
 ========================= -->
@@ -702,7 +816,6 @@ footer{
     </div>
 
 </section>
-
 
 
 <main class="container">
@@ -763,7 +876,6 @@ footer{
 </div>
 
 
-
 <!-- =========================
      COURSES
 ========================= -->
@@ -814,7 +926,6 @@ footer{
 </div>
 
 
-
 <!-- =========================
      PYTHON
 ========================= -->
@@ -834,8 +945,9 @@ footer{
         with concepts, examples and practical projects.
     </p>
 
-    <span class="course-badge"
-          style="background:#fef3c7;color:#92400e;">
+    <span
+        class="course-badge"
+        style="background:#fef3c7;color:#92400e;">
 
         COMPLETE NOTES
 
@@ -864,7 +976,6 @@ footer{
     </div>
 
 </div>
-
 
 
 <!-- =========================
@@ -914,7 +1025,6 @@ footer{
     </div>
 
 </div>
-
 
 
 <!-- =========================
@@ -970,17 +1080,27 @@ footer{
 </div>
 
 
-</div> 
-   <!-- DATA ANALYTICS FULL COURSE - PREMIUM -->
+<!-- =========================
+     DATA ANALYTICS PREMIUM
+========================= -->
+
 <div class="course-card premium-course">
 
-    <div class="course-icon">📊</div>
+    <div class="course-icon">
+        📊
+    </div>
 
-    <h3>Data Analytics Full Course</h3>
+    <h3>
+        Data Analytics Full Course
+    </h3>
 
-    <span class="premium-badge">🔐 PREMIUM COURSE</span>
+    <span class="premium-badge">
+        🔐 PREMIUM COURSE
+    </span>
 
-    <p class="course-price">Only ₹11</p>
+    <p class="course-price">
+        Only ₹11
+    </p>
 
     <p>
         Excel + SQL + Python + Power BI
@@ -992,60 +1112,33 @@ footer{
         📚 Complete Learning
     </p>
 
-}<a href="https://rzp.io/rzp/yUd8pYbJ"
-   target="_blank"
-   class="premium-btn"
-   style="display:block; text-decoration:none; text-align:center;">
-    🔓 BUY NOW – ₹11
-</a>
 
-<button
-    class="premium-btn"
-    onclick="openPremiumPDF()">
-    📖 OPEN PREMIUM PDF
-</button>
-    
-   <!-- HTML PREMIUM COURSE -->
-<div class="course-card html-premium-card">
+    <!-- RAZORPAY PAYMENT -->
 
-    <div class="course-icon">
-        🌐
-    </div>
+    <a
+        href="https://rzp.io/rzp/yUd8pYbJ"
+        target="_blank"
+        class="premium-btn">
 
-    <span class="premium-badge">
-        🔐 PREMIUM COURSE
-    </span>
+        🔓 BUY NOW – ₹11
 
-    <h3>HTML</h3>
+    </a>
 
-    <p>
-        Learn HTML from basic to advanced
-        concepts with practical examples
-        and projects.
-    </p>
 
-    <div class="course-price">
-        Only ₹21
-    </div>
+    <!-- PREMIUM PDF -->
 
-    <div class="html-buttons">
+    <button
+        class="premium-btn"
+        onclick="openPremiumPDF()">
 
-        <button
-            class="html-buy-btn"
-            onclick="buyHTMLCourse()">
-            🛒 BUY NOW – ₹21
-        </button>
+        📖 OPEN PREMIUM PDF
 
-        <button
-            class="html-open-btn"
-            onclick="openHTMLCourse()">
-            📖 OPEN
-        </button>
-
-    </div>
+    </button>
 
 </div>
 
+
+</div>
 
 
 <!-- =========================
@@ -1098,6 +1191,7 @@ footer{
 
             </div>
 
+
             <div class="progress-bg">
 
                 <div
@@ -1106,6 +1200,7 @@ footer{
                 </div>
 
             </div>
+
 
             <div class="tracker-actions">
 
@@ -1130,7 +1225,6 @@ footer{
         </div>
 
 
-
         <!-- PYTHON TRACKER -->
 
         <div class="tracker-card">
@@ -1151,6 +1245,7 @@ footer{
 
             </div>
 
+
             <div class="progress-bg">
 
                 <div
@@ -1159,6 +1254,7 @@ footer{
                 </div>
 
             </div>
+
 
             <div class="tracker-actions">
 
@@ -1183,7 +1279,6 @@ footer{
         </div>
 
 
-
         <!-- SQL TRACKER -->
 
         <div class="tracker-card">
@@ -1204,6 +1299,7 @@ footer{
 
             </div>
 
+
             <div class="progress-bg">
 
                 <div
@@ -1212,6 +1308,7 @@ footer{
                 </div>
 
             </div>
+
 
             <div class="tracker-actions">
 
@@ -1236,7 +1333,6 @@ footer{
         </div>
 
 
-
         <!-- POWER BI TRACKER -->
 
         <div class="tracker-card">
@@ -1257,6 +1353,7 @@ footer{
 
             </div>
 
+
             <div class="progress-bg">
 
                 <div
@@ -1265,6 +1362,7 @@ footer{
                 </div>
 
             </div>
+
 
             <div class="tracker-actions">
 
@@ -1294,432 +1392,6 @@ footer{
 </section>
 
 
-
 <!-- =========================
      STATS
-========================= -->
-
-<div class="stats">
-
-    <div class="stat">
-
-        <strong>
-            30
-        </strong>
-
-        <span>
-            Excel Lessons
-        </span>
-
-    </div>
-
-
-    <div class="stat">
-
-        <strong>
-            4
-        </strong>
-
-        <span>
-            Learning Courses
-        </span>
-
-    </div>
-
-
-    <div class="stat">
-
-        <strong id="overallProgress">
-            0%
-        </strong>
-
-        <span>
-            Overall Progress
-        </span>
-
-    </div>
-
-</div>
-
-
-</main>
-
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    © 2026 Data Analytics Hub
-    • Learn • Practice • Grow 🚀
-
-</footer>
-
-
-
-<script>
-
-/* =========================
-   USER DATA
-========================= */
-
-const savedName =
-    localStorage.getItem("studentName");
-
-const savedEmail =
-    localStorage.getItem("studentEmail");
-
-
-if(savedName){
-
-    document.getElementById("studentName")
-    .textContent = savedName;
-
-}
-
-
-if(savedEmail){
-
-    document.getElementById("studentEmail")
-    .textContent = savedEmail;
-
-}
-/* HTML PREMIUM COURSE */
-
-.html-premium-card {
-    position: relative;
-    background: linear-gradient(145deg, #ffffff, #f8fafc);
-    border: 1px solid #e2e8f0;
-    border-radius: 18px;
-    padding: 25px;
-    transition: 0.3s;
-    overflow: hidden;
-}
-
-.html-premium-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 45px rgba(0,0,0,0.12);
-}
-
-.html-premium-card .course-icon {
-    width: 58px;
-    height: 58px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fff7ed;
-    border-radius: 14px;
-    font-size: 29px;
-    margin-bottom: 16px;
-}
-
-.html-premium-card h3 {
-    font-size: 23px;
-    margin-bottom: 10px;
-    color: #0f172a;
-}
-
-.html-premium-card p {
-    color: #64748b;
-    font-size: 14px;
-    line-height: 1.6;
-    min-height: 68px;
-}
-
-.premium-badge {
-    display: inline-block;
-    padding: 6px 10px;
-    background: #fff7ed;
-    color: #ea580c;
-    border: 1px solid #fed7aa;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: bold;
-    margin-bottom: 12px;
-}
-
-.html-premium-card .course-price {
-    font-size: 21px;
-    font-weight: bold;
-    color: #ea580c;
-    margin: 18px 0;
-}
-
-.html-buttons {
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-}
-
-.html-buy-btn,
-.html-open-btn {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.html-buy-btn {
-    background: linear-gradient(135deg, #f97316, #ea580c);
-    color: white;
-}
-
-.html-open-btn {
-    background: #0f172a;
-    color: white;
-}
-
-
-/* =========================
-   COURSE PROGRESS
-========================= */
-
-const courses = [
-    "excel",
-    "python",
-    "sql",
-    "powerbi"
-];
-
-
-function getProgress(course){
-
-    return Number(
-        localStorage.getItem(
-            "progress_" + course
-        )
-    ) || 0;
-
-}
-
-
-function setProgress(course,value){
-
-    value = Math.max(
-        0,
-        Math.min(100,value)
-    );
-
-    localStorage.setItem(
-        "progress_" + course,
-        value
-    );
-
-    updateTracker(course);
-
-    updateOverallProgress();
-
-}
-
-
-function increaseProgress(course){
-
-    let current =
-        getProgress(course);
-
-    let next =
-        current + 10;
-
-    if(next > 100){
-        next = 100;
-    }
-
-    setProgress(
-        course,
-        next
-    );
-
-}
-
-
-function updateTracker(course){
-
-    const progress =
-        getProgress(course);
-
-    const percentElement =
-        document.getElementById(
-            course + "Percent"
-        );
-
-    const progressElement =
-        document.getElementById(
-            course + "Progress"
-        );
-
-    const statusElement =
-        document.getElementById(
-            course + "Status"
-        );
-
-
-    if(percentElement){
-
-        percentElement.textContent =
-            progress + "%";
-
-    }
-
-
-    if(progressElement){
-
-        progressElement.style.width =
-            progress + "%";
-
-    }
-
-
-    if(statusElement){
-
-        if(progress === 0){
-
-            statusElement.textContent =
-                "Start learning";
-
-        }
-        else if(progress < 100){
-
-            statusElement.textContent =
-                "Learning in progress";
-
-        }
-        else{
-
-            statusElement.textContent =
-                "Course completed 🎉";
-
-        }
-
-    }
-
-}
-
-
-function updateOverallProgress(){
-
-    let total = 0;
-
-
-    courses.forEach(
-        function(course){
-
-            total +=
-                getProgress(course);
-
-        }
-    );
-
-
-    const average =
-        Math.round(
-            total / courses.length
-        );
-
-
-    document.getElementById(
-        "overallProgress"
-    ).textContent =
-        average + "%";
-
-}
-
-
-
-/* =========================
-   LOAD SAVED PROGRESS
-========================= */
-
-courses.forEach(
-    function(course){
-
-        updateTracker(course);
-
-    }
-);
-
-
-updateOverallProgress();
-
-
-
-/* =========================
-   LOGOUT
-========================= */
-
-function logoutUser(){
-
-    localStorage.removeItem(
-        "studentName"
-    );
-
-    localStorage.removeItem(
-        "studentEmail"
-    );
-
-    window.location.href =
-        "index.html";
-
-}
-   function buyDataAnalytics() {
-    window.location.href = "https://rzp.io/rzp/yUd8pYbJ";
-}
-
-async function openPremiumPDF() {
-
-    try {
-
-        const response = await fetch(
-            "https://data-analytics-backend-1-tfgz.onrender.com/api/premium-access"
-        );
-
-        const data = await response.json();
-
-        if (data.access === true) {
-
-            window.open("premium-course.pdf", "_blank");
-
-        } else {
-
-            alert("❌ Please complete the ₹11 payment first.");
-
-        }
-
-    } catch (error) {
-
-        console.error("Premium access error:", error);
-
-        alert("⚠️ Server connection error. Please try again.");
-
-    }
-}
-   // ===============================
-// HTML PREMIUM COURSE
-// ===============================
-
-function buyHTMLCourse() {
-
-    window.location.href =
-        "YOUR_HTML_RAZORPAY_PAYMENT_LINK";
-
-}
-
-function openHTMLCourse() {
-
-    window.open(
-        "html.html",
-        "_blank"
-    );
-
-}
-
-</script>
-
-
-</body>
-
-</html>
+========
