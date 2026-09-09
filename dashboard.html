@@ -1390,32 +1390,22 @@ footer{
 </section>
 
 
-<!-- =========================
-     STATS
-========
-     <script>
+<script>
 async function openPremiumPDF() {
 
-    const pdfWindow = window.open("", "_blank");
-
     try {
-
         const response = await fetch(
             "https://data-analytics-backend-1-tfgz.onrender.com/api/premium-access"
         );
 
         const data = await response.json();
 
-        if (data.success === true && data.access === true) {
+        if (data.success && data.access) {
 
-            pdfWindow.location.href =
+            window.location.href =
                 "https://shivmangal66.github.io/data-analytics-hub/premium-course.pdf";
 
         } else {
-
-            if (pdfWindow) {
-                pdfWindow.close();
-            }
 
             alert("❌ Payment required.");
 
@@ -1424,11 +1414,6 @@ async function openPremiumPDF() {
     } catch (error) {
 
         console.error(error);
-
-        if (pdfWindow) {
-            pdfWindow.close();
-        }
-
         alert("⚠️ Server connection error.");
 
     }
