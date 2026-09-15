@@ -439,7 +439,23 @@ section {
 <!-- MAIN -->
 
 <main class="main">
+    
+<div class="html-hero">
+    <span class="hero-badge">DATA ANALYTICS HUB</span>
 
+    <h1>Learn HTML <span>Interactively</span></h1>
+
+    <p>
+        Learn HTML with practical examples, live coding,
+        and instant output.
+    </p>
+
+    <div class="hero-tags">
+        <span>💻 Live Coding</span>
+        <span>⚡ Instant Output</span>
+        <span>🎯 Practical Learning</span>
+    </div>
+</div>
 
 <!-- HOME -->
 
@@ -1117,7 +1133,56 @@ h1 {
 p {
     font-size: 20px;
 }
+.html-hero {
+    padding: 45px 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #111827, #1E1B4B);
+    border: 1px solid #2F3545;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+}
 
+.hero-badge {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 20px;
+    background: #FF8A00;
+    color: #111827;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.html-hero h1 {
+    font-size: 42px;
+    margin: 18px 0 10px;
+}
+
+.html-hero h1 span {
+    color: #FF8A00;
+}
+
+.html-hero p {
+    color: #AEB6C5;
+    font-size: 17px;
+}
+
+.hero-tags {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+}
+
+.hero-tags span {
+    padding: 9px 14px;
+    border-radius: 10px;
+    background: #0F172A;
+    border: 1px solid #30384A;
+    font-size: 13px;
+}
 </style>
 
 </head>
