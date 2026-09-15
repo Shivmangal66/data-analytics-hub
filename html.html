@@ -1381,6 +1381,21 @@ window.addEventListener("scroll", () => {
         }
     });
 });
+</script><script>
+function searchTopics() {
+    const search = document.getElementById("topicSearch").value.toLowerCase();
+    const links = document.querySelectorAll(".sidebar a");
+
+    links.forEach(link => {
+        const text = link.textContent.toLowerCase();
+
+        if (text.includes(search)) {
+            link.style.display = "block";
+        } else {
+            link.style.display = "none";
+        }
+    });
+}
 </script>
 </body>
 </html>
