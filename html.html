@@ -1,523 +1,571 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- =========================
+     PART 2 : LINKS
+========================= -->
 
-<title>HTML Course | Data Analytics Hub</title>
+<section id="links">
 
-<style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial, sans-serif;
-    background:#0B0F19;
-    color:#E5E7EB;
-}
-
-/* TOP NAV */
-.topbar{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    height:65px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 25px;
-    background:#111827;
-    border-bottom:1px solid #252B3A;
-}
-
-.logo{
-    color:#FF8A00;
-    font-size:22px;
-    font-weight:bold;
-}
-
-.nav-links{
-    display:flex;
-    gap:22px;
-}
-
-.nav-links a{
-    color:#D1D5DB;
-    text-decoration:none;
-    font-weight:600;
-}
-
-.nav-links a:hover{
-    color:#FF8A00;
-}
-
-/* LAYOUT */
-.layout{
-    display:flex;
-    min-height:calc(100vh - 65px);
-}
-
-/* SIDEBAR */
-.sidebar{
-    width:260px;
-    flex-shrink:0;
-    background:#0F172A;
-    border-right:1px solid #252B3A;
-    padding:18px 12px;
-    position:sticky;
-    top:65px;
-    height:calc(100vh - 65px);
-    overflow-y:auto;
-}
-
-.sidebar h2{
-    color:#FF8A00;
-    font-size:21px;
-    margin-bottom:5px;
-}
-
-.sidebar p{
-    color:#8B93A5;
-    font-size:13px;
-    margin-bottom:15px;
-}
-
-.search-box{
-    margin-bottom:12px;
-}
-
-.search-box input{
-    width:100%;
-    padding:12px;
-    border-radius:10px;
-    border:1px solid #30384A;
-    background:#080D18;
-    color:white;
-    outline:none;
-}
-
-.search-box input:focus{
-    border-color:#FF8A00;
-}
-
-.sidebar a{
-    display:block;
-    color:#D1D5DB;
-    text-decoration:none;
-    padding:11px 13px;
-    margin:4px 0;
-    border-radius:9px;
-    font-size:14px;
-    transition:.2s;
-}
-
-.sidebar a:hover,
-.sidebar a.active-topic{
-    background:linear-gradient(90deg,#FF8A00,#7C3AED);
-    color:white;
-}
-
-/* MAIN */
-main{
-    width:100%;
-    max-width:1050px;
-    margin:auto;
-    padding:30px;
-}
-
-section{
-    scroll-margin-top:85px;
-    background:#111827;
-    border:1px solid #252B3A;
-    border-radius:18px;
-    padding:28px;
-    margin-bottom:25px;
-}
-
-section h2{
-    color:#FF8A00;
-    font-size:28px;
-    margin-bottom:15px;
-}
-
-section h3{
-    color:#A78BFA;
-    margin:20px 0 10px;
-}
-
-section p,
-section li{
-    color:#C5CBD6;
-    line-height:1.75;
-}
-
-ul{
-    padding-left:22px;
-}
-
-/* HERO */
-.html-hero{
-    padding:40px;
-    margin-bottom:30px;
-    border-radius:22px;
-    background:linear-gradient(135deg,#151A27,#111827);
-    border:1px solid #2A3142;
-}
-
-.hero-badge{
-    display:inline-block;
-    background:#FF8A00;
-    color:#111;
-    padding:7px 13px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.html-hero h1{
-    margin-top:18px;
-    font-size:42px;
-}
-
-.html-hero h1 span{
-    color:#FF8A00;
-}
-
-.html-hero p{
-    margin-top:12px;
-    color:#AAB2C0;
-}
-
-.hero-tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:20px;
-}
-
-.hero-tags span{
-    background:#202638;
-    padding:8px 13px;
-    border-radius:20px;
-    font-size:13px;
-}
-
-/* THEORY */
-.theory-box{
-    background:#0B1220;
-    border-left:4px solid #FF8A00;
-    padding:18px;
-    border-radius:10px;
-    margin-top:15px;
-}
-
-.key-points{
-    margin-top:15px;
-}
-
-/* CODE */
-.example{
-    margin-top:20px;
-}
-
-.code-editor{
-    width:100%;
-    min-height:190px;
-    resize:vertical;
-    background:#080D18;
-    color:#F8FAFC;
-    border:1px solid #30384A;
-    border-radius:12px;
-    padding:16px;
-    font-family:Consolas,monospace;
-    font-size:14px;
-    line-height:1.5;
-    outline:none;
-}
-
-.code-editor:focus{
-    border-color:#FF8A00;
-}
-
-.run-btn{
-    display:block;
-    width:100%;
-    margin-top:12px;
-    padding:13px;
-    border:none;
-    border-radius:11px;
-    background:linear-gradient(135deg,#FF8A00,#FFB000);
-    color:#111;
-    font-weight:bold;
-    cursor:pointer;
-    font-size:15px;
-}
-
-.run-btn:hover{
-    box-shadow:0 8px 20px rgba(255,138,0,.25);
-}
-
-.output-box{
-    margin-top:15px;
-}
-
-.output-title{
-    color:#AAB2C0;
-    margin-bottom:7px;
-    font-size:13px;
-}
-
-.output{
-    width:100%;
-    height:190px;
-    background:white;
-    border:none;
-    border-radius:12px;
-}
-
-/* NAVIGATION */
-.navigation{
-    display:flex;
-    justify-content:space-between;
-    gap:15px;
-    margin-top:25px;
-}
-
-.navigation a{
-    text-decoration:none;
-    padding:11px 18px;
-    border-radius:10px;
-    background:#202638;
-    color:white;
-    font-weight:bold;
-}
-
-.navigation a:hover{
-    background:linear-gradient(135deg,#FF8A00,#7C3AED);
-}
-
-/* MOBILE */
-@media(max-width:800px){
-
-    .topbar{
-        padding:0 15px;
-    }
-
-    .nav-links{
-        display:none;
-    }
-
-    .layout{
-        display:block;
-    }
-
-    .sidebar{
-        position:relative;
-        top:0;
-        width:100%;
-        height:auto;
-        max-height:360px;
-    }
-
-    main{
-        padding:15px;
-    }
-
-    .html-hero{
-        padding:25px;
-    }
-
-    .html-hero h1{
-        font-size:31px;
-    }
-
-    section{
-        padding:20px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<header class="topbar">
-
-<div class="logo">
-🚀 Data Analytics Hub
-</div>
-
-<nav class="nav-links">
-<a href="index.html">Home</a>
-<a href="html.html">HTML</a>
-<a href="dashboard.html">Dashboard</a>
-</nav>
-
-</header>
-
-
-<div class="layout">
-
-<!-- SIDEBAR -->
-
-<aside class="sidebar">
-
-<h2>🚀 Master HTML</h2>
-
-<p>
-Build • Practice • Create
-</p>
-
-<div class="search-box">
-<input
-type="text"
-id="topicSearch"
-placeholder="🔎 Search HTML topic..."
-onkeyup="searchTopics()">
-</div>
-
-<a href="#home">HTML Home</a>
-<a href="#introduction">Introduction</a>
-<a href="#editors">HTML Editors</a>
-<a href="#structure">Basic Structure</a>
-<a href="#elements">HTML Elements</a>
-<a href="#attributes">HTML Attributes</a>
-<a href="#comments">HTML Comments</a>
-<a href="#headings">Headings</a>
-<a href="#paragraphs">Paragraphs</a>
-<a href="#formatting">Text Formatting</a>
-<a href="#quotations">Quotations</a>
-<a href="#colors">Colors</a>
-
-</aside>
-
-
-<main>
-
-<!-- HERO -->
-
-<div class="html-hero">
-
-<span class="hero-badge">
-DATA ANALYTICS HUB
-</span>
-
-<h1>
-Learn HTML <span>Interactively</span>
-</h1>
-
-<p>
-Learn HTML through focused English theory,
-practical examples and live coding.
-</p>
-
-<div class="hero-tags">
-<span>💻 Live Coding</span>
-<span>⚡ Instant Output</span>
-<span>🎯 Practical Learning</span>
-</div>
-
-</div>
-
-
-<!-- HOME -->
-
-<section id="home">
-
-<h2>HTML Home</h2>
+<h2>HTML Links</h2>
 
 <div class="theory-box">
-
 <p>
-HTML stands for HyperText Markup Language.
-It is the standard markup language used to create
-and structure content on web pages.
+An HTML link is used to connect one webpage to another webpage,
+file, section, or external resource. Links are created using
+the <strong>&lt;a&gt;</strong> element.
 </p>
-
 </div>
 
-<h3>Course Approach</h3>
+<h3>Important Attribute</h3>
 
 <ul>
-<li>Learn one HTML topic at a time.</li>
-<li>Understand the theory in English.</li>
-<li>Practice with real HTML code.</li>
-<li>Run the code and see the output instantly.</li>
+<li><strong>href</strong> — Specifies the destination of the link.</li>
+<li><strong>target</strong> — Specifies where the linked page opens.</li>
 </ul>
 
+<h3>Example</h3>
+
+<textarea class="code-editor" id="code-links"><h2>My Links</h2>
+
+<a href="https://www.google.com">
+Open Google
+</a>
+
+<br><br>
+
+<a href="https://shivmangal66.github.io/data-analytics-hub/">
+Visit Data Analytics Hub
+</a></textarea>
+
+<button class="run-btn"
+onclick="runCode('code-links','output-links')">
+▶ Run Code
+</button>
+
+<div class="output-box">
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-links"></iframe>
+</div>
+
 <div class="navigation">
-<a href="#home">← Previous</a>
-<a href="#introduction">Next →</a>
+<a href="#colors">← Previous</a>
+<a href="#images">Next →</a>
 </div>
 
 </section>
 
 
-<!-- INTRODUCTION -->
+<!-- =========================
+     IMAGES
+========================= -->
 
-<section id="introduction">
+<section id="images">
 
-<h2>HTML Introduction</h2>
+<h2>HTML Images</h2>
 
 <div class="theory-box">
-
 <p>
-<strong>What is HTML?</strong><br><br>
-
-HTML stands for HyperText Markup Language.
-It is used to create the structure of a web page.
-HTML tells the browser how different pieces of
-content should be organized and displayed.
+HTML images are used to display pictures on a webpage.
+The <strong>&lt;img&gt;</strong> element is used to add an image.
+The img element does not require a closing tag.
 </p>
-
 </div>
 
-<h3>Why is HTML Used?</h3>
+<h3>Important Attributes</h3>
 
 <ul>
-<li>To create web pages.</li>
-<li>To structure text and content.</li>
-<li>To add links and images.</li>
-<li>To create tables and forms.</li>
-<li>To build the basic structure of websites.</li>
+<li><strong>src</strong> — Specifies the image location.</li>
+<li><strong>alt</strong> — Provides alternative text.</li>
+<li><strong>width</strong> — Sets image width.</li>
+<li><strong>height</strong> — Sets image height.</li>
 </ul>
 
-<h3>First HTML Example</h3>
+<h3>Example</h3>
 
-<div class="example">
+<textarea class="code-editor" id="code-images"><h2>HTML Image</h2>
 
-<textarea class="code-editor" id="code-introduction"><!DOCTYPE html>
-<html>
-<body>
+<img
+src="https://via.placeholder.com/300"
+alt="Sample Image"
+width="300">
 
-<h1>Hello World</h1>
-
-<p>Welcome to HTML.</p>
-
-</body>
-</html></textarea>
+<p>This is an example image.</p></textarea>
 
 <button class="run-btn"
-onclick="runCode('code-introduction','output-introduction')">
+onclick="runCode('code-images','output-images')">
 ▶ Run Code
 </button>
 
 <div class="output-box">
-
-<div class="output-title">
-Live Output
-</div>
-
-<iframe class="output" id="output-introduction"></iframe>
-
-</div>
-
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-images"></iframe>
 </div>
 
 <div class="navigation">
+<a href="#links">← Previous</a>
+<a href="#favicon">Next →</a>
+</div>
+
+</section>
+
+
+<!-- =========================
+     FAVICON
+========================= -->
+
+<section id="favicon">
+
+<h2>HTML Favicon</h2>
+
+<div class="theory-box">
+<p>
+A favicon is a small icon associated with a webpage.
+It is commonly displayed in the browser tab next to the
+page title.
+</p>
+</div>
+
+<h3>How Favicon Works</h3>
+
+<p>
+A favicon is normally added inside the
+<strong>&lt;head&gt;</strong> section using the
+<strong>&lt;link&gt;</strong> element.
+</p>
+
+<h3>Example</h3>
+
+<textarea class="code-editor" id="code-favicon"><!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>My Website</title>
+
+<link
+rel="icon"
+href="https://www.google.com/favicon.ico">
+
+</head>
+
+<body>
+
+<h1>My Website</h1>
+
+<p>Favicon Example</p>
+
+</body>
+
+</html></textarea>
+
+<button class="run-btn"
+onclick="runCode('code-favicon','output-favicon')">
+▶ Run Code
+</button>
+
+<div class="output-box">
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-favicon"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#images">← Previous</a>
+<a href="#tables">Next →</a>
+</div>
+
+</section>
+
+
+<!-- =========================
+     TABLES
+========================= -->
+
+<section id="tables">
+
+<h2>HTML Tables</h2>
+
+<div class="theory-box">
+<p>
+An HTML table is used to organize and display data
+in rows and columns. Tables are useful for presenting
+structured information such as student records,
+product details, marks and prices.
+</p>
+</div>
+
+<h3>Table Elements</h3>
+
+<ul>
+<li><strong>&lt;table&gt;</strong> — Defines the table.</li>
+<li><strong>&lt;tr&gt;</strong> — Defines a table row.</li>
+<li><strong>&lt;th&gt;</strong> — Defines a table heading.</li>
+<li><strong>&lt;td&gt;</strong> — Defines table data.</li>
+</ul>
+
+<h3>Example</h3>
+
+<textarea class="code-editor" id="code-tables"><table border="1">
+
+<tr>
+<th>Name</th>
+<th>Course</th>
+<th>Age</th>
+</tr>
+
+<tr>
+<td>Shiv</td>
+<td>HTML</td>
+<td>18</td>
+</tr>
+
+<tr>
+<td>Rahul</td>
+<td>Python</td>
+<td>20</td>
+</tr>
+
+</table></textarea>
+
+<button class="run-btn"
+onclick="runCode('code-tables','output-tables')">
+▶ Run Code
+</button>
+
+<div class="output-box">
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-tables"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#favicon">← Previous</a>
+<a href="#lists">Next →</a>
+</div>
+
+</section>
+
+
+<!-- =========================
+     LISTS
+========================= -->
+
+<section id="lists">
+
+<h2>HTML Lists</h2>
+
+<div class="theory-box">
+<p>
+HTML lists are used to organize related items.
+HTML provides ordered lists, unordered lists and
+description lists.
+</p>
+</div>
+
+<h3>Unordered List</h3>
+
+<p>
+An unordered list displays items using bullet points.
+It is created using <strong>&lt;ul&gt;</strong>.
+</p>
+
+<h3>Ordered List</h3>
+
+<p>
+An ordered list displays items in a numbered sequence.
+It is created using <strong>&lt;ol&gt;</strong>.
+</p>
+
+<h3>Example</h3>
+
+<textarea class="code-editor" id="code-lists"><h2>Unordered List</h2>
+
+<ul>
+<li>HTML</li>
+<li>Python</li>
+<li>SQL</li>
+</ul>
+
+<h2>Ordered List</h2>
+
+<ol>
+<li>Learn</li>
+<li>Practice</li>
+<li>Build</li>
+</ol></textarea>
+
+<button class="run-btn"
+onclick="runCode('code-lists','output-lists')">
+▶ Run Code
+</button>
+
+<div class="output-box">
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-lists"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#tables">← Previous</a>
+<a href="#description-lists">Next →</a>
+</div>
+
+</section>
+
+
+<!-- =========================
+     DESCRIPTION LISTS
+========================= -->
+
+<section id="description-lists">
+
+<h2>HTML Description Lists</h2>
+
+<div class="theory-box">
+<p>
+A description list is used to display terms together
+with their descriptions. It is useful when each item
+needs additional information.
+</p>
+</div>
+
+<h3>Important Elements</h3>
+
+<ul>
+<li><strong>&lt;dl&gt;</strong> — Defines the description list.</li>
+<li><strong>&lt;dt&gt;</strong> — Defines a term.</li>
+<li><strong>&lt;dd&gt;</strong> — Defines the description.</li>
+</ul>
+
+<h3>Example</h3>
+
+<textarea class="code-editor" id="code-description-lists"><dl>
+
+<dt>HTML</dt>
+<dd>HTML is used to structure webpages.</dd>
+
+<dt>Python</dt>
+<dd>Python is a programming language.</dd>
+
+<dt>SQL</dt>
+<dd>SQL is used to work with databases.</dd>
+
+</dl></textarea>
+
+<button class="run-btn"
+onclick="runCode('code-description-lists','output-description-lists')">
+▶ Run Code
+</button>
+
+<div class="output-box">
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-description-lists"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#lists">← Previous</a>
+<a href="#forms">Next →</a>
+</div>
+
+</section>
+
+
+<!-- =========================
+     FORMS
+========================= -->
+
+<section id="forms">
+
+<h2>HTML Forms</h2>
+
+<div class="theory-box">
+<p>
+An HTML form is used to collect information from users.
+Forms can contain input fields, labels, buttons,
+dropdowns and other controls.
+</p>
+</div>
+
+<h3>Common Form Elements</h3>
+
+<ul>
+<li><strong>&lt;form&gt;</strong> — Defines the form.</li>
+<li><strong>&lt;label&gt;</strong> — Defines a label.</li>
+<li><strong>&lt;input&gt;</strong> — Creates an input field.</li>
+<li><strong>&lt;button&gt;</strong> — Creates a button.</li>
+</ul>
+
+<h3>Example</h3>
+
+<textarea class="code-editor" id="code-forms"><h2>Registration Form</h2>
+
+<form>
+
+<label>Name:</label>
+
+<input type="text">
+
+<br><br>
+
+<label>Email:</label>
+
+<input type="email">
+
+<br><br>
+
+<button type="submit">
+Register
+</button>
+
+</form></textarea>
+
+<button class="run-btn"
+onclick="runCode('code-forms','output-forms')">
+▶ Run Code
+</button>
+
+<div class="output-box">
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-forms"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#description-lists">← Previous</a>
+<a href="#input-types">Next →</a>
+</div>
+
+</section>
+
+
+<!-- =========================
+     INPUT TYPES
+========================= -->
+
+<section id="input-types">
+
+<h2>HTML Input Types</h2>
+
+<div class="theory-box">
+<p>
+The HTML input element can create different types
+of controls depending on the value of its
+<strong>type</strong> attribute.
+</p>
+</div>
+
+<h3>Common Input Types</h3>
+
+<ul>
+<li>text</li>
+<li>email</li>
+<li>password</li>
+<li>number</li>
+<li>date</li>
+<li>file</li>
+<li>checkbox</li>
+<li>radio</li>
+</ul>
+
+<h3>Example</h3>
+
+<textarea class="code-editor" id="code-input-types"><h3>Input Types</h3>
+
+<input type="text"
+placeholder="Enter Name">
+
+<br><br>
+
+<input type="email"
+placeholder="Enter Email">
+
+<br><br>
+
+<input type="password"
+placeholder="Enter Password">
+
+<br><br>
+
+<input type="number"
+placeholder="Enter Age">
+
+<br><br>
+
+<input type="date"></textarea>
+
+<button class="run-btn"
+onclick="runCode('code-input-types','output-input-types')">
+▶ Run Code
+</button>
+
+<div class="output-box">
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-input-types"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#forms">← Previous</a>
+<a href="#form-attributes">Next →</a>
+</div>
+
+</section>
+
+
+<!-- =========================
+     FORM ATTRIBUTES
+========================= -->
+
+<section id="form-attributes">
+
+<h2>HTML Form Attributes</h2>
+
+<div class="theory-box">
+<p>
+Form attributes provide additional information about
+how a form should behave when the user submits it.
+</p>
+</div>
+
+<h3>Important Attributes</h3>
+
+<ul>
+<li><strong>action</strong> — Specifies where form data is sent.</li>
+<li><strong>method</strong> — Specifies how data is submitted.</li>
+<li><strong>target</strong> — Specifies where the response opens.</li>
+<li><strong>autocomplete</strong> — Controls browser autocomplete.</li>
+</ul>
+
+<h3>Example</h3>
+
+<textarea class="code-editor" id="code-form-attributes"><form
+action="#"
+method="get">
+
+<label>
+Username:
+</label>
+
+<input
+type="text"
+name="username"
+placeholder="Enter Username">
+
+<br><br>
+
+<button type="submit">
+Submit
+</button>
+
+</form></textarea>
+
+<button class="run-btn"
+onclick="runCode('code-form-attributes','output-form-attributes')">
+▶ Run Code
+</button>
+
+<div class="output-box">
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-form-attributes"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#input-types">← Previous</a>
+<a href="#buttons">Next →</a>
+</div>
+
+</section>
