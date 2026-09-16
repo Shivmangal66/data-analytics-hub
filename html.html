@@ -2704,7 +2704,50 @@ A simple dashboard project created using HTML.
 </footer>
 
 </body>
+<script>
 
+function runCode(editorId, outputId) {
+
+    const editor = document.getElementById(editorId);
+    const output = document.getElementById(outputId);
+
+    if (!editor || !output) {
+        alert("Code editor or output not found!");
+        return;
+    }
+
+    const code = editor.value;
+
+    const doc = output.contentDocument || output.contentWindow.document;
+
+    doc.open();
+    doc.write(code);
+    doc.close();
+}
+
+
+function searchTopics() {
+
+    const input = document.getElementById("topicSearch");
+    const search = input.value.toLowerCase().trim();
+
+    const links = document.querySelectorAll(".sidebar a");
+
+    links.forEach(function(link) {
+
+        const text = link.textContent.toLowerCase();
+
+        if (text.includes(search)) {
+            link.style.display = "block";
+        } else {
+            link.style.display = "none";
+        }
+
+    });
+
+}
+
+    </script>
 </html></textarea>
 
     <button class="run-btn"
