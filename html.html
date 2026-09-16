@@ -1406,7 +1406,494 @@ I agree
 <a href="#form-attributes">Form Attributes →</a>
 </div>
 </section>
+<section class="topic" id="form-attributes">
+<span class="tag">HTML LESSON 21</span>
+<h2>HTML Form Attributes</h2>
 
+<div class="theory-box">
+<h3>What are Form Attributes?</h3>
+<p>Form attributes control how a form works and how its data is submitted.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li><b>action</b> specifies where form data is sent.</li>
+<li><b>method</b> specifies how data is submitted.</li>
+<li><b>autocomplete</b> controls browser suggestions.</li>
+<li><b>target</b> specifies where the response is displayed.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-form-attributes"><h2>Registration Form</h2>
+
+<form action="#" method="post">
+
+<label>Username:</label>
+<input type="text" name="username">
+
+<br><br>
+
+<label>Email:</label>
+<input type="email" name="email">
+
+<br><br>
+
+<button type="submit">Register</button>
+
+</form></textarea>
+
+<button class="run-btn" onclick="runCode('code-form-attributes','output-form-attributes')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-form-attributes"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#input-types">← Previous</a>
+<a href="#buttons">Buttons →</a>
+</div>
+</section>
+
+
+<section class="topic" id="buttons">
+<span class="tag">HTML LESSON 22</span>
+<h2>HTML Buttons</h2>
+
+<div class="theory-box">
+<h3>What are HTML Buttons?</h3>
+<p>The HTML button element creates a clickable button on a web page.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li><b>type="button"</b> creates a normal button.</li>
+<li><b>type="submit"</b> submits a form.</li>
+<li><b>type="reset"</b> resets form fields.</li>
+<li>JavaScript can be used to make buttons interactive.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-buttons"><h2>HTML Buttons</h2>
+
+<button type="button"
+onclick="document.getElementById('msg').textContent='Button Clicked!'">
+Click Me
+</button>
+
+<p id="msg">Click the button.</p></textarea>
+
+<button class="run-btn" onclick="runCode('code-buttons','output-buttons')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-buttons"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#form-attributes">← Previous</a>
+<a href="#dropdown">Dropdown →</a>
+</div>
+</section>
+
+
+<section class="topic" id="dropdown">
+<span class="tag">HTML LESSON 23</span>
+<h2>HTML Dropdown / Select</h2>
+
+<div class="theory-box">
+<h3>What is a Dropdown?</h3>
+<p>The select element creates a dropdown list from which users can choose an option.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li><b>&lt;select&gt;</b> creates the dropdown.</li>
+<li><b>&lt;option&gt;</b> creates an option.</li>
+<li><b>selected</b> can set a default option.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-dropdown"><h2>Select Your Course</h2>
+
+<label>Choose a course:</label>
+
+<select>
+<option>Excel</option>
+<option>Python</option>
+<option>SQL</option>
+<option>Power BI</option>
+</select></textarea>
+
+<button class="run-btn" onclick="runCode('code-dropdown','output-dropdown')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-dropdown"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#buttons">← Previous</a>
+<a href="#checkbox-radio">Checkbox & Radio →</a>
+</div>
+</section>
+
+
+<section class="topic" id="checkbox-radio">
+<span class="tag">HTML LESSON 24</span>
+<h2>HTML Checkbox & Radio</h2>
+
+<div class="theory-box">
+<h3>What are Checkbox and Radio Buttons?</h3>
+<p>Checkboxes allow users to select multiple options. Radio buttons are generally used when the user should select one option from a group.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>Checkbox uses <b>type="checkbox"</b>.</li>
+<li>Radio button uses <b>type="radio"</b>.</li>
+<li>Radio buttons in the same group should use the same <b>name</b>.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-checkbox-radio"><h2>Choose Your Skills</h2>
+
+<label>
+<input type="checkbox"> HTML
+</label>
+
+<label>
+<input type="checkbox"> Python
+</label>
+
+<label>
+<input type="checkbox"> SQL
+</label>
+
+<h2>Choose Your Level</h2>
+
+<label>
+<input type="radio" name="level"> Beginner
+</label>
+
+<label>
+<input type="radio" name="level"> Advanced
+</label></textarea>
+
+<button class="run-btn" onclick="runCode('code-checkbox-radio','output-checkbox-radio')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-checkbox-radio"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#dropdown">← Previous</a>
+<a href="#div">Div →</a>
+</div>
+</section>
+
+
+<section class="topic" id="div">
+<span class="tag">HTML LESSON 25</span>
+<h2>HTML Div</h2>
+
+<div class="theory-box">
+<h3>What is Div?</h3>
+<p>The div element is a block-level container used to group HTML elements.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>Div is commonly used for page layout.</li>
+<li>It can contain many HTML elements.</li>
+<li>CSS can be used to style a div.</li>
+<li>JavaScript can target a div using its id or class.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-div"><div style="padding:20px;
+border:2px solid purple;
+border-radius:10px;">
+
+<h2>Data Analytics Hub</h2>
+
+<p>Learn Excel, Python, SQL and Power BI.</p>
+
+</div></textarea>
+
+<button class="run-btn" onclick="runCode('code-div','output-div')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-div"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#checkbox-radio">← Previous</a>
+<a href="#span">Span →</a>
+</div>
+</section>
+
+
+<section class="topic" id="span">
+<span class="tag">HTML LESSON 26</span>
+<h2>HTML Span</h2>
+
+<div class="theory-box">
+<h3>What is Span?</h3>
+<p>The span element is an inline container used to style or target a small part of text.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>Span does not normally create a new line.</li>
+<li>It is useful for styling individual words.</li>
+<li>CSS can be applied to a span.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-span"><h2>Learning HTML</h2>
+
+<p>
+Learn
+<span style="color:orange;font-weight:bold;">
+HTML
+</span>
+every day.
+</p>
+
+<p>
+Build
+<span style="color:purple;">
+real projects
+</span>
+to improve your skills.
+</p></textarea>
+
+<button class="run-btn" onclick="runCode('code-span','output-span')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-span"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#div">← Previous</a>
+<a href="#classes">Classes →</a>
+</div>
+</section>
+
+
+<section class="topic" id="classes">
+<span class="tag">HTML LESSON 27</span>
+<h2>HTML Classes</h2>
+
+<div class="theory-box">
+<h3>What are HTML Classes?</h3>
+<p>The class attribute assigns one or more class names to HTML elements.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>Multiple elements can use the same class.</li>
+<li>CSS can style elements using a class.</li>
+<li>JavaScript can select elements by class.</li>
+<li>A class name starts with a dot in CSS.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-classes"><style>
+.card {
+padding:20px;
+border:2px solid #7c3aed;
+border-radius:12px;
+margin:10px 0;
+}
+</style>
+
+<div class="card">
+<h2>Excel Course</h2>
+<p>Learn Excel from basics to advanced.</p>
+</div>
+
+<div class="card">
+<h2>Python Course</h2>
+<p>Learn Python step by step.</p>
+</div></textarea>
+
+<button class="run-btn" onclick="runCode('code-classes','output-classes')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-classes"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#span">← Previous</a>
+<a href="#ids">IDs →</a>
+</div>
+</section>
+
+
+<section class="topic" id="ids">
+<span class="tag">HTML LESSON 28</span>
+<h2>HTML IDs</h2>
+
+<div class="theory-box">
+<h3>What is an ID?</h3>
+<p>The id attribute gives a unique name to an HTML element.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>An ID should normally be unique on a page.</li>
+<li>CSS targets an ID using <b>#</b>.</li>
+<li>JavaScript can find an element using its ID.</li>
+<li>IDs can also be used for page navigation.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-ids"><style>
+#main-title {
+color:purple;
+}
+</style>
+
+<h1 id="main-title">
+Data Analytics Hub
+</h1>
+
+<p>This heading has a unique ID.</p>
+
+<a href="#main-title">
+Go to Main Title
+</a></textarea>
+
+<button class="run-btn" onclick="runCode('code-ids','output-ids')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-ids"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#classes">← Previous</a>
+<a href="#iframes">Iframes →</a>
+</div>
+</section>
+
+
+<section class="topic" id="iframes">
+<span class="tag">HTML LESSON 29</span>
+<h2>HTML Iframes</h2>
+
+<div class="theory-box">
+<h3>What is an Iframe?</h3>
+<p>An iframe allows another HTML document or embeddable resource to be displayed inside the current page.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>The <b>&lt;iframe&gt;</b> element creates an embedded frame.</li>
+<li>The <b>src</b> attribute can specify a URL.</li>
+<li><b>width</b> and <b>height</b> control the frame size.</li>
+<li>Some websites prevent themselves from being embedded.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-iframes"><h2>Iframe Example</h2>
+
+<iframe
+srcdoc="<h2>Hello from Iframe</h2><p>This content is inside an iframe.</p>"
+width="100%"
+height="150">
+</iframe></textarea>
+
+<button class="run-btn" onclick="runCode('code-iframes','output-iframes')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-iframes"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#ids">← Previous</a>
+<a href="#semantic">Semantic HTML →</a>
+</div>
+</section>
+
+
+<section class="topic" id="semantic">
+<span class="tag">HTML LESSON 30</span>
+<h2>Semantic HTML</h2>
+
+<div class="theory-box">
+<h3>What is Semantic HTML?</h3>
+<p>Semantic HTML uses elements that clearly describe the meaning and purpose of their content.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li><b>&lt;header&gt;</b> represents introductory content.</li>
+<li><b>&lt;nav&gt;</b> contains navigation links.</li>
+<li><b>&lt;main&gt;</b> contains the main content.</li>
+<li><b>&lt;section&gt;</b> groups related content.</li>
+<li><b>&lt;article&gt;</b> represents independent content.</li>
+<li><b>&lt;footer&gt;</b> represents footer information.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-semantic"><header>
+<h1>Data Analytics Hub</h1>
+</header>
+
+<nav>
+<a href="#">Home</a> |
+<a href="#">Courses</a> |
+<a href="#">Contact</a>
+</nav>
+
+<main>
+
+<section>
+<h2>HTML Course</h2>
+<p>Learn HTML step by step.</p>
+</section>
+
+<article>
+<h2>Learning Tip</h2>
+<p>Practice coding every day.</p>
+</article>
+
+</main>
+
+<footer>
+<p>© 2026 Data Analytics Hub</p>
+</footer></textarea>
+
+<button class="run-btn" onclick="runCode('code-semantic','output-semantic')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-semantic"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#iframes">← Previous</a>
+<a href="#entities">HTML Entities →</a>
+</div>
+</section>
 </main>
 
 </div>
