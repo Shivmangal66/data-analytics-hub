@@ -2457,6 +2457,56 @@ window.addEventListener(
     "scroll",
     function(){
 
-        const sections =
+                const sections =
+            document.querySelectorAll(
+                "main section"
+            );
+
+        const sidebarLinks =
+            document.querySelectorAll(
+                ".sidebar a"
+            );
+
+        let current = "";
+
+        sections.forEach(function(section){
+
+            const position =
+                section.getBoundingClientRect().top;
+
+            if(position <= 150){
+                current =
+                    section.getAttribute("id");
+            }
+
+        });
+
+        sidebarLinks.forEach(function(link){
+
+            link.classList.remove(
+                "active-topic"
+            );
+
+            if(
+                link.getAttribute("href") ===
+                "#" + current
+            ){
+                link.classList.add(
+                    "active-topic"
+                );
+            }
+
+        });
+
+    }
+);
+
+
+/* FINISH */
+
+</script>
+
+</body>
+</html>
     
 
