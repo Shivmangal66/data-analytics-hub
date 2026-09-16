@@ -2216,7 +2216,431 @@ Register
 <a href="#portfolio">Portfolio Project →</a>
 </div>
 </section>
+<section class="topic" id="entities">
+<span class="tag">HTML LESSON 31</span>
+<h2>HTML Entities</h2>
 
+<div class="theory-box">
+<h3>What are HTML Entities?</h3>
+<p>HTML entities are special codes used to display reserved characters and special symbols in HTML.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>&amp;lt; displays &lt;</li>
+<li>&amp;gt; displays &gt;</li>
+<li>&amp;amp; displays &amp;</li>
+<li>&amp;copy; displays ©</li>
+<li>Entities are useful for special characters.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-entities"><h2>HTML Entities</h2>
+<p>5 &lt; 10</p>
+<p>10 &gt; 5</p>
+<p>HTML &amp; CSS</p>
+<p>&copy; Data Analytics Hub</p>
+<p>&quot;Learn HTML&quot;</p></textarea>
+
+<button class="run-btn" onclick="runCode('code-entities','output-entities')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-entities"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#semantic">← Previous</a>
+<a href="#symbols">Symbols →</a>
+</div>
+</section>
+
+
+<section class="topic" id="symbols">
+<span class="tag">HTML LESSON 32</span>
+<h2>HTML Symbols</h2>
+
+<div class="theory-box">
+<h3>What are HTML Symbols?</h3>
+<p>HTML can display many mathematical, currency, arrow and other special symbols.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>Symbols can be written using HTML entities.</li>
+<li>Unicode characters can also be used.</li>
+<li>Symbols are useful for copyright, currency and navigation.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-symbols"><h2>Useful HTML Symbols</h2>
+<p>Copyright: &copy;</p>
+<p>Registered: &reg;</p>
+<p>Trademark: &trade;</p>
+<p>Rupee: &#8377;</p>
+<p>Arrow: &rarr;</p>
+<p>Heart: &hearts;</p>
+<p>Plus or minus: &plusmn;</p></textarea>
+
+<button class="run-btn" onclick="runCode('code-symbols','output-symbols')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-symbols"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#entities">← Previous</a>
+<a href="#audio">Audio →</a>
+</div>
+</section>
+
+
+<section class="topic" id="audio">
+<span class="tag">HTML LESSON 33</span>
+<h2>HTML Audio</h2>
+
+<div class="theory-box">
+<h3>What is HTML Audio?</h3>
+<p>The audio element is used to embed sound or audio content on a web page.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>&lt;audio&gt; creates an audio player.</li>
+<li>controls displays playback controls.</li>
+<li>&lt;source&gt; specifies the audio file.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-audio"><h2>HTML Audio Player</h2>
+
+<audio controls>
+<source src="audio.mp3" type="audio/mpeg">
+Your browser does not support audio.
+</audio>
+
+<p>Replace audio.mp3 with your own audio file.</p></textarea>
+
+<button class="run-btn" onclick="runCode('code-audio','output-audio')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-audio"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#symbols">← Previous</a>
+<a href="#video">Video →</a>
+</div>
+</section>
+
+
+<section class="topic" id="video">
+<span class="tag">HTML LESSON 34</span>
+<h2>HTML Video</h2>
+
+<div class="theory-box">
+<h3>What is HTML Video?</h3>
+<p>The video element is used to embed video content on a web page.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>&lt;video&gt; creates a video player.</li>
+<li>controls displays video controls.</li>
+<li>width controls the video width.</li>
+<li>MP4 is a commonly supported video format.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-video"><h2>HTML Video Player</h2>
+
+<video controls width="400">
+<source src="video.mp4" type="video/mp4">
+Your browser does not support video.
+</video>
+
+<p>Replace video.mp4 with your own video file.</p></textarea>
+
+<button class="run-btn" onclick="runCode('code-video','output-video')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-video"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#audio">← Previous</a>
+<a href="#page-project">HTML Page Project →</a>
+</div>
+</section>
+
+
+<section class="topic" id="page-project">
+<span class="tag">HTML LESSON 35</span>
+<h2>HTML Page Project</h2>
+
+<div class="theory-box">
+<h3>Project Overview</h3>
+<p>This project combines headings, paragraphs, links and lists to create a simple learning page.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>Create a clear page structure.</li>
+<li>Add meaningful headings.</li>
+<li>Use paragraphs for information.</li>
+<li>Use lists for skills.</li>
+<li>Add links where required.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-page-project"><!DOCTYPE html>
+<html>
+<head>
+<title>My Learning Page</title>
+</head>
+
+<body>
+
+<h1>My Learning Page</h1>
+
+<p>Welcome to my HTML learning project.</p>
+
+<h2>About Me</h2>
+
+<p>I am learning Web Development and Data Analytics.</p>
+
+<h2>My Skills</h2>
+
+<ul>
+<li>HTML</li>
+<li>Excel</li>
+<li>Python</li>
+<li>SQL</li>
+<li>Power BI</li>
+</ul>
+
+<h2>My Website</h2>
+
+<a href="https://example.com">
+Visit My Website
+</a>
+
+</body>
+</html></textarea>
+
+<button class="run-btn" onclick="runCode('code-page-project','output-page-project')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-page-project"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#video">← Previous</a>
+<a href="#registration">Registration Form →</a>
+</div>
+</section>
+
+
+<section class="topic" id="registration">
+<span class="tag">HTML LESSON 36</span>
+<h2>Registration Form Project</h2>
+
+<div class="theory-box">
+<h3>Project Overview</h3>
+<p>This project creates a simple student registration form using different HTML form controls.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>Use labels to describe fields.</li>
+<li>Use appropriate input types.</li>
+<li>Use radio buttons for one choice.</li>
+<li>Use checkboxes for multiple choices.</li>
+<li>Add a submit button.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-registration"><h2>Student Registration</h2>
+
+<form>
+
+<label>Full Name:</label>
+<input type="text" placeholder="Enter your name">
+
+<br><br>
+
+<label>Email:</label>
+<input type="email" placeholder="Enter your email">
+
+<br><br>
+
+<label>Password:</label>
+<input type="password" placeholder="Create password">
+
+<br><br>
+
+<label>Age:</label>
+<input type="number" placeholder="Enter age">
+
+<br><br>
+
+<label>Gender:</label><br>
+
+<label>
+<input type="radio" name="gender"> Male
+</label>
+
+<label>
+<input type="radio" name="gender"> Female
+</label>
+
+<br><br>
+
+<label>
+<input type="checkbox">
+I agree to the terms
+</label>
+
+<br><br>
+
+<button type="submit">Register</button>
+
+</form></textarea>
+
+<button class="run-btn" onclick="runCode('code-registration','output-registration')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-registration"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#page-project">← Previous</a>
+<a href="#portfolio">Portfolio Project →</a>
+</div>
+</section>
+
+
+<section class="topic" id="portfolio">
+<span class="tag">HTML LESSON 37</span>
+<h2>Portfolio / Mini Website Project</h2>
+
+<div class="theory-box">
+<h3>Project Overview</h3>
+<p>A portfolio website presents information about a person, their skills, projects and contact details.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>Use semantic HTML sections.</li>
+<li>Add an introduction.</li>
+<li>Display your skills.</li>
+<li>Show projects.</li>
+<li>Add contact information.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-portfolio"><!DOCTYPE html>
+<html>
+
+<head>
+<title>My Portfolio</title>
+</head>
+
+<body>
+
+<header>
+
+<h1>Shiv Mishra</h1>
+
+<p>Data Analytics Learner</p>
+
+</header>
+
+<hr>
+
+<section>
+
+<h2>About Me</h2>
+
+<p>
+I am learning Data Analytics and Web Development.
+I enjoy building practical projects.
+</p>
+
+</section>
+
+<section>
+
+<h2>My Skills</h2>
+
+<ul>
+<li>Excel</li>
+<li>Python</li>
+<li>SQL</li>
+<li>Power BI</li>
+<li>HTML</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>My Projects</h2>
+
+<ol>
+<li>Data Analytics Hub</li>
+<li>Excel Dashboard</li>
+<li>Python Projects</li>
+</ol>
+
+</section>
+
+<section>
+
+<h2>Contact</h2>
+
+<p>
+Email:
+<a href="mailto:hello@example.com">
+hello@example.com
+</a>
+</p>
+
+</section>
+
+<footer>
+
+<p>© 2026 Data Analytics Hub</p>
+
+</footer>
+
+</body>
+</html></textarea>
+
+<button class="run-btn" onclick="runCode('code-portfolio','output-portfolio')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-portfolio"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#registration">← Previous</a>
+<a href="#home">Back to HTML Home →</a>
+</div>
+</section>
 
 <section class="topic" id="portfolio">
 <span class="tag">HTML LESSON 37</span>
