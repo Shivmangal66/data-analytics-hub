@@ -1138,18 +1138,1325 @@ onclick="runCode('code-lists','output-lists')">
 
 
 <!-- 18 DESCRIPTION LIST -->
+<<!-- 18 DESCRIPTION LIST -->
 <section id="description-lists">
 
 <h2>Description Lists</h2>
 
 <p>
-A description list is used to display terms and their
-descriptions.
+A description list is used to display terms and their descriptions.
+It uses the dl, dt and dd elements.
 </p>
 
-<h3>Important Elements</h3>
-
+<h3>Key Points</h3>
 <ul>
 <li>dl = Description List</li>
 <li>dt = Description Term</li>
-<li>dd = Descripti
+<li>dd = Description Details</li>
+</ul>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-description-lists">
+<h2>Web Technologies</h2>
+
+<dl>
+    <dt>HTML</dt>
+    <dd>Used to create webpage structure.</dd>
+
+    <dt>CSS</dt>
+    <dd>Used to style webpages.</dd>
+
+    <dt>JavaScript</dt>
+    <dd>Used to add functionality.</dd>
+</dl>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-description-lists','output-description-lists')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-description-lists"></iframe>
+
+<div class="navigation">
+<a href="#lists">← Previous</a>
+<a href="#forms">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 19 FORMS -->
+<section id="forms">
+
+<h2>HTML Forms</h2>
+
+<p>
+HTML forms are used to collect information from users.
+Forms can contain text fields, email fields, passwords,
+buttons and other controls.
+</p>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-forms">
+<h2>Registration Form</h2>
+
+<form>
+
+<label>Name:</label><br>
+<input type="text">
+
+<br><br>
+
+<label>Email:</label><br>
+<input type="email">
+
+<br><br>
+
+<label>Password:</label><br>
+<input type="password">
+
+<br><br>
+
+<button type="submit">
+Register
+</button>
+
+</form>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-forms','output-forms')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-forms"></iframe>
+
+<div class="navigation">
+<a href="#description-lists">← Previous</a>
+<a href="#input-types">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 20 INPUT TYPES -->
+<section id="input-types">
+
+<h2>HTML Input Types</h2>
+
+<p>
+The input element supports many different types of user input.
+</p>
+
+<h3>Common Input Types</h3>
+
+<ul>
+<li>text</li>
+<li>email</li>
+<li>password</li>
+<li>number</li>
+<li>date</li>
+<li>checkbox</li>
+<li>radio</li>
+<li>file</li>
+<li>submit</li>
+</ul>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-input-types">
+<h2>Input Types</h2>
+
+<input type="text" placeholder="Name">
+
+<br><br>
+
+<input type="email" placeholder="Email">
+
+<br><br>
+
+<input type="password" placeholder="Password">
+
+<br><br>
+
+<input type="number" placeholder="Age">
+
+<br><br>
+
+<input type="date">
+
+<br><br>
+
+<input type="checkbox">
+Accept Terms
+
+<br><br>
+
+<input type="submit" value="Submit">
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-input-types','output-input-types')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-input-types"></iframe>
+
+<div class="navigation">
+<a href="#forms">← Previous</a>
+<a href="#form-attributes">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 21 FORM ATTRIBUTES -->
+<section id="form-attributes">
+
+<h2>HTML Form Attributes</h2>
+
+<p>
+Form attributes control how a form behaves and where
+the submitted information is sent.
+</p>
+
+<h3>Important Attributes</h3>
+
+<ul>
+<li>action</li>
+<li>method</li>
+<li>target</li>
+<li>autocomplete</li>
+<li>novalidate</li>
+</ul>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-form-attributes">
+<form
+action="#"
+method="get"
+autocomplete="on">
+
+<label>Name:</label><br>
+
+<input
+type="text"
+name="username"
+placeholder="Enter your name">
+
+<br><br>
+
+<button type="submit">
+Submit
+</button>
+
+</form>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-form-attributes','output-form-attributes')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-form-attributes"></iframe>
+
+<div class="navigation">
+<a href="#input-types">← Previous</a>
+<a href="#buttons">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 22 BUTTONS -->
+<section id="buttons">
+
+<h2>HTML Buttons</h2>
+
+<p>
+Buttons are used to perform actions such as submitting forms,
+resetting forms or triggering JavaScript functions.
+</p>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-buttons">
+<h2>HTML Buttons</h2>
+
+<button>Normal Button</button>
+
+<br><br>
+
+<button type="button">
+Click Me
+</button>
+
+<br><br>
+
+<button type="submit">
+Submit
+</button>
+
+<br><br>
+
+<button type="reset">
+Reset
+</button>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-buttons','output-buttons')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-buttons"></iframe>
+
+<div class="navigation">
+<a href="#form-attributes">← Previous</a>
+<a href="#dropdown">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 23 DROPDOWN -->
+<section id="dropdown">
+
+<h2>HTML Dropdown / Select</h2>
+
+<p>
+The select element creates a dropdown menu.
+Each option is created using the option element.
+</p>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-dropdown">
+<h2>Select Your Course</h2>
+
+<label>Choose Course:</label>
+
+<select>
+<option>Excel</option>
+<option>Python</option>
+<option>SQL</option>
+<option>Power BI</option>
+</select>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-dropdown','output-dropdown')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-dropdown"></iframe>
+
+<div class="navigation">
+<a href="#buttons">← Previous</a>
+<a href="#checkbox-radio">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 24 CHECKBOX RADIO -->
+<section id="checkbox-radio">
+
+<h2>HTML Checkbox & Radio</h2>
+
+<p>
+Checkboxes allow users to select multiple options.
+Radio buttons are generally used when one option must be selected.
+</p>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-checkbox-radio">
+<h2>Skills</h2>
+
+<input type="checkbox">
+Excel
+
+<br>
+
+<input type="checkbox">
+Python
+
+<br>
+
+<input type="checkbox">
+SQL
+
+<h2>Gender</h2>
+
+<input type="radio" name="gender">
+Male
+
+<br>
+
+<input type="radio" name="gender">
+Female
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-checkbox-radio','output-checkbox-radio')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-checkbox-radio"></iframe>
+
+<div class="navigation">
+<a href="#dropdown">← Previous</a>
+<a href="#div">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 25 DIV -->
+<section id="div">
+
+<h2>HTML Div</h2>
+
+<p>
+The div element is a block-level container.
+It is commonly used to group and organize webpage content.
+</p>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-div">
+<div style="
+background:#eeeeee;
+padding:20px;
+">
+
+<h2>Student Card</h2>
+
+<p>Name: Shiv</p>
+<p>Course: Data Analytics</p>
+
+</div>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-div','output-div')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-div"></iframe>
+
+<div class="navigation">
+<a href="#checkbox-radio">← Previous</a>
+<a href="#span">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 26 SPAN -->
+<section id="span">
+
+<h2>HTML Span</h2>
+
+<p>
+The span element is an inline container used to style
+or group small pieces of text.
+</p>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-span">
+<p>
+I am learning
+<span style="color:orange;">HTML</span>
+and
+<span style="color:purple;">Python</span>.
+</p>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-span','output-span')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-span"></iframe>
+
+<div class="navigation">
+<a href="#div">← Previous</a>
+<a href="#classes">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 27 CLASSES -->
+<section id="classes">
+
+<h2>HTML Classes</h2>
+
+<p>
+The class attribute is used to assign one or more class names
+to HTML elements. CSS can then use those classes for styling.
+</p>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-classes">
+<style>
+
+.card{
+background:#222;
+color:white;
+padding:20px;
+margin:10px;
+}
+
+.title{
+color:orange;
+}
+
+</style>
+
+<div class="card">
+
+<h2 class="title">
+Data Analytics Hub
+</h2>
+
+<p>
+Learn Excel, Python, SQL and Power BI.
+</p>
+
+</div>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-classes','output-classes')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-classes"></iframe>
+
+<div class="navigation">
+<a href="#span">← Previous</a>
+<a href="#ids">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 28 IDS -->
+<section id="ids">
+
+<h2>HTML IDs</h2>
+
+<p>
+The id attribute gives an HTML element a unique identifier.
+It is commonly used with CSS and JavaScript.
+</p>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-ids">
+<style>
+
+#main-title{
+color:orange;
+}
+
+#box{
+background:#eeeeee;
+padding:20px;
+}
+
+</style>
+
+<h1 id="main-title">
+My Data Analytics Website
+</h1>
+
+<div id="box">
+This is a unique HTML element.
+</div>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-ids','output-ids')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-ids"></iframe>
+
+<div class="navigation">
+<a href="#classes">← Previous</a>
+<a href="#iframes">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 29 IFRAMES -->
+<section id="iframes">
+
+<h2>HTML Iframes</h2>
+
+<p>
+An iframe is used to embed another webpage or document
+inside the current webpage.
+</p>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-iframes">
+<h2>Embedded Content</h2>
+
+<iframe
+src="https://example.com"
+width="100%"
+height="250">
+</iframe>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-iframes','output-iframes')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-iframes"></iframe>
+
+<div class="navigation">
+<a href="#ids">← Previous</a>
+<a href="#semantic">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 30 SEMANTIC -->
+<section id="semantic">
+
+<h2>Semantic HTML</h2>
+
+<p>
+Semantic HTML uses elements that clearly describe the meaning
+of their content. This improves readability, accessibility
+and search engine understanding.
+</p>
+
+<h3>Common Semantic Elements</h3>
+
+<ul>
+<li>header</li>
+<li>nav</li>
+<li>main</li>
+<li>section</li>
+<li>article</li>
+<li>aside</li>
+<li>footer</li>
+</ul>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-semantic">
+<header>
+<h1>Data Analytics Hub</h1>
+</header>
+
+<nav>
+<a href="#">Home</a> |
+<a href="#">Courses</a>
+</nav>
+
+<main>
+
+<section>
+
+<h2>Data Analytics</h2>
+
+<p>
+Learn Excel, Python, SQL and Power BI.
+</p>
+
+</section>
+
+</main>
+
+<footer>
+Copyright 2026 Data Analytics Hub
+</footer>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-semantic','output-semantic')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-semantic"></iframe>
+
+<div class="navigation">
+<a href="#iframes">← Previous</a>
+<a href="#entities">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 31 ENTITIES -->
+<section id="entities">
+
+<h2>HTML Entities</h2>
+
+<p>
+HTML entities are special codes used to display characters
+that have special meaning in HTML.
+</p>
+
+<h3>Examples</h3>
+
+<ul>
+<li>&amp;lt; = &lt;</li>
+<li>&amp;gt; = &gt;</li>
+<li>&amp;amp; = &amp;</li>
+<li>&amp;copy; = ©</li>
+<li>&amp;reg; = ®</li>
+</ul>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-entities">
+<h2>HTML Entities</h2>
+
+<p>5 &lt; 10</p>
+
+<p>Tom &amp; Jerry</p>
+
+<p>Copyright &copy; 2026</p>
+
+<p>Registered &reg;</p>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-entities','output-entities')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-entities"></iframe>
+
+<div class="navigation">
+<a href="#semantic">← Previous</a>
+<a href="#symbols">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 32 SYMBOLS -->
+<section id="symbols">
+
+<h2>HTML Symbols</h2>
+
+<p>
+HTML can display many mathematical, currency and other symbols.
+</p>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-symbols">
+<h2>HTML Symbols</h2>
+
+<p>Copyright: &copy;</p>
+<p>Registered: &reg;</p>
+<p>Euro: &euro;</p>
+<p>Pound: &pound;</p>
+<p>Yen: &yen;</p>
+<p>Plus or Minus: &plusmn;</p>
+<p>Degree: &deg;</p>
+<p>Infinity: &infin;</p>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-symbols','output-symbols')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-symbols"></iframe>
+
+<div class="navigation">
+<a href="#entities">← Previous</a>
+<a href="#audio">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 33 AUDIO -->
+<section id="audio">
+
+<h2>HTML Audio</h2>
+
+<p>
+The HTML audio element is used to embed sound or music
+on a webpage.
+</p>
+
+<h3>Important Attributes</h3>
+
+<ul>
+<li>controls</li>
+<li>autoplay</li>
+<li>loop</li>
+<li>muted</li>
+</ul>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-audio">
+<h2>Audio Player</h2>
+
+<audio controls>
+
+<source
+src="https://www.w3schools.com/html/horse.ogg"
+type="audio/ogg">
+
+Your browser does not support audio.
+
+</audio>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-audio','output-audio')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-audio"></iframe>
+
+<div class="navigation">
+<a href="#symbols">← Previous</a>
+<a href="#video">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 34 VIDEO -->
+<section id="video">
+
+<h2>HTML Video</h2>
+
+<p>
+The HTML video element is used to display video content
+on a webpage.
+</p>
+
+<h3>Practical Example</h3>
+
+<textarea class="code-editor" id="code-video">
+<h2>Video Player</h2>
+
+<video
+width="100%"
+controls>
+
+<source
+src="https://www.w3schools.com/html/mov_bbb.mp4"
+type="video/mp4">
+
+Your browser does not support video.
+
+</video>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-video','output-video')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-video"></iframe>
+
+<div class="navigation">
+<a href="#audio">← Previous</a>
+<a href="#page-project">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 35 PAGE PROJECT -->
+<section id="page-project">
+
+<h2>HTML Page Project</h2>
+
+<p>
+This project combines headings, paragraphs, links, lists
+and sections to create a simple webpage.
+</p>
+
+<h3>Complete Project</h3>
+
+<textarea class="code-editor" id="code-page-project">
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>My Website</title>
+</head>
+
+<body>
+
+<header>
+
+<h1>Data Analytics Hub</h1>
+
+<p>
+Learn Data Analytics Online
+</p>
+
+</header>
+
+<hr>
+
+<nav>
+
+<a href="#about">About</a>
+&nbsp;
+<a href="#courses">Courses</a>
+
+</nav>
+
+<hr>
+
+<section id="about">
+
+<h2>About Us</h2>
+
+<p>
+Data Analytics Hub provides learning resources
+for students and beginners.
+</p>
+
+</section>
+
+<section id="courses">
+
+<h2>Courses</h2>
+
+<ul>
+<li>Excel</li>
+<li>Python</li>
+<li>SQL</li>
+<li>Power BI</li>
+</ul>
+
+</section>
+
+<footer>
+
+<p>
+Copyright &copy; 2026 Data Analytics Hub
+</p>
+
+</footer>
+
+</body>
+</html>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-page-project','output-page-project')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-page-project"></iframe>
+
+<div class="navigation">
+<a href="#video">← Previous</a>
+<a href="#registration">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 36 REGISTRATION PROJECT -->
+<section id="registration">
+
+<h2>Registration Form Project</h2>
+
+<p>
+This project creates a complete basic registration form
+using HTML form elements.
+</p>
+
+<h3>Complete Project</h3>
+
+<textarea class="code-editor" id="code-registration">
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<h1>Student Registration</h1>
+
+<form>
+
+<label>Full Name</label>
+<br>
+
+<input
+type="text"
+placeholder="Enter your name"
+required>
+
+<br><br>
+
+<label>Email</label>
+<br>
+
+<input
+type="email"
+placeholder="Enter your email"
+required>
+
+<br><br>
+
+<label>Password</label>
+<br>
+
+<input
+type="password"
+placeholder="Enter password"
+required>
+
+<br><br>
+
+<label>Course</label>
+<br>
+
+<select>
+
+<option>Excel</option>
+<option>Python</option>
+<option>SQL</option>
+<option>Power BI</option>
+
+</select>
+
+<br><br>
+
+<label>Gender</label>
+<br>
+
+<input
+type="radio"
+name="gender">
+
+Male
+
+<input
+type="radio"
+name="gender">
+
+Female
+
+<br><br>
+
+<input type="checkbox">
+
+I agree to the terms.
+
+<br><br>
+
+<button type="submit">
+Register
+</button>
+
+</form>
+
+</body>
+</html>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-registration','output-registration')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+<iframe class="output" id="output-registration"></iframe>
+
+<div class="navigation">
+<a href="#page-project">← Previous</a>
+<a href="#portfolio">Next →</a>
+</div>
+
+</section>
+
+
+<!-- 37 PORTFOLIO -->
+<section id="portfolio">
+
+<h2>Portfolio / Mini Website Project</h2>
+
+<p>
+This final project combines multiple HTML concepts to create
+a simple personal portfolio website.
+</p>
+
+<h3>Complete Project</h3>
+
+<textarea class="code-editor" id="code-portfolio">
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>My Portfolio</title>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Shiv Mishra</h1>
+
+<p>
+Data Analytics Learner
+</p>
+
+</header>
+
+<hr>
+
+<section>
+
+<h2>About Me</h2>
+
+<p>
+I am learning Data Analytics and Web Development.
+</p>
+
+</section>
+
+<section>
+
+<h2>My Skills</h2>
+
+<ul>
+
+<li>Excel</li>
+<li>Python</li>
+<li>SQL</li>
+<li>Power BI</li>
+<li>HTML</li>
+
+</ul>
+
+</section>
+
+<section>
+
+<h2>Projects</h2>
+
+<ol>
+
+<li>Data Analytics Hub</li>
+<li>Excel Dashboard</li>
+<li>Python Projects</li>
+
+</ol>
+
+</section>
+
+<section>
+
+<h2>Contact</h2>
+
+<p>
+Email: example@gmail.com
+</p>
+
+</section>
+
+<footer>
+
+<p>
+&copy; 2026 Shiv Mishra
+</p>
+
+</footer>
+
+</body>
+</html>
+</textarea>
+
+<button class="run-btn"
+onclick="runCode('code-portfolio','output-portfolio')">
+▶ Run Code
+</button>
+
+<div class="output-title">Live Output</div>
+
+<iframe
+class="output"
+id="output-portfolio">
+</iframe>
+
+<div class="navigation">
+<a href="#registration">← Previous</a>
+<a href="#home">Top ↑</a>
+</div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+
+© 2026 Data Analytics Hub • Excel.expert.66
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+<script>
+
+function runCode(editorId, outputId){
+
+    const editor = document.getElementById(editorId);
+    const output = document.getElementById(outputId);
+
+    if(!editor || !output){
+        console.error(
+            "Editor or output not found:",
+            editorId,
+            outputId
+        );
+        return;
+    }
+
+    const code = editor.value;
+
+    const doc =
+        output.contentDocument ||
+        output.contentWindow.document;
+
+    doc.open();
+
+    doc.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport"
+                  content="width=device-width,initial-scale=1.0">
+        </head>
+        <body>
+            ${code}
+        </body>
+        </html>
+    `);
+
+    doc.close();
+}
+
+
+/* SEARCH */
+
+function searchTopics(){
+
+    const input =
+        document.getElementById("topicSearch");
+
+    if(!input) return;
+
+    const search =
+        input.value.toLowerCase().trim();
+
+    const links =
+        document.querySelectorAll(".sidebar a");
+
+    links.forEach(function(link){
+
+        const text =
+            link.textContent.toLowerCase();
+
+        link.style.display =
+            text.includes(search)
+            ? "block"
+            : "none";
+
+    });
+}
+
+
+/* RUN ALL EXAMPLES */
+
+window.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const editors =
+            document.querySelectorAll(
+                "textarea.code-editor"
+            );
+
+        editors.forEach(function(editor){
+
+            const editorId =
+                editor.id;
+
+            const outputId =
+                editorId.replace(
+                    "code-",
+                    "output-"
+                );
+
+            runCode(
+                editorId,
+                outputId
+            );
+
+        });
+
+    }
+);
+
+
+/* ACTIVE TOPIC */
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        const sections =
+    
+
