@@ -1018,6 +1018,386 @@ onclick="runCode('code-colors','output-colors')">
 <a href="#home">🏠 Part 1 Complete</a>
 </div>
 
+</section><section class="topic" id="links">
+<span class="tag">HTML LESSON 13</span>
+<h2>HTML Links</h2>
+
+<div class="theory-box">
+<h3>What are HTML Links?</h3>
+<p>The HTML <b>&lt;a&gt;</b> element creates a hyperlink. It allows users to move from one page or website to another.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>The <b>href</b> attribute defines the destination.</li>
+<li><b>target="_blank"</b> opens the link in a new tab.</li>
+<li>Links can point to websites, pages, files, email addresses and sections of the same page.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+<textarea class="code-editor" id="code-links"><h2>My Website Links</h2>
+<a href="https://www.google.com" target="_blank">Open Google</a>
+<br><br>
+<a href="https://github.com" target="_blank">Open GitHub</a></textarea>
+
+<button class="run-btn" onclick="runCode('code-links','output-links')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-links"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#colors">← Previous</a>
+<a href="#images">Images →</a>
+</div>
+</section>
+
+
+<section class="topic" id="images">
+<span class="tag">HTML LESSON 14</span>
+<h2>HTML Images</h2>
+
+<div class="theory-box">
+<h3>What are HTML Images?</h3>
+<p>The HTML <b>&lt;img&gt;</b> element is used to display images on a web page.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li><b>src</b> specifies the image location.</li>
+<li><b>alt</b> provides alternative text.</li>
+<li><b>width</b> and <b>height</b> can control image size.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+<textarea class="code-editor" id="code-images"><h2>My Image</h2>
+<img src="https://placehold.co/400x200" alt="Sample Image" width="400">
+
+<p>This is an HTML image example.</p></textarea>
+
+<button class="run-btn" onclick="runCode('code-images','output-images')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-images"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#links">← Previous</a>
+<a href="#favicon">Favicon →</a>
+</div>
+</section>
+
+
+<section class="topic" id="favicon">
+<span class="tag">HTML LESSON 15</span>
+<h2>HTML Favicon</h2>
+
+<div class="theory-box">
+<h3>What is a Favicon?</h3>
+<p>A favicon is a small icon displayed near the title of a website in a browser tab.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>A favicon is normally added inside the <b>&lt;head&gt;</b>.</li>
+<li>The <b>rel="icon"</b> attribute defines the favicon.</li>
+<li>Common formats include ICO, PNG and SVG.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+<textarea class="code-editor" id="code-favicon"><!DOCTYPE html>
+<html>
+<head>
+<title>Favicon Example</title>
+<link rel="icon" href="favicon.ico">
+</head>
+<body>
+
+<h1>My Website</h1>
+<p>The favicon code is placed inside the head section.</p>
+
+</body>
+</html></textarea>
+
+<button class="run-btn" onclick="runCode('code-favicon','output-favicon')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-favicon"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#images">← Previous</a>
+<a href="#tables">Tables →</a>
+</div>
+</section>
+
+
+<section class="topic" id="tables">
+<span class="tag">HTML LESSON 16</span>
+<h2>HTML Tables</h2>
+
+<div class="theory-box">
+<h3>What are HTML Tables?</h3>
+<p>HTML tables are used to organize information into rows and columns.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li><b>&lt;table&gt;</b> creates the table.</li>
+<li><b>&lt;tr&gt;</b> creates a row.</li>
+<li><b>&lt;th&gt;</b> creates a heading cell.</li>
+<li><b>&lt;td&gt;</b> creates a data cell.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+<textarea class="code-editor" id="code-tables"><h2>Student Marks</h2>
+
+<table border="1" cellpadding="10">
+<tr>
+<th>Name</th>
+<th>Subject</th>
+<th>Marks</th>
+</tr>
+
+<tr>
+<td>Shiv</td>
+<td>HTML</td>
+<td>95</td>
+</tr>
+
+<tr>
+<td>Rahul</td>
+<td>HTML</td>
+<td>88</td>
+</tr>
+
+</table></textarea>
+
+<button class="run-btn" onclick="runCode('code-tables','output-tables')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-tables"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#favicon">← Previous</a>
+<a href="#lists">Lists →</a>
+</div>
+</section>
+
+
+<section class="topic" id="lists">
+<span class="tag">HTML LESSON 17</span>
+<h2>HTML Lists</h2>
+
+<div class="theory-box">
+<h3>What are HTML Lists?</h3>
+<p>HTML lists are used to display related items in an organized way.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li><b>&lt;ul&gt;</b> creates an unordered list.</li>
+<li><b>&lt;ol&gt;</b> creates an ordered list.</li>
+<li><b>&lt;li&gt;</b> defines a list item.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+<textarea class="code-editor" id="code-lists"><h2>My Skills</h2>
+
+<h3>Unordered List</h3>
+<ul>
+<li>HTML</li>
+<li>Python</li>
+<li>SQL</li>
+<li>Power BI</li>
+</ul>
+
+<h3>Ordered List</h3>
+<ol>
+<li>Learn</li>
+<li>Practice</li>
+<li>Build Projects</li>
+</ol></textarea>
+
+<button class="run-btn" onclick="runCode('code-lists','output-lists')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-lists"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#tables">← Previous</a>
+<a href="#description-lists">Description Lists →</a>
+</div>
+</section>
+
+
+<section class="topic" id="description-lists">
+<span class="tag">HTML LESSON 18</span>
+<h2>HTML Description Lists</h2>
+
+<div class="theory-box">
+<h3>What are Description Lists?</h3>
+<p>A description list is used to display terms together with their descriptions.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li><b>&lt;dl&gt;</b> creates the description list.</li>
+<li><b>&lt;dt&gt;</b> defines the term.</li>
+<li><b>&lt;dd&gt;</b> defines the description.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+<textarea class="code-editor" id="code-description-lists"><h2>Web Technologies</h2>
+
+<dl>
+
+<dt>HTML</dt>
+<dd>HTML creates the structure of web pages.</dd>
+
+<dt>CSS</dt>
+<dd>CSS is used to style web pages.</dd>
+
+<dt>JavaScript</dt>
+<dd>JavaScript adds interactivity to web pages.</dd>
+
+</dl></textarea>
+
+<button class="run-btn" onclick="runCode('code-description-lists','output-description-lists')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-description-lists"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#lists">← Previous</a>
+<a href="#forms">Forms →</a>
+</div>
+</section>
+
+
+<section class="topic" id="forms">
+<span class="tag">HTML LESSON 19</span>
+<h2>HTML Forms</h2>
+
+<div class="theory-box">
+<h3>What are HTML Forms?</h3>
+<p>HTML forms are used to collect information from users.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>The <b>&lt;form&gt;</b> element creates a form.</li>
+<li><b>&lt;label&gt;</b> describes an input.</li>
+<li><b>&lt;input&gt;</b> collects user data.</li>
+<li><b>&lt;button&gt;</b> can submit the form.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+<textarea class="code-editor" id="code-forms"><h2>Student Form</h2>
+
+<form>
+
+<label>Name:</label>
+<input type="text" placeholder="Enter your name">
+
+<br><br>
+
+<label>Email:</label>
+<input type="email" placeholder="Enter your email">
+
+<br><br>
+
+<button type="submit">Submit</button>
+
+</form></textarea>
+
+<button class="run-btn" onclick="runCode('code-forms','output-forms')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-forms"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#description-lists">← Previous</a>
+<a href="#input-types">Input Types →</a>
+</div>
+</section>
+
+
+<section class="topic" id="input-types">
+<span class="tag">HTML LESSON 20</span>
+<h2>HTML Input Types</h2>
+
+<div class="theory-box">
+<h3>What are Input Types?</h3>
+<p>The HTML input element supports different types of user input.</p>
+
+<h3>Key Points</h3>
+<ul>
+<li><b>text</b> accepts normal text.</li>
+<li><b>email</b> accepts an email address.</li>
+<li><b>password</b> hides typed characters.</li>
+<li><b>number</b> accepts numbers.</li>
+<li><b>date</b> provides a date picker.</li>
+<li><b>checkbox</b> allows selections.</li>
+<li><b>radio</b> allows a choice from a group.</li>
+</ul>
+</div>
+
+<h3>Practical Example</h3>
+<textarea class="code-editor" id="code-input-types"><h2>Different Input Types</h2>
+
+<label>Name:</label>
+<input type="text" placeholder="Your Name">
+
+<br><br>
+
+<label>Email:</label>
+<input type="email" placeholder="Your Email">
+
+<br><br>
+
+<label>Password:</label>
+<input type="password" placeholder="Password">
+
+<br><br>
+
+<label>Age:</label>
+<input type="number">
+
+<br><br>
+
+<label>Date:</label>
+<input type="date">
+
+<br><br>
+
+<label>
+<input type="checkbox">
+I agree
+</label></textarea>
+
+<button class="run-btn" onclick="runCode('code-input-types','output-input-types')">▶ Run Code</button>
+
+<div class="output-box">
+<strong>Live Output</strong>
+<iframe class="output" id="output-input-types"></iframe>
+</div>
+
+<div class="navigation">
+<a href="#forms">← Previous</a>
+<a href="#form-attributes">Form Attributes →</a>
+</div>
 </section>
 
 </main>
