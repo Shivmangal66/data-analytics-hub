@@ -4,303 +4,262 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HTML Course | Data Analytics Hub</title>
+<title>HTML Tutorial | Data Analytics Hub</title>
 
 <style>
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
+    box-sizing:border-box;
 }
 
 body{
     font-family:Arial, sans-serif;
-    background:#0B0F19;
-    color:#E5E7EB;
+    background:#080b14;
+    color:#e5e7eb;
 }
 
-/* TOP NAV */
+/* TOPBAR */
 .topbar{
-    position:sticky;
+    position:fixed;
     top:0;
-    z-index:1000;
+    left:0;
+    right:0;
     height:65px;
+    background:#0b1020;
+    border-bottom:1px solid #252b3a;
     display:flex;
     align-items:center;
     justify-content:space-between;
     padding:0 25px;
-    background:#111827;
-    border-bottom:1px solid #252B3A;
+    z-index:1000;
 }
 
 .logo{
-    color:#FF8A00;
-    font-size:22px;
+    font-size:21px;
     font-weight:bold;
+    color:#fff;
 }
 
-.nav-links{
-    display:flex;
-    gap:22px;
+.logo span{
+    color:#ff8a00;
 }
 
-.nav-links a{
-    color:#D1D5DB;
+.nav a{
+    color:#ddd;
     text-decoration:none;
-    font-weight:600;
+    margin-left:20px;
+    font-size:14px;
 }
 
-.nav-links a:hover{
-    color:#FF8A00;
-}
-
-/* LAYOUT */
-.layout{
-    display:flex;
-    min-height:calc(100vh - 65px);
+.nav a:hover{
+    color:#ff8a00;
 }
 
 /* SIDEBAR */
 .sidebar{
-    width:260px;
-    flex-shrink:0;
-    background:#0F172A;
-    border-right:1px solid #252B3A;
-    padding:18px 12px;
-    position:sticky;
+    position:fixed;
     top:65px;
-    height:calc(100vh - 65px);
+    left:0;
+    bottom:0;
+    width:250px;
+    background:#0d1424;
+    border-right:1px solid #252b3a;
     overflow-y:auto;
+    padding:20px 14px;
 }
 
-.sidebar h2{
-    color:#FF8A00;
-    font-size:21px;
-    margin-bottom:5px;
-}
-
-.sidebar p{
-    color:#8B93A5;
+.sidebar h3{
+    color:#ff8a00;
     font-size:13px;
-    margin-bottom:15px;
-}
-
-.search-box{
-    margin-bottom:12px;
-}
-
-.search-box input{
-    width:100%;
-    padding:12px;
-    border-radius:10px;
-    border:1px solid #30384A;
-    background:#080D18;
-    color:white;
-    outline:none;
-}
-
-.search-box input:focus{
-    border-color:#FF8A00;
+    margin:15px 10px 8px;
+    text-transform:uppercase;
 }
 
 .sidebar a{
     display:block;
-    color:#D1D5DB;
+    color:#b9c0cc;
     text-decoration:none;
-    padding:11px 13px;
-    margin:4px 0;
-    border-radius:9px;
+    padding:9px 12px;
+    margin:3px 0;
+    border-radius:7px;
     font-size:14px;
-    transition:.2s;
 }
 
 .sidebar a:hover,
 .sidebar a.active-topic{
-    background:linear-gradient(90deg,#FF8A00,#7C3AED);
-    color:white;
+    background:linear-gradient(90deg,#ff8a00,#7c3aed);
+    color:#fff;
 }
 
 /* MAIN */
 main{
-    width:100%;
-    max-width:1050px;
-    margin:auto;
-    padding:30px;
-}
-
-section{
-    scroll-margin-top:85px;
-    background:#111827;
-    border:1px solid #252B3A;
-    border-radius:18px;
-    padding:28px;
-    margin-bottom:25px;
-}
-
-section h2{
-    color:#FF8A00;
-    font-size:28px;
-    margin-bottom:15px;
-}
-
-section h3{
-    color:#A78BFA;
-    margin:20px 0 10px;
-}
-
-section p,
-section li{
-    color:#C5CBD6;
-    line-height:1.75;
-}
-
-ul{
-    padding-left:22px;
+    margin-left:250px;
+    padding:95px 35px 50px;
+    max-width:1100px;
 }
 
 /* HERO */
-.html-hero{
-    padding:40px;
-    margin-bottom:30px;
-    border-radius:22px;
-    background:linear-gradient(135deg,#151A27,#111827);
-    border:1px solid #2A3142;
+.hero{
+    background:linear-gradient(135deg,#171126,#111827);
+    border:1px solid #302a48;
+    border-radius:18px;
+    padding:35px;
+    margin-bottom:35px;
 }
 
-.hero-badge{
-    display:inline-block;
-    background:#FF8A00;
-    color:#111;
-    padding:7px 13px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:bold;
+.hero h1{
+    font-size:38px;
+    color:#fff;
+    margin-bottom:12px;
 }
 
-.html-hero h1{
-    margin-top:18px;
-    font-size:42px;
+.hero h1 span{
+    color:#ff8a00;
 }
 
-.html-hero h1 span{
-    color:#FF8A00;
+.hero p{
+    color:#aeb6c5;
+    line-height:1.7;
 }
 
-.html-hero p{
-    margin-top:12px;
-    color:#AAB2C0;
+/* SECTIONS */
+section{
+    margin-bottom:55px;
+    scroll-margin-top:85px;
 }
 
-.hero-tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:20px;
+section h2{
+    font-size:30px;
+    color:#fff;
+    margin-bottom:15px;
 }
 
-.hero-tags span{
-    background:#202638;
-    padding:8px 13px;
-    border-radius:20px;
-    font-size:13px;
+section h2 span{
+    color:#ff8a00;
 }
 
-/* THEORY */
-.theory-box{
-    background:#0B1220;
-    border-left:4px solid #FF8A00;
-    padding:18px;
-    border-radius:10px;
-    margin-top:15px;
+section h3{
+    color:#c084fc;
+    margin:22px 0 10px;
 }
 
-.key-points{
-    margin-top:15px;
+section p{
+    color:#c4cad5;
+    line-height:1.8;
+    margin-bottom:12px;
+}
+
+ul{
+    margin:10px 0 20px 22px;
+}
+
+li{
+    color:#c4cad5;
+    margin:8px 0;
+}
+
+/* INFO BOX */
+.info{
+    background:#101827;
+    border-left:4px solid #ff8a00;
+    padding:16px;
+    border-radius:8px;
+    margin:20px 0;
 }
 
 /* CODE */
-.example{
-    margin-top:20px;
-}
-
 .code-editor{
     width:100%;
-    min-height:190px;
-    resize:vertical;
-    background:#080D18;
-    color:#F8FAFC;
-    border:1px solid #30384A;
-    border-radius:12px;
-    padding:16px;
+    min-height:180px;
+    background:#05070c;
+    color:#e5e7eb;
+    border:1px solid #343b4c;
+    border-radius:10px;
+    padding:15px;
     font-family:Consolas,monospace;
     font-size:14px;
-    line-height:1.5;
+    line-height:1.6;
+    resize:vertical;
     outline:none;
 }
 
 .code-editor:focus{
-    border-color:#FF8A00;
+    border-color:#ff8a00;
 }
 
 .run-btn{
-    display:block;
-    width:100%;
-    margin-top:12px;
-    padding:13px;
+    margin:10px 0 15px;
+    padding:11px 22px;
     border:none;
-    border-radius:11px;
-    background:linear-gradient(135deg,#FF8A00,#FFB000);
-    color:#111;
+    border-radius:8px;
+    background:linear-gradient(90deg,#ff8a00,#7c3aed);
+    color:white;
     font-weight:bold;
     cursor:pointer;
-    font-size:15px;
 }
 
 .run-btn:hover{
-    box-shadow:0 8px 20px rgba(255,138,0,.25);
-}
-
-.output-box{
-    margin-top:15px;
+    opacity:.9;
 }
 
 .output-title{
-    color:#AAB2C0;
-    margin-bottom:7px;
-    font-size:13px;
+    color:#c084fc;
+    margin:10px 0;
+    font-weight:bold;
 }
 
 .output{
     width:100%;
-    height:190px;
+    min-height:150px;
     background:white;
-    border:none;
-    border-radius:12px;
+    border:2px solid #343b4c;
+    border-radius:10px;
 }
 
-/* NAVIGATION */
+/* PREV NEXT */
 .navigation{
     display:flex;
     justify-content:space-between;
-    gap:15px;
     margin-top:25px;
+    gap:15px;
 }
 
 .navigation a{
     text-decoration:none;
-    padding:11px 18px;
-    border-radius:10px;
-    background:#202638;
     color:white;
-    font-weight:bold;
+    background:#151b2b;
+    border:1px solid #343b4c;
+    padding:11px 18px;
+    border-radius:8px;
 }
 
 .navigation a:hover{
-    background:linear-gradient(135deg,#FF8A00,#7C3AED);
+    border-color:#ff8a00;
+}
+
+/* SEARCH */
+.search-box{
+    margin-bottom:15px;
+}
+
+.search-box input{
+    width:100%;
+    padding:11px;
+    border-radius:8px;
+    border:1px solid #343b4c;
+    background:#080b14;
+    color:white;
+    outline:none;
+}
+
+/* FOOTER */
+footer{
+    margin-left:250px;
+    border-top:1px solid #252b3a;
+    text-align:center;
+    padding:25px;
+    color:#777f8e;
 }
 
 /* MOBILE */
@@ -310,36 +269,31 @@ ul{
         padding:0 15px;
     }
 
-    .nav-links{
-        display:none;
-    }
-
-    .layout{
-        display:block;
+    .nav a{
+        margin-left:8px;
+        font-size:12px;
     }
 
     .sidebar{
         position:relative;
-        top:0;
+        top:65px;
         width:100%;
         height:auto;
-        max-height:360px;
+        max-height:300px;
+        border-right:none;
     }
 
     main{
-        padding:15px;
+        margin-left:0;
+        padding:90px 18px 40px;
     }
 
-    .html-hero{
-        padding:25px;
+    footer{
+        margin-left:0;
     }
 
-    .html-hero h1{
-        font-size:31px;
-    }
-
-    section{
-        padding:20px;
+    .hero h1{
+        font-size:29px;
     }
 }
 </style>
@@ -347,1049 +301,1148 @@ ul{
 
 <body>
 
-<header class="topbar">
+<!-- TOPBAR -->
+<div class="topbar">
 
-<div class="logo">
-🚀 Data Analytics Hub
+    <div class="logo">
+        🚀 Data Analytics <span>Hub</span>
+    </div>
+
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="html.html">HTML</a>
+        <a href="dashboard.html">Dashboard</a>
+    </div>
+
 </div>
 
-<nav class="nav-links">
-<a href="index.html">Home</a>
-<a href="html.html">HTML</a>
-<a href="dashboard.html">Dashboard</a>
-</nav>
-
-</header>
-
-
-<div class="layout">
 
 <!-- SIDEBAR -->
-
 <aside class="sidebar">
 
-<h2>🚀 Master HTML</h2>
+    <div class="search-box">
+        <input
+            type="text"
+            id="topicSearch"
+            placeholder="Search HTML topic..."
+            onkeyup="searchTopics()"
+        >
+    </div>
 
-<p>
-Build • Practice • Create
-</p>
+    <h3>HTML Basics</h3>
 
-<div class="search-box">
-<input
-type="text"
-id="topicSearch"
-placeholder="🔎 Search HTML topic..."
-onkeyup="searchTopics()">
-</div>
+    <a href="#home">HTML Home</a>
+    <a href="#introduction">Introduction</a>
+    <a href="#editors">HTML Editors</a>
+    <a href="#structure">Basic Structure</a>
+    <a href="#elements">HTML Elements</a>
+    <a href="#attributes">HTML Attributes</a>
+    <a href="#comments">HTML Comments</a>
+    <a href="#headings">Headings</a>
+    <a href="#paragraphs">Paragraphs</a>
+    <a href="#formatting">Text Formatting</a>
+    <a href="#quotations">Quotations</a>
+    <a href="#colors">Colors</a>
 
-<a href="#home">HTML Home</a>
-<a href="#introduction">Introduction</a>
-<a href="#editors">HTML Editors</a>
-<a href="#structure">Basic Structure</a>
-<a href="#elements">HTML Elements</a>
-<a href="#attributes">HTML Attributes</a>
-<a href="#comments">HTML Comments</a>
-<a href="#headings">Headings</a>
-<a href="#paragraphs">Paragraphs</a>
-<a href="#formatting">Text Formatting</a>
-<a href="#quotations">Quotations</a>
-<a href="#colors">Colors</a>
-<a href="#links">Links</a>
-<a href="#images">Images</a>
-<a href="#favicon">Favicon</a>
-<a href="#tables">Tables</a>
-<a href="#lists">Lists</a>
-<a href="#description-lists">Description Lists</a>
-<a href="#forms">Forms</a>
-<a href="#input-types">Input Types</a>
-<a href="#entities">HTML Entities</a>
-<a href="#symbols">HTML Symbols</a>
-<a href="#audio">HTML Audio</a>
-<a href="#video">HTML Video</a>
-<a href="#page-project">HTML Page Project</a>
-<a href="#registration">Registration Form Project</a>
-<a href="#portfolio">Portfolio / Mini Website Project</a>
-<a href="#entities">HTML Entities</a>
-<a href="#symbols">HTML Symbols</a>
-<a href="#audio">HTML Audio</a>
-<a href="#video">HTML Video</a>
-<a href="#page-project">HTML Page Project</a>
-<a href="#registration">Registration Form Project</a>
-<a href="#portfolio">Portfolio / Mini Website Project</a>
 </aside>
 
 
+<!-- MAIN CONTENT -->
 <main>
 
 <!-- HERO -->
+<div class="hero">
 
-<div class="html-hero">
+    <h1>Learn <span>HTML</span></h1>
 
-<span class="hero-badge">
-DATA ANALYTICS HUB
-</span>
-
-<h1>
-Learn HTML <span>Interactively</span>
-</h1>
-
-<p>
-Learn HTML through focused English theory,
-practical examples and live coding.
-</p>
-
-<div class="hero-tags">
-<span>💻 Live Coding</span>
-<span>⚡ Instant Output</span>
-<span>🎯 Practical Learning</span>
-</div>
+    <p>
+        Learn HTML from beginner to advanced level with practical examples,
+        coding exercises and live output. Build your foundation for modern
+        web development with Data Analytics Hub.
+    </p>
 
 </div>
 
 
 <!-- HOME -->
-
 <section id="home">
 
-<h2>HTML Home</h2>
+    <h2>HTML <span>Home</span></h2>
 
-<div class="theory-box">
+    <p>
+        HTML stands for HyperText Markup Language. It is the standard markup
+        language used to create and structure web pages.
+    </p>
 
-<p>
-HTML stands for HyperText Markup Language.
-It is the standard markup language used to create
-and structure content on web pages.
-</p>
+    <p>
+        HTML uses elements and tags to tell the browser how content should
+        be displayed.
+    </p>
 
-</div>
+    <div class="info">
+        <strong>Example:</strong> Headings, paragraphs, images, links,
+        tables and forms can all be created using HTML.
+    </div>
 
-<h3>Course Approach</h3>
+    <h3>Key Points</h3>
 
-<ul>
-<li>Learn one HTML topic at a time.</li>
-<li>Understand the theory in English.</li>
-<li>Practice with real HTML code.</li>
-<li>Run the code and see the output instantly.</li>
-</ul>
+    <ul>
+        <li>HTML creates the structure of a web page.</li>
+        <li>HTML uses tags and elements.</li>
+        <li>HTML works in every modern web browser.</li>
+        <li>HTML can be combined with CSS and JavaScript.</li>
+    </ul>
 
-<div class="navigation">
-<a href="#home">← Previous</a>
-<a href="#introduction">Next →</a>
-</div>
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-home"><h1>Welcome to Data Analytics Hub</h1>
+<p>Learn HTML with practical examples.</p></textarea>
+
+    <button class="run-btn"
+        onclick="runCode('code-home','output-home')">
+        ▶ Run Code
+    </button>
+
+    <div class="output-title">Live Output</div>
+
+    <iframe class="output" id="output-home"></iframe>
+
+    <div class="navigation">
+        <span></span>
+        <a href="#introduction">Next →</a>
+    </div>
 
 </section>
 
 
 <!-- INTRODUCTION -->
-
 <section id="introduction">
 
-<h2>HTML Introduction</h2>
+    <h2>HTML <span>Introduction</span></h2>
 
-<div class="theory-box">
+    <p>
+        HTML is the foundation of almost every website. It defines the
+        structure and meaning of content displayed inside a browser.
+    </p>
 
-<p>
-<strong>What is HTML?</strong><br><br>
+    <p>
+        HTML does not directly provide advanced styling. CSS is normally
+        used for styling, while JavaScript is used for behaviour and
+        interaction.
+    </p>
 
-HTML stands for HyperText Markup Language.
-It is used to create the structure of a web page.
-HTML tells the browser how different pieces of
-content should be organized and displayed.
-</p>
+    <h3>Key Points</h3>
 
-</div>
+    <ul>
+        <li>HTML means HyperText Markup Language.</li>
+        <li>HTML is a markup language, not a programming language.</li>
+        <li>HTML documents are interpreted by web browsers.</li>
+        <li>HTML uses tags to describe content.</li>
+    </ul>
 
-<h3>Why is HTML Used?</h3>
+    <h3>Practical Example</h3>
 
-<ul>
-<li>To create web pages.</li>
-<li>To structure text and content.</li>
-<li>To add links and images.</li>
-<li>To create tables and forms.</li>
-<li>To build the basic structure of websites.</li>
-</ul>
+    <textarea class="code-editor" id="code-introduction"><h1>What is HTML?</h1>
+<p>HTML is used to structure web pages.</p></textarea>
 
-<h3>First HTML Example</h3>
+    <button class="run-btn"
+        onclick="runCode('code-introduction','output-introduction')">
+        ▶ Run Code
+    </button>
 
-<div class="example">
+    <div class="output-title">Live Output</div>
 
-<textarea class="code-editor" id="code-introduction"><!DOCTYPE html>
-<html>
-<body>
+    <iframe class="output" id="output-introduction"></iframe>
 
-<h1>Hello World</h1>
-
-<p>Welcome to HTML.</p>
-
-</body>
-</html></textarea>
-
-<button class="run-btn"
-onclick="runCode('code-introduction','output-introduction')">
-▶ Run Code
-</button>
-
-<div class="output-box">
-
-<div class="output-title">
-Live Output
-</div>
-
-<iframe class="output" id="output-introduction"></iframe>
-
-</div>
-
-</div>
-
-<div class="navigation">
-<a href="#home">← Previous</a>
-<a href="#editors">Next →</a>
-</div>
+    <div class="navigation">
+        <a href="#home">← Previous</a>
+        <a href="#editors">Next →</a>
+    </div>
 
 </section>
 
 
 <!-- EDITORS -->
-
 <section id="editors">
 
-<h2>HTML Editors</h2>
+    <h2>HTML <span>Editors</span></h2>
 
-<div class="theory-box">
+    <p>
+        An HTML editor is a software application used to create and edit
+        HTML files.
+    </p>
 
-<p>
-An HTML editor is a software application used to
-write, edit and manage HTML code. A simple text
-editor can be used to create HTML files.
-</p>
+    <p>
+        Beginners can use simple text editors, while developers often use
+        advanced code editors with syntax highlighting and other features.
+    </p>
 
-</div>
+    <h3>Common Features</h3>
 
-<h3>Common HTML Editors</h3>
+    <ul>
+        <li>Syntax highlighting</li>
+        <li>Auto completion</li>
+        <li>Code formatting</li>
+        <li>Error detection</li>
+        <li>File management</li>
+    </ul>
 
-<ul>
-<li>Notepad</li>
-<li>Visual Studio Code</li>
-<li>Sublime Text</li>
-<li>Notepad++</li>
-</ul>
+    <h3>Practical Example</h3>
 
-<h3>Basic Workflow</h3>
+    <textarea class="code-editor" id="code-editors"><!DOCTYPE html>
+<html>
+<head>
+<title>My First Page</title>
+</head>
+<body>
+<h1>Hello HTML</h1>
+</body>
+</html></textarea>
 
-<ul>
-<li>Open an editor.</li>
-<li>Write HTML code.</li>
-<li>Save the file with the .html extension.</li>
-<li>Open the file in a web browser.</li>
-</ul>
+    <button class="run-btn"
+        onclick="runCode('code-editors','output-editors')">
+        ▶ Run Code
+    </button>
 
-<div class="navigation">
-<a href="#introduction">← Previous</a>
-<a href="#structure">Next →</a>
-</div>
+    <div class="output-title">Live Output</div>
+
+    <iframe class="output" id="output-editors"></iframe>
+
+    <div class="navigation">
+        <a href="#introduction">← Previous</a>
+        <a href="#structure">Next →</a>
+    </div>
 
 </section>
 
 
-<!-- BASIC STRUCTURE -->
-
+<!-- STRUCTURE -->
 <section id="structure">
 
-<h2>Basic HTML Structure</h2>
+    <h2>Basic <span>HTML Structure</span></h2>
 
-<div class="theory-box">
+    <p>
+        A normal HTML document follows a basic structure. The
+        <code>&lt;html&gt;</code> element contains the complete document.
+    </p>
 
-<p>
-Every standard HTML document follows a basic structure.
-The document normally contains the DOCTYPE declaration,
-html element, head section and body section.
-</p>
+    <p>
+        The <code>&lt;head&gt;</code> contains information about the page,
+        while the <code>&lt;body&gt;</code> contains visible content.
+    </p>
 
-</div>
+    <h3>Important Parts</h3>
 
-<h3>Main Parts</h3>
+    <ul>
+        <li>&lt;!DOCTYPE html&gt; tells the browser that the document uses HTML5.</li>
+        <li>&lt;html&gt; is the root element.</li>
+        <li>&lt;head&gt; contains document information.</li>
+        <li>&lt;title&gt; defines the browser tab title.</li>
+        <li>&lt;body&gt; contains visible page content.</li>
+    </ul>
 
-<ul>
-<li><strong>DOCTYPE:</strong> Defines the document as HTML5.</li>
-<li><strong>html:</strong> The root element.</li>
-<li><strong>head:</strong> Contains page information.</li>
-<li><strong>body:</strong> Contains visible page content.</li>
-</ul>
+    <h3>Practical Example</h3>
 
-<h3>Example</h3>
-
-<div class="example">
-
-<textarea class="code-editor" id="code-structure"><!DOCTYPE html>
-
+    <textarea class="code-editor" id="code-structure"><!DOCTYPE html>
 <html>
-
 <head>
-<title>My First Page</title>
+<title>HTML Structure</title>
 </head>
 
 <body>
 
 <h1>My Website</h1>
-
-<p>This is my webpage.</p>
+<p>This is my first HTML page.</p>
 
 </body>
-
 </html></textarea>
 
-<button class="run-btn"
-onclick="runCode('code-structure','output-structure')">
-▶ Run Code
-</button>
+    <button class="run-btn"
+        onclick="runCode('code-structure','output-structure')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<div class="output-title">Live Output</div>
-<iframe class="output" id="output-structure"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-</div>
+    <iframe class="output" id="output-structure"></iframe>
 
-<div class="navigation">
-<a href="#editors">← Previous</a>
-<a href="#elements">Next →</a>
-</div>
+    <div class="navigation">
+        <a href="#editors">← Previous</a>
+        <a href="#elements">Next →</a>
+    </div>
 
 </section>
 
 
 <!-- ELEMENTS -->
-
 <section id="elements">
 
-<h2>HTML Elements</h2>
+    <h2>HTML <span>Elements</span></h2>
 
-<div class="theory-box">
+    <p>
+        An HTML element normally consists of an opening tag, content and
+        a closing tag.
+    </p>
 
-<p>
-An HTML element is a complete part of an HTML document.
-It usually consists of an opening tag, content and a
-closing tag.
-</p>
+    <p>
+        Some HTML elements are empty elements and do not require a closing
+        tag, such as the <code>&lt;br&gt;</code> element.
+    </p>
 
-</div>
+    <h3>Example</h3>
 
-<h3>Example of an Element</h3>
+    <textarea class="code-editor" id="code-elements"><h1>HTML Elements</h1>
 
-<textarea class="code-editor" id="code-elements"><h1>Hello HTML</h1>
+<p>This is a paragraph.</p>
 
-<p>This is an HTML paragraph.</p></textarea>
+<br>
 
-<button class="run-btn"
-onclick="runCode('code-elements','output-elements')">
-▶ Run Code
-</button>
+<p>This paragraph appears after a line break.</p></textarea>
 
-<div class="output-box">
-<div class="output-title">Live Output</div>
-<iframe class="output" id="output-elements"></iframe>
-</div>
+    <button class="run-btn"
+        onclick="runCode('code-elements','output-elements')">
+        ▶ Run Code
+    </button>
 
-<div class="navigation">
-<a href="#structure">← Previous</a>
-<a href="#attributes">Next →</a>
-</div>
+    <div class="output-title">Live Output</div>
+
+    <iframe class="output" id="output-elements"></iframe>
+
+    <div class="navigation">
+        <a href="#structure">← Previous</a>
+        <a href="#attributes">Next →</a>
+    </div>
 
 </section>
 
 
 <!-- ATTRIBUTES -->
-
 <section id="attributes">
 
-<h2>HTML Attributes</h2>
+    <h2>HTML <span>Attributes</span></h2>
 
-<div class="theory-box">
+    <p>
+        HTML attributes provide additional information about an HTML
+        element.
+    </p>
 
-<p>
-HTML attributes provide additional information about
-HTML elements. They are written inside the opening tag.
-</p>
+    <p>
+        Attributes are normally written inside the opening tag and use
+        a name-value format.
+    </p>
 
-</div>
+    <h3>Common Attributes</h3>
 
-<h3>Common Attributes</h3>
+    <ul>
+        <li>id</li>
+        <li>class</li>
+        <li>style</li>
+        <li>title</li>
+        <li>href</li>
+        <li>src</li>
+        <li>alt</li>
+    </ul>
 
-<ul>
-<li><strong>href</strong> — Specifies a link destination.</li>
-<li><strong>src</strong> — Specifies a resource location.</li>
-<li><strong>alt</strong> — Provides alternative image text.</li>
-<li><strong>title</strong> — Provides additional information.</li>
-</ul>
+    <h3>Practical Example</h3>
 
-<h3>Example</h3>
+    <textarea class="code-editor" id="code-attributes"><h1 title="This is a heading">
+Hover over this heading
+</h1>
 
-<textarea class="code-editor" id="code-attributes"><a href="https://example.com">
-
-Visit Example Website
-
+<a href="https://www.google.com">
+Visit Google
 </a></textarea>
 
-<button class="run-btn"
-onclick="runCode('code-attributes','output-attributes')">
-▶ Run Code
-</button>
+    <button class="run-btn"
+        onclick="runCode('code-attributes','output-attributes')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<div class="output-title">Live Output</div>
-<iframe class="output" id="output-attributes"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#elements">← Previous</a>
-<a href="#comments">Next →</a>
-</div>
+    <iframe class="output" id="output-attributes"></iframe>
+
+    <div class="navigation">
+        <a href="#elements">← Previous</a>
+        <a href="#comments">Next →</a>
+    </div>
 
 </section>
 
 
 <!-- COMMENTS -->
-
 <section id="comments">
 
-<h2>HTML Comments</h2>
+    <h2>HTML <span>Comments</span></h2>
 
-<div class="theory-box">
+    <p>
+        HTML comments are notes written inside the source code. They are
+        not displayed on the web page.
+    </p>
 
-<p>
-HTML comments are notes written inside HTML code.
-They are not displayed on the web page by the browser.
-Comments are useful for explaining code.
-</p>
+    <p>
+        Comments are useful for explaining code and organizing large HTML
+        documents.
+    </p>
 
-</div>
+    <div class="info">
+        HTML comment syntax:
+        <strong>&lt;!-- Your comment here --&gt;</strong>
+    </div>
 
-<h3>Comment Syntax</h3>
+    <h3>Practical Example</h3>
 
-<textarea class="code-editor" id="code-comments"><!-- This is an HTML comment -->
+    <textarea class="code-editor" id="code-comments"><!-- Main Heading -->
 
-<h2>Hello World</h2>
+<h1>My Website</h1>
 
-<p>This paragraph is visible.</p></textarea>
+<!-- Website introduction -->
 
-<button class="run-btn"
-onclick="runCode('code-comments','output-comments')">
-▶ Run Code
-</button>
+<p>Welcome to my website.</p></textarea>
 
-<div class="output-box">
-<div class="output-title">Live Output</div>
-<iframe class="output" id="output-comments"></iframe>
-</div>
+    <button class="run-btn"
+        onclick="runCode('code-comments','output-comments')">
+        ▶ Run Code
+    </button>
 
-<div class="navigation">
-<a href="#attributes">← Previous</a>
-<a href="#headings">Next →</a>
-</div>
+    <div class="output-title">Live Output</div>
+
+    <iframe class="output" id="output-comments"></iframe>
+
+    <div class="navigation">
+        <a href="#attributes">← Previous</a>
+        <a href="#headings">Next →</a>
+    </div>
 
 </section>
 
 
 <!-- HEADINGS -->
-
 <section id="headings">
 
-<h2>HTML Headings</h2>
+    <h2>HTML <span>Headings</span></h2>
 
-<div class="theory-box">
+    <p>
+        HTML provides six levels of headings, from
+        <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>.
+    </p>
 
-<p>
-HTML provides six heading levels, from h1 to h6.
-The h1 element represents the highest-level heading,
-while h6 represents the lowest-level heading.
-</p>
+    <p>
+        The <code>&lt;h1&gt;</code> heading represents the highest-level
+        heading, while <code>&lt;h6&gt;</code> represents the lowest level.
+    </p>
 
-</div>
+    <h3>Key Points</h3>
 
-<h3>Example</h3>
+    <ul>
+        <li>There are six HTML heading levels.</li>
+        <li>Use headings to organize content.</li>
+        <li>Use headings in a logical order.</li>
+        <li>Headings improve page structure.</li>
+    </ul>
 
-<textarea class="code-editor" id="code-headings"><h1>Heading 1</h1>
+    <h3>Practical Example</h3>
 
-<h2>Heading 2</h2>
+    <textarea class="code-editor" id="code-headings"><h1>Main Heading</h1>
+<h2>Second Heading</h2>
+<h3>Third Heading</h3>
+<h4>Fourth Heading</h4>
+<h5>Fifth Heading</h5>
+<h6>Sixth Heading</h6></textarea>
 
-<h3>Heading 3</h3>
+    <button class="run-btn"
+        onclick="runCode('code-headings','output-headings')">
+        ▶ Run Code
+    </button>
 
-<h4>Heading 4</h4>
+    <div class="output-title">Live Output</div>
 
-<h5>Heading 5</h5>
+    <iframe class="output" id="output-headings"></iframe>
 
-<h6>Heading 6</h6></textarea>
-
-<button class="run-btn"
-onclick="runCode('code-headings','output-headings')">
-▶ Run Code
-</button>
-
-<div class="output-box">
-<div class="output-title">Live Output</div>
-<iframe class="output" id="output-headings"></iframe>
-</div>
-
-<div class="navigation">
-<a href="#comments">← Previous</a>
-<a href="#paragraphs">Next →</a>
-</div>
+    <div class="navigation">
+        <a href="#comments">← Previous</a>
+        <a href="#paragraphs">Next →</a>
+    </div>
 
 </section>
 
 
 <!-- PARAGRAPHS -->
-
 <section id="paragraphs">
 
-<h2>HTML Paragraphs</h2>
+    <h2>HTML <span>Paragraphs</span></h2>
 
-<div class="theory-box">
+    <p>
+        The HTML <code>&lt;p&gt;</code> element is used to define a
+        paragraph of text.
+    </p>
 
-<p>
-The HTML p element is used to define a paragraph.
-Paragraphs are commonly used to display blocks of text
-on a web page.
-</p>
+    <p>
+        Browsers automatically add some space before and after paragraphs.
+    </p>
 
-</div>
+    <h3>Practical Example</h3>
 
-<h3>Example</h3>
-
-<textarea class="code-editor" id="code-paragraphs"><p>
-HTML is used to create web pages.
-</p>
+    <textarea class="code-editor" id="code-paragraphs"><h1>About Me</h1>
 
 <p>
-Learning HTML starts with understanding its basic elements.
+My name is Shiv Mishra.
+</p>
+
+<p>
+I am learning Data Analytics and Web Development.
 </p></textarea>
 
-<button class="run-btn"
-onclick="runCode('code-paragraphs','output-paragraphs')">
-▶ Run Code
-</button>
+    <button class="run-btn"
+        onclick="runCode('code-paragraphs','output-paragraphs')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<div class="output-title">Live Output</div>
-<iframe class="output" id="output-paragraphs"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#headings">← Previous</a>
-<a href="#formatting">Next →</a>
-</div>
+    <iframe class="output" id="output-paragraphs"></iframe>
+
+    <div class="navigation">
+        <a href="#headings">← Previous</a>
+        <a href="#formatting">Next →</a>
+    </div>
 
 </section>
 
 
 <!-- FORMATTING -->
-
 <section id="formatting">
 
-<h2>HTML Text Formatting</h2>
+    <h2>Text <span>Formatting</span></h2>
 
-<div class="theory-box">
+    <p>
+        HTML provides several elements for formatting and giving meaning
+        to text.
+    </p>
 
-<p>
-HTML provides elements that can change the presentation
-or meaning of text. Common formatting elements include
-bold, italic and important text.
+    <h3>Important Formatting Elements</h3>
+
+    <ul>
+        <li>&lt;b&gt; - Bold text</li>
+        <li>&lt;strong&gt; - Important text</li>
+        <li>&lt;i&gt; - Italic text</li>
+        <li>&lt;em&gt; - Emphasized text</li>
+        <li>&lt;mark&gt; - Highlighted text</li>
+        <li>&lt;small&gt; - Smaller text</li>
+        <li>&lt;del&gt; - Deleted text</li>
+        <li>&lt;ins&gt; - Inserted text</li>
+        <li>&lt;sub&gt; - Subscript</li>
+        <li>&lt;sup&gt; - Superscript</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-formatting"><p>
+<b>Bold Text</b>
 </p>
 
-</div>
+<p>
+<strong>Important Text</strong>
+</p>
 
-<h3>Common Formatting Elements</h3>
-
-<ul>
-<li><strong>&lt;b&gt;</strong> — Displays bold text.</li>
-<li><strong>&lt;i&gt;</strong> — Displays italic text.</li>
-<li><strong>&lt;u&gt;</strong> — Underlines text.</li>
-<li><strong>&lt;strong&gt;</strong> — Marks important text.</li>
-</ul>
-
-<h3>Example</h3>
-
-<textarea class="code-editor" id="code-formatting"><b>Bold Text</b>
-
-<br><br>
-
+<p>
 <i>Italic Text</i>
+</p>
 
-<br><br>
+<p>
+<mark>Highlighted Text</mark>
+</p>
 
-<u>Underlined Text</u>
+<p>
+H<sub>2</sub>O
+</p>
 
-<br><br>
+<p>
+X<sup>2</sup>
+</p></textarea>
 
-<strong>Important Text</strong></textarea>
+    <button class="run-btn"
+        onclick="runCode('code-formatting','output-formatting')">
+        ▶ Run Code
+    </button>
 
-<button class="run-btn"
-onclick="runCode('code-formatting','output-formatting')">
-▶ Run Code
-</button>
+    <div class="output-title">Live Output</div>
 
-<div class="output-box">
-<div class="output-title">Live Output</div>
-<iframe class="output" id="output-formatting"></iframe>
-</div>
+    <iframe class="output" id="output-formatting"></iframe>
 
-<div class="navigation">
-<a href="#paragraphs">← Previous</a>
-<a href="#quotations">Next →</a>
-</div>
+    <div class="navigation">
+        <a href="#paragraphs">← Previous</a>
+        <a href="#quotations">Next →</a>
+    </div>
 
 </section>
 
 
 <!-- QUOTATIONS -->
-
 <section id="quotations">
 
-<h2>HTML Quotations</h2>
+    <h2>HTML <span>Quotations</span></h2>
 
-<div class="theory-box">
+    <p>
+        HTML provides special elements for quotations and references.
+    </p>
 
-<p>
-HTML provides elements for displaying quotations.
-The blockquote element is commonly used for longer
-quoted content, while the q element is used for
-short inline quotations.
+    <p>
+        The <code>&lt;blockquote&gt;</code> element is commonly used for
+        longer quotations, while <code>&lt;q&gt;</code> is used for short
+        inline quotations.
+    </p>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-quotations"><p>
+Shiv said:
+<q>Learning every day makes you better.</q>
 </p>
 
-</div>
+<blockquote>
+Success comes from consistent learning and practice.
+</blockquote></textarea>
 
-<h3>Example</h3>
+    <button class="run-btn"
+        onclick="runCode('code-quotations','output-quotations')">
+        ▶ Run Code
+    </button>
 
-<textarea class="code-editor" id="code-quotations"><blockquote>
-Learning HTML is an important step in web development.
-</blockquote>
+    <div class="output-title">Live Output</div>
 
-<p>
-He said <q>HTML is easy to learn.</q>
-</p></textarea>
+    <iframe class="output" id="output-quotations"></iframe>
 
-<button class="run-btn"
-onclick="runCode('code-quotations','output-quotations')">
-▶ Run Code
-</button>
-
-<div class="output-box">
-<div class="output-title">Live Output</div>
-<iframe class="output" id="output-quotations"></iframe>
-</div>
-
-<div class="navigation">
-<a href="#formatting">← Previous</a>
-<a href="#colors">Next →</a>
-</div>
+    <div class="navigation">
+        <a href="#formatting">← Previous</a>
+        <a href="#colors">Next →</a>
+    </div>
 
 </section>
 
 
 <!-- COLORS -->
-
 <section id="colors">
 
-<h2>HTML Colors</h2>
+    <h2>HTML <span>Colors</span></h2>
 
-<div class="theory-box">
+    <p>
+        HTML can display colored text and backgrounds using CSS.
+    </p>
 
-<p>
-Colors are used to improve the appearance and readability
-of web page content. In HTML pages, colors are commonly
-applied using CSS styles.
-</p>
+    <p>
+        Colors can be specified using color names, HEX values, RGB values,
+        HSL values and other CSS color formats.
+    </p>
 
-</div>
+    <h3>Practical Example</h3>
 
-<h3>Common Color Values</h3>
-
-<ul>
-<li>Color names such as orange and blue.</li>
-<li>Hexadecimal values such as #FF8A00.</li>
-<li>RGB values such as rgb(255, 138, 0).</li>
-</ul>
-
-<h3>Example</h3>
-
-<textarea class="code-editor" id="code-colors"><h2 style="color:orange;">
+    <textarea class="code-editor" id="code-colors"><h1 style="color:orange;">
 Orange Heading
-</h2>
+</h1>
 
 <p style="color:purple;">
 Purple Paragraph
 </p>
 
 <div style="background:#111827;color:white;padding:20px;">
-Colored Box
+Dark Background Box
 </div></textarea>
 
-<button class="run-btn"
-onclick="runCode('code-colors','output-colors')">
-▶ Run Code
-</button>
+    <button class="run-btn"
+        onclick="runCode('code-colors','output-colors')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<div class="output-title">Live Output</div>
-<iframe class="output" id="output-colors"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#quotations">← Previous</a>
-<a href="#home">🏠 Part 1 Complete</a>
-</div>
+    <iframe class="output" id="output-colors"></iframe>
 
-</section><section class="topic" id="links">
-<span class="tag">HTML LESSON 13</span>
-<h2>HTML Links</h2>
+    <div class="navigation">
+        <a href="#quotations">← Previous</a>
+        <a href="#links">Next →</a>
+    </div>
 
-<div class="theory-box">
-<h3>What are HTML Links?</h3>
-<p>The HTML <b>&lt;a&gt;</b> element creates a hyperlink. It allows users to move from one page or website to another.</p>
+</section>
+<!-- ==================== PART 2 ==================== -->
 
-<h3>Key Points</h3>
-<ul>
-<li>The <b>href</b> attribute defines the destination.</li>
-<li><b>target="_blank"</b> opens the link in a new tab.</li>
-<li>Links can point to websites, pages, files, email addresses and sections of the same page.</li>
-</ul>
-</div>
+<!-- LINKS -->
+<section id="links">
 
-<h3>Practical Example</h3>
-<textarea class="code-editor" id="code-links"><h2>My Website Links</h2>
-<a href="https://www.google.com" target="_blank">Open Google</a>
-<br><br>
-<a href="https://github.com" target="_blank">Open GitHub</a></textarea>
+    <h2>HTML <span>Links</span></h2>
 
-<button class="run-btn" onclick="runCode('code-links','output-links')">▶ Run Code</button>
+    <p>
+        HTML links are used to connect one web page to another page,
+        website, file, email address or another location.
+    </p>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-links"></iframe>
-</div>
+    <p>
+        The <code>&lt;a&gt;</code> element is used to create a hyperlink.
+        The <code>href</code> attribute specifies the destination.
+    </p>
 
-<div class="navigation">
-<a href="#colors">← Previous</a>
-<a href="#images">Images →</a>
-</div>
+    <h3>Key Points</h3>
+
+    <ul>
+        <li>Links are created using the &lt;a&gt; element.</li>
+        <li>The href attribute defines the destination.</li>
+        <li>Links can open websites, pages and files.</li>
+        <li>target="_blank" opens a link in a new tab.</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-links"><h1>HTML Links</h1>
+
+<p>
+Visit Data Analytics Hub:
+<a href="https://shivmangal66.github.io/data-analytics-hub/">
+Open Website
+</a>
+</p>
+
+<p>
+<a href="https://www.google.com" target="_blank">
+Open Google in New Tab
+</a>
+</p></textarea>
+
+    <button class="run-btn"
+        onclick="runCode('code-links','output-links')">
+        ▶ Run Code
+    </button>
+
+    <div class="output-title">Live Output</div>
+
+    <iframe class="output" id="output-links"></iframe>
+
+    <div class="navigation">
+        <a href="#colors">← Previous</a>
+        <a href="#images">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="images">
-<span class="tag">HTML LESSON 14</span>
-<h2>HTML Images</h2>
+<!-- IMAGES -->
+<section id="images">
 
-<div class="theory-box">
-<h3>What are HTML Images?</h3>
-<p>The HTML <b>&lt;img&gt;</b> element is used to display images on a web page.</p>
+    <h2>HTML <span>Images</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li><b>src</b> specifies the image location.</li>
-<li><b>alt</b> provides alternative text.</li>
-<li><b>width</b> and <b>height</b> can control image size.</li>
-</ul>
-</div>
+    <p>
+        HTML images are used to display pictures on a web page.
+        The <code>&lt;img&gt;</code> element is used for this purpose.
+    </p>
 
-<h3>Practical Example</h3>
-<textarea class="code-editor" id="code-images"><h2>My Image</h2>
-<img src="https://placehold.co/400x200" alt="Sample Image" width="400">
+    <p>
+        The <code>src</code> attribute specifies the image location,
+        while the <code>alt</code> attribute provides alternative text.
+    </p>
 
-<p>This is an HTML image example.</p></textarea>
+    <h3>Key Points</h3>
 
-<button class="run-btn" onclick="runCode('code-images','output-images')">▶ Run Code</button>
+    <ul>
+        <li>&lt;img&gt; is used to display an image.</li>
+        <li>src defines the image source.</li>
+        <li>alt provides alternative text.</li>
+        <li>width and height can control image dimensions.</li>
+    </ul>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-images"></iframe>
-</div>
+    <h3>Practical Example</h3>
 
-<div class="navigation">
-<a href="#links">← Previous</a>
-<a href="#favicon">Favicon →</a>
-</div>
+    <textarea class="code-editor" id="code-images"><h1>My Image</h1>
+
+<img
+src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600"
+alt="Laptop"
+width="400">
+
+<p>This is an example of an HTML image.</p></textarea>
+
+    <button class="run-btn"
+        onclick="runCode('code-images','output-images')">
+        ▶ Run Code
+    </button>
+
+    <div class="output-title">Live Output</div>
+
+    <iframe class="output" id="output-images"></iframe>
+
+    <div class="navigation">
+        <a href="#links">← Previous</a>
+        <a href="#favicon">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="favicon">
-<span class="tag">HTML LESSON 15</span>
-<h2>HTML Favicon</h2>
+<!-- FAVICON -->
+<section id="favicon">
 
-<div class="theory-box">
-<h3>What is a Favicon?</h3>
-<p>A favicon is a small icon displayed near the title of a website in a browser tab.</p>
+    <h2>HTML <span>Favicon</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li>A favicon is normally added inside the <b>&lt;head&gt;</b>.</li>
-<li>The <b>rel="icon"</b> attribute defines the favicon.</li>
-<li>Common formats include ICO, PNG and SVG.</li>
-</ul>
-</div>
+    <p>
+        A favicon is a small icon associated with a website.
+        It normally appears in the browser tab next to the page title.
+    </p>
 
-<h3>Practical Example</h3>
-<textarea class="code-editor" id="code-favicon"><!DOCTYPE html>
+    <p>
+        A favicon is added using the <code>&lt;link&gt;</code> element
+        inside the HTML <code>&lt;head&gt;</code>.
+    </p>
+
+    <h3>Key Points</h3>
+
+    <ul>
+        <li>A favicon identifies a website.</li>
+        <li>It is normally displayed in the browser tab.</li>
+        <li>The favicon is linked inside the head section.</li>
+        <li>PNG, ICO and SVG files can be used.</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-favicon"><!DOCTYPE html>
 <html>
+
 <head>
-<title>Favicon Example</title>
-<link rel="icon" href="favicon.ico">
+
+<title>My Website</title>
+
+<link rel="icon"
+href="https://www.google.com/favicon.ico">
+
 </head>
+
 <body>
 
-<h1>My Website</h1>
-<p>The favicon code is placed inside the head section.</p>
+<h1>Favicon Example</h1>
+
+<p>
+Look at the browser tab to see the favicon.
+</p>
 
 </body>
+
 </html></textarea>
 
-<button class="run-btn" onclick="runCode('code-favicon','output-favicon')">▶ Run Code</button>
+    <button class="run-btn"
+        onclick="runCode('code-favicon','output-favicon')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-favicon"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#images">← Previous</a>
-<a href="#tables">Tables →</a>
-</div>
+    <iframe class="output" id="output-favicon"></iframe>
+
+    <div class="navigation">
+        <a href="#images">← Previous</a>
+        <a href="#tables">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="tables">
-<span class="tag">HTML LESSON 16</span>
-<h2>HTML Tables</h2>
+<!-- TABLES -->
+<section id="tables">
 
-<div class="theory-box">
-<h3>What are HTML Tables?</h3>
-<p>HTML tables are used to organize information into rows and columns.</p>
+    <h2>HTML <span>Tables</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li><b>&lt;table&gt;</b> creates the table.</li>
-<li><b>&lt;tr&gt;</b> creates a row.</li>
-<li><b>&lt;th&gt;</b> creates a heading cell.</li>
-<li><b>&lt;td&gt;</b> creates a data cell.</li>
-</ul>
-</div>
+    <p>
+        HTML tables are used to organize data into rows and columns.
+    </p>
 
-<h3>Practical Example</h3>
-<textarea class="code-editor" id="code-tables"><h2>Student Marks</h2>
+    <p>
+        The <code>&lt;table&gt;</code> element creates a table.
+        Rows are created using <code>&lt;tr&gt;</code>, headings using
+        <code>&lt;th&gt;</code> and data cells using <code>&lt;td&gt;</code>.
+    </p>
+
+    <h3>Key Points</h3>
+
+    <ul>
+        <li>&lt;table&gt; creates a table.</li>
+        <li>&lt;tr&gt; creates a table row.</li>
+        <li>&lt;th&gt; creates a table heading.</li>
+        <li>&lt;td&gt; creates a table data cell.</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-tables"><h1>Student Data</h1>
 
 <table border="1" cellpadding="10">
+
 <tr>
 <th>Name</th>
-<th>Subject</th>
-<th>Marks</th>
+<th>Course</th>
+<th>Score</th>
 </tr>
 
 <tr>
 <td>Shiv</td>
-<td>HTML</td>
-<td>95</td>
+<td>Python</td>
+<td>90</td>
 </tr>
 
 <tr>
 <td>Rahul</td>
-<td>HTML</td>
-<td>88</td>
+<td>SQL</td>
+<td>85</td>
 </tr>
 
 </table></textarea>
 
-<button class="run-btn" onclick="runCode('code-tables','output-tables')">▶ Run Code</button>
+    <button class="run-btn"
+        onclick="runCode('code-tables','output-tables')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-tables"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#favicon">← Previous</a>
-<a href="#lists">Lists →</a>
-</div>
+    <iframe class="output" id="output-tables"></iframe>
+
+    <div class="navigation">
+        <a href="#favicon">← Previous</a>
+        <a href="#lists">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="lists">
-<span class="tag">HTML LESSON 17</span>
-<h2>HTML Lists</h2>
+<!-- LISTS -->
+<section id="lists">
 
-<div class="theory-box">
-<h3>What are HTML Lists?</h3>
-<p>HTML lists are used to display related items in an organized way.</p>
+    <h2>HTML <span>Lists</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li><b>&lt;ul&gt;</b> creates an unordered list.</li>
-<li><b>&lt;ol&gt;</b> creates an ordered list.</li>
-<li><b>&lt;li&gt;</b> defines a list item.</li>
-</ul>
-</div>
+    <p>
+        HTML lists are used to display related items in an organized way.
+    </p>
 
-<h3>Practical Example</h3>
-<textarea class="code-editor" id="code-lists"><h2>My Skills</h2>
+    <p>
+        HTML mainly provides ordered lists, unordered lists and description
+        lists.
+    </p>
+
+    <h3>Types of Lists</h3>
+
+    <ul>
+        <li>Ordered List - &lt;ol&gt;</li>
+        <li>Unordered List - &lt;ul&gt;</li>
+        <li>Description List - &lt;dl&gt;</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-lists"><h2>Data Analytics Skills</h2>
 
 <h3>Unordered List</h3>
+
 <ul>
-<li>HTML</li>
-<li>Python</li>
+<li>Excel</li>
 <li>SQL</li>
+<li>Python</li>
 <li>Power BI</li>
 </ul>
 
 <h3>Ordered List</h3>
+
 <ol>
-<li>Learn</li>
-<li>Practice</li>
-<li>Build Projects</li>
+<li>Learn Excel</li>
+<li>Learn SQL</li>
+<li>Learn Python</li>
+<li>Learn Power BI</li>
 </ol></textarea>
 
-<button class="run-btn" onclick="runCode('code-lists','output-lists')">▶ Run Code</button>
+    <button class="run-btn"
+        onclick="runCode('code-lists','output-lists')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-lists"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#tables">← Previous</a>
-<a href="#description-lists">Description Lists →</a>
-</div>
+    <iframe class="output" id="output-lists"></iframe>
+
+    <div class="navigation">
+        <a href="#tables">← Previous</a>
+        <a href="#description-lists">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="description-lists">
-<span class="tag">HTML LESSON 18</span>
-<h2>HTML Description Lists</h2>
+<!-- DESCRIPTION LISTS -->
+<section id="description-lists">
 
-<div class="theory-box">
-<h3>What are Description Lists?</h3>
-<p>A description list is used to display terms together with their descriptions.</p>
+    <h2>HTML <span>Description Lists</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li><b>&lt;dl&gt;</b> creates the description list.</li>
-<li><b>&lt;dt&gt;</b> defines the term.</li>
-<li><b>&lt;dd&gt;</b> defines the description.</li>
-</ul>
-</div>
+    <p>
+        A description list is used to display terms and their descriptions.
+    </p>
 
-<h3>Practical Example</h3>
-<textarea class="code-editor" id="code-description-lists"><h2>Web Technologies</h2>
+    <p>
+        The <code>&lt;dl&gt;</code> element defines the description list,
+        <code>&lt;dt&gt;</code> defines a term and
+        <code>&lt;dd&gt;</code> defines its description.
+    </p>
+
+    <h3>Key Points</h3>
+
+    <ul>
+        <li>&lt;dl&gt; creates a description list.</li>
+        <li>&lt;dt&gt; defines a term.</li>
+        <li>&lt;dd&gt; defines the description.</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-description-lists"><h2>Data Analytics</h2>
 
 <dl>
 
-<dt>HTML</dt>
-<dd>HTML creates the structure of web pages.</dd>
+<dt>Excel</dt>
+<dd>A spreadsheet tool used for data analysis.</dd>
 
-<dt>CSS</dt>
-<dd>CSS is used to style web pages.</dd>
+<dt>SQL</dt>
+<dd>A language used to work with databases.</dd>
 
-<dt>JavaScript</dt>
-<dd>JavaScript adds interactivity to web pages.</dd>
+<dt>Python</dt>
+<dd>A programming language used for data analysis.</dd>
 
 </dl></textarea>
 
-<button class="run-btn" onclick="runCode('code-description-lists','output-description-lists')">▶ Run Code</button>
+    <button class="run-btn"
+        onclick="runCode('code-description-lists','output-description-lists')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-description-lists"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#lists">← Previous</a>
-<a href="#forms">Forms →</a>
-</div>
+    <iframe class="output" id="output-description-lists"></iframe>
+
+    <div class="navigation">
+        <a href="#lists">← Previous</a>
+        <a href="#forms">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="forms">
-<span class="tag">HTML LESSON 19</span>
-<h2>HTML Forms</h2>
+<!-- FORMS -->
+<section id="forms">
 
-<div class="theory-box">
-<h3>What are HTML Forms?</h3>
-<p>HTML forms are used to collect information from users.</p>
+    <h2>HTML <span>Forms</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li>The <b>&lt;form&gt;</b> element creates a form.</li>
-<li><b>&lt;label&gt;</b> describes an input.</li>
-<li><b>&lt;input&gt;</b> collects user data.</li>
-<li><b>&lt;button&gt;</b> can submit the form.</li>
-</ul>
-</div>
+    <p>
+        HTML forms are used to collect information from users.
+        Forms are commonly used for registration, login, contact and
+        search pages.
+    </p>
 
-<h3>Practical Example</h3>
-<textarea class="code-editor" id="code-forms"><h2>Student Form</h2>
+    <p>
+        The <code>&lt;form&gt;</code> element contains form controls such
+        as text fields, email fields, passwords, buttons and more.
+    </p>
+
+    <h3>Key Points</h3>
+
+    <ul>
+        <li>Forms collect user input.</li>
+        <li>&lt;form&gt; defines a form.</li>
+        <li>&lt;input&gt; creates input controls.</li>
+        <li>&lt;label&gt; describes form controls.</li>
+        <li>&lt;button&gt; creates a button.</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-forms"><h2>Registration Form</h2>
 
 <form>
 
 <label>Name:</label>
-<input type="text" placeholder="Enter your name">
+<input type="text">
 
 <br><br>
 
 <label>Email:</label>
-<input type="email" placeholder="Enter your email">
-
-<br><br>
-
-<button type="submit">Submit</button>
-
-</form></textarea>
-
-<button class="run-btn" onclick="runCode('code-forms','output-forms')">▶ Run Code</button>
-
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-forms"></iframe>
-</div>
-
-<div class="navigation">
-<a href="#description-lists">← Previous</a>
-<a href="#input-types">Input Types →</a>
-</div>
-</section>
-
-
-<section class="topic" id="input-types">
-<span class="tag">HTML LESSON 20</span>
-<h2>HTML Input Types</h2>
-
-<div class="theory-box">
-<h3>What are Input Types?</h3>
-<p>The HTML input element supports different types of user input.</p>
-
-<h3>Key Points</h3>
-<ul>
-<li><b>text</b> accepts normal text.</li>
-<li><b>email</b> accepts an email address.</li>
-<li><b>password</b> hides typed characters.</li>
-<li><b>number</b> accepts numbers.</li>
-<li><b>date</b> provides a date picker.</li>
-<li><b>checkbox</b> allows selections.</li>
-<li><b>radio</b> allows a choice from a group.</li>
-</ul>
-</div>
-
-<h3>Practical Example</h3>
-<textarea class="code-editor" id="code-input-types"><h2>Different Input Types</h2>
-
-<label>Name:</label>
-<input type="text" placeholder="Your Name">
-
-<br><br>
-
-<label>Email:</label>
-<input type="email" placeholder="Your Email">
+<input type="email">
 
 <br><br>
 
 <label>Password:</label>
-<input type="password" placeholder="Password">
+<input type="password">
+
+<br><br>
+
+<button type="submit">
+Register
+</button>
+
+</form></textarea>
+
+    <button class="run-btn"
+        onclick="runCode('code-forms','output-forms')">
+        ▶ Run Code
+    </button>
+
+    <div class="output-title">Live Output</div>
+
+    <iframe class="output" id="output-forms"></iframe>
+
+    <div class="navigation">
+        <a href="#description-lists">← Previous</a>
+        <a href="#input-types">Next →</a>
+    </div>
+
+</section>
+
+
+<!-- INPUT TYPES -->
+<section id="input-types">
+
+    <h2>HTML <span>Input Types</span></h2>
+
+    <p>
+        The HTML <code>&lt;input&gt;</code> element can create many
+        different types of input controls.
+    </p>
+
+    <p>
+        The type of input is controlled using the <code>type</code>
+        attribute.
+    </p>
+
+    <h3>Common Input Types</h3>
+
+    <ul>
+        <li>text</li>
+        <li>password</li>
+        <li>email</li>
+        <li>number</li>
+        <li>date</li>
+        <li>radio</li>
+        <li>checkbox</li>
+        <li>file</li>
+        <li>submit</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-input-types"><h2>Input Types</h2>
+
+<label>Name:</label>
+<input type="text">
+
+<br><br>
+
+<label>Email:</label>
+<input type="email">
+
+<br><br>
+
+<label>Password:</label>
+<input type="password">
 
 <br><br>
 
@@ -1403,48 +1456,61 @@ onclick="runCode('code-colors','output-colors')">
 
 <br><br>
 
-<label>
-<input type="checkbox">
-I agree
-</label></textarea>
+<label>Upload File:</label>
+<input type="file">
 
-<button class="run-btn" onclick="runCode('code-input-types','output-input-types')">▶ Run Code</button>
+<br><br>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-input-types"></iframe>
-</div>
+<input type="submit" value="Submit"></textarea>
 
-<div class="navigation">
-<a href="#forms">← Previous</a>
-<a href="#form-attributes">Form Attributes →</a>
-</div>
-</section>
-<section class="topic" id="form-attributes">
-<span class="tag">HTML LESSON 21</span>
-<h2>HTML Form Attributes</h2>
+    <button class="run-btn"
+        onclick="runCode('code-input-types','output-input-types')">
+        ▶ Run Code
+    </button>
 
-<div class="theory-box">
-<h3>What are Form Attributes?</h3>
-<p>Form attributes control how a form works and how its data is submitted.</p>
+    <div class="output-title">Live Output</div>
 
-<h3>Key Points</h3>
-<ul>
-<li><b>action</b> specifies where form data is sent.</li>
-<li><b>method</b> specifies how data is submitted.</li>
-<li><b>autocomplete</b> controls browser suggestions.</li>
-<li><b>target</b> specifies where the response is displayed.</li>
-</ul>
-</div>
+    <iframe class="output" id="output-input-types"></iframe>
 
-<h3>Practical Example</h3>
+    <div class="navigation">
+        <a href="#forms">← Previous</a>
+        <a href="#form-attributes">Next →</a>
+    </div>
 
-<textarea class="code-editor" id="code-form-attributes"><h2>Registration Form</h2>
+</sectio>
+<!-- ==================== PART 3 ==================== -->
 
-<form action="#" method="post">
+<!-- FORM ATTRIBUTES -->
+<section id="form-attributes">
 
-<label>Username:</label>
-<input type="text" name="username">
+    <h2>HTML <span>Form Attributes</span></h2>
+
+    <p>
+        HTML form attributes provide additional information about how a
+        form should work and where its data should be sent.
+    </p>
+
+    <p>
+        Important form attributes include <code>action</code>,
+        <code>method</code>, <code>target</code>, <code>autocomplete</code>
+        and <code>novalidate</code>.
+    </p>
+
+    <h3>Key Points</h3>
+
+    <ul>
+        <li><strong>action</strong> defines where form data is sent.</li>
+        <li><strong>method</strong> defines how data is submitted.</li>
+        <li><strong>target</strong> defines where the response opens.</li>
+        <li><strong>autocomplete</strong> controls browser suggestions.</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-form-attributes"><form action="#" method="get">
+
+<label>Name:</label>
+<input type="text" name="name">
 
 <br><br>
 
@@ -1453,85 +1519,117 @@ I agree
 
 <br><br>
 
-<button type="submit">Register</button>
+<button type="submit">
+Submit Form
+</button>
 
 </form></textarea>
 
-<button class="run-btn" onclick="runCode('code-form-attributes','output-form-attributes')">▶ Run Code</button>
+    <button class="run-btn"
+        onclick="runCode('code-form-attributes','output-form-attributes')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-form-attributes"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#input-types">← Previous</a>
-<a href="#buttons">Buttons →</a>
-</div>
+    <iframe class="output" id="output-form-attributes"></iframe>
+
+    <div class="navigation">
+        <a href="#input-types">← Previous</a>
+        <a href="#buttons">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="buttons">
-<span class="tag">HTML LESSON 22</span>
-<h2>HTML Buttons</h2>
+<!-- BUTTONS -->
+<section id="buttons">
 
-<div class="theory-box">
-<h3>What are HTML Buttons?</h3>
-<p>The HTML button element creates a clickable button on a web page.</p>
+    <h2>HTML <span>Buttons</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li><b>type="button"</b> creates a normal button.</li>
-<li><b>type="submit"</b> submits a form.</li>
-<li><b>type="reset"</b> resets form fields.</li>
-<li>JavaScript can be used to make buttons interactive.</li>
-</ul>
-</div>
+    <p>
+        HTML buttons are interactive elements that allow users to perform
+        actions such as submitting forms or triggering JavaScript actions.
+    </p>
 
-<h3>Practical Example</h3>
+    <p>
+        The <code>&lt;button&gt;</code> element is commonly used to create
+        buttons.
+    </p>
 
-<textarea class="code-editor" id="code-buttons"><h2>HTML Buttons</h2>
+    <h3>Button Types</h3>
 
-<button type="button"
-onclick="document.getElementById('msg').textContent='Button Clicked!'">
+    <ul>
+        <li>submit - submits a form.</li>
+        <li>button - creates a normal clickable button.</li>
+        <li>reset - resets form fields.</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-buttons"><h2>HTML Buttons</h2>
+
+<button type="button">
 Click Me
 </button>
 
-<p id="msg">Click the button.</p></textarea>
+<br><br>
 
-<button class="run-btn" onclick="runCode('code-buttons','output-buttons')">▶ Run Code</button>
+<button type="button"
+onclick="alert('Hello from Data Analytics Hub!')">
+Show Message
+</button>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-buttons"></iframe>
-</div>
+<br><br>
 
-<div class="navigation">
-<a href="#form-attributes">← Previous</a>
-<a href="#dropdown">Dropdown →</a>
-</div>
+<button type="reset">
+Reset
+</button></textarea>
+
+    <button class="run-btn"
+        onclick="runCode('code-buttons','output-buttons')">
+        ▶ Run Code
+    </button>
+
+    <div class="output-title">Live Output</div>
+
+    <iframe class="output" id="output-buttons"></iframe>
+
+    <div class="navigation">
+        <a href="#form-attributes">← Previous</a>
+        <a href="#dropdown">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="dropdown">
-<span class="tag">HTML LESSON 23</span>
-<h2>HTML Dropdown / Select</h2>
+<!-- DROPDOWN -->
+<section id="dropdown">
 
-<div class="theory-box">
-<h3>What is a Dropdown?</h3>
-<p>The select element creates a dropdown list from which users can choose an option.</p>
+    <h2>Dropdown / <span>Select</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li><b>&lt;select&gt;</b> creates the dropdown.</li>
-<li><b>&lt;option&gt;</b> creates an option.</li>
-<li><b>selected</b> can set a default option.</li>
-</ul>
-</div>
+    <p>
+        A dropdown list allows users to select one option from a list of
+        available choices.
+    </p>
 
-<h3>Practical Example</h3>
+    <p>
+        The <code>&lt;select&gt;</code> element creates the dropdown and
+        <code>&lt;option&gt;</code> defines each choice.
+    </p>
 
-<textarea class="code-editor" id="code-dropdown"><h2>Select Your Course</h2>
+    <h3>Key Points</h3>
+
+    <ul>
+        <li>&lt;select&gt; creates the dropdown.</li>
+        <li>&lt;option&gt; creates an option.</li>
+        <li>selected can define the default option.</li>
+        <li>multiple can allow multiple selections.</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-dropdown"><h2>Select Your Course</h2>
 
 <label>Choose a course:</label>
 
@@ -1542,666 +1640,884 @@ Click Me
 <option>Power BI</option>
 </select></textarea>
 
-<button class="run-btn" onclick="runCode('code-dropdown','output-dropdown')">▶ Run Code</button>
+    <button class="run-btn"
+        onclick="runCode('code-dropdown','output-dropdown')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-dropdown"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#buttons">← Previous</a>
-<a href="#checkbox-radio">Checkbox & Radio →</a>
-</div>
+    <iframe class="output" id="output-dropdown"></iframe>
+
+    <div class="navigation">
+        <a href="#buttons">← Previous</a>
+        <a href="#checkbox-radio">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="checkbox-radio">
-<span class="tag">HTML LESSON 24</span>
-<h2>HTML Checkbox & Radio</h2>
+<!-- CHECKBOX RADIO -->
+<section id="checkbox-radio">
 
-<div class="theory-box">
-<h3>What are Checkbox and Radio Buttons?</h3>
-<p>Checkboxes allow users to select multiple options. Radio buttons are generally used when the user should select one option from a group.</p>
+    <h2>Checkbox & <span>Radio</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li>Checkbox uses <b>type="checkbox"</b>.</li>
-<li>Radio button uses <b>type="radio"</b>.</li>
-<li>Radio buttons in the same group should use the same <b>name</b>.</li>
-</ul>
-</div>
+    <p>
+        Radio buttons are used when a user should select one option from
+        a group. Checkboxes are used when users can select multiple options.
+    </p>
 
-<h3>Practical Example</h3>
+    <h3>Radio Buttons</h3>
 
-<textarea class="code-editor" id="code-checkbox-radio"><h2>Choose Your Skills</h2>
+    <p>
+        Radio buttons normally share the same name so that only one option
+        can be selected.
+    </p>
 
-<label>
-<input type="checkbox"> HTML
-</label>
+    <h3>Checkboxes</h3>
 
-<label>
-<input type="checkbox"> Python
-</label>
+    <p>
+        Checkboxes allow users to select one or more choices independently.
+    </p>
 
-<label>
-<input type="checkbox"> SQL
-</label>
+    <h3>Practical Example</h3>
 
-<h2>Choose Your Level</h2>
+    <textarea class="code-editor" id="code-checkbox-radio"><h2>Choose Gender</h2>
 
-<label>
-<input type="radio" name="level"> Beginner
-</label>
+<input type="radio" name="gender" value="male">
+<label>Male</label>
 
-<label>
-<input type="radio" name="level"> Advanced
-</label></textarea>
+<input type="radio" name="gender" value="female">
+<label>Female</label>
 
-<button class="run-btn" onclick="runCode('code-checkbox-radio','output-checkbox-radio')">▶ Run Code</button>
+<h2>Choose Skills</h2>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-checkbox-radio"></iframe>
-</div>
+<input type="checkbox">
+<label>Excel</label>
 
-<div class="navigation">
-<a href="#dropdown">← Previous</a>
-<a href="#div">Div →</a>
-</div>
+<input type="checkbox">
+<label>SQL</label>
+
+<input type="checkbox">
+<label>Python</label>
+
+<input type="checkbox">
+<label>Power BI</label></textarea>
+
+    <button class="run-btn"
+        onclick="runCode('code-checkbox-radio','output-checkbox-radio')">
+        ▶ Run Code
+    </button>
+
+    <div class="output-title">Live Output</div>
+
+    <iframe class="output" id="output-checkbox-radio"></iframe>
+
+    <div class="navigation">
+        <a href="#dropdown">← Previous</a>
+        <a href="#div">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="div">
-<span class="tag">HTML LESSON 25</span>
-<h2>HTML Div</h2>
+<!-- DIV -->
+<section id="div">
 
-<div class="theory-box">
-<h3>What is Div?</h3>
-<p>The div element is a block-level container used to group HTML elements.</p>
+    <h2>HTML <span>Div</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li>Div is commonly used for page layout.</li>
-<li>It can contain many HTML elements.</li>
-<li>CSS can be used to style a div.</li>
-<li>JavaScript can target a div using its id or class.</li>
-</ul>
-</div>
+    <p>
+        The <code>&lt;div&gt;</code> element is a block-level container
+        used to group HTML content.
+    </p>
 
-<h3>Practical Example</h3>
+    <p>
+        Div elements are commonly used to create sections, layouts,
+        cards and containers on a web page.
+    </p>
 
-<textarea class="code-editor" id="code-div"><div style="padding:20px;
-border:2px solid purple;
-border-radius:10px;">
+    <h3>Key Points</h3>
+
+    <ul>
+        <li>Div is a block-level element.</li>
+        <li>It can contain other HTML elements.</li>
+        <li>CSS can be used to style div containers.</li>
+        <li>Divs are useful for page layout.</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-div"><div style="background:#111827;
+padding:20px;
+border:2px solid orange;">
 
 <h2>Data Analytics Hub</h2>
 
-<p>Learn Excel, Python, SQL and Power BI.</p>
+<p>
+Learn Excel, SQL, Python and Power BI.
+</p>
 
 </div></textarea>
 
-<button class="run-btn" onclick="runCode('code-div','output-div')">▶ Run Code</button>
+    <button class="run-btn"
+        onclick="runCode('code-div','output-div')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-div"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#checkbox-radio">← Previous</a>
-<a href="#span">Span →</a>
-</div>
+    <iframe class="output" id="output-div"></iframe>
+
+    <div class="navigation">
+        <a href="#checkbox-radio">← Previous</a>
+        <a href="#span">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="span">
-<span class="tag">HTML LESSON 26</span>
-<h2>HTML Span</h2>
+<!-- SPAN -->
+<section id="span">
 
-<div class="theory-box">
-<h3>What is Span?</h3>
-<p>The span element is an inline container used to style or target a small part of text.</p>
+    <h2>HTML <span>Span</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li>Span does not normally create a new line.</li>
-<li>It is useful for styling individual words.</li>
-<li>CSS can be applied to a span.</li>
-</ul>
-</div>
+    <p>
+        The <code>&lt;span&gt;</code> element is an inline container used
+        to mark or style a small part of text.
+    </p>
 
-<h3>Practical Example</h3>
+    <p>
+        Unlike a div, span does not normally start on a new line.
+    </p>
 
-<textarea class="code-editor" id="code-span"><h2>Learning HTML</h2>
+    <h3>Practical Example</h3>
 
-<p>
+    <textarea class="code-editor" id="code-span"><h2>
 Learn
-<span style="color:orange;font-weight:bold;">
+<span style="color:orange;">
 HTML
 </span>
-every day.
-</p>
+Today
+</h2>
 
 <p>
-Build
+This is
 <span style="color:purple;">
-real projects
+important text
 </span>
-to improve your skills.
+inside a paragraph.
 </p></textarea>
 
-<button class="run-btn" onclick="runCode('code-span','output-span')">▶ Run Code</button>
+    <button class="run-btn"
+        onclick="runCode('code-span','output-span')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-span"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#div">← Previous</a>
-<a href="#classes">Classes →</a>
-</div>
+    <iframe class="output" id="output-span"></iframe>
+
+    <div class="navigation">
+        <a href="#div">← Previous</a>
+        <a href="#classes">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="classes">
-<span class="tag">HTML LESSON 27</span>
-<h2>HTML Classes</h2>
+<!-- CLASSES -->
+<section id="classes">
 
-<div class="theory-box">
-<h3>What are HTML Classes?</h3>
-<p>The class attribute assigns one or more class names to HTML elements.</p>
+    <h2>HTML <span>Classes</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li>Multiple elements can use the same class.</li>
-<li>CSS can style elements using a class.</li>
-<li>JavaScript can select elements by class.</li>
-<li>A class name starts with a dot in CSS.</li>
-</ul>
-</div>
+    <p>
+        The HTML <code>class</code> attribute is used to assign one or
+        more class names to an element.
+    </p>
 
-<h3>Practical Example</h3>
+    <p>
+        Classes are commonly used with CSS and JavaScript to select and
+        style multiple elements.
+    </p>
 
-<textarea class="code-editor" id="code-classes"><style>
-.card {
-padding:20px;
-border:2px solid #7c3aed;
-border-radius:12px;
-margin:10px 0;
+    <h3>Key Points</h3>
+
+    <ul>
+        <li>Multiple elements can use the same class.</li>
+        <li>Classes are useful for CSS styling.</li>
+        <li>Classes can also be selected using JavaScript.</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-classes"><style>
+
+.card{
+    background:#111827;
+    padding:20px;
+    margin:10px;
+    border:2px solid orange;
 }
+
 </style>
 
 <div class="card">
-<h2>Excel Course</h2>
-<p>Learn Excel from basics to advanced.</p>
+<h2>Excel</h2>
+<p>Learn Excel for Data Analytics.</p>
 </div>
 
 <div class="card">
-<h2>Python Course</h2>
-<p>Learn Python step by step.</p>
+<h2>Python</h2>
+<p>Learn Python for Data Analytics.</p>
 </div></textarea>
 
-<button class="run-btn" onclick="runCode('code-classes','output-classes')">▶ Run Code</button>
+    <button class="run-btn"
+        onclick="runCode('code-classes','output-classes')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-classes"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#span">← Previous</a>
-<a href="#ids">IDs →</a>
-</div>
+    <iframe class="output" id="output-classes"></iframe>
+
+    <div class="navigation">
+        <a href="#span">← Previous</a>
+        <a href="#ids">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="ids">
-<span class="tag">HTML LESSON 28</span>
-<h2>HTML IDs</h2>
+<!-- IDS -->
+<section id="ids">
 
-<div class="theory-box">
-<h3>What is an ID?</h3>
-<p>The id attribute gives a unique name to an HTML element.</p>
+    <h2>HTML <span>IDs</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li>An ID should normally be unique on a page.</li>
-<li>CSS targets an ID using <b>#</b>.</li>
-<li>JavaScript can find an element using its ID.</li>
-<li>IDs can also be used for page navigation.</li>
-</ul>
-</div>
+    <p>
+        The <code>id</code> attribute gives a unique identifier to an
+        HTML element.
+    </p>
 
-<h3>Practical Example</h3>
+    <p>
+        An ID is normally unique within a page and can be used by CSS,
+        JavaScript and links.
+    </p>
 
-<textarea class="code-editor" id="code-ids"><style>
-#main-title {
-color:purple;
+    <h3>Key Points</h3>
+
+    <ul>
+        <li>An ID should normally be unique.</li>
+        <li>IDs can be targeted using CSS.</li>
+        <li>IDs can be used with JavaScript.</li>
+        <li>IDs can create links to specific page sections.</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-ids"><style>
+
+#main-title{
+    color:orange;
 }
+
+#description{
+    color:purple;
+}
+
 </style>
 
 <h1 id="main-title">
 Data Analytics Hub
 </h1>
 
-<p>This heading has a unique ID.</p>
+<p id="description">
+Learn Data Analytics step by step.
+</p></textarea>
 
-<a href="#main-title">
-Go to Main Title
-</a></textarea>
+    <button class="run-btn"
+        onclick="runCode('code-ids','output-ids')">
+        ▶ Run Code
+    </button>
 
-<button class="run-btn" onclick="runCode('code-ids','output-ids')">▶ Run Code</button>
+    <div class="output-title">Live Output</div>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-ids"></iframe>
-</div>
+    <iframe class="output" id="output-ids"></iframe>
 
-<div class="navigation">
-<a href="#classes">← Previous</a>
-<a href="#iframes">Iframes →</a>
-</div>
+    <div class="navigation">
+        <a href="#classes">← Previous</a>
+        <a href="#iframes">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="iframes">
-<span class="tag">HTML LESSON 29</span>
-<h2>HTML Iframes</h2>
+<!-- IFRAMES -->
+<section id="iframes">
 
-<div class="theory-box">
-<h3>What is an Iframe?</h3>
-<p>An iframe allows another HTML document or embeddable resource to be displayed inside the current page.</p>
+    <h2>HTML <span>Iframes</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li>The <b>&lt;iframe&gt;</b> element creates an embedded frame.</li>
-<li>The <b>src</b> attribute can specify a URL.</li>
-<li><b>width</b> and <b>height</b> control the frame size.</li>
-<li>Some websites prevent themselves from being embedded.</li>
-</ul>
-</div>
+    <p>
+        An iframe is used to embed another HTML document or web resource
+        inside the current web page.
+    </p>
 
-<h3>Practical Example</h3>
+    <p>
+        The <code>&lt;iframe&gt;</code> element can be used to display
+        external pages, videos and other embedded content.
+    </p>
 
-<textarea class="code-editor" id="code-iframes"><h2>Iframe Example</h2>
+    <h3>Key Points</h3>
+
+    <ul>
+        <li>iframe means inline frame.</li>
+        <li>It can embed another web resource.</li>
+        <li>width and height control its size.</li>
+        <li>src specifies the resource URL.</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-iframes"><h2>Embedded Page</h2>
 
 <iframe
-srcdoc="<h2>Hello from Iframe</h2><p>This content is inside an iframe.</p>"
+src="https://www.example.com"
 width="100%"
-height="150">
+height="300">
 </iframe></textarea>
 
-<button class="run-btn" onclick="runCode('code-iframes','output-iframes')">▶ Run Code</button>
+    <button class="run-btn"
+        onclick="runCode('code-iframes','output-iframes')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-iframes"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#ids">← Previous</a>
-<a href="#semantic">Semantic HTML →</a>
-</div>
+    <iframe class="output" id="output-iframes"></iframe>
+
+    <div class="navigation">
+        <a href="#ids">← Previous</a>
+        <a href="#semantic">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="semantic">
-<span class="tag">HTML LESSON 30</span>
-<h2>Semantic HTML</h2>
+<!-- SEMANTIC HTML -->
+<section id="semantic">
 
-<div class="theory-box">
-<h3>What is Semantic HTML?</h3>
-<p>Semantic HTML uses elements that clearly describe the meaning and purpose of their content.</p>
+    <h2>Semantic <span>HTML</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li><b>&lt;header&gt;</b> represents introductory content.</li>
-<li><b>&lt;nav&gt;</b> contains navigation links.</li>
-<li><b>&lt;main&gt;</b> contains the main content.</li>
-<li><b>&lt;section&gt;</b> groups related content.</li>
-<li><b>&lt;article&gt;</b> represents independent content.</li>
-<li><b>&lt;footer&gt;</b> represents footer information.</li>
-</ul>
-</div>
+    <p>
+        Semantic HTML uses elements that clearly describe the meaning and
+        purpose of their content.
+    </p>
 
-<h3>Practical Example</h3>
+    <p>
+        Examples include <code>&lt;header&gt;</code>,
+        <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>,
+        <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>,
+        <code>&lt;aside&gt;</code> and <code>&lt;footer&gt;</code>.
+    </p>
 
-<textarea class="code-editor" id="code-semantic"><header>
+    <h3>Why Semantic HTML?</h3>
+
+    <ul>
+        <li>Improves page structure.</li>
+        <li>Makes code easier to understand.</li>
+        <li>Helps accessibility.</li>
+        <li>Provides meaningful information about content.</li>
+        <li>Can help search engines understand page structure.</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-semantic"><header>
+
 <h1>Data Analytics Hub</h1>
+
 </header>
 
 <nav>
-<a href="#">Home</a> |
-<a href="#">Courses</a> |
+
+<a href="#">Home</a>
+<a href="#">Courses</a>
 <a href="#">Contact</a>
+
 </nav>
 
 <main>
 
 <section>
-<h2>HTML Course</h2>
-<p>Learn HTML step by step.</p>
-</section>
 
-<article>
-<h2>Learning Tip</h2>
-<p>Practice coding every day.</p>
-</article>
+<h2>Data Analytics</h2>
+
+<p>
+Learn Excel, SQL, Python and Power BI.
+</p>
+
+</section>
 
 </main>
 
 <footer>
+
 <p>© 2026 Data Analytics Hub</p>
+
 </footer></textarea>
 
-<button class="run-btn" onclick="runCode('code-semantic','output-semantic')">▶ Run Code</button>
+    <button class="run-btn"
+        onclick="runCode('code-semantic','output-semantic')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-semantic"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#iframes">← Previous</a>
-<a href="#entities">HTML Entities →</a>
-</div>
-</section>
-    <section class="topic" id="entities">
-<span class="tag">HTML LESSON 31</span>
-<h2>HTML Entities</h2>
+    <iframe class="output" id="output-semantic"></iframe>
 
-<div class="theory-box">
-<h3>What are HTML Entities?</h3>
-<p>HTML entities are special codes used to display reserved characters and special symbols in HTML.</p>
+    <div class="navigation">
+        <a href="#iframes">← Previous</a>
+        <a href="#entities">Next →</a>
+    </div>
 
-<h3>Key Points</h3>
-<ul>
-<li><b>&amp;lt;</b> displays &lt;</li>
-<li><b>&amp;gt;</b> displays &gt;</li>
-<li><b>&amp;amp;</b> displays &amp;</li>
-<li><b>&amp;copy;</b> displays ©</li>
-<li>Entities are useful when a character has a special meaning in HTML.</li>
-</ul>
-</div>
-
-<h3>Practical Example</h3>
-
-<textarea class="code-editor" id="code-entities"><h2>HTML Entities</h2>
-
-<p>5 &lt; 10</p>
-<p>10 &gt; 5</p>
-<p>HTML &amp; CSS</p>
-<p>&copy; Data Analytics Hub</p>
-<p>&quot;Learn HTML&quot;</p></textarea>
-
-<button class="run-btn" onclick="runCode('code-entities','output-entities')">▶ Run Code</button>
-
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-entities"></iframe>
-</div>
-
-<div class="navigation">
-<a href="#semantic">← Previous</a>
-<a href="#symbols">Symbols →</a>
-</div>
 </section>
 
+<!-- ==================== END PART 3 ==================== -->
+<!-- ==================== PART 4 ==================== -->
 
-<section class="topic" id="symbols">
-<span class="tag">HTML LESSON 32</span>
-<h2>HTML Symbols</h2>
+<!-- HTML ENTITIES -->
+<section id="entities">
 
-<div class="theory-box">
-<h3>What are HTML Symbols?</h3>
-<p>HTML can display many mathematical, currency, arrow and other special symbols.</p>
+    <h2>HTML <span>Entities</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li>Symbols can be written using HTML entities.</li>
-<li>Unicode characters can also be used.</li>
-<li>Symbols are useful for copyright, currency and navigation.</li>
-</ul>
-</div>
+    <p>
+        HTML entities are special codes used to display characters that
+        have a special meaning in HTML or characters that are difficult
+        to type directly.
+    </p>
 
-<h3>Practical Example</h3>
+    <p>
+        For example, the less-than symbol is written as
+        <code>&amp;lt;</code> and the greater-than symbol is written as
+        <code>&amp;gt;</code>.
+    </p>
 
-<textarea class="code-editor" id="code-symbols"><h2>Useful HTML Symbols</h2>
+    <h3>Common HTML Entities</h3>
+
+    <ul>
+        <li>&amp;lt; → &lt;</li>
+        <li>&amp;gt; → &gt;</li>
+        <li>&amp;amp; → &amp;</li>
+        <li>&amp;quot; → "</li>
+        <li>&amp;copy; → ©</li>
+        <li>&amp;reg; → ®</li>
+        <li>&amp;nbsp; → Non-breaking space</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-entities"><h2>HTML Entities</h2>
+
+<p>
+5 &lt; 10
+</p>
+
+<p>
+10 &gt; 5
+</p>
+
+<p>
+Data &amp; Analytics
+</p>
+
+<p>
+Copyright &copy; 2026
+</p>
+
+<p>
+Registered &reg;
+</p></textarea>
+
+    <button class="run-btn"
+        onclick="runCode('code-entities','output-entities')">
+        ▶ Run Code
+    </button>
+
+    <div class="output-title">Live Output</div>
+
+    <iframe class="output" id="output-entities"></iframe>
+
+    <div class="navigation">
+        <a href="#semantic">← Previous</a>
+        <a href="#symbols">Next →</a>
+    </div>
+
+</section>
+
+
+<!-- HTML SYMBOLS -->
+<section id="symbols">
+
+    <h2>HTML <span>Symbols</span></h2>
+
+    <p>
+        HTML symbols allow special characters and mathematical symbols to
+        be displayed on web pages.
+    </p>
+
+    <p>
+        Many symbols can be written using HTML entity codes.
+    </p>
+
+    <h3>Examples</h3>
+
+    <ul>
+        <li>&amp;copy; → ©</li>
+        <li>&amp;trade; → ™</li>
+        <li>&amp;euro; → €</li>
+        <li>&amp;pound; → £</li>
+        <li>&amp;yen; → ¥</li>
+        <li>&amp;plusmn; → ±</li>
+        <li>&amp;times; → ×</li>
+        <li>&amp;divide; → ÷</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-symbols"><h2>HTML Symbols</h2>
 
 <p>Copyright: &copy;</p>
-<p>Registered: &reg;</p>
+
 <p>Trademark: &trade;</p>
-<p>Rupee: &#8377;</p>
-<p>Arrow: &rarr;</p>
-<p>Heart: &hearts;</p>
-<p>Plus or minus: &plusmn;</p></textarea>
 
-<button class="run-btn" onclick="runCode('code-symbols','output-symbols')">▶ Run Code</button>
+<p>Euro: &euro;</p>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-symbols"></iframe>
-</div>
+<p>Pound: &pound;</p>
 
-<div class="navigation">
-<a href="#entities">← Previous</a>
-<a href="#audio">Audio →</a>
-</div>
+<p>Yen: &yen;</p>
+
+<p>Plus or Minus: &plusmn;</p>
+
+<p>Multiplication: &times;</p>
+
+<p>Division: &divide;</p></textarea>
+
+    <button class="run-btn"
+        onclick="runCode('code-symbols','output-symbols')">
+        ▶ Run Code
+    </button>
+
+    <div class="output-title">Live Output</div>
+
+    <iframe class="output" id="output-symbols"></iframe>
+
+    <div class="navigation">
+        <a href="#entities">← Previous</a>
+        <a href="#audio">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="audio">
-<span class="tag">HTML LESSON 33</span>
-<h2>HTML Audio</h2>
+<!-- HTML AUDIO -->
+<section id="audio">
 
-<div class="theory-box">
-<h3>What is HTML Audio?</h3>
-<p>The HTML audio element is used to embed sound or audio content on a web page.</p>
+    <h2>HTML <span>Audio</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li><b>&lt;audio&gt;</b> creates an audio player.</li>
-<li><b>controls</b> displays playback controls.</li>
-<li><b>&lt;source&gt;</b> specifies the audio file.</li>
-<li>Common audio formats include MP3, WAV and OGG.</li>
-</ul>
-</div>
+    <p>
+        The HTML <code>&lt;audio&gt;</code> element is used to embed
+        sound content into a web page.
+    </p>
 
-<h3>Practical Example</h3>
+    <p>
+        The <code>controls</code> attribute displays controls such as
+        play, pause and volume.
+    </p>
 
-<textarea class="code-editor" id="code-audio"><h2>HTML Audio Player</h2>
+    <h3>Key Points</h3>
+
+    <ul>
+        <li>&lt;audio&gt; is used to add sound.</li>
+        <li>controls displays the audio controls.</li>
+        <li>src specifies the audio file.</li>
+        <li>Multiple source formats can be provided.</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-audio"><h2>HTML Audio</h2>
 
 <audio controls>
-<source src="audio.mp3" type="audio/mpeg">
+
+<source
+src="https://www.w3schools.com/html/horse.ogg"
+type="audio/ogg">
+
+<source
+src="https://www.w3schools.com/html/horse.mp3"
+type="audio/mpeg">
+
 Your browser does not support the audio element.
-</audio>
 
-<p>Replace audio.mp3 with your own audio file.</p></textarea>
+</audio></textarea>
 
-<button class="run-btn" onclick="runCode('code-audio','output-audio')">▶ Run Code</button>
+    <button class="run-btn"
+        onclick="runCode('code-audio','output-audio')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-audio"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#symbols">← Previous</a>
-<a href="#video">Video →</a>
-</div>
+    <iframe class="output" id="output-audio"></iframe>
+
+    <div class="navigation">
+        <a href="#symbols">← Previous</a>
+        <a href="#video">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="video">
-<span class="tag">HTML LESSON 34</span>
-<h2>HTML Video</h2>
+<!-- HTML VIDEO -->
+<section id="video">
 
-<div class="theory-box">
-<h3>What is HTML Video?</h3>
-<p>The HTML video element is used to embed video content on a web page.</p>
+    <h2>HTML <span>Video</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li><b>&lt;video&gt;</b> creates a video player.</li>
-<li><b>controls</b> displays video controls.</li>
-<li><b>width</b> can control the video width.</li>
-<li>MP4 is a commonly supported video format.</li>
-</ul>
-</div>
+    <p>
+        The HTML <code>&lt;video&gt;</code> element is used to display
+        video content on a web page.
+    </p>
 
-<h3>Practical Example</h3>
+    <p>
+        The <code>controls</code> attribute provides controls for playing,
+        pausing and adjusting the volume of the video.
+    </p>
 
-<textarea class="code-editor" id="code-video"><h2>HTML Video Player</h2>
+    <h3>Key Points</h3>
 
-<video controls width="400">
-<source src="video.mp4" type="video/mp4">
+    <ul>
+        <li>&lt;video&gt; embeds video content.</li>
+        <li>controls displays video controls.</li>
+        <li>width and height control the video size.</li>
+        <li>source defines the video file.</li>
+    </ul>
+
+    <h3>Practical Example</h3>
+
+    <textarea class="code-editor" id="code-video"><h2>HTML Video</h2>
+
+<video
+width="500"
+controls>
+
+<source
+src="https://www.w3schools.com/html/mov_bbb.mp4"
+type="video/mp4">
+
 Your browser does not support the video element.
-</video>
 
-<p>Replace video.mp4 with your own video file.</p></textarea>
+</video></textarea>
 
-<button class="run-btn" onclick="runCode('code-video','output-video')">▶ Run Code</button>
+    <button class="run-btn"
+        onclick="runCode('code-video','output-video')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-video"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#audio">← Previous</a>
-<a href="#page-project">HTML Page Project →</a>
-</div>
+    <iframe class="output" id="output-video"></iframe>
+
+    <div class="navigation">
+        <a href="#audio">← Previous</a>
+        <a href="#page-project">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="page-project">
-<span class="tag">HTML LESSON 35</span>
-<h2>HTML Page Project</h2>
+<!-- HTML PAGE PROJECT -->
+<section id="page-project">
 
-<div class="theory-box">
-<h3>Project Overview</h3>
-<p>In this project, we combine headings, paragraphs, links and lists to create a simple personal learning page.</p>
+    <h2>HTML Page <span>Project</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li>Create a clear page structure.</li>
-<li>Add meaningful headings.</li>
-<li>Use paragraphs for information.</li>
-<li>Use lists for skills or features.</li>
-<li>Add links where required.</li>
-</ul>
-</div>
+    <p>
+        In this project, we will create a simple complete HTML page using
+        headings, paragraphs, links, lists and sections.
+    </p>
 
-<h3>Practical Example</h3>
+    <p>
+        This project helps you understand how individual HTML elements
+        can be combined to create a complete web page.
+    </p>
 
-<textarea class="code-editor" id="code-page-project"><!DOCTYPE html>
+    <h3>Project Features</h3>
+
+    <ul>
+        <li>Page heading</li>
+        <li>Navigation links</li>
+        <li>About section</li>
+        <li>Skills list</li>
+        <li>Contact section</li>
+    </ul>
+
+    <h3>Complete Project Code</h3>
+
+    <textarea class="code-editor" id="code-page-project"><!DOCTYPE html>
 <html>
 
 <head>
-<title>My Learning Page</title>
+
+<title>My HTML Project</title>
+
 </head>
 
 <body>
 
-<h1>My Learning Page</h1>
+<header>
 
-<p>Welcome to my HTML learning project.</p>
+<h1>Data Analytics Hub</h1>
+
+<p>Learn Data Analytics Step by Step</p>
+
+</header>
+
+<nav>
+
+<a href="#about">About</a> |
+<a href="#skills">Skills</a> |
+<a href="#contact">Contact</a>
+
+</nav>
+
+<hr>
+
+<section id="about">
 
 <h2>About Me</h2>
 
-<p>I am learning web development and data analytics.</p>
+<p>
+I am learning HTML and Data Analytics.
+</p>
+
+</section>
+
+<section id="skills">
 
 <h2>My Skills</h2>
 
 <ul>
-<li>HTML</li>
+
 <li>Excel</li>
-<li>Python</li>
 <li>SQL</li>
+<li>Python</li>
 <li>Power BI</li>
+
 </ul>
 
-<h2>My Website</h2>
+</section>
 
-<a href="https://example.com">
-Visit My Website
-</a>
+<section id="contact">
+
+<h2>Contact</h2>
+
+<p>Email: example@email.com</p>
+
+</section>
+
+<footer>
+
+<p>
+Copyright &copy; 2026 Data Analytics Hub
+</p>
+
+</footer>
 
 </body>
+
 </html></textarea>
 
-<button class="run-btn" onclick="runCode('code-page-project','output-page-project')">▶ Run Code</button>
+    <button class="run-btn"
+        onclick="runCode('code-page-project','output-page-project')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-page-project"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#video">← Previous</a>
-<a href="#registration">Registration Form →</a>
-</div>
+    <iframe class="output" id="output-page-project"></iframe>
+
+    <div class="navigation">
+        <a href="#video">← Previous</a>
+        <a href="#registration">Next →</a>
+    </div>
+
 </section>
 
 
-<section class="topic" id="registration">
-<span class="tag">HTML LESSON 36</span>
-<h2>Registration Form Project</h2>
+<!-- REGISTRATION PROJECT -->
+<section id="registration">
 
-<div class="theory-box">
-<h3>Project Overview</h3>
-<p>This project creates a simple student registration form using different HTML form controls.</p>
+    <h2>Registration Form <span>Project</span></h2>
 
-<h3>Key Points</h3>
-<ul>
-<li>Use labels to describe fields.</li>
-<li>Use appropriate input types.</li>
-<li>Use radio buttons for one choice.</li>
-<li>Use checkboxes for multiple choices.</li>
-<li>Add a submit button.</li>
-</ul>
-</div>
+    <p>
+        In this project, we will create a simple registration form using
+        HTML form elements.
+    </p>
 
-<h3>Practical Example</h3>
+    <p>
+        The form will contain fields for name, email, password, date of
+        birth, gender, course selection and a submit button.
+    </p>
 
-<textarea class="code-editor" id="code-registration"><h2>Student Registration</h2>
+    <h3>Project Code</h3>
+
+    <textarea class="code-editor" id="code-registration"><h2>Student Registration</h2>
 
 <form>
 
 <label>Full Name:</label>
-<input type="text" placeholder="Enter your name">
+<input type="text"
+placeholder="Enter your name">
 
 <br><br>
 
 <label>Email:</label>
-<input type="email" placeholder="Enter your email">
+<input type="email"
+placeholder="Enter your email">
 
 <br><br>
 
 <label>Password:</label>
-<input type="password" placeholder="Create password">
+<input type="password"
+placeholder="Enter password">
 
 <br><br>
 
-<label>Age:</label>
-<input type="number" placeholder="Enter age">
+<label>Date of Birth:</label>
+<input type="date">
 
 <br><br>
 
 <label>Gender:</label>
-<br>
 
-<label>
-<input type="radio" name="gender">
+<input type="radio"
+name="gender">
 Male
-</label>
 
-<label>
-<input type="radio" name="gender">
+<input type="radio"
+name="gender">
 Female
-</label>
+
+<br><br>
+
+<label>Select Course:</label>
+
+<select>
+
+<option>Excel</option>
+<option>Python</option>
+<option>SQL</option>
+<option>Power BI</option>
+
+</select>
 
 <br><br>
 
@@ -2218,358 +2534,59 @@ Register
 
 </form></textarea>
 
-<button class="run-btn" onclick="runCode('code-registration','output-registration')">▶ Run Code</button>
+    <button class="run-btn"
+        onclick="runCode('code-registration','output-registration')">
+        ▶ Run Code
+    </button>
 
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-registration"></iframe>
-</div>
+    <div class="output-title">Live Output</div>
 
-<div class="navigation">
-<a href="#page-project">← Previous</a>
-<a href="#portfolio">Portfolio Project →</a>
-</div>
-</section>
-<section class="topic" id="entities">
-<span class="tag">HTML LESSON 31</span>
-<h2>HTML Entities</h2>
+    <iframe class="output" id="output-registration"></iframe>
 
-<div class="theory-box">
-<h3>What are HTML Entities?</h3>
-<p>HTML entities are special codes used to display reserved characters and special symbols in HTML.</p>
+    <div class="navigation">
+        <a href="#page-project">← Previous</a>
+        <a href="#portfolio">Next →</a>
+    </div>
 
-<h3>Key Points</h3>
-<ul>
-<li>&amp;lt; displays &lt;</li>
-<li>&amp;gt; displays &gt;</li>
-<li>&amp;amp; displays &amp;</li>
-<li>&amp;copy; displays ©</li>
-<li>Entities are useful for special characters.</li>
-</ul>
-</div>
-
-<h3>Practical Example</h3>
-
-<textarea class="code-editor" id="code-entities"><h2>HTML Entities</h2>
-<p>5 &lt; 10</p>
-<p>10 &gt; 5</p>
-<p>HTML &amp; CSS</p>
-<p>&copy; Data Analytics Hub</p>
-<p>&quot;Learn HTML&quot;</p></textarea>
-
-<button class="run-btn" onclick="runCode('code-entities','output-entities')">▶ Run Code</button>
-
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-entities"></iframe>
-</div>
-
-<div class="navigation">
-<a href="#semantic">← Previous</a>
-<a href="#symbols">Symbols →</a>
-</div>
 </section>
 
 
-<section class="topic" id="symbols">
-<span class="tag">HTML LESSON 32</span>
-<h2>HTML Symbols</h2>
-
-<div class="theory-box">
-<h3>What are HTML Symbols?</h3>
-<p>HTML can display many mathematical, currency, arrow and other special symbols.</p>
-
-<h3>Key Points</h3>
-<ul>
-<li>Symbols can be written using HTML entities.</li>
-<li>Unicode characters can also be used.</li>
-<li>Symbols are useful for copyright, currency and navigation.</li>
-</ul>
-</div>
-
-<h3>Practical Example</h3>
-
-<textarea class="code-editor" id="code-symbols"><h2>Useful HTML Symbols</h2>
-<p>Copyright: &copy;</p>
-<p>Registered: &reg;</p>
-<p>Trademark: &trade;</p>
-<p>Rupee: &#8377;</p>
-<p>Arrow: &rarr;</p>
-<p>Heart: &hearts;</p>
-<p>Plus or minus: &plusmn;</p></textarea>
-
-<button class="run-btn" onclick="runCode('code-symbols','output-symbols')">▶ Run Code</button>
-
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-symbols"></iframe>
-</div>
-
-<div class="navigation">
-<a href="#entities">← Previous</a>
-<a href="#audio">Audio →</a>
-</div>
-</section>
-
-
-<section class="topic" id="audio">
-<span class="tag">HTML LESSON 33</span>
-<h2>HTML Audio</h2>
-
-<div class="theory-box">
-<h3>What is HTML Audio?</h3>
-<p>The audio element is used to embed sound or audio content on a web page.</p>
-
-<h3>Key Points</h3>
-<ul>
-<li>&lt;audio&gt; creates an audio player.</li>
-<li>controls displays playback controls.</li>
-<li>&lt;source&gt; specifies the audio file.</li>
-</ul>
-</div>
-
-<h3>Practical Example</h3>
-
-<textarea class="code-editor" id="code-audio"><h2>HTML Audio Player</h2>
-
-<audio controls>
-<source src="audio.mp3" type="audio/mpeg">
-Your browser does not support audio.
-</audio>
-
-<p>Replace audio.mp3 with your own audio file.</p></textarea>
-
-<button class="run-btn" onclick="runCode('code-audio','output-audio')">▶ Run Code</button>
-
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-audio"></iframe>
-</div>
-
-<div class="navigation">
-<a href="#symbols">← Previous</a>
-<a href="#video">Video →</a>
-</div>
-</section>
-
-
-<section class="topic" id="video">
-<span class="tag">HTML LESSON 34</span>
-<h2>HTML Video</h2>
-
-<div class="theory-box">
-<h3>What is HTML Video?</h3>
-<p>The video element is used to embed video content on a web page.</p>
-
-<h3>Key Points</h3>
-<ul>
-<li>&lt;video&gt; creates a video player.</li>
-<li>controls displays video controls.</li>
-<li>width controls the video width.</li>
-<li>MP4 is a commonly supported video format.</li>
-</ul>
-</div>
-
-<h3>Practical Example</h3>
-
-<textarea class="code-editor" id="code-video"><h2>HTML Video Player</h2>
-
-<video controls width="400">
-<source src="video.mp4" type="video/mp4">
-Your browser does not support video.
-</video>
-
-<p>Replace video.mp4 with your own video file.</p></textarea>
-
-<button class="run-btn" onclick="runCode('code-video','output-video')">▶ Run Code</button>
-
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-video"></iframe>
-</div>
-
-<div class="navigation">
-<a href="#audio">← Previous</a>
-<a href="#page-project">HTML Page Project →</a>
-</div>
-</section>
-
-
-<section class="topic" id="page-project">
-<span class="tag">HTML LESSON 35</span>
-<h2>HTML Page Project</h2>
-
-<div class="theory-box">
-<h3>Project Overview</h3>
-<p>This project combines headings, paragraphs, links and lists to create a simple learning page.</p>
-
-<h3>Key Points</h3>
-<ul>
-<li>Create a clear page structure.</li>
-<li>Add meaningful headings.</li>
-<li>Use paragraphs for information.</li>
-<li>Use lists for skills.</li>
-<li>Add links where required.</li>
-</ul>
-</div>
-
-<h3>Practical Example</h3>
-
-<textarea class="code-editor" id="code-page-project"><!DOCTYPE html>
-<html>
-<head>
-<title>My Learning Page</title>
-</head>
-
-<body>
-
-<h1>My Learning Page</h1>
-
-<p>Welcome to my HTML learning project.</p>
-
-<h2>About Me</h2>
-
-<p>I am learning Web Development and Data Analytics.</p>
-
-<h2>My Skills</h2>
-
-<ul>
-<li>HTML</li>
-<li>Excel</li>
-<li>Python</li>
-<li>SQL</li>
-<li>Power BI</li>
-</ul>
-
-<h2>My Website</h2>
-
-<a href="https://example.com">
-Visit My Website
-</a>
-
-</body>
-</html></textarea>
-
-<button class="run-btn" onclick="runCode('code-page-project','output-page-project')">▶ Run Code</button>
-
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-page-project"></iframe>
-</div>
-
-<div class="navigation">
-<a href="#video">← Previous</a>
-<a href="#registration">Registration Form →</a>
-</div>
-</section>
-
-
-<section class="topic" id="registration">
-<span class="tag">HTML LESSON 36</span>
-<h2>Registration Form Project</h2>
-
-<div class="theory-box">
-<h3>Project Overview</h3>
-<p>This project creates a simple student registration form using different HTML form controls.</p>
-
-<h3>Key Points</h3>
-<ul>
-<li>Use labels to describe fields.</li>
-<li>Use appropriate input types.</li>
-<li>Use radio buttons for one choice.</li>
-<li>Use checkboxes for multiple choices.</li>
-<li>Add a submit button.</li>
-</ul>
-</div>
-
-<h3>Practical Example</h3>
-
-<textarea class="code-editor" id="code-registration"><h2>Student Registration</h2>
-
-<form>
-
-<label>Full Name:</label>
-<input type="text" placeholder="Enter your name">
-
-<br><br>
-
-<label>Email:</label>
-<input type="email" placeholder="Enter your email">
-
-<br><br>
-
-<label>Password:</label>
-<input type="password" placeholder="Create password">
-
-<br><br>
-
-<label>Age:</label>
-<input type="number" placeholder="Enter age">
-
-<br><br>
-
-<label>Gender:</label><br>
-
-<label>
-<input type="radio" name="gender"> Male
-</label>
-
-<label>
-<input type="radio" name="gender"> Female
-</label>
-
-<br><br>
-
-<label>
-<input type="checkbox">
-I agree to the terms
-</label>
-
-<br><br>
-
-<button type="submit">Register</button>
-
-</form></textarea>
-
-<button class="run-btn" onclick="runCode('code-registration','output-registration')">▶ Run Code</button>
-
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-registration"></iframe>
-</div>
-
-<div class="navigation">
-<a href="#page-project">← Previous</a>
-<a href="#portfolio">Portfolio Project →</a>
-</div>
-</section>
-
-
-<section class="topic" id="portfolio">
-<span class="tag">HTML LESSON 37</span>
-<h2>Portfolio / Mini Website Project</h2>
-
-<div class="theory-box">
-<h3>Project Overview</h3>
-<p>A portfolio website presents information about a person, their skills, projects and contact details.</p>
-
-<h3>Key Points</h3>
-<ul>
-<li>Use semantic HTML sections.</li>
-<li>Add an introduction.</li>
-<li>Display your skills.</li>
-<li>Show projects.</li>
-<li>Add contact information.</li>
-</ul>
-</div>
-
-<h3>Practical Example</h3>
-
-<textarea class="code-editor" id="code-portfolio"><!DOCTYPE html>
+<!-- PORTFOLIO PROJECT -->
+<section id="portfolio">
+
+    <h2>Portfolio / Mini Website <span>Project</span></h2>
+
+    <p>
+        A portfolio website presents information about a person, their
+        skills, projects and contact details.
+    </p>
+
+    <p>
+        This project combines many HTML concepts learned throughout
+        this tutorial.
+    </p>
+
+    <h3>Project Features</h3>
+
+    <ul>
+        <li>Header</li>
+        <li>Navigation</li>
+        <li>About section</li>
+        <li>Skills section</li>
+        <li>Projects section</li>
+        <li>Contact section</li>
+        <li>Footer</li>
+    </ul>
+
+    <h3>Complete Project Code</h3>
+
+    <textarea class="code-editor" id="code-portfolio"><!DOCTYPE html>
 <html>
 
 <head>
+
 <title>My Portfolio</title>
+
 </head>
 
 <body>
@@ -2582,206 +2599,124 @@ I agree to the terms
 
 </header>
 
+<nav>
+
+<a href="#about">About</a> |
+<a href="#skills">Skills</a> |
+<a href="#projects">Projects</a> |
+<a href="#contact">Contact</a>
+
+</nav>
+
 <hr>
 
-<section>
+<section id="about">
 
 <h2>About Me</h2>
 
 <p>
 I am learning Data Analytics and Web Development.
-I enjoy building practical projects.
 </p>
 
 </section>
 
-<section>
+<section id="skills">
 
 <h2>My Skills</h2>
 
 <ul>
-<li>Excel</li>
-<li>Python</li>
-<li>SQL</li>
-<li>Power BI</li>
+
 <li>HTML</li>
+<li>Excel</li>
+<li>SQL</li>
+<li>Python</li>
+<li>Power BI</li>
+
 </ul>
 
 </section>
 
-<section>
+<section id="projects">
 
 <h2>My Projects</h2>
 
-<ol>
-<li>Data Analytics Hub</li>
-<li>Excel Dashboard</li>
-<li>Python Projects</li>
-</ol>
+<article>
 
-</section>
-
-<section>
-
-<h2>Contact</h2>
+<h3>Data Analytics Hub</h3>
 
 <p>
-Email:
-<a href="mailto:hello@example.com">
-hello@example.com
-</a>
+A learning website for Data Analytics.
 </p>
 
-</section>
+</article>
 
-<footer>
+<article>
 
-<p>© 2026 Data Analytics Hub</p>
-
-</footer>
-
-</body>
-</html></textarea>
-
-<button class="run-btn" onclick="runCode('code-portfolio','output-portfolio')">▶ Run Code</button>
-
-<div class="output-box">
-<strong>Live Output</strong>
-<iframe class="output" id="output-portfolio"></iframe>
-</div>
-
-<div class="navigation">
-<a href="#registration">← Previous</a>
-<a href="#home">Back to HTML Home →</a>
-</div>
-</section>
-
-<section class="topic" id="portfolio">
-<span class="tag">HTML LESSON 37</span>
-<h2>Portfolio / Mini Website Project</h2>
-
-<div class="theory-box">
-<h3>Project Overview</h3>
-<p>A portfolio website presents information about a person, their skills, projects and contact details.</p>
-
-<h3>Key Points</h3>
-<ul>
-<li>Use semantic HTML sections.</li>
-<li>Add an introduction.</li>
-<li>Display your skills.</li>
-<li>Show projects.</li>
-<li>Add contact information.</li>
-<li>CSS can later be added to make the website professional.</li>
-</ul>
-</div>
-
-<h3>Practical Example</h3>
-
-<textarea class="code-editor" id="code-portfolio"><!DOCTYPE html>
-<html>
-
-<head>
-<title>My Portfolio</title>
-</head>
-
-<body>
-
-<header>
-
-<h1>Shiv Mishra</h1>
+<h3>Student Dashboard</h3>
 
 <p>
-Data Analytics Learner
+A simple dashboard project created using HTML.
 </p>
 
-</header>
-
-<hr>
-
-<section>
-
-<h2>About Me</h2>
-
-<p>
-I am learning Data Analytics and Web Development.
-I enjoy building practical projects.
-</p>
+</article>
 
 </section>
 
-<section>
+<section id="contact">
 
-<h2>My Skills</h2>
+<h2>Contact Me</h2>
 
-<ul>
-<li>Excel</li>
-<li>Python</li>
-<li>SQL</li>
-<li>Power BI</li>
-<li>HTML</li>
-</ul>
-
-</section>
-
-<section>
-
-<h2>My Projects</h2>
-
-<ol>
-<li>Data Analytics Hub</li>
-<li>Excel Dashboard</li>
-<li>Python Projects</li>
-</ol>
-
-</section>
-
-<section>
-
-<h2>Contact</h2>
-
-<p>
-Email:
-<a href="mailto:hello@example.com">
-hello@example.com
-</a>
-</p>
+<p>Email: example@email.com</p>
 
 </section>
 
 <footer>
 
 <p>
-© 2026 Data Analytics Hub
+&copy; 2026 Shiv Mishra
 </p>
 
 </footer>
 
 </body>
+
 </html></textarea>
 
-<button class="run-btn" onclick="runCode('code-portfolio','output-portfolio')">▶ Run Code</button>
+    <button class="run-btn"
+        onclick="runCode('code-portfolio','output-portfolio')">
+        ▶ Run Code
+    </button>
 
-<div
+    <div class="output-title">Live Output</div>
+
+    <iframe class="output" id="output-portfolio"></iframe>
+
+    <div class="navigation">
+        <a href="#registration">← Previous</a>
+        <a href="#home">Back to Home ↑</a>
+    </div>
+
+</section>
+
+
+<!-- ==================== END PART 4 ==================== -->
 </main>
 
-</div>
+
+<footer>
+    © 2026 Data Analytics Hub • Excel.expert.66
+</footer>
 
 
 <script>
 
-/* LIVE HTML COMPILER */
-
+/* RUN CODE */
 function runCode(editorId, outputId){
 
-    const editor =
-        document.getElementById(editorId);
+    const editor = document.getElementById(editorId);
+    const output = document.getElementById(outputId);
 
-    const output =
-        document.getElementById(outputId);
-
-    if(!editor || !output){
-        return;
-    }
+    if(!editor || !output) return;
 
     const code = editor.value;
 
@@ -2790,116 +2725,16 @@ function runCode(editorId, outputId){
         output.contentWindow.document;
 
     doc.open();
-
     doc.write(code);
-
     doc.close();
 }
 
 
-/* SEARCH */
-
+/* SEARCH TOPICS */
 function searchTopics(){
 
     const input =
         document.getElementById("topicSearch");
 
     const search =
-        input.value.toLowerCase().trim();
-
-    const links =
-        document.querySelectorAll(".sidebar a");
-
-    links.forEach(function(link){
-
-        const text =
-            link.textContent.toLowerCase();
-
-        if(text.includes(search)){
-            link.style.display = "block";
-        }else{
-            link.style.display = "none";
-        }
-
-    });
-
-}
-
-
-/* ACTIVE TOPIC */
-
-const sections =
-    document.querySelectorAll("main section");
-
-const sidebarLinks =
-    document.querySelectorAll(".sidebar a");
-
-window.addEventListener("scroll",function(){
-
-    let current = "";
-
-    sections.forEach(function(section){
-
-        const position =
-            section.getBoundingClientRect().top;
-
-        if(position <= 150){
-            current =
-                section.getAttribute("id");
-        }
-
-    });
-
-    sidebarLinks.forEach(function(link){
-
-        link.classList.remove("active-topic");
-
-        if(
-            link.getAttribute("href")
-            === "#" + current
-        ){
-
-            link.classList.add("active-topic");
-
-        }
-
-    });
-
-});
-
-
-/* INITIAL OUTPUT */
-
-window.addEventListener(
-"DOMContentLoaded",
-function(){
-
-    const editors =
-        document.querySelectorAll(
-            "textarea.code-editor"
-        );
-
-    editors.forEach(function(editor){
-
-        const editorId =
-            editor.id;
-
-        const outputId =
-            editorId.replace(
-                "code-",
-                "output-"
-            );
-
-        runCode(
-            editorId,
-            outputId
-        );
-
-    });
-
-});
-
-</script>
-
-</body>
-</html>
+        input.value.toLowerCase().tri
