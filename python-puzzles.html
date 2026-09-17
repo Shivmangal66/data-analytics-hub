@@ -1,1 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Python Learning & Puzzle Lab | Data Analytics Hub</title>
+
+<style>
+
+/* =========================
+   BASIC RESET
+========================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#080d18;
+    color:#f5f7ff;
+    line-height:1.7;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:28px;
+
+    padding:17px 15px;
+
+    background:#10182b;
+
+    border-bottom:1px solid #263653;
+}
+
+.nav a{
+    color:#ffffff;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.nav a:hover{
+    color:#58a6ff;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container{
+    width:92%;
+    max-width:1100px;
+    margin:30px auto;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    text-align:center;
+
+    padding:55px 25px;
+
+    border-radius:22px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #151f38,
+        #0d1426
+    );
+
+    border:1px solid #2b3c60;
+
+    box-shadow:
+    0 15px 45px rgba(0,0,0,0.35);
+
+    margin-bottom:30px;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.hero p{
+    color:#b9c5dc;
+    font-size:18px;
+    max-width:750px;
+    margin:auto;
+}
+
+.brand{
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:#182745;
+
+    color:#72b8ff;
+
+    font-weight:bold;
+}
+
+
+/* =========================
+   SECTION CARD
+========================= */
+
+.card{
+    background:#10182b;
+
+    border:1px solid #293a5d;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    margin-bottom:25px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.18);
+}
+
+.card h2{
+    font-size:27px;
+    margin-bottom:16px;
+}
+
+.card h3{
+    font-size:20px;
+    margin-top:22px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#c4cee0;
+}
+
+
+/* =========================
+   THEORY BOX
+========================= */
+
+.theory{
+    background:#0b1221;
+
+    border-left:4px solid #58a6ff;
+
+    padding:18px 20px;
+
+    border-radius:10px;
+
+    margin-top:15px;
+}
+
+.theory strong{
+    color:#ffffff;
+}
+
+
+/* =========================
+   IMPORTANT NOTE
+========================= */
+
+.note{
+    margin-top:18px;
+
+    padding:16px;
+
+    border-radius:10px;
+
+    background:#18233b;
+
+    border:1px solid #304364;
+
+    color:#cbd7eb;
+}
+
+
+/* =========================
+   CODE AREA
+========================= */
+
+.code-title{
+    margin-top:22px;
+
+    font-weight:bold;
+
+    color:#ffffff;
+}
+
+.code-editor{
+    width:100%;
+
+    min-height:190px;
+
+    margin-top:10px;
+
+    padding:16px;
+
+    resize:vertical;
+
+    background:#060a12;
+
+    color:#e6edf3;
+
+    border:1px solid #34496f;
+
+    border-radius:12px;
+
+    font-family:
+    "Courier New",
+    monospace;
+
+    font-size:15px;
+
+    line-height:1.6;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.run-btn,
+.check-btn,
+.hint-btn,
+.answer-btn{
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:12px 20px;
+
+    margin-top:12px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    font-size:14px;
+}
+
+.run-btn{
+    background:#238636;
+    color:white;
+}
+
+.run-btn:hover{
+    background:#2ea043;
+}
+
+.check-btn{
+    background:#58a6ff;
+    color:#07111f;
+}
+
+.hint-btn{
+    background:#303e5d;
+    color:white;
+}
+
+.answer-btn{
+    background:#7c5cff;
+    color:white;
+}
+
+
+/* =========================
+   LIVE OUTPUT
+========================= */
+
+.output-title{
+    margin-top:20px;
+
+    font-weight:bold;
+}
+
+.code-output{
+
+    width:100%;
+
+    height:180px;
+
+    margin-top:10px;
+
+    background:white;
+
+    border:1px solid #34496f;
+
+    border-radius:12px;
+}
+
+
+/* =========================
+   PYTHON SYNTAX EXAMPLE
+========================= */
+
+.syntax{
+
+    background:#060a12;
+
+    border:1px solid #2c3d60;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    margin-top:15px;
+
+    overflow-x:auto;
+}
+
+.syntax code{
+
+    color:#e6edf3;
+
+    font-family:
+    "Courier New",
+    monospace;
+}
+
+
+/* =========================
+   CONCEPT LIST
+========================= */
+
+.concept-list{
+
+    margin-top:12px;
+
+    padding-left:24px;
+}
+
+.concept-list li{
+
+    margin:8px 0;
+
+    color:#c5cee0;
+}
+
+
+/* =========================
+   PUZZLE AREA
+========================= */
+
+.puzzle{
+
+    background:#0c1424;
+
+    border:1px solid #34496f;
+
+    border-radius:15px;
+
+    padding:22px;
+
+    margin-top:18px;
+}
+
+.puzzle-label{
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    background:#1b2945;
+
+    color:#72b8ff;
+
+    font-size:13px;
+
+    font-weight:bold;
+}
+
+.puzzle h3{
+
+    margin-top:14px;
+}
+
+.answer-input{
+
+    width:100%;
+
+    padding:13px;
+
+    margin-top:12px;
+
+    background:#060a12;
+
+    color:white;
+
+    border:1px solid #34496f;
+
+    border-radius:10px;
+
+    font-size:16px;
+}
+
+.result{
+
+    display:none;
+
+    margin-top:14px;
+
+    padding:13px;
+
+    border-radius:10px;
+}
+
+.correct{
+
+    display:block;
+
+    background:#12351f;
+
+    border:1px solid #238636;
+
+    color:#b8f5c6;
+}
+
+.wrong{
+
+    display:block;
+
+    background:#391717;
+
+    border:1px solid #da3633;
+
+    color:#ffc5c5;
+}
+
+.hint{
+
+    display:none;
+
+    margin-top:12px;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    background:#18243c;
+
+    color:#c9d7ee;
+}
+
+
+/* =========================
+   QUESTION & ANSWER
+========================= */
+
+.question{
+
+    margin-top:20px;
+
+    padding:20px;
+
+    background:#0c1424;
+
+    border:1px solid #2e405f;
+
+    border-radius:14px;
+}
+
+.question h3{
+
+    margin-top:0;
+}
+
+.answer{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:17px;
+
+    background:#111f35;
+
+    border-radius:10px;
+
+    border-left:4px solid #7c5cff;
+
+    color:#d3dced;
+}
+
+
+/* =========================
+   PRACTICE
+========================= */
+
+.practice{
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:14px;
+
+    background:#0c1424;
+
+    border:1px solid #2e405f;
+}
+
+.practice ol{
+
+    padding-left:24px;
+}
+
+.practice li{
+
+    margin:12px 0;
+
+    color:#c8d2e4;
+}
+
+
+/* =========================
+   DEBUG
+========================= */
+
+.debug{
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:14px;
+
+    background:#0c1424;
+
+    border:1px solid #533939;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    color:#8996ad;
+
+    border-top:1px solid #202e48;
+
+    margin-top:40px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .nav{
+        gap:16px;
+        flex-wrap:wrap;
+    }
+
+    .nav a{
+        font-size:14px;
+    }
+
+    .hero{
+        padding:40px 18px;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .card{
+        padding:19px;
+    }
+
+    .card h2{
+        font-size:23px;
+    }
+
+    .code-editor{
+        font-size:13px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="nav">
+
+    <a href="index.html">
+        Home
+    </a>
+
+    <a href="html.html">
+        HTML
+    </a>
+
+    <a href="python-puzzles.html">
+        Python
+    </a>
+
+    <a href="dashboard.html">
+        Dashboard
+    </a>
+
+</nav>
+
+
+<div class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <h1>
+        🐍 Python Learning & Puzzle Lab
+    </h1>
+
+    <p>
+        Learn Python step-by-step through
+        theory, examples, coding, puzzles,
+        practice questions and debugging challenges.
+    </p>
+
+    <div class="brand">
+        Data Analytics Hub
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TOPIC 1
+     WHAT IS PYTHON
+========================= -->
+
+<section class="card">
+
+    <h2>
+        1. What is Python?
+    </h2>
+
+    <div class="theory">
+
+        <p>
+            <strong>Python</strong> is a
+            high-level, general-purpose
+            programming language.
+        </p>
+
+        <p style="margin-top:12px;">
+
+            It is designed with a simple and
+            readable syntax, which makes it
+            easier for beginners to understand
+            programming concepts.
+
+        </p>
+
+        <p style="margin-top:12px;">
+
+            Python is used in many different
+            areas such as web development,
+            automation, software development,
+            artificial intelligence,
+            machine learning and
+            data analytics.
+
+        </p>
+
+    </div>
+
+
+    <h3>
+        Why do we learn Python?
+    </h3>
+
+    <ul class="concept-list">
+
+        <li>
+            Python has simple and readable syntax.
+        </li>
+
+        <li>
+            It is useful for beginners as well as
+            professional developers.
+        </li>
+
+        <li>
+            It has many powerful libraries.
+        </li>
+
+        <li>
+            It is widely used in Data Analytics,
+            AI and Machine Learning.
+        </li>
+
+        <li>
+            Python can be used to automate
+            repetitive tasks.
+        </li>
+
+    </ul>
+
+
+    <div class="note">
+
+        💡 <strong>Remember:</strong>
+
+        Python is not only used for making
+        websites. It can also be used for
+        automation, data analysis, AI,
+        machine learning and many other tasks.
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     TOPIC 2
+     FIRST PROGRAM
+========================= -->
+
+<section class="card">
+
+    <h2>
+        2. Your First Python Program
+    </h2>
+
+
+    <div class="theory">
+
+        <p>
+
+            One of the first things you learn
+            in Python is how to display
+            information on the screen.
+
+        </p>
+
+        <p style="margin-top:12px;">
+
+            Python provides the
+            <strong>print()</strong> function
+            for this purpose.
+
+        </p>
+
+    </div>
+
+
+    <h3>
+        Basic Syntax
+    </h3>
+
+    <div class="syntax">
+
+        <code>
+print("Hello Python")
+        </code>
+
+    </div>
+
+
+    <h3>
+        Explanation
+    </h3>
+
+    <ul class="concept-list">
+
+        <li>
+            <strong>print</strong> is the
+            function name.
+        </li>
+
+        <li>
+            Parentheses <strong>()</strong>
+            contain the information we want
+            to display.
+        </li>
+
+        <li>
+            Text is normally written inside
+            quotation marks.
+        </li>
+
+    </ul>
+
+
+    <div class="code-title">
+        Try the code yourself:
+    </div>
+
+
+    <textarea
+        class="code-editor"
+        id="example1">print("Hello Python!")</textarea>
+
+
+    <button
+        class="run-btn"
+        onclick="runExample('example1','output1')">
+
+        ▶ Run Code
+
+    </button>
+
+
+    <div class="output-title">
+        Live Output
+    </div>
+
+
+    <iframe
+        class="code-output"
+        id="output1">
+    </iframe>
+
+
+</section>
+
+
+
+<!-- =========================
+     TOPIC 3
+     PRINT MULTIPLE VALUES
+========================= -->
+
+<section class="card">
+
+    <h2>
+        3. Printing Multiple Values
+    </h2>
+
+
+    <div class="theory">
+
+        <p>
+
+            The <strong>print()</strong>
+            function can display more than
+            one value.
+
+        </p>
+
+        <p style="margin-top:12px;">
+
+            You can separate multiple values
+            using commas.
+
+        </p>
+
+    </div>
+
+
+    <h3>
+        Example
+    </h3>
+
+
+    <div class="syntax">
+
+        <code>
+name = "Shiv"
+age = 18
+
+print("Name:", name)
+print("Age:", age)
+        </code>
+
+    </div>
+
+
+    <p style="margin-top:15px;">
+
+        Here Python prints both the text
+        and the values stored in the variables.
+
+    </p>
+
+
+    <div class="code-title">
+        Run the example:
+    </div>
+
+
+    <textarea
+        class="code-editor"
+        id="example2">name = "Shiv"
+age = 18
+
+print("Name:", name)
+print("Age:", age)</textarea>
+
+
+    <button
+        class="run-btn"
+        onclick="runExample('example2','output2')">
+
+        ▶ Run Code
+
+    </button>
+
+
+    <div class="output-title">
+        Live Output
+    </div>
+
+
+    <iframe
+        class="code-output"
+        id="output2">
+    </iframe>
+
+
+</section>
+
+
+
+<!-- =========================
+     TOPIC 4
+     VARIABLES INTRO
+========================= -->
+
+<section class="card">
+
+    <h2>
+        4. Introduction to Variables
+    </h2>
+
+
+    <div class="theory">
+
+        <p>
+
+            A <strong>variable</strong> is a
+            name used to store a value.
+
+        </p>
+
+        <p style="margin-top:12px;">
+
+            Think of a variable like a labelled
+            box. The label is the variable name,
+            and the value is the information
+            stored inside that box.
+
+        </p>
+
+    </div>
+
+
+    <h3>
+        Example
+    </h3>
+
+
+    <div class="syntax">
+
+        <code>
+name = "Shiv"
+age = 18
+course = "Python"
+
+print(name)
+print(age)
+print(course)
+        </code>
+
+    </div>
+
+
+    <h3>
+        Important Rules
+    </h3>
+
+
+    <ul class="concept-list">
+
+        <li>
+            Variable names should be meaningful.
+        </li>
+
+        <li>
+            A variable can store different
+            types of data.
+        </li>
+
+        <li>
+            Python does not require you to
+            declare the data type separately.
+        </li>
+
+        <li>
+            Variable names are case-sensitive.
+        </li>
+
+    </ul>
+
+
+    <div class="code-title">
+        Practice with variables:
+    </div>
+
+
+    <textarea
+        class="code-editor"
+        id="example3">name = "Shiv"
+age = 18
+course = "Python"
+
+print("Name:", name)
+print("Age:", age)
+print("Course:", course)</textarea>
+
+
+    <button
+        class="run-btn"
+        onclick="runExample('example3','output3')">
+
+        ▶ Run Code
+
+    </button>
+
+
+    <div class="output-title">
+        Live Output
+    </div>
+
+
+    <iframe
+        class="code-output"
+        id="output3">
+    </iframe>
+
+
+</section>
+
+
+
+<!-- =========================
+     TOPIC 5
+     DATA TYPES INTRODUCTION
+========================= -->
+
+<section class="card">
+
+    <h2>
+        5. Introduction to Data Types
+    </h2>
+
+
+    <div class="theory">
+
+        <p>
+
+            A data type tells Python what kind
+            of value is stored in a variable.
+
+        </p>
+
+        <p style="margin-top:12px;">
+
+            For example, a person's age is
+            normally an integer, while a person's
+            name is a string.
+
+        </p>
+
+    </div>
+
+
+    <h3>
+        Common Python Data Types
+    </h3>
+
+
+    <ul class="concept-list">
+
+        <li>
+            <strong>int</strong> — whole numbers
+            such as 10, 25 and 100
+        </li>
+
+        <li>
+            <strong>float</strong> — decimal numbers
+            such as 10.5 and 99.99
+        </li>
+
+        <li>
+            <strong>str</strong> — text such as
+            "Python"
+        </li>
+
+        <li>
+            <strong>bool</strong> — True or False
+        </li>
+
+    </ul>
+
+
+    <h3>
+        Example
+    </h3>
+
+
+    <textarea
+        class="code-editor"
+        id="example4">name = "Shiv"
+age = 18
+height = 5.8
+is_student = True
+
+print(type(name))
+print(type(age))
+print(type(height))
+print(type(is_student))</textarea>
+
+
+    <button
+        class="run-btn"
+        onclick="runExample('example4','output4')">
+
+        ▶ Run Code
+
+    </button>
+
+
+    <div class="output-title">
+        Live Output
+    </div>
+
+
+    <iframe
+        class="code-output"
+        id="output4">
+    </iframe>
+
+
+</section>
+
+
+
+<!-- =========================
+     REVISION
+========================= -->
+
+<section class="card">
+
+    <h2>
+        🧠 Quick Revision
+    </h2>
+
+
+    <ul class="concept-list">
+
+        <li>
+            Python is a high-level programming
+            language.
+        </li>
+
+        <li>
+            <strong>print()</strong> displays
+            information on the screen.
+        </li>
+
+        <li>
+            Variables store values.
+        </li>
+
+        <li>
+            Data types describe the kind of
+            value stored.
+        </li>
+
+        <li>
+            Python is widely used in
+            Data Analytics and AI.
+        </li>
+
+    </ul>
+
+</section>
+
+
+<!--
+    PART 2 WILL BE ADDED BELOW THIS LINE
+
+    It will contain:
+
+    🧩 Puzzle Challenges
+    💡 Hint System
+    🎯 Practice Questions
+    📖 Long Questions & Answers
+    🐛 Debug Challenges
+    ▶ More Coding Challenges
+    JavaScript
+    </section>
+    </body>
+    </html>
+-->
