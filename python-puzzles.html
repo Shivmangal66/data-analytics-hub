@@ -4,9 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Python Puzzle Lab | Data Analytics Hub</title>
+<title>Python Learning & Puzzles | Data Analytics Hub</title>
+
+<script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -15,697 +19,1206 @@
 
 body{
     font-family:Arial, sans-serif;
-    background:#0b1020;
-    color:#f5f7ff;
-    line-height:1.6;
+    background:
+        radial-gradient(circle at top left,#172554 0,#080b16 35%,#05070d 100%);
+    color:#e5e7eb;
+    min-height:100vh;
 }
+
+/* NAVBAR */
 
 .nav{
     position:sticky;
     top:0;
     z-index:1000;
     display:flex;
-    justify-content:center;
-    gap:28px;
-    padding:18px;
-    background:#11182d;
-    border-bottom:1px solid #263252;
+    align-items:center;
+    gap:8px;
+    padding:15px 25px;
+    background:rgba(5,7,13,.88);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:21px;
+    font-weight:bold;
+    margin-right:20px;
+    background:linear-gradient(90deg,#60a5fa,#a78bfa);
+    -webkit-background-clip:text;
+    color:transparent;
 }
 
 .nav a{
-    color:white;
     text-decoration:none;
-    font-weight:bold;
+    color:#cbd5e1;
+    padding:10px 15px;
+    border-radius:10px;
+    transition:.3s;
 }
 
-.nav a:hover{
-    color:#58a6ff;
+.nav a:hover,
+.nav a.active{
+    color:white;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
 }
 
-.container{
-    width:92%;
-    max-width:1100px;
-    margin:30px auto;
+/* LAYOUT */
+
+.layout{
+    display:flex;
+    max-width:1500px;
+    margin:auto;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:280px;
+    min-height:calc(100vh - 65px);
+    padding:25px 15px;
+    position:sticky;
+    top:65px;
+    align-self:flex-start;
+    overflow-y:auto;
+    border-right:1px solid rgba(255,255,255,.08);
+    background:rgba(5,7,13,.45);
+}
+
+.sidebar h2{
+    font-size:18px;
+    margin-bottom:15px;
+    color:white;
+}
+
+.search{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #334155;
+    background:#0f172a;
+    color:white;
+    margin-bottom:15px;
+    outline:none;
+}
+
+.sidebar a{
+    display:block;
+    text-decoration:none;
+    color:#94a3b8;
+    padding:10px 12px;
+    border-radius:8px;
+    margin-bottom:3px;
+    font-size:14px;
+}
+
+.sidebar a:hover,
+.sidebar a.active-topic{
+    color:white;
+    background:linear-gradient(
+        90deg,
+        rgba(37,99,235,.35),
+        rgba(124,58,237,.25)
+    );
+}
+
+/* MAIN */
+
+main{
+    flex:1;
+    padding:35px;
+    min-width:0;
 }
 
 .hero{
-    text-align:center;
-    padding:45px 20px;
-    background:linear-gradient(135deg,#151f3d,#10172b);
-    border:1px solid #29375d;
-    border-radius:20px;
-    margin-bottom:25px;
+    padding:40px;
+    margin-bottom:30px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:24px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,.20),
+            rgba(124,58,237,.16),
+            rgba(15,23,42,.8)
+        );
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
 }
 
 .hero h1{
     font-size:42px;
-    margin-bottom:10px;
+    margin-bottom:12px;
+    background:linear-gradient(90deg,#60a5fa,#c084fc);
+    -webkit-background-clip:text;
+    color:transparent;
 }
 
 .hero p{
-    color:#b9c3da;
-    font-size:18px;
+    color:#94a3b8;
+    font-size:17px;
+    line-height:1.7;
 }
 
-.badge{
-    display:inline-block;
-    margin-top:18px;
-    padding:8px 15px;
-    border-radius:20px;
-    background:#1c2948;
-    color:#70b7ff;
-    font-weight:bold;
+/* TOPIC */
+
+.topic{
+    scroll-margin-top:90px;
+    margin-bottom:45px;
 }
 
-.progress-box{
-    background:#11182d;
-    border:1px solid #29375d;
-    padding:20px;
-    border-radius:16px;
-    margin-bottom:25px;
-}
-
-.progress-top{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:10px;
-}
-
-.progress{
-    width:100%;
-    height:12px;
-    background:#202b46;
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.progress-bar{
-    width:10%;
-    height:100%;
-    background:#58a6ff;
+.topic-title{
+    font-size:30px;
+    margin-bottom:18px;
+    color:white;
 }
 
 .card{
-    background:#11182d;
-    border:1px solid #29375d;
+    background:rgba(15,23,42,.78);
+    border:1px solid rgba(148,163,184,.13);
     border-radius:18px;
     padding:25px;
-    margin-bottom:25px;
-}
-
-.card h2{
-    margin-bottom:15px;
+    margin-bottom:18px;
+    box-shadow:0 15px 45px rgba(0,0,0,.2);
 }
 
 .card h3{
-    margin:18px 0 10px;
+    color:#93c5fd;
+    margin-bottom:12px;
 }
 
-.explain{
-    color:#c5cee1;
+.card p{
+    color:#cbd5e1;
+    line-height:1.75;
 }
 
-.code-box{
+.card ul{
+    margin-left:20px;
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+/* CODE */
+
+.code-title{
+    color:#c4b5fd;
+    margin-bottom:10px;
+}
+
+textarea.code{
     width:100%;
-    min-height:180px;
-    margin-top:12px;
-    padding:15px;
-    background:#080c16;
-    color:#e6edf3;
-    border:1px solid #344568;
-    border-radius:12px;
-    font-family:monospace;
-    font-size:15px;
+    min-height:190px;
     resize:vertical;
+    padding:18px;
+    border-radius:14px;
+    border:1px solid #334155;
+    background:#020617;
+    color:#e2e8f0;
+    font-family:Consolas,monospace;
+    font-size:15px;
+    line-height:1.6;
+    outline:none;
 }
 
-.output{
-    width:100%;
-    height:150px;
-    margin-top:12px;
-    background:white;
-    border:1px solid #344568;
-    border-radius:12px;
+textarea.code:focus{
+    border-color:#6366f1;
+    box-shadow:0 0 0 2px rgba(99,102,241,.2);
 }
 
-button{
+.run-btn,
+.check-btn,
+.hint-btn{
     border:none;
-    border-radius:10px;
-    padding:12px 20px;
-    margin-top:12px;
+    padding:11px 18px;
+    border-radius:9px;
     cursor:pointer;
+    margin-top:12px;
+    color:white;
     font-weight:bold;
 }
 
 .run-btn{
-    background:#238636;
-    color:white;
-}
-
-.run-btn:hover{
-    background:#2ea043;
-}
-
-.puzzle-input{
-    width:100%;
-    padding:13px;
-    margin-top:10px;
-    border-radius:10px;
-    border:1px solid #344568;
-    background:#080c16;
-    color:white;
-    font-size:16px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
 }
 
 .check-btn{
-    background:#58a6ff;
-    color:#07101f;
+    background:linear-gradient(135deg,#059669,#0d9488);
 }
 
 .hint-btn{
-    background:#303d5c;
-    color:white;
+    background:#334155;
 }
 
-.result{
+.output{
+    width:100%;
+    height:170px;
+    border:1px solid #334155;
+    border-radius:12px;
+    margin-top:12px;
+    background:white;
+}
+
+/* MCQ */
+
+.mcq{
     margin-top:15px;
+    padding:17px;
+    border-radius:12px;
+    background:#0b1220;
+    border:1px solid #263449;
+}
+
+.mcq p{
+    color:white;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.option{
+    display:block;
+    margin:7px 0;
+    color:#cbd5e1;
+    cursor:pointer;
+}
+
+.option input{
+    margin-right:8px;
+}
+
+.quiz-result{
+    margin-top:15px;
+    font-weight:bold;
+}
+
+/* PUZZLE */
+
+.puzzle{
+    border:1px solid rgba(168,85,247,.35);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124,58,237,.12),
+            rgba(30,41,59,.7)
+        );
+}
+
+.puzzle h3{
+    color:#d8b4fe;
+}
+
+.puzzle input{
+    width:100%;
     padding:13px;
     border-radius:10px;
-    display:none;
-}
-
-.correct{
-    display:block;
-    background:#12351f;
-    border:1px solid #238636;
-}
-
-.wrong{
-    display:block;
-    background:#3b1717;
-    border:1px solid #da3633;
+    border:1px solid #475569;
+    background:#020617;
+    color:white;
+    outline:none;
+    margin-top:12px;
 }
 
 .hint{
     display:none;
     margin-top:12px;
+    color:#fbbf24;
     padding:12px;
-    background:#18233d;
-    border-radius:10px;
-    color:#c9d6ef;
+    border-radius:8px;
+    background:rgba(245,158,11,.08);
 }
 
-.practice-list{
-    padding-left:22px;
-}
+/* FOOTER */
 
-.practice-list li{
-    margin:10px 0;
-}
-
-.xp{
-    font-size:20px;
-    font-weight:bold;
-    color:#ffd866;
-}
-
-.footer{
+footer{
     text-align:center;
     padding:35px;
-    color:#8995ad;
+    color:#64748b;
+    border-top:1px solid rgba(255,255,255,.08);
+    margin-top:40px;
 }
 
-@media(max-width:600px){
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .logo{
+        display:none;
+    }
 
     .nav{
-        gap:15px;
-        font-size:14px;
-        flex-wrap:wrap;
+        overflow-x:auto;
+        white-space:nowrap;
+        padding:10px;
+    }
+
+    .sidebar{
+        display:none;
+    }
+
+    main{
+        padding:18px;
+    }
+
+    .hero{
+        padding:25px;
     }
 
     .hero h1{
         font-size:30px;
     }
 
-    .container{
-        width:95%;
-    }
-
-    .card{
-        padding:18px;
-    }
-
-    .code-box{
-        font-size:13px;
+    .topic-title{
+        font-size:25px;
     }
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+
 <nav class="nav">
-    <a href="index.html">Home</a>
-    <a href="html.html">HTML</a>
-    <a href="python-puzzles.html">Python</a>
-    <a href="dashboard.html">Dashboard</a>
+
+<div class="logo">
+Data Analytics Hub
+</div>
+
+<a href="index.html">Home</a>
+
+<a href="html.html">HTML</a>
+
+<a href="python-puzzles.html" class="active">
+Python
+</a>
+
+<a href="dashboard.html">
+Dashboard
+</a>
+
 </nav>
 
-<div class="container">
 
-    <section class="hero">
+<div class="layout">
 
-        <h1>🐍 Python Puzzle Lab</h1>
+<!-- SIDEBAR -->
 
-        <p>
-            Learn Python by Learning, Coding, Solving & Practicing
-        </p>
+<aside class="sidebar">
 
-        <div class="badge">
-            Data Analytics Hub
-        </div>
+<h2>Python Learning</h2>
 
-    </section>
+<input
+class="search"
+id="search"
+placeholder="Search topic..."
+onkeyup="searchTopics()"
+>
 
+<a href="#python">Python Introduction</a>
+<a href="#variables">Variables</a>
+<a href="#datatypes">Data Types</a>
+<a href="#input">Input & Output</a>
+<a href="#operators">Operators</a>
+<a href="#conditions">If Else</a>
+<a href="#loops">Loops</a>
+<a href="#strings">Strings</a>
+<a href="#lists">Lists</a>
+<a href="#tuples">Tuples</a>
+<a href="#sets">Sets</a>
+<a href="#dictionary">Dictionary</a>
+<a href="#functions">Functions</a>
+<a href="#comprehension">List Comprehension</a>
+<a href="#files">File Handling</a>
 
-    <section class="progress-box">
+</aside>
 
-        <div class="progress-top">
 
-            <strong>Python Learning Progress</strong>
+<!-- MAIN -->
 
-            <span>
-                <span id="progressText">1</span> / 10
-            </span>
+<main>
 
-        </div>
+<!-- HERO -->
 
-        <div class="progress">
+<section class="hero">
 
-            <div
-                class="progress-bar"
-                id="progressBar">
-            </div>
+<h1>Python Learning & Puzzles 🐍</h1>
 
-        </div>
+<p>
+Learn Python step by step with theory, practical examples,
+live code execution, MCQs, puzzles and coding challenges.
+</p>
 
-        <br>
+</section>
 
-        <div class="xp">
-            ⭐ XP: <span id="xp">0</span>
-        </div>
 
-    </section>
+<!-- ================= PYTHON ================= -->
 
+<section class="topic" id="python">
 
-    <!-- =========================
-         TOPIC 1
-    ========================== -->
+<h2 class="topic-title">
+1. What is Python?
+</h2>
 
-    <section class="card">
+<div class="card">
 
-        <h2>🟢 Topic 1 — print()</h2>
+<h3>Theory</h3>
 
-        <p class="explain">
+<p>
+Python is a high-level, interpreted and general-purpose
+programming language. It is widely used in Web Development,
+Data Analytics, Artificial Intelligence, Machine Learning,
+Automation and Software Development.
+</p>
 
-            The <strong>print()</strong> function is used to
-            display information on the screen.
+<br>
 
-        </p>
-
-        <h3>Example</h3>
-
-        <textarea
-            class="code-box"
-            id="example1">print("Hello Python!")</textarea>
-
-        <button
-            class="run-btn"
-            onclick="runExample('example1','output1')">
-            ▶ Run Code
-        </button>
-
-        <iframe
-            class="output"
-            id="output1">
-        </iframe>
-
-    </section>
-
-
-    <!-- =========================
-         PUZZLE 1
-    ========================== -->
-
-    <section class="card">
-
-        <h2>🧩 Puzzle 1</h2>
-
-        <p>
-            Complete the missing function.
-        </p>
-
-        <pre style="margin-top:15px;background:#080c16;padding:15px;border-radius:10px;">
-______ ("Hello Python")
-        </pre>
-
-        <input
-            type="text"
-            id="answer1"
-            class="puzzle-input"
-            placeholder="Write your answer">
-
-        <button
-            class="check-btn"
-            onclick="checkPuzzle1()">
-            ✅ Check Answer
-        </button>
-
-        <button
-            class="hint-btn"
-            onclick="showHint('hint1')">
-            💡 Hint
-        </button>
-
-        <div
-            class="hint"
-            id="hint1">
-
-            Hint: It is the function used to display text.
-
-        </div>
-
-        <div
-            id="result1"
-            class="result">
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         PRACTICE
-    ========================== -->
-
-    <section class="card">
-
-        <h2>🎯 Practice</h2>
-
-        <p>
-            Now write your own Python code.
-        </p>
-
-        <ol class="practice-list">
-
-            <li>
-                Print your name.
-            </li>
-
-            <li>
-                Print your age.
-            </li>
-
-            <li>
-                Print "I am learning Python".
-            </li>
-
-        </ol>
-
-        <h3>Your Code</h3>
-
-        <textarea
-            class="code-box"
-            id="practice1">print("My Name")
-print(18)
-print("I am learning Python")</textarea>
-
-        <button
-            class="run-btn"
-            onclick="runExample('practice1','practiceOutput1')">
-            ▶ Run Practice
-        </button>
-
-        <iframe
-            class="output"
-            id="practiceOutput1">
-        </iframe>
-
-    </section>
-
-
-    <!-- =========================
-         DEBUG
-    ========================== -->
-
-    <section class="card">
-
-        <h2>🐛 Debug Challenge</h2>
-
-        <p>
-            Find and fix the error in this code:
-        </p>
-
-        <textarea
-            class="code-box"
-            id="debug1">Print("Hello Python")</textarea>
-
-        <button
-            class="run-btn"
-            onclick="runExample('debug1','debugOutput1')">
-            ▶ Run Code
-        </button>
-
-        <iframe
-            class="output"
-            id="debugOutput1">
-        </iframe>
-
-        <p style="margin-top:15px;color:#b9c3da;">
-            Think: Python function names are case-sensitive.
-        </p>
-
-    </section>
-
-
-    <!-- =========================
-         NEXT TOPIC
-    ========================== -->
-
-    <section class="card">
-
-        <h2>🔓 Next Topic</h2>
-
-        <p>
-            After mastering print(), the next topic is:
-        </p>
-
-        <h3>Variables</h3>
-
-        <p class="explain">
-
-            Variables are used to store data in Python.
-
-        </p>
-
-        <p style="margin-top:12px;">
-
-            Example:
-
-        </p>
-
-        <pre style="background:#080c16;padding:15px;border-radius:10px;">
-name = "Shiv"
-age = 18
-
-print(name)
-print(age)
-        </pre>
-
-    </section>
+<p>
+Python uses simple and readable syntax, making it suitable
+for beginners as well as professional developers.
+</p>
 
 </div>
 
 
-<footer class="footer">
+<div class="card">
+
+<h3>Example</h3>
+
+<textarea class="code" id="code1">print("Hello, World!")
+print("Welcome to Python")</textarea>
+
+<button class="run-btn"
+onclick="runPython('code1','output1')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output1"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>MCQs</h3>
+
+<div class="mcq">
+<p>1. Python is a:</p>
+<label class="option">
+<input type="radio" name="q1" value="a"> Database
+</label>
+<label class="option">
+<input type="radio" name="q1" value="b"> Programming Language
+</label>
+<label class="option">
+<input type="radio" name="q1" value="c"> Operating System
+</label>
+</div>
+
+<div class="mcq">
+<p>2. Python is known for:</p>
+<label class="option">
+<input type="radio" name="q2" value="a"> Complex syntax
+</label>
+<label class="option">
+<input type="radio" name="q2" value="b"> Readable syntax
+</label>
+<label class="option">
+<input type="radio" name="q2" value="c"> Hardware design
+</label>
+</div>
+
+<div class="mcq">
+<p>3. Python is used in:</p>
+<label class="option">
+<input type="radio" name="q3" value="a"> Data Analytics
+</label>
+<label class="option">
+<input type="radio" name="q3" value="b"> AI
+</label>
+<label class="option">
+<input type="radio" name="q3" value="c"> Both
+</label>
+</div>
+
+<button class="check-btn"
+onclick="checkQuiz('r1',['b','b','c'])">
+Check Answers
+</button>
+
+<div id="r1" class="quiz-result"></div>
+
+</div>
+
+
+<div class="card puzzle">
+
+<h3>🧩 Topic Puzzle</h3>
+
+<p>
+Write the Python command used to display text on the screen.
+</p>
+
+<input id="p1"
+placeholder="Type your answer">
+
+<button class="hint-btn"
+onclick="showHint('h1')">
+💡 Hint
+</button>
+
+<div id="h1" class="hint">
+It starts with the letter "p".
+</div>
+
+<button class="check-btn"
+onclick="checkAnswer('p1','r-p1','print')">
+Check Puzzle
+</button>
+
+<div id="r-p1" class="quiz-result"></div>
+
+</div>
+
+</section>
+
+
+<!-- ================= VARIABLES ================= -->
+
+<section class="topic" id="variables">
+
+<h2 class="topic-title">
+2. Variables
+</h2>
+
+<div class="card">
+
+<h3>Theory</h3>
+
+<p>
+A variable is a name used to store a value in memory.
+Python automatically determines the type of data stored
+inside a variable.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Example</h3>
+
+<textarea class="code" id="code2">name = "Shiv"
+age = 18
+
+print(name)
+print(age)</textarea>
+
+<button class="run-btn"
+onclick="runPython('code2','output2')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output2"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>MCQs</h3>
+
+<div class="mcq">
+<p>1. Which symbol assigns a value?</p>
+<label class="option">
+<input type="radio" name="q4" value="a"> =
+</label>
+<label class="option">
+<input type="radio" name="q4" value="b"> ==
+</label>
+<label class="option">
+<input type="radio" name="q4" value="c"> !=
+</label>
+</div>
+
+<div class="mcq">
+<p>2. Which is a valid variable?</p>
+<label class="option">
+<input type="radio" name="q5" value="a"> 2name
+</label>
+<label class="option">
+<input type="radio" name="q5" value="b"> user_name
+</label>
+<label class="option">
+<input type="radio" name="q5" value="c"> user-name
+</label>
+</div>
+
+<div class="mcq">
+<p>3. Python variables are:</p>
+<label class="option">
+<input type="radio" name="q6" value="a"> Dynamically typed
+</label>
+<label class="option">
+<input type="radio" name="q6" value="b"> Always strings
+</label>
+<label class="option">
+<input type="radio" name="q6" value="c"> Always integers
+</label>
+</div>
+
+<button class="check-btn"
+onclick="checkQuiz('r2',['a','b','a'])">
+Check Answers
+</button>
+
+<div id="r2" class="quiz-result"></div>
+
+</div>
+
+
+<div class="card puzzle">
+
+<h3>🧩 Topic Puzzle</h3>
+
+<p>
+Create a variable named <b>score</b> and store the value 100.
+</p>
+
+<input id="p2"
+placeholder="Example: score = 100">
+
+<button class="hint-btn"
+onclick="showHint('h2')">
+💡 Hint
+</button>
+
+<div id="h2" class="hint">
+Use the assignment operator =.
+</div>
+
+<button class="check-btn"
+onclick="checkAnswer('p2','r-p2','score = 100')">
+Check Puzzle
+</button>
+
+<div id="r-p2" class="quiz-result"></div>
+
+</div>
+
+</section>
+
+
+<!-- ================= DATA TYPES ================= -->
+
+<section class="topic" id="datatypes">
+
+<h2 class="topic-title">
+3. Data Types
+</h2>
+
+<div class="card">
+
+<h3>Theory</h3>
+
+<p>
+A data type defines what kind of value a variable contains.
+Common Python data types include:
+</p>
+
+<ul>
+<li>int</li>
+<li>float</li>
+<li>str</li>
+<li>bool</li>
+<li>list</li>
+<li>tuple</li>
+<li>set</li>
+<li>dict</li>
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<h3>Example</h3>
+
+<textarea class="code" id="code3">age = 18
+price = 99.5
+name = "Python"
+active = True
+
+print(type(age))
+print(type(price))
+print(type(name))
+print(type(active))</textarea>
+
+<button class="run-btn"
+onclick="runPython('code3','output3')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output3"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>MCQs</h3>
+
+<div class="mcq">
+<p>1. Which type stores whole numbers?</p>
+<label class="option">
+<input type="radio" name="q7" value="a"> float
+</label>
+<label class="option">
+<input type="radio" name="q7" value="b"> int
+</label>
+<label class="option">
+<input type="radio" name="q7" value="c"> str
+</label>
+</div>
+
+<div class="mcq">
+<p>2. Which type stores text?</p>
+<label class="option">
+<input type="radio" name="q8" value="a"> str
+</label>
+<label class="option">
+<input type="radio" name="q8" value="b"> int
+</label>
+<label class="option">
+<input type="radio" name="q8" value="c"> bool
+</label>
+</div>
+
+<div class="mcq">
+<p>3. True and False belong to:</p>
+<label class="option">
+<input type="radio" name="q9" value="a"> bool
+</label>
+<label class="option">
+<input type="radio" name="q9" value="b"> int
+</label>
+<label class="option">
+<input type="radio" name="q9" value="c"> list
+</label>
+</div>
+
+<button class="check-btn"
+onclick="checkQuiz('r3',['b','a','a'])">
+Check Answers
+</button>
+
+<div id="r3" class="quiz-result"></div>
+
+</div>
+
+
+<div class="card puzzle">
+
+<h3>🧩 Topic Puzzle</h3>
+
+<p>
+What will be the data type of <b>25.5</b>?
+</p>
+
+<input id="p3"
+placeholder="Type answer">
+
+<button class="hint-btn"
+onclick="showHint('h3')">
+💡 Hint
+</button>
+
+<div id="h3" class="hint">
+It represents a decimal number.
+</div>
+
+<button class="check-btn"
+onclick="checkAnswer('p3','r-p3','float')">
+Check Puzzle
+</button>
+
+<div id="r-p3" class="quiz-result"></div>
+
+</div>
+
+</section>
+
+
+<!-- ================= INPUT ================= -->
+
+<section class="topic" id="input">
+
+<h2 class="topic-title">
+4. Input & Output
+</h2>
+
+<div class="card">
+
+<h3>Theory</h3>
+
+<p>
+The <b>input()</b> function is used to receive data from
+the user. The <b>print()</b> function is used to display
+information.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Example</h3>
+
+<textarea class="code" id="code4">name = input("Enter your name: ")
+print("Hello", name)</textarea>
+
+<button class="run-btn"
+onclick="runPython('code4','output4')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output4"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>MCQs</h3>
+
+<div class="mcq">
+<p>1. Which function receives user input?</p>
+<label class="option">
+<input type="radio" name="q10" value="a"> print()
+</label>
+<label class="option">
+<input type="radio" name="q10" value="b"> input()
+</label>
+<label class="option">
+<input type="radio" name="q10" value="c"> type()
+</label>
+</div>
+
+<div class="mcq">
+<p>2. Which function displays output?</p>
+<label class="option">
+<input type="radio" name="q11" value="a"> print()
+</label>
+<label class="option">
+<input type="radio" name="q11" value="b"> input()
+</label>
+<label class="option">
+<input type="radio" name="q11" value="c"> scan()
+</label>
+</div>
+
+<div class="mcq">
+<p>3. input() normally returns:</p>
+<label class="option">
+<input type="radio" name="q12" value="a"> string
+</label>
+<label class="option">
+<input type="radio" name="q12" value="b"> float
+</label>
+<label class="option">
+<input type="radio" name="q12" value="c"> bool
+</label>
+</div>
+
+<button class="check-btn"
+onclick="checkQuiz('r4',['b','a','a'])">
+Check Answers
+</button>
+
+<div id="r4" class="quiz-result"></div>
+
+</div>
+
+
+<div class="card puzzle">
+
+<h3>🧩 Topic Puzzle</h3>
+
+<p>
+Which Python function is used to display output?
+</p>
+
+<input id="p4"
+placeholder="Type function name">
+
+<button class="hint-btn"
+onclick="showHint('h4')">
+💡 Hint
+</button>
+
+<div id="h4" class="hint">
+It starts with "print".
+</div>
+
+<button class="check-btn"
+onclick="checkAnswer('p4','r-p4','print()')">
+Check Puzzle
+</button>
+
+<div id="r-p4" class="quiz-result"></div>
+
+</div>
+
+</section>
+
+
+<!-- ================= OPERATORS ================= -->
+
+<section class="topic" id="operators">
+
+<h2 class="topic-title">
+5. Operators
+</h2>
+
+<div class="card">
+
+<h3>Theory</h3>
+
+<p>
+Operators are symbols used to perform operations on values.
+Python provides arithmetic, comparison, logical and assignment
+operators.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Example</h3>
+
+<textarea class="code" id="code5">a = 10
+b = 3
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a % b)</textarea>
+
+<button class="run-btn"
+onclick="runPython('code5','output5')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output5"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>MCQs</h3>
+
+<div class="mcq">
+<p>1. Which operator performs multiplication?</p>
+<label class="option">
+<input type="radio" name="q13" value="a"> +
+</label>
+<label class="option">
+<input type="radio" name="q13" value="b"> *
+</label>
+<label class="option">
+<input type="radio" name="q13" value="c"> %
+</label>
+</div>
+
+<div class="mcq">
+<p>2. Which operator gives remainder?</p>
+<label class="option">
+<input type="radio" name="q14" value="a"> %
+</label>
+<label class="option">
+<input type="radio" name="q14" value="b"> /
+</label>
+<label class="option">
+<input type="radio" name="q14" value="c"> //
+</label>
+</div>
+
+<div class="mcq">
+<p>3. Which operator checks equality?</p>
+<label class="option">
+<input type="radio" name="q15" value="a"> =
+</label>
+<label class="option">
+<input type="radio" name="q15" value="b"> ==
+</label>
+<label class="option">
+<input type="radio" name="q15" value="c"> =>
+</label>
+</div>
+
+<button class="check-btn"
+onclick="checkQuiz('r5',['b','a','b'])">
+Check Answers
+</button>
+
+<div id="r5" class="quiz-result"></div>
+
+</div>
+
+
+<div class="card puzzle">
+
+<h3>🧩 Topic Puzzle</h3>
+
+<p>
+What is the result of <b>17 % 5</b>?
+</p>
+
+<input id="p5"
+placeholder="Enter number">
+
+<button class="hint-btn"
+onclick="showHint('h5')">
+💡 Hint
+</button>
+
+<div id="h5" class="hint">
+Think about the remainder after division.
+</div>
+
+<button class="check-btn"
+onclick="checkAnswer('p5','r-p5','2')">
+Check Puzzle
+</button>
+
+<div id="r-p5" class="quiz-result"></div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONDITIONS ================= -->
+
+<section class="topic" id="conditions">
+
+<h2 class="topic-title">
+6. If Else Conditions
+</h2>
+
+<div class="card">
+
+<h3>Theory</h3>
+
+<p>
+Conditional statements allow Python programs to make decisions.
+The main keywords are <b>if</b>, <b>elif</b> and <b>else</b>.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Example</h3>
+
+<textarea class="code" id="code6">age = 18
+
+if age >= 18:
+    print("Eligible")
+else:
+    print("Not Eligible")</textarea>
+
+<button class="run-btn"
+onclick="runPython('code6','output6')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output6"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>MCQs</h3>
+
+<div class="mcq">
+<p>1. Which keyword starts a condition?</p>
+<label class="option">
+<input type="radio" name="q16" value="a"> if
+</label>
+<label class="option">
+<input type="radio" name="q16" value="b"> check
+</label>
+<label class="option">
+<input type="radio" name="q16" value="c"> condition
+</label>
+</div>
+
+<div class="mcq">
+<p>2. Which keyword handles the alternative?</p>
+<label class="option">
+<input type="radio" name="q17" value="a"> else
+</label>
+<label class="option">
+<input type="radio" name="q17" value="b"> otherwise
+</label>
+<label class="option">
+<input type="radio" name="q17" value="c"> alternate
+</label>
+</div>
+
+<div class="mcq">
+<p>3. Which keyword checks another condition?</p>
+<label class="option">
+<input type="radio" name="q18" value="a"> elif
+</label>
+<label class="option">
+<input type="radio" name="q18" value="b"> another
+</label>
+<label class="option">
+<input type="radio" name="q18" value="c"> next
+</label>
+</div>
+
+<button class="check-btn"
+onclick="checkQuiz('r6',['a','a','a'])">
+    Check Answers
+</button>
+
+<div id="r6-result" class="quiz-result"></div>
+
+</div>
+</div>
+
+<!-- TOPIC PUZZLE -->
+<div class="puzzle-card">
+    <h3>🧩 Topic Puzzle</h3>
 
     <p>
-        🐍 Python Puzzle Lab
+        What is the value of
+        <b>student["name"]</b>?
     </p>
 
-    <p>
-        Data Analytics Hub | Excel.expert.66
-    </p>
+    <input
+        type="text"
+        id="puzzle-r6"
+        placeholder="Type your answer"
+    >
 
-</footer>
+    <button class="check-btn"
+        onclick="checkPuzzle(
+            'puzzle-r6',
+            'puzzle-r6-result',
+            'Shiv'
+        )">
+        Check Puzzle
+    </button>
 
+    <div id="puzzle-r6-result"
+         class="puzzle-result"></div>
+</div>
 
-<script>
-
-/* =========================
-   RUN CODE
-========================= */
-
-function runExample(editorId, outputId){
-
-    const editor =
-        document.getElementById(editorId);
-
-    const output =
-        document.getElementById(outputId);
-
-    if(!editor || !output){
-        return;
-    }
-
-    output.srcdoc =
-        "<html><body style='font-family:Arial;padding:15px;'>" +
-        "<script>" +
-        editor.value.replace(/<\/script>/gi,"<\\/script>") +
-        "<\/script>" +
-        "</body></html>";
-
-}
-
-
-/* =========================
-   PUZZLE 1
-========================= */
-
-function checkPuzzle1(){
-
-    const answer =
-        document
-        .getElementById("answer1")
-        .value
-        .trim()
-        .toLowerCase();
-
-    const result =
-        document.getElementById("result1");
-
-    if(answer === "print"){
-
-        result.className =
-            "result correct";
-
-        result.innerHTML =
-            "🎉 Correct! Great job! " +
-            "You learned the print() function.";
-
-        addXP(10);
-
-        localStorage.setItem(
-            "pythonPuzzle1",
-            "completed"
-        );
-
-    }else{
-
-        result.className =
-            "result wrong";
-
-        result.innerHTML =
-            "❌ Not correct. Try again!";
-
-    }
-
-}
-
-
-/* =========================
-   HINT
-========================= */
-
-function showHint(id){
-
-    const hint =
-        document.getElementById(id);
-
-    if(hint.style.display === "block"){
-
-        hint.style.display = "none";
-
-    }else{
-
-        hint.style.display = "block";
-
-    }
-
-}
-
-
-/* =========================
-   XP
-========================= */
-
-function addXP(points){
-
-    let xp =
-        parseInt(
-            localStorage.getItem("pythonXP") || "0"
-        );
-
-    xp += points;
-
-    localStorage.setItem(
-        "pythonXP",
-        xp
-    );
-
-    document.getElementById("xp").textContent =
-        xp;
-
-}
-
-
-/* =========================
-   LOAD PROGRESS
-========================= */
-
-window.addEventListener(
-    "DOMContentLoaded",
-    function(){
-
-        const xp =
-            localStorage.getItem(
-                "pythonXP"
-            ) || "0";
-
-        document.getElementById("xp")
-            .textContent = xp;
-
-        if(
-            localStorage.getItem(
-                "pythonPuzzle1"
-            ) === "completed"
-        ){
-
-            document.getElementById(
-                "progressText"
-            ).textContent = "2";
-
-            document.getElementById(
-                "progressBar"
-            ).style.width = "20%";
-
-        }
-
-        // Load example outputs
-
-        runExample(
-            "example1",
-            "output1"
-        );
-
-        runExample(
-            "practice1",
-            "practiceOutput1"
-        );
-
-    }
-);
-
-</script>
-
-</body>
-</html>
+</section>
