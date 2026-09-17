@@ -1236,21 +1236,845 @@ print(type(is_student))</textarea>
     </ul>
 
 </section>
+<!-- =========================
+     PART 2 — PRACTICE + PUZZLES
+========================= -->
+
+<section class="section">
+
+    <h2>🧩 Python Puzzle Challenges</h2>
+
+    <p>
+        Ab jo concepts aapne learn kiye hain, unko puzzle solve karke practice karo.
+    </p>
+
+    <!-- PUZZLE 1 -->
+    <div class="puzzle">
+
+        <h3>🧩 Puzzle 1 — Complete the Code</h3>
+
+        <p>
+            Python mein screen par <b>Hello Python</b> print karna hai.
+            Blank space mein correct keyword/function likho.
+        </p>
+
+        <pre>
+_______("Hello Python")
+        </pre>
+
+        <input
+            type="text"
+            id="puzzle1"
+            class="answer-input"
+            placeholder="Type your answer"
+        >
+
+        <button onclick="checkPuzzle1()">
+            ✅ Check Answer
+        </button>
+
+        <button onclick="showHint('hint1')">
+            💡 Hint
+        </button>
+
+        <div id="hint1" class="hint">
+            Hint: Python mein screen par text display karne ke liye ek built-in function use hota hai.
+        </div>
+
+        <div id="result1" class="result"></div>
+
+    </div>
 
 
-<!--
-    PART 2 WILL BE ADDED BELOW THIS LINE
+    <!-- PUZZLE 2 -->
+    <div class="puzzle">
 
-    It will contain:
+        <h3>🧩 Puzzle 2 — Variable Challenge</h3>
 
-    🧩 Puzzle Challenges
-    💡 Hint System
-    🎯 Practice Questions
-    📖 Long Questions & Answers
-    🐛 Debug Challenges
-    ▶ More Coding Challenges
-    JavaScript
-    </section>
-    </body>
-    </html>
--->
+        <p>
+            Ek variable <b>name</b> banao jisme value
+            <b>Shiv</b> store ho.
+        </p>
+
+        <pre>
+name = _______
+print(name)
+        </pre>
+
+        <input
+            type="text"
+            id="puzzle2"
+            class="answer-input"
+            placeholder='Example: "Shiv"'
+        >
+
+        <button onclick="checkPuzzle2()">
+            ✅ Check Answer
+        </button>
+
+        <button onclick="showHint('hint2')">
+            💡 Hint
+        </button>
+
+        <div id="hint2" class="hint">
+            Hint: Text/String value ko quotes ke andar likha jata hai.
+        </div>
+
+        <div id="result2" class="result"></div>
+
+    </div>
+
+
+    <!-- PUZZLE 3 -->
+    <div class="puzzle">
+
+        <h3>🧩 Puzzle 3 — Calculate</h3>
+
+        <p>
+            Code ko complete karo taaki output <b>30</b> aaye.
+        </p>
+
+        <pre>
+a = 10
+b = _______
+
+print(a + b)
+        </pre>
+
+        <input
+            type="text"
+            id="puzzle3"
+            class="answer-input"
+            placeholder="Enter number"
+        >
+
+        <button onclick="checkPuzzle3()">
+            ✅ Check Answer
+        </button>
+
+        <button onclick="showHint('hint3')">
+            💡 Hint
+        </button>
+
+        <div id="hint3" class="hint">
+            Hint: 10 mein kitna add karne par 30 milega?
+        </div>
+
+        <div id="result3" class="result"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PRACTICE QUESTIONS
+========================= -->
+
+<section class="section">
+
+    <h2>🎯 Practice Questions</h2>
+
+    <div class="practice">
+
+        <h3>Question 1</h3>
+
+        <p>
+            Ek Python program likho jo aapka name, age aur course
+            print kare.
+        </p>
+
+        <pre>
+Example Output:
+
+Name: Shiv
+Age: 18
+Course: B.Tech CSE
+        </pre>
+
+    </div>
+
+
+    <div class="practice">
+
+        <h3>Question 2</h3>
+
+        <p>
+            Ek program banao jisme do variables mein numbers store karo
+            aur unka addition, subtraction aur multiplication print karo.
+        </p>
+
+        <pre>
+Example:
+
+a = 20
+b = 10
+
+Output:
+
+Addition: 30
+Subtraction: 10
+Multiplication: 200
+        </pre>
+
+    </div>
+
+
+    <div class="practice">
+
+        <h3>Question 3</h3>
+
+        <p>
+            Ek student ke 3 subjects ke marks variables mein store karo
+            aur total marks calculate karke print karo.
+        </p>
+
+        <pre>
+Example:
+
+Python = 80
+SQL = 75
+Excel = 90
+
+Output:
+
+Total Marks: 245
+        </pre>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LONG QUESTIONS + ANSWERS
+========================= -->
+
+<section class="section">
+
+    <h2>📖 Questions & Answers</h2>
+
+
+    <!-- LONG QUESTION 1 -->
+
+    <div class="question">
+
+        <h3>Q1. What is Python?</h3>
+
+        <p>
+            Python ek high-level, interpreted aur general-purpose
+            programming language hai. Python ka use web development,
+            data analytics, artificial intelligence, machine learning,
+            automation aur software development mein kiya jata hai.
+        </p>
+
+        <button onclick="toggleAnswer('answer1')">
+            👁️ Show Answer
+        </button>
+
+        <div id="answer1" class="answer">
+
+            <h4>Answer:</h4>
+
+            <p>
+                Python is a high-level programming language known for
+                its simple syntax and readability. It is widely used
+                in Data Analytics, Machine Learning, AI, Web Development
+                and Automation.
+            </p>
+
+            <p>
+                Python beginners ke liye easy hai kyunki iska syntax
+                simple aur readable hota hai.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- LONG QUESTION 2 -->
+
+    <div class="question">
+
+        <h3>Q2. What is a Variable in Python?</h3>
+
+        <p>
+            Variable kya hota hai? Python mein variable kaise create
+            karte hain? Example ke saath explain karo.
+        </p>
+
+        <button onclick="toggleAnswer('answer2')">
+            👁️ Show Answer
+        </button>
+
+        <div id="answer2" class="answer">
+
+            <h4>Answer:</h4>
+
+            <p>
+                Variable ek naam hota hai jiska use data ko store
+                karne ke liye kiya jata hai.
+            </p>
+
+            <pre>
+name = "Shiv"
+age = 18
+marks = 85
+            </pre>
+
+            <p>
+                Yahan <b>name</b>, <b>age</b> aur <b>marks</b> variables hain.
+                Python automatically variable ke data ka type identify
+                kar sakta hai.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- LONG QUESTION 3 -->
+
+    <div class="question">
+
+        <h3>Q3. What are Data Types in Python?</h3>
+
+        <p>
+            Python ke important data types ko examples ke saath explain karo.
+        </p>
+
+        <button onclick="toggleAnswer('answer3')">
+            👁️ Show Answer
+        </button>
+
+        <div id="answer3" class="answer">
+
+            <h4>Answer:</h4>
+
+            <p>
+                Data type batata hai ki variable ke andar kis type ka
+                data stored hai.
+            </p>
+
+            <pre>
+name = "Shiv"       # String
+age = 18            # Integer
+height = 5.8        # Float
+student = True      # Boolean
+            </pre>
+
+            <p>
+                Common Python data types:
+            </p>
+
+            <ul>
+                <li>String — Text data</li>
+                <li>Integer — Whole numbers</li>
+                <li>Float — Decimal numbers</li>
+                <li>Boolean — True / False</li>
+                <li>List — Multiple values</li>
+                <li>Tuple — Ordered collection</li>
+                <li>Dictionary — Key-value data</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DEBUG CHALLENGE
+========================= -->
+
+<section class="section">
+
+    <h2>🐛 Debug Challenge</h2>
+
+    <div class="debug">
+
+        <h3>Find the Error</h3>
+
+        <p>
+            Neeche diye gaye code mein error hai.
+            Error find karo aur correct code likho.
+        </p>
+
+        <pre>
+name = Shiv
+
+print(name)
+        </pre>
+
+        <textarea
+            id="debugCode"
+            class="code-editor"
+            placeholder="Write the corrected code here..."
+        >name = "Shiv"
+
+print(name)</textarea>
+
+        <button onclick="checkDebug()">
+            🔍 Check Debug
+        </button>
+
+        <div id="debugResult" class="result"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CODING CHALLENGE
+========================= -->
+
+<section class="section">
+
+    <h2>💻 Coding Challenge</h2>
+
+    <div class="coding-challenge">
+
+        <h3>Challenge — Create Your Profile</h3>
+
+        <p>
+            Python program banao jo following information print kare:
+        </p>
+
+        <ul>
+            <li>Your Name</li>
+            <li>Your Age</li>
+            <li>Your Course</li>
+            <li>Your Goal</li>
+        </ul>
+
+        <p>
+            Example:
+        </p>
+
+        <pre>
+Name: Shiv
+Age: 18
+Course: B.Tech CSE
+Goal: Data Analyst
+        </pre>
+
+
+        <textarea
+            id="challengeCode"
+            class="code-editor"
+        >name = "Shiv"
+age = 18
+course = "B.Tech CSE"
+goal = "Data Analyst"
+
+print("Name:", name)
+print("Age:", age)
+print("Course:", course)
+print("Goal:", goal)</textarea>
+
+
+        <button onclick="runExample('challengeCode','challengeOutput')">
+            ▶️ Run Python Code
+        </button>
+
+
+        <iframe
+            id="challengeOutput"
+            class="code-output"
+        ></iframe>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PYTHON RUN CODE SYSTEM
+========================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+
+
+<script>
+
+/* =========================
+   PYTHON CODE RUNNER
+========================= */
+
+function builtinRead(x) {
+
+    if (
+        Sk.builtinFiles === undefined ||
+        Sk.builtinFiles["files"][x] === undefined
+    ) {
+
+        throw "File not found: '" + x + "'";
+
+    }
+
+    return Sk.builtinFiles["files"][x];
+
+}
+
+
+/* RUN PYTHON */
+
+async function runExample(editorId, outputId) {
+
+    const editor =
+        document.getElementById(editorId);
+
+    const output =
+        document.getElementById(outputId);
+
+    if (!editor || !output) return;
+
+
+    output.srcdoc = `
+        <!DOCTYPE html>
+
+        <html>
+
+        <head>
+
+        <style>
+
+        body{
+            margin:0;
+            padding:15px;
+            background:#ffffff;
+            color:#111827;
+            font-family:Arial,sans-serif;
+        }
+
+        pre{
+            white-space:pre-wrap;
+            font-size:15px;
+        }
+
+        </style>
+
+        </head>
+
+        <body>
+
+        <pre id="pythonOutput"></pre>
+
+        </body>
+
+        </html>
+    `;
+
+
+    await new Promise(function(resolve){
+
+        setTimeout(resolve,100);
+
+    });
+
+
+    const doc =
+        output.contentDocument ||
+        output.contentWindow.document;
+
+
+    const result =
+        doc.getElementById("pythonOutput");
+
+
+    Sk.configure({
+
+        output:function(text){
+
+            result.textContent += text;
+
+        },
+
+        read:builtinRead,
+
+        inputfun:function(prompt){
+
+            return window.prompt(prompt) || "";
+
+        },
+
+        inputfunTakesPrompt:true
+
+    });
+
+
+    try {
+
+        await Sk.misceval.asyncToPromise(
+            function(){
+
+                return Sk.importMainWithBody(
+                    "<stdin>",
+                    false,
+                    editor.value,
+                    true
+                );
+
+            }
+        );
+
+    }
+
+    catch(error){
+
+        result.textContent +=
+            "\n\n❌ Error:\n" +
+            error.toString();
+
+    }
+
+}
+
+
+/* =========================
+   HINT SYSTEM
+========================= */
+
+function showHint(id){
+
+    const hint =
+        document.getElementById(id);
+
+    if(!hint) return;
+
+    if(
+        hint.style.display === "block"
+    ){
+
+        hint.style.display = "none";
+
+    }
+
+    else{
+
+        hint.style.display = "block";
+
+    }
+
+}
+
+
+/* =========================
+   PUZZLE 1
+========================= */
+
+function checkPuzzle1(){
+
+    const answer =
+        document.getElementById("puzzle1")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const result =
+        document.getElementById("result1");
+
+
+    if(answer === "print"){
+
+        result.innerHTML =
+            "🎉 Correct! Excellent work.";
+
+        result.style.display = "block";
+
+    }
+
+    else{
+
+        result.innerHTML =
+            "❌ Not correct. Try again.";
+
+        result.style.display = "block";
+
+    }
+
+}
+
+
+/* =========================
+   PUZZLE 2
+========================= */
+
+function checkPuzzle2(){
+
+    const answer =
+        document.getElementById("puzzle2")
+        .value
+        .trim();
+
+    const result =
+        document.getElementById("result2");
+
+
+    if(
+        answer === '"Shiv"' ||
+        answer === "'Shiv'"
+    ){
+
+        result.innerHTML =
+            "🎉 Correct! Shiv is stored as a String.";
+
+        result.style.display = "block";
+
+    }
+
+    else{
+
+        result.innerHTML =
+            '❌ Try again. Remember to use quotes.';
+
+        result.style.display = "block";
+
+    }
+
+}
+
+
+/* =========================
+   PUZZLE 3
+========================= */
+
+function checkPuzzle3(){
+
+    const answer =
+        document.getElementById("puzzle3")
+        .value
+        .trim();
+
+    const result =
+        document.getElementById("result3");
+
+
+    if(answer === "20"){
+
+        result.innerHTML =
+            "🎉 Correct! 10 + 20 = 30";
+
+        result.style.display = "block";
+
+    }
+
+    else{
+
+        result.innerHTML =
+            "❌ Incorrect. Try again.";
+
+        result.style.display = "block";
+
+    }
+
+}
+
+
+/* =========================
+   SHOW ANSWER
+========================= */
+
+function toggleAnswer(id){
+
+    const answer =
+        document.getElementById(id);
+
+    if(!answer) return;
+
+
+    if(
+        answer.style.display === "block"
+    ){
+
+        answer.style.display = "none";
+
+    }
+
+    else{
+
+        answer.style.display = "block";
+
+    }
+
+}
+
+
+/* =========================
+   DEBUG CHECK
+========================= */
+
+function checkDebug(){
+
+    const code =
+        document.getElementById("debugCode")
+        .value
+        .trim();
+
+    const result =
+        document.getElementById("debugResult");
+
+
+    if(
+        code.includes('name = "Shiv"') &&
+        code.includes("print(name)")
+    ){
+
+        result.innerHTML =
+            "🎉 Debug Successful! You fixed the error.";
+
+        result.style.display = "block";
+
+    }
+
+    else{
+
+        result.innerHTML =
+            '❌ Error still exists. Shiv should be inside quotes.';
+
+        result.style.display = "block";
+
+    }
+
+}
+
+</script>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <h3>Data Analytics Hub</h3>
+
+        <p>
+            Learn Python • Practice • Solve Puzzles • Build Projects
+        </p>
+
+        <p>
+            © 2026 Data Analytics Hub
+        </p>
+
+        <p>
+            Created by Shiv Mishra
+        </p>
+
+    </div>
+
+</footer>
+
+
+</div>
+
+</body>
+
+</html>
