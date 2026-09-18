@@ -4379,4 +4379,820 @@ class="puzzle-result">
 </section>
 <!-- =========================
      TOPIC 11 — FUNCTIONS
-========================= -->
+========================= --><!-- ========================================
+     TOPIC 11 — FUNCTIONS
+======================================== -->
+
+<section class="topic" id="functions">
+
+<h2>🧩 Functions in Python</h2>
+
+<p>
+A <strong>function</strong> is a reusable block of code that performs
+a specific task. Functions help us organize programs, reuse code,
+and avoid repeating the same code.
+</p>
+
+<h3>📌 Why Use Functions?</h3>
+
+<ul>
+<li>Reuse code</li>
+<li>Reduce duplicate code</li>
+<li>Make programs easier to understand</li>
+<li>Make debugging easier</li>
+<li>Break large programs into smaller parts</li>
+</ul>
+
+
+<!-- 1. CREATING A FUNCTION -->
+
+<h3>1️⃣ Creating a Function</h3>
+
+<p>
+We create a function using the <strong>def</strong> keyword.
+</p>
+
+<pre><code>def greet():
+    print("Hello, Python!")
+
+greet()</code></pre>
+
+<p><strong>Output:</strong></p>
+
+<pre><code>Hello, Python!</code></pre>
+
+<textarea id="functionsCode1">def greet():
+    print("Hello, Python!")
+
+greet()</textarea>
+
+<button onclick="runPython('functionsCode1','functionsOutput1')">
+▶ Run Code
+</button>
+
+<iframe
+id="functionsOutput1"
+style="width:100%;height:150px;border:0;margin-top:10px;">
+</iframe>
+
+
+<!-- 2. PARAMETERS -->
+
+<h3>2️⃣ Function with Parameters</h3>
+
+<p>
+Parameters allow us to send information into a function.
+</p>
+
+<pre><code>def greet(name):
+    print("Hello", name)
+
+greet("Shiv")</code></pre>
+
+<p><strong>Output:</strong></p>
+
+<pre><code>Hello Shiv</code></pre>
+
+<textarea id="functionsCode2">def greet(name):
+    print("Hello", name)
+
+greet("Shiv")</textarea>
+
+<button onclick="runPython('functionsCode2','functionsOutput2')">
+▶ Run Code
+</button>
+
+<iframe
+id="functionsOutput2"
+style="width:100%;height:150px;border:0;margin-top:10px;">
+</iframe>
+
+
+<!-- 3. MULTIPLE PARAMETERS -->
+
+<h3>3️⃣ Multiple Parameters</h3>
+
+<pre><code>def add(a, b):
+    print(a + b)
+
+add(10, 20)</code></pre>
+
+<p><strong>Output:</strong></p>
+
+<pre><code>30</code></pre>
+
+<textarea id="functionsCode3">def add(a, b):
+    print(a + b)
+
+add(10, 20)</textarea>
+
+<button onclick="runPython('functionsCode3','functionsOutput3')">
+▶ Run Code
+</button>
+
+<iframe
+id="functionsOutput3"
+style="width:100%;height:150px;border:0;margin-top:10px;">
+</iframe>
+
+
+<!-- 4. RETURN -->
+
+<h3>4️⃣ Return Statement</h3>
+
+<p>
+The <strong>return</strong> statement sends a value back from a function.
+</p>
+
+<pre><code>def add(a, b):
+    return a + b
+
+result = add(15, 25)
+
+print(result)</code></pre>
+
+<p><strong>Output:</strong></p>
+
+<pre><code>40</code></pre>
+
+<textarea id="functionsCode4">def add(a, b):
+    return a + b
+
+result = add(15, 25)
+
+print(result)</textarea>
+
+<button onclick="runPython('functionsCode4','functionsOutput4')">
+▶ Run Code
+</button>
+
+<iframe
+id="functionsOutput4"
+style="width:100%;height:150px;border:0;margin-top:10px;">
+</iframe>
+
+
+<!-- 5. DEFAULT PARAMETER -->
+
+<h3>5️⃣ Default Parameter</h3>
+
+<p>
+A default parameter is used when no value is provided.
+</p>
+
+<pre><code>def greet(name="Student"):
+    print("Hello", name)
+
+greet()</code></pre>
+
+<p><strong>Output:</strong></p>
+
+<pre><code>Hello Student</code></pre>
+
+<textarea id="functionsCode5">def greet(name="Student"):
+    print("Hello", name)
+
+greet()</textarea>
+
+<button onclick="runPython('functionsCode5','functionsOutput5')">
+▶ Run Code
+</button>
+
+<iframe
+id="functionsOutput5"
+style="width:100%;height:150px;border:0;margin-top:10px;">
+</iframe>
+
+
+<!-- 6. KEYWORD ARGUMENTS -->
+
+<h3>6️⃣ Keyword Arguments</h3>
+
+<p>
+Keyword arguments allow us to pass values using parameter names.
+</p>
+
+<pre><code>def student(name, age):
+    print("Name:", name)
+    print("Age:", age)
+
+student(age=18, name="Shiv")</code></pre>
+
+<p><strong>Output:</strong></p>
+
+<pre><code>Name: Shiv
+Age: 18</code></pre>
+
+<textarea id="functionsCode6">def student(name, age):
+    print("Name:", name)
+    print("Age:", age)
+
+student(age=18, name="Shiv")</textarea>
+
+<button onclick="runPython('functionsCode6','functionsOutput6')">
+▶ Run Code
+</button>
+
+<iframe
+id="functionsOutput6"
+style="width:100%;height:150px;border:0;margin-top:10px;">
+</iframe>
+
+
+<!-- 7. FUNCTION WITH LIST -->
+
+<h3>7️⃣ Function with a List</h3>
+
+<p>
+We can pass a list as an argument to a function.
+</p>
+
+<pre><code>def show_items(items):
+
+    for item in items:
+        print(item)
+
+
+fruits = ["Apple", "Banana", "Mango"]
+
+show_items(fruits)</code></pre>
+
+<p><strong>Output:</strong></p>
+
+<pre><code>Apple
+Banana
+Mango</code></pre>
+
+<textarea id="functionsCode7">def show_items(items):
+
+    for item in items:
+        print(item)
+
+
+fruits = ["Apple", "Banana", "Mango"]
+
+show_items(fruits)</textarea>
+
+<button onclick="runPython('functionsCode7','functionsOutput7')">
+▶ Run Code
+</button>
+
+<iframe
+id="functionsOutput7"
+style="width:100%;height:170px;border:0;margin-top:10px;">
+</iframe>
+
+
+<!-- 8. CALCULATION -->
+
+<h3>8️⃣ Function for Calculation</h3>
+
+<pre><code>def calculate_total(price, quantity):
+
+    return price * quantity
+
+
+total = calculate_total(100, 5)
+
+print("Total:", total)</code></pre>
+
+<p><strong>Output:</strong></p>
+
+<pre><code>Total: 500</code></pre>
+
+<textarea id="functionsCode8">def calculate_total(price, quantity):
+
+    return price * quantity
+
+
+total = calculate_total(100, 5)
+
+print("Total:", total)</textarea>
+
+<button onclick="runPython('functionsCode8','functionsOutput8')">
+▶ Run Code
+</button>
+
+<iframe
+id="functionsOutput8"
+style="width:100%;height:150px;border:0;margin-top:10px;">
+</iframe>
+
+
+<!-- 9. EVEN ODD -->
+
+<h3>9️⃣ Even or Odd Using Function</h3>
+
+<pre><code>def check_number(number):
+
+    if number % 2 == 0:
+        return "Even"
+    else:
+        return "Odd"
+
+
+print(check_number(10))
+print(check_number(7))</code></pre>
+
+<p><strong>Output:</strong></p>
+
+<pre><code>Even
+Odd</code></pre>
+
+<textarea id="functionsCode9">def check_number(number):
+
+    if number % 2 == 0:
+        return "Even"
+    else:
+        return "Odd"
+
+
+print(check_number(10))
+print(check_number(7))</textarea>
+
+<button onclick="runPython('functionsCode9','functionsOutput9')">
+▶ Run Code
+</button>
+
+<iframe
+id="functionsOutput9"
+style="width:100%;height:160px;border:0;margin-top:10px;">
+</iframe>
+
+
+<!-- 10. MAXIMUM -->
+
+<h3>🔟 Find Maximum Number</h3>
+
+<pre><code>def find_max(a, b):
+
+    if a > b:
+        return a
+    else:
+        return b
+
+
+print(find_max(25, 40))</code></pre>
+
+<p><strong>Output:</strong></p>
+
+<pre><code>40</code></pre>
+
+<textarea id="functionsCode10">def find_max(a, b):
+
+    if a > b:
+        return a
+    else:
+        return b
+
+
+print(find_max(25, 40))</textarea>
+
+<button onclick="runPython('functionsCode10','functionsOutput10')">
+▶ Run Code
+</button>
+
+<iframe
+id="functionsOutput10"
+style="width:100%;height:150px;border:0;margin-top:10px;">
+</iframe>
+
+
+<!-- 11. FUNCTION WITH LOOP -->
+
+<h3>1️⃣1️⃣ Function with a Loop</h3>
+
+<pre><code>def print_numbers(n):
+
+    for i in range(1, n + 1):
+        print(i)
+
+
+print_numbers(5)</code></pre>
+
+<p><strong>Output:</strong></p>
+
+<pre><code>1
+2
+3
+4
+5</code></pre>
+
+<textarea id="functionsCode11">def print_numbers(n):
+
+    for i in range(1, n + 1):
+        print(i)
+
+
+print_numbers(5)</textarea>
+
+<button onclick="runPython('functionsCode11','functionsOutput11')">
+▶ Run Code
+</button>
+
+<iframe
+id="functionsOutput11"
+style="width:100%;height:170px;border:0;margin-top:10px;">
+</iframe>
+
+
+<!-- 12. MULTIPLE RETURN -->
+
+<h3>1️⃣2️⃣ Multiple Return Values</h3>
+
+<pre><code>def calculate(a, b):
+
+    addition = a + b
+    multiplication = a * b
+
+    return addition, multiplication
+
+
+x, y = calculate(5, 10)
+
+print("Addition:", x)
+print("Multiplication:", y)</code></pre>
+
+<p><strong>Output:</strong></p>
+
+<pre><code>Addition: 15
+Multiplication: 50</code></pre>
+
+<textarea id="functionsCode12">def calculate(a, b):
+
+    addition = a + b
+    multiplication = a * b
+
+    return addition, multiplication
+
+
+x, y = calculate(5, 10)
+
+print("Addition:", x)
+print("Multiplication:", y)</textarea>
+
+<button onclick="runPython('functionsCode12','functionsOutput12')">
+▶ Run Code
+</button>
+
+<iframe
+id="functionsOutput12"
+style="width:100%;height:180px;border:0;margin-top:10px;">
+</iframe>
+
+
+<!-- 13. STUDENT RESULT -->
+
+<h3>1️⃣3️⃣ Practical Example — Student Result</h3>
+
+<pre><code>def calculate_percentage(marks1, marks2, marks3):
+
+    total = marks1 + marks2 + marks3
+
+    percentage = total / 3
+
+    return percentage
+
+
+percentage = calculate_percentage(80, 75, 90)
+
+print("Percentage:", percentage)</code></pre>
+
+<p><strong>Output:</strong></p>
+
+<pre><code>Percentage: 81.66666666666667</code></pre>
+
+<textarea id="functionsCode13">def calculate_percentage(marks1, marks2, marks3):
+
+    total = marks1 + marks2 + marks3
+
+    percentage = total / 3
+
+    return percentage
+
+
+percentage = calculate_percentage(80, 75, 90)
+
+print("Percentage:", percentage)</textarea>
+
+<button onclick="runPython('functionsCode13','functionsOutput13')">
+▶ Run Code
+</button>
+
+<iframe
+id="functionsOutput13"
+style="width:100%;height:180px;border:0;margin-top:10px;">
+</iframe>
+
+
+<!-- 14. DATA ANALYTICS -->
+
+<h3>1️⃣4️⃣ Data Analytics Example — Sales</h3>
+
+<p>
+Functions are useful in data analytics because the same calculation
+can be reused for different datasets.
+</p>
+
+<pre><code>def total_sales(sales):
+
+    total = 0
+
+    for amount in sales:
+        total += amount
+
+    return total
+
+
+sales = [500, 1200, 800, 2500]
+
+result = total_sales(sales)
+
+print("Total Sales:", result)</code></pre>
+
+<p><strong>Output:</strong></p>
+
+<pre><code>Total Sales: 5000</code></pre>
+
+<textarea id="functionsCode14">def total_sales(sales):
+
+    total = 0
+
+    for amount in sales:
+        total += amount
+
+    return total
+
+
+sales = [500, 1200, 800, 2500]
+
+result = total_sales(sales)
+
+print("Total Sales:", result)</textarea>
+
+<button onclick="runPython('functionsCode14','functionsOutput14')">
+▶ Run Code
+</button>
+
+<iframe
+id="functionsOutput14"
+style="width:100%;height:180px;border:0;margin-top:10px;">
+</iframe>
+
+
+<!-- PRACTICE -->
+
+<div class="practice-card">
+
+<h3>📝 Practice</h3>
+
+<p>
+<strong>Practice 1:</strong>
+Create a function named <strong>square()</strong> that accepts a number
+and returns its square.
+</p>
+
+<p>
+<strong>Practice 2:</strong>
+Create a function named <strong>area_rectangle()</strong> that accepts
+length and width and returns the area.
+</p>
+
+<p>
+<strong>Practice 3:</strong>
+Create a function named <strong>average()</strong> that accepts three
+numbers and returns their average.
+</p>
+
+<p>
+<strong>Practice 4:</strong>
+Create a function named <strong>count_even()</strong> that accepts a list
+and returns the number of even values.
+</p>
+
+</div>
+
+
+<!-- QUIZ -->
+
+<div class="quiz-card">
+
+<h3>🧠 Functions Quiz</h3>
+
+<div id="quiz11">
+
+<div class="question">
+
+<p>
+<strong>1. Which keyword is used to create a function?</strong>
+</p>
+
+<label>
+<input type="radio" name="q11a" value="a">
+function
+</label>
+
+<label>
+<input type="radio" name="q11a" value="b">
+def
+</label>
+
+<label>
+<input type="radio" name="q11a" value="c">
+fun
+</label>
+
+<label>
+<input type="radio" name="q11a" value="d">
+create
+</label>
+
+</div>
+
+
+<div class="question">
+
+<p>
+<strong>2. What does return do?</strong>
+</p>
+
+<label>
+<input type="radio" name="q11b" value="a">
+Stops Python completely
+</label>
+
+<label>
+<input type="radio" name="q11b" value="b">
+Prints text only
+</label>
+
+<label>
+<input type="radio" name="q11b" value="c">
+Sends a value back from a function
+</label>
+
+<label>
+<input type="radio" name="q11b" value="d">
+Creates a variable
+</label>
+
+</div>
+
+
+<div class="question">
+
+<p>
+<strong>3. Which one is a function call?</strong>
+</p>
+
+<label>
+<input type="radio" name="q11c" value="a">
+def greet():
+</label>
+
+<label>
+<input type="radio" name="q11c" value="b">
+greet()
+</label>
+
+<label>
+<input type="radio" name="q11c" value="c">
+function greet
+</label>
+
+<label>
+<input type="radio" name="q11c" value="d">
+call greet
+</label>
+
+</div>
+
+
+<div class="question">
+
+<p>
+<strong>4. What is a parameter?</strong>
+</p>
+
+<label>
+<input type="radio" name="q11d" value="a">
+Information passed into a function
+</label>
+
+<label>
+<input type="radio" name="q11d" value="b">
+A Python error
+</label>
+
+<label>
+<input type="radio" name="q11d" value="c">
+A loop
+</label>
+
+<label>
+<input type="radio" name="q11d" value="d">
+A comment
+</label>
+
+</div>
+
+
+<div class="question">
+
+<p>
+<strong>5. What is the output?</strong>
+</p>
+
+<pre><code>def add(a, b):
+    return a + b
+
+print(add(5, 3))</code></pre>
+
+<label>
+<input type="radio" name="q11e" value="a">
+53
+</label>
+
+<label>
+<input type="radio" name="q11e" value="b">
+8
+</label>
+
+<label>
+<input type="radio" name="q11e" value="c">
+2
+</label>
+
+<label>
+<input type="radio" name="q11e" value="d">
+Error
+</label>
+
+</div>
+
+
+<button onclick="checkQuiz('quiz11',['b','c','b','a','b'])">
+✅ Check Answers
+</button>
+
+<p id="quiz11-result"></p>
+
+</div>
+
+</div>
+
+
+<!-- PUZZLE -->
+
+<div class="puzzle-card">
+
+<h3>🧩 Topic Puzzle</h3>
+
+<p>
+What will be the output of this program?
+</p>
+
+<pre><code>def multiply(a, b):
+    return a * b
+
+print(multiply(4, 5))</code></pre>
+
+<input
+type="text"
+id="puzzle11Input"
+placeholder="Enter your answer"
+>
+
+<button onclick="
+checkPuzzle(
+'puzzle11Input',
+'puzzle11Result',
+'20'
+)">
+🔍 Check Puzzle
+</button>
+
+<p id="puzzle11Result"></p>
+
+</div>
+
+
+<!-- COMPLETE -->
+
+<div class="topic-complete">
+
+<h3>🎯 Topic Complete</h3>
+
+<p>
+You have learned how to create functions, use parameters, return values,
+default arguments, keyword arguments, loops, lists, and practical
+data-analytics functions.
+</p>
+
+<p>
+<strong>Next Topic: Classes & Objects</strong> 🏗️
+</p>
+
+</div>
+
+</section>
