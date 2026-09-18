@@ -1187,4 +1187,1821 @@ class="puzzle-result">
 
 </div>
 
+</section><section id="lists" class="topic">
+
+<h2>📋 Python Lists</h2>
+
+<div class="card">
+
+<h3>📚 What is a List?</h3>
+
+<p>
+A list is a collection used to store multiple values
+in a single variable.
+</p>
+
+<p>
+Lists are written using <b>square brackets [ ]</b>.
+A list can contain different types of data.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code6">fruits = ["Apple", "Banana", "Mango"]
+
+print(fruits)
+print(fruits[0])
+print(fruits[1])
+print(fruits[2])</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code6','output6')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output6"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>✏️ Creating a List</h3>
+
+<p>
+You can create a list by placing multiple values inside
+square brackets.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code6a">name = "Shiv"
+
+subjects = [
+    "Python",
+    "SQL",
+    "Excel",
+    "Power BI"
+]
+
+print(subjects)</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code6a','output6a')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output6a"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>🔢 List Indexing</h3>
+
+<p>
+List indexing is used to access individual elements.
+Python starts indexing from <b>0</b>.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code6b">numbers = [10, 20, 30, 40, 50]
+
+print(numbers[0])
+print(numbers[2])
+print(numbers[4])
+
+print(numbers[-1])</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code6b','output6b')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output6b"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>✂️ List Slicing</h3>
+
+<p>
+List slicing is used to get a part of a list.
+The syntax is:
+</p>
+
+<p>
+<b>list[start:end]</b>
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code6c">numbers = [10, 20, 30, 40, 50]
+
+print(numbers[0:3])
+print(numbers[1:4])
+print(numbers[:3])
+print(numbers[2:])</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code6c','output6c')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output6c"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>➕ Adding Elements to a List</h3>
+
+<p>
+The <b>append()</b> method adds a new element at the end
+of a list.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code6d">fruits = ["Apple", "Banana"]
+
+fruits.append("Mango")
+
+print(fruits)
+
+fruits.append("Orange")
+
+print(fruits)</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code6d','output6d')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output6d"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>🗑️ Removing Elements</h3>
+
+<p>
+The <b>remove()</b> method removes a specific value
+from a list.
+</p>
+
+<p>
+The <b>pop()</b> method removes an element using its index.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code6e">fruits = ["Apple", "Banana", "Mango", "Orange"]
+
+fruits.remove("Banana")
+
+print(fruits)
+
+fruits.pop(1)
+
+print(fruits)</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code6e','output6e')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output6e"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>📏 List Length</h3>
+
+<p>
+The <b>len()</b> function returns the number of elements
+present in a list.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code6f">students = [
+    "Aman",
+    "Rahul",
+    "Shiv",
+    "Priya"
+]
+
+print(len(students))</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code6f','output6f')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output6f"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>🔄 Changing List Elements</h3>
+
+<p>
+Lists are mutable, which means their elements can be
+changed after the list is created.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code6g">marks = [70, 75, 80, 85]
+
+print(marks)
+
+marks[0] = 90
+marks[2] = 95
+
+print(marks)</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code6g','output6g')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output6g"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>🧰 Useful List Methods</h3>
+
+<ul>
+
+<li><b>append()</b> — adds an element</li>
+
+<li><b>remove()</b> — removes a specific element</li>
+
+<li><b>pop()</b> — removes an element by index</li>
+
+<li><b>insert()</b> — adds an element at a specific position</li>
+
+<li><b>sort()</b> — sorts the list</li>
+
+<li><b>reverse()</b> — reverses the list</li>
+
+<li><b>clear()</b> — removes all elements</li>
+
+</ul>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code6h">numbers = [40, 10, 30, 20]
+
+numbers.sort()
+
+print(numbers)
+
+numbers.reverse()
+
+print(numbers)
+
+numbers.insert(1, 99)
+
+print(numbers)</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code6h','output6h')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output6h"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>💻 List Practice</h3>
+
+<p>
+Create a list containing five numbers.
+Print the first number, last number, total number
+of elements, and sorted list.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Example</div>
+
+<textarea class="code" id="code6i">numbers = [50, 20, 80, 10, 40]
+
+print("First:", numbers[0])
+print("Last:", numbers[-1])
+print("Total:", len(numbers))
+
+numbers.sort()
+
+print("Sorted:", numbers)</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code6i','output6i')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output6i"></iframe>
+
+</div>
+
 </section>
+    <section id="tuples" class="topic">
+
+<h2>📦 Python Tuples</h2>
+
+<div class="card">
+
+<h3>📚 What is a Tuple?</h3>
+
+<p>
+A tuple is a collection used to store multiple values
+in a single variable.
+</p>
+
+<p>
+Tuples are written using <b>round brackets ( )</b>.
+Unlike lists, tuples are <b>immutable</b>, which means
+their values cannot be changed after creation.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code7">fruits = ("Apple", "Banana", "Mango")
+
+print(fruits)
+print(fruits[0])
+print(fruits[1])
+print(fruits[2])</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code7','output7')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output7"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>✏️ Creating a Tuple</h3>
+
+<p>
+A tuple can contain numbers, strings, or different
+types of values.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code7a">numbers = (10, 20, 30, 40)
+
+names = ("Shiv", "Rahul", "Aman")
+
+data = ("Python", 100, 25.5, True)
+
+print(numbers)
+print(names)
+print(data)</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code7a','output7a')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output7a"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>🔢 Tuple Indexing</h3>
+
+<p>
+Tuple indexing is used to access individual elements.
+Python starts indexing from <b>0</b>.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code7b">numbers = (10, 20, 30, 40, 50)
+
+print(numbers[0])
+print(numbers[2])
+print(numbers[4])
+
+print(numbers[-1])</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code7b','output7b')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output7b"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>✂️ Tuple Slicing</h3>
+
+<p>
+Tuple slicing is used to extract a part of a tuple.
+The syntax is:
+</p>
+
+<p>
+<b>tuple[start:end]</b>
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code7c">numbers = (10, 20, 30, 40, 50)
+
+print(numbers[0:3])
+print(numbers[1:4])
+print(numbers[:3])
+print(numbers[2:])</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code7c','output7c')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output7c"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>📏 Tuple Length</h3>
+
+<p>
+The <b>len()</b> function returns the number of elements
+present in a tuple.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code7d">subjects = (
+    "Python",
+    "SQL",
+    "Excel",
+    "Power BI"
+)
+
+print(len(subjects))</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code7d','output7d')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output7d"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>🔍 Tuple count() Method</h3>
+
+<p>
+The <b>count()</b> method returns how many times a value
+appears in a tuple.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code7e">numbers = (10, 20, 10, 30, 10, 40)
+
+print(numbers.count(10))
+print(numbers.count(20))
+print(numbers.count(50))</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code7e','output7e')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output7e"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>🔎 Tuple index() Method</h3>
+
+<p>
+The <b>index()</b> method returns the position of the
+first occurrence of a value.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code7f">fruits = (
+    "Apple",
+    "Banana",
+    "Mango",
+    "Orange"
+)
+
+print(fruits.index("Mango"))
+print(fruits.index("Orange"))</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code7f','output7f')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output7f"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>📦 Tuple Packing</h3>
+
+<p>
+Tuple packing means storing multiple values inside
+a single tuple without explicitly using brackets.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code7g">student = "Shiv", 18, "Python"
+
+print(student)
+
+print(student[0])
+print(student[1])
+print(student[2])</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code7g','output7g')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output7g"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>🔓 Tuple Unpacking</h3>
+
+<p>
+Tuple unpacking allows us to assign tuple values
+to multiple variables.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code7h">student = ("Shiv", 18, "Python")
+
+name, age, course = student
+
+print(name)
+print(age)
+print(course)</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code7h','output7h')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output7h"></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h3>⚖️ Tuple vs List</h3>
+
+<table style="
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+">
+
+<tr>
+<th style="padding:10px;">List</th>
+<th style="padding:10px;">Tuple</th>
+</tr>
+
+<tr>
+<td style="padding:10px;">Uses [ ]</td>
+<td style="padding:10px;">Uses ( )</td>
+</tr>
+
+<tr>
+<td style="padding:10px;">Mutable</td>
+<td style="padding:10px;">Immutable</td>
+</tr>
+
+<tr>
+<td style="padding:10px;">Can be changed</td>
+<td style="padding:10px;">Cannot be changed</td>
+</tr>
+
+<tr>
+<td style="padding:10px;">More methods</td>
+<td style="padding:10px;">Fewer methods</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<div class="card">
+
+<h3>💻 Tuple Practice</h3>
+
+<p>
+Create a tuple containing five numbers.
+Print the first number, last number, length of the tuple,
+and count how many times one number appears.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Example</div>
+
+<textarea class="code" id="code7i">numbers = (10, 20, 10, 30, 40)
+
+print("First:", numbers[0])
+print("Last:", numbers[-1])
+print("Length:", len(numbers))
+print("10 appears:", numbers.count(10))</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code7i','output7i')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output7i"></iframe>
+
+</div>
+
+
+<!-- TUPLE MCQs -->
+
+<div class="card">
+
+<h3>📝 Tuple MCQs</h3>
+
+<div class="quiz" id="quiz7">
+
+<div class="question">
+
+<p>1. Which brackets are used to create a tuple?</p>
+
+<label class="option">
+<input type="radio" name="quiz7q1" value="a">
+( )
+</label>
+
+<label class="option">
+<input type="radio" name="quiz7q1" value="b">
+[ ]
+</label>
+
+<label class="option">
+<input type="radio" name="quiz7q1" value="c">
+{ }
+</label>
+
+</div>
+
+
+<div class="question">
+
+<p>2. Which statement is true about tuples?</p>
+
+<label class="option">
+<input type="radio" name="quiz7q2" value="a">
+They are immutable
+</label>
+
+<label class="option">
+<input type="radio" name="quiz7q2" value="b">
+They are always mutable
+</label>
+
+<label class="option">
+<input type="radio" name="quiz7q2" value="c">
+They can only store numbers
+</label>
+
+</div>
+
+
+<div class="question">
+
+<p>3. Which method counts an element in a tuple?</p>
+
+<label class="option">
+<input type="radio" name="quiz7q3" value="a">
+find()
+</label>
+
+<label class="option">
+<input type="radio" name="quiz7q3" value="b">
+count()
+</label>
+
+<label class="option">
+<input type="radio" name="quiz7q3" value="c">
+search()
+</label>
+
+</div>
+
+
+<div class="question">
+
+<p>4. What is the first index of a tuple?</p>
+
+<label class="option">
+<input type="radio" name="quiz7q4" value="a">
+1
+</label>
+
+<label class="option">
+<input type="radio" name="quiz7q4" value="b">
+0
+</label>
+
+<label class="option">
+<input type="radio" name="quiz7q4" value="c">
+-1
+</label>
+
+</div>
+
+
+<div class="question">
+
+<p>5. Which method returns the position of a value?</p>
+
+<label class="option">
+<input type="radio" name="quiz7q5" value="a">
+index()
+</label>
+
+<label class="option">
+<input type="radio" name="quiz7q5" value="b">
+position()
+</label>
+
+<label class="option">
+<input type="radio" name="quiz7q5" value="c">
+find()
+</label>
+
+</div>
+
+
+<button class="check-btn"
+onclick="checkQuiz(
+'quiz7',
+['a','a','b','b','a']
+)">
+
+Check Answers
+
+</button>
+
+<div id="quiz7-result"
+class="quiz-result">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- TUPLE PUZZLE -->
+
+<div class="card puzzle">
+
+<h3>🧩 Topic Puzzle</h3>
+
+<p>
+What will be the output of:
+<b>numbers = (10, 20, 30); print(numbers[1])</b>?
+</p>
+
+<input
+id="puzzle7"
+placeholder="Enter your answer"
+>
+
+<button class="hint-btn"
+onclick="showHint('hint7')">
+
+💡 Hint
+
+</button>
+
+<button class="check-btn"
+onclick="checkPuzzle(
+'puzzle7',
+'puzzle7-result',
+'20'
+)">
+
+Check Puzzle
+
+</button>
+
+<div id="hint7"
+class="hint">
+
+Hint: Tuple indexing starts from 0.
+
+</div>
+
+<div id="puzzle7-result"
+class="puzzle-result">
+</div>
+
+</div>
+
+    </section>
+    <section id="dictionary" class="topic">
+
+<h2>📚 Python Dictionary</h2>
+
+
+<!-- WHAT IS A DICTIONARY -->
+
+<div class="card">
+
+<h3>📖 What is a Dictionary?</h3>
+
+<p>
+A dictionary is a collection used to store data in
+<b>key-value pairs</b>.
+</p>
+
+<p>
+Dictionaries are written using <b>curly brackets { }</b>.
+Each key is connected to a value using a colon <b>:</b>.
+</p>
+
+<p>
+Example:
+<b>"name": "Shiv"</b>
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code8">student = {
+    "name": "Shiv",
+    "age": 18,
+    "course": "Python"
+}
+
+print(student)</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8','output8')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8"></iframe>
+
+</div>
+
+
+<!-- KEY VALUE PAIRS -->
+
+<div class="card">
+
+<h3>🔑 Keys and Values</h3>
+
+<p>
+A dictionary contains <b>keys</b> and <b>values</b>.
+The key is used to identify and access the value.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code8a">student = {
+    "name": "Shiv",
+    "age": 18,
+    "city": "Delhi"
+}
+
+print(student["name"])
+print(student["age"])
+print(student["city"])</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8a','output8a')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8a"></iframe>
+
+</div>
+
+
+<!-- ACCESS VALUES -->
+
+<div class="card">
+
+<h3>🔍 Accessing Dictionary Values</h3>
+
+<p>
+You can access a dictionary value by using its key
+inside square brackets.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code8b">person = {
+    "name": "Shiv",
+    "age": 18,
+    "profession": "Student"
+}
+
+print(person["name"])
+print(person["profession"])</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8b','output8b')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8b"></iframe>
+
+</div>
+
+
+<!-- GET METHOD -->
+
+<div class="card">
+
+<h3>🛡️ Using get() Method</h3>
+
+<p>
+The <b>get()</b> method is another way to access a
+dictionary value.
+</p>
+
+<p>
+It is useful when a key may not exist because it can
+return a default value instead of causing an error.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code8c">student = {
+    "name": "Shiv",
+    "age": 18
+}
+
+print(student.get("name"))
+print(student.get("age"))
+print(student.get("city", "Not Available"))</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8c','output8c')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8c"></iframe>
+
+</div>
+
+
+<!-- ADD DATA -->
+
+<div class="card">
+
+<h3>➕ Adding Items</h3>
+
+<p>
+You can add a new key-value pair to a dictionary
+by assigning a value to a new key.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code8d">student = {
+    "name": "Shiv",
+    "age": 18
+}
+
+student["city"] = "Delhi"
+student["course"] = "Python"
+
+print(student)</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8d','output8d')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8d"></iframe>
+
+</div>
+
+
+<!-- UPDATE -->
+
+<div class="card">
+
+<h3>🔄 Updating Dictionary Values</h3>
+
+<p>
+You can change an existing value by assigning a new
+value to its key.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code8e">student = {
+    "name": "Shiv",
+    "age": 18,
+    "course": "Python"
+}
+
+student["age"] = 19
+student["course"] = "Data Analytics"
+
+print(student)</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8e','output8e')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8e"></iframe>
+
+</div>
+
+
+<!-- UPDATE METHOD -->
+
+<div class="card">
+
+<h3>🔧 update() Method</h3>
+
+<p>
+The <b>update()</b> method can add new items or update
+existing items in a dictionary.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code8f">student = {
+    "name": "Shiv",
+    "age": 18
+}
+
+student.update({
+    "city": "Delhi",
+    "course": "Python"
+})
+
+print(student)</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8f','output8f')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8f"></iframe>
+
+</div>
+
+
+<!-- DELETE -->
+
+<div class="card">
+
+<h3>🗑️ Removing Items</h3>
+
+<p>
+The <b>pop()</b> method removes an item using its key.
+</p>
+
+<p>
+The <b>del</b> keyword can also remove a dictionary item.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code8g">student = {
+    "name": "Shiv",
+    "age": 18,
+    "city": "Delhi",
+    "course": "Python"
+}
+
+student.pop("city")
+
+print(student)
+
+del student["age"]
+
+print(student)</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8g','output8g')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8g"></iframe>
+
+</div>
+
+
+<!-- KEYS -->
+
+<div class="card">
+
+<h3>🔑 keys() Method</h3>
+
+<p>
+The <b>keys()</b> method returns all the keys
+present in a dictionary.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code8h">student = {
+    "name": "Shiv",
+    "age": 18,
+    "course": "Python"
+}
+
+print(student.keys())</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8h','output8h')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8h"></iframe>
+
+</div>
+
+
+<!-- VALUES -->
+
+<div class="card">
+
+<h3>💎 values() Method</h3>
+
+<p>
+The <b>values()</b> method returns all the values
+present in a dictionary.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code8i">student = {
+    "name": "Shiv",
+    "age": 18,
+    "course": "Python"
+}
+
+print(student.values())</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8i','output8i')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8i"></iframe>
+
+</div>
+
+
+<!-- ITEMS -->
+
+<div class="card">
+
+<h3>📦 items() Method</h3>
+
+<p>
+The <b>items()</b> method returns dictionary items
+as key-value pairs.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code8j">student = {
+    "name": "Shiv",
+    "age": 18,
+    "course": "Python"
+}
+
+print(student.items())</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8j','output8j')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8j"></iframe>
+
+</div>
+
+
+<!-- LOOP -->
+
+<div class="card">
+
+<h3>🔁 Loop Through a Dictionary</h3>
+
+<p>
+You can use a <b>for loop</b> to access dictionary
+keys and values.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code8k">student = {
+    "name": "Shiv",
+    "age": 18,
+    "course": "Python"
+}
+
+for key, value in student.items():
+    print(key, ":", value)</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8k','output8k')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8k"></iframe>
+
+</div>
+
+
+<!-- CHECK KEY -->
+
+<div class="card">
+
+<h3>🔎 Check if a Key Exists</h3>
+
+<p>
+The <b>in</b> keyword can be used to check whether
+a key exists in a dictionary.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code8l">student = {
+    "name": "Shiv",
+    "age": 18,
+    "course": "Python"
+}
+
+if "name" in student:
+    print("Name exists")
+
+if "city" not in student:
+    print("City does not exist")</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8l','output8l')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8l"></iframe>
+
+</div>
+
+
+<!-- LENGTH -->
+
+<div class="card">
+
+<h3>📏 Dictionary Length</h3>
+
+<p>
+The <b>len()</b> function returns the number of
+key-value pairs in a dictionary.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code8m">student = {
+    "name": "Shiv",
+    "age": 18,
+    "city": "Delhi",
+    "course": "Python"
+}
+
+print(len(student))</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8m','output8m')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8m"></iframe>
+
+</div>
+
+
+<!-- NESTED DICTIONARY -->
+
+<div class="card">
+
+<h3>📂 Nested Dictionary</h3>
+
+<p>
+A dictionary can contain another dictionary.
+This is called a <b>nested dictionary</b>.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code8n">students = {
+    "student1": {
+        "name": "Shiv",
+        "age": 18
+    },
+
+    "student2": {
+        "name": "Rahul",
+        "age": 19
+    }
+}
+
+print(students["student1"]["name"])
+print(students["student2"]["age"])</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8n','output8n')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8n"></iframe>
+
+</div>
+
+
+<!-- PRACTICAL -->
+
+<div class="card">
+
+<h3>💼 Practical Example — Student Record</h3>
+
+<p>
+Dictionaries are useful for storing structured data,
+such as student records.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code" id="code8o">student = {
+    "name": "Shiv Mishra",
+    "age": 18,
+    "course": "B.Tech CSE",
+    "skill": "Data Analytics",
+    "city": "Delhi"
+}
+
+print("Name:", student["name"])
+print("Age:", student["age"])
+print("Course:", student["course"])
+print("Skill:", student["skill"])
+print("City:", student["city"])</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8o','output8o')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8o"></iframe>
+
+</div>
+
+
+<!-- PRACTICE -->
+
+<div class="card">
+
+<h3>💻 Dictionary Practice</h3>
+
+<p>
+Create a dictionary containing your name, age, city,
+course and favorite skill.
+</p>
+
+<p>
+Then print each value using its key.
+Finally, add a new key called <b>"goal"</b>.
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Example</div>
+
+<textarea class="code" id="code8p">student = {
+    "name": "Shiv",
+    "age": 18,
+    "city": "Delhi",
+    "course": "B.Tech CSE",
+    "skill": "Python"
+}
+
+print(student["name"])
+print(student["course"])
+
+student["goal"] = "Data Analyst"
+
+print(student)</textarea>
+
+</div>
+
+<button class="run-btn"
+onclick="runPython('code8p','output8p')">
+▶ Run Code
+</button>
+
+<iframe class="output" id="output8p"></iframe>
+
+</div>
+
+
+<!-- MCQs -->
+
+<div class="card">
+
+<h3>📝 Dictionary MCQs</h3>
+
+<div class="quiz" id="quiz8">
+
+
+<div class="question">
+
+<p>1. Which brackets are used to create a dictionary?</p>
+
+<label class="option">
+<input type="radio" name="quiz8q1" value="a">
+( )
+</label>
+
+<label class="option">
+<input type="radio" name="quiz8q1" value="b">
+[ ]
+</label>
+
+<label class="option">
+<input type="radio" name="quiz8q1" value="c">
+{ }
+</label>
+
+</div>
+
+
+<div class="question">
+
+<p>2. A dictionary stores data in which form?</p>
+
+<label class="option">
+<input type="radio" name="quiz8q2" value="a">
+Key-value pairs
+</label>
+
+<label class="option">
+<input type="radio" name="quiz8q2" value="b">
+Only numbers
+</label>
+
+<label class="option">
+<input type="radio" name="quiz8q2" value="c">
+Only strings
+</label>
+
+</div>
+
+
+<div class="question">
+
+<p>3. Which method returns all dictionary keys?</p>
+
+<label class="option">
+<input type="radio" name="quiz8q3" value="a">
+values()
+</label>
+
+<label class="option">
+<input type="radio" name="quiz8q3" value="b">
+keys()
+</label>
+
+<label class="option">
+<input type="radio" name="quiz8q3" value="c">
+items()
+</label>
+
+</div>
+
+
+<div class="question">
+
+<p>4. Which method returns all dictionary values?</p>
+
+<label class="option">
+<input type="radio" name="quiz8q4" value="a">
+keys()
+</label>
+
+<label class="option">
+<input type="radio" name="quiz8q4" value="b">
+items()
+</label>
+
+<label class="option">
+<input type="radio" name="quiz8q4" value="c">
+values()
+</label>
+
+</div>
+
+
+<div class="question">
+
+<p>5. Which method removes an item using its key?</p>
+
+<label class="option">
+<input type="radio" name="quiz8q5" value="a">
+pop()
+</label>
+
+<label class="option">
+<input type="radio" name="quiz8q5" value="b">
+remove()
+</label>
+
+<label class="option">
+<input type="radio" name="quiz8q5" value="c">
+delete()
+</label>
+
+</div>
+
+
+<button class="check-btn"
+onclick="checkQuiz(
+'quiz8',
+['c','a','b','c','a']
+)">
+
+Check Answers
+
+</button>
+
+<div id="quiz8-result"
+class="quiz-result">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PUZZLE -->
+
+<div class="card puzzle">
+
+<h3>🧩 Topic Puzzle</h3>
+
+<p>
+What will be the output of this code?
+</p>
+
+<div class="code-box">
+
+<div class="code-header">Python Code</div>
+
+<textarea class="code">student = {
+    "name": "Shiv",
+    "age": 18
+}
+
+print(student["name"])</textarea>
+
+</div>
+
+<p>
+Enter the output below:
+</p>
+
+<input
+id="puzzle8"
+placeholder="Enter your answer"
+>
+
+<button class="hint-btn"
+onclick="showHint('hint8')">
+
+💡 Hint
+
+</button>
+
+<button class="check-btn"
+onclick="checkPuzzle(
+'puzzle8',
+'puzzle8-result',
+'Shiv'
+)">
+
+Check Puzzle
+
+</button>
+
+<div id="hint8"
+class="hint">
+
+Hint: The key "name" contains the value Shiv.
+
+</div>
+
+<div id="puzzle8-result"
+class="puzzle-result">
+</div>
+
+</div>
+
+
+    </section>
