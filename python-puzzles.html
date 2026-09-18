@@ -5196,3 +5196,83 @@ data-analytics functions.
 </div>
 
 </section>
+    /* =========================================
+   PYTHON FUNCTION CODE EDITOR FIX
+========================================= */
+
+#functions textarea {
+    display: block;
+    width: 100%;
+    min-height: 160px;
+    box-sizing: border-box;
+
+    background: #020617 !important;
+    color: #e2e8f0 !important;
+
+    border: 1px solid #334155 !important;
+    border-radius: 14px;
+
+    padding: 16px;
+
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 15px;
+    line-height: 1.6;
+
+    resize: vertical;
+    outline: none;
+
+    margin-top: 12px;
+}
+
+#functions textarea:focus {
+    border-color: #6366f1 !important;
+
+    box-shadow:
+        0 0 0 3px rgba(99,102,241,0.15);
+
+    background: #020617 !important;
+    color: #ffffff !important;
+}
+
+#functions button {
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    ) !important;
+
+    color: #ffffff !important;
+
+    border: none;
+    border-radius: 12px;
+
+    padding: 12px 20px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+}
+
+#functions button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(99,102,241,0.35);
+}
+
+#functions iframe {
+    display: block;
+
+    width: 100%;
+    min-height: 150px;
+
+    border: 1px solid #334155 !important;
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    margin-top: 12px;
+}
