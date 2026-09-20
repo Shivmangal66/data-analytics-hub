@@ -1,2082 +1,597 @@
-<!DOCTYPE html>
+from pathlib import Path
+
+path = Path("/mnt/data/python-puzzles.html")
+
+html = r'''<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Python Learning | Data Analytics Hub</title>
-
+<title>Python Challenge | Data Analytics Hub</title>
 <style>
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#070b18;
-    color:#f8fafc;
-    min-height:100vh;
-}
-
-/* TOP BAR */
-
-.topbar{
-    height:70px;
-    background:#0d1326;
-    border-bottom:1px solid #202a44;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 25px;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo{
-    font-size:22px;
-    font-weight:800;
-}
-
-.logo span{
-    background:linear-gradient(
-        135deg,
-        #38bdf8,
-        #6366f1,
-        #a855f7
-    );
-    -webkit-background-clip:text;
-    color:transparent;
-}
-
-.nav{
-    display:flex;
-    gap:22px;
-}
-
-.nav a{
-    color:#cbd5e1;
-    text-decoration:none;
-    font-weight:600;
-}
-
-.nav a:hover,
-.nav a.active{
-    color:#60a5fa;
-}
-
-/* LAYOUT */
-
-.layout{
-    display:flex;
-    min-height:calc(100vh - 70px);
-}
-
-/* SIDEBAR */
-
-.sidebar{
-    width:260px;
-    background:#0b1020;
-    border-right:1px solid #202a44;
-    padding:25px 18px;
-    position:sticky;
-    top:70px;
-    height:calc(100vh - 70px);
-    overflow-y:auto;
-}
-
-.sidebar h3{
-    color:#94a3b8;
-    font-size:13px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    margin-bottom:15px;
-}
-
-.sidebar a{
-    display:block;
-    color:#cbd5e1;
-    text-decoration:none;
-    padding:12px 14px;
-    border-radius:10px;
-    margin-bottom:6px;
-    transition:.2s;
-}
-
-.sidebar a:hover{
-    background:#151d35;
-    color:white;
-}
-
-.sidebar a.active{
-    background:linear-gradient(
-        135deg,
-        #2563eb,
-        #7c3aed
-    );
-    color:white;
-}
-
-/* MAIN */
-
-.main{
-    flex:1;
-    padding:35px;
-    max-width:1200px;
-}
-
-/* HERO */
-
-.hero{
-    background:
-    linear-gradient(
-        135deg,
-        rgba(37,99,235,.18),
-        rgba(124,58,237,.18)
-    );
-
-    border:1px solid #263453;
-    border-radius:25px;
-    padding:35px;
-    margin-bottom:25px;
-}
-
-.badge{
-    display:inline-block;
-    background:#172554;
-    color:#60a5fa;
-    padding:7px 13px;
-    border-radius:20px;
-    font-size:13px;
-    font-weight:bold;
-    margin-bottom:15px;
-}
-
-.hero h1{
-    font-size:38px;
-    margin-bottom:12px;
-}
-
-.hero p{
-    color:#94a3b8;
-    max-width:700px;
-    line-height:1.7;
-}
-
-/* STATS */
-
-.stats{
-    display:grid;
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:15px;
-    margin-bottom:25px;
-}
-
-.stat{
-    background:#0d1326;
-    border:1px solid #202a44;
-    border-radius:18px;
-    padding:20px;
-}
-
-.stat small{
-    color:#94a3b8;
-}
-
-.stat strong{
-    display:block;
-    font-size:27px;
-    margin-top:7px;
-}
-
-/* XP */
-
-.progress-box{
-    background:#0d1326;
-    border:1px solid #202a44;
-    border-radius:18px;
-    padding:22px;
-    margin-bottom:30px;
-}
-
-.progress-top{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:12px;
-}
-
-.progress-top span{
-    color:#94a3b8;
-}
-
-.progress{
-    height:12px;
-    background:#1e293b;
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.progress-bar{
-    width:10%;
-    height:100%;
-    background:linear-gradient(
-        90deg,
-        #2563eb,
-        #7c3aed
-    );
-    transition:.4s;
-}
-
-/* LEVEL */
-
-.level{
-    margin-bottom:35px;
-}
-
-.level-title{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:15px;
-}
-
-.level-title h2{
-    font-size:24px;
-}
-
-.level-title span{
-    color:#64748b;
-    font-size:14px;
-}
-
-/* LESSON GRID */
-
-.lessons{
-    display:grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(220px,1fr));
-
-    gap:16px;
-}
-
-.lesson{
-    background:#0d1326;
-    border:1px solid #202a44;
-    border-radius:18px;
-    padding:20px;
-    cursor:pointer;
-    transition:.25s;
-    position:relative;
-}
-
-.lesson:hover{
-    transform:translateY(-4px);
-    border-color:#4f46e5;
-    box-shadow:
-        0 10px 35px
-        rgba(37,99,235,.15);
-}
-
-.lesson.locked{
-    opacity:.45;
-    cursor:not-allowed;
-}
-
-.lesson-icon{
-    width:48px;
-    height:48px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:14px;
-    background:#172554;
-    font-size:23px;
-    margin-bottom:15px;
-}
-
-.lesson h3{
-    margin-bottom:7px;
-}
-
-.lesson p{
-    color:#94a3b8;
-    font-size:14px;
-    line-height:1.5;
-}
-
-.lesson-bottom{
-    display:flex;
-    justify-content:space-between;
-    margin-top:18px;
-    color:#64748b;
-    font-size:13px;
-}
-
-.lesson-status{
-    color:#4ade80;
-    font-weight:bold;
-}
-
-/* MODAL */
-
-.modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.75);
-    backdrop-filter:blur(8px);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    z-index:2000;
-}
-
-.modal.show{
-    display:flex;
-}
-
-.modal-box{
-    width:100%;
-    max-width:700px;
-    max-height:90vh;
-    overflow-y:auto;
-    background:#0d1326;
-    border:1px solid #334155;
-    border-radius:24px;
-    padding:30px;
-    box-shadow:
-        0 25px 80px
-        rgba(0,0,0,.5);
-}
-
-.modal-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
-}
-
-.close{
-    background:#1e293b;
-    color:white;
-    border:0;
-    width:38px;
-    height:38px;
-    border-radius:50%;
-    font-size:20px;
-    cursor:pointer;
-}
-
-.lesson-content{
-    color:#cbd5e1;
-    line-height:1.7;
-}
-
-.lesson-content h3{
-    color:white;
-    margin:20px 0 10px;
-}
-
-.code{
-    background:#020617;
-    border:1px solid #263453;
-    border-radius:14px;
-    padding:18px;
-    margin:15px 0;
-    overflow:auto;
-}
-
-.code pre{
-    color:#e2e8f0;
-    font-family:Consolas,monospace;
-    line-height:1.6;
-}
-
-.activity{
-    background:#111827;
-    border:1px solid #273449;
-    border-radius:15px;
-    padding:18px;
-    margin-top:18px;
-}
-
-.activity h4{
-    margin-bottom:12px;
-}
-
-.option{
-    display:block;
-    background:#172033;
-    padding:12px;
-    border-radius:10px;
-    margin:7px 0;
-    cursor:pointer;
-}
-
-.option:hover{
-    background:#202d47;
-}
-
-.answer-input{
-    width:100%;
-    padding:12px;
-    background:#020617;
-    color:white;
-    border:1px solid #334155;
-    border-radius:10px;
-    outline:none;
-}
-
-.btn{
-    border:0;
-    padding:12px 20px;
-    border-radius:11px;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-    background:linear-gradient(
-        135deg,
-        #2563eb,
-        #7c3aed
-    );
-    margin-top:12px;
-}
-
-.btn:hover{
-    transform:translateY(-2px);
-}
-
-.result{
-    margin-top:10px;
-    font-weight:bold;
-}
-
-.complete{
-    text-align:center;
-    margin-top:25px;
-    padding:20px;
-    background:#052e1b;
-    border:1px solid #166534;
-    border-radius:15px;
-    display:none;
-}
-
-.complete.show{
-    display:block;
-}
-
-/* MOBILE */
-
-@media(max-width:800px){
-
-    .nav{
-        display:none;
-    }
-
-    .sidebar{
-        display:none;
-    }
-
-    .main{
-        padding:20px;
-    }
-
-    .hero h1{
-        font-size:28px;
-    }
-
-    .stats{
-        grid-template-columns:1fr;
-    }
-
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#070b18;color:#fff;min-height:100vh}
+.navbar{position:sticky;top:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:15px 5%;background:rgba(7,11,24,.96);backdrop-filter:blur(12px);border-bottom:1px solid #202944}
+.logo{color:#fff;text-decoration:none;font-size:20px;font-weight:800}.logo span{background:linear-gradient(90deg,#38bdf8,#8b5cf6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.nav a{color:#cbd5e1;text-decoration:none;padding:9px 12px;border-radius:10px}.nav a:hover,.nav a.active{background:#18213a;color:#fff}
+.container{width:92%;max-width:1400px;margin:auto;display:grid;grid-template-columns:240px 1fr;gap:25px;padding:28px 0}
+.sidebar{background:#0d1326;border:1px solid #202944;border-radius:18px;padding:18px;height:max-content;position:sticky;top:90px}.sidebar h3{margin-bottom:15px}.level{padding:12px;margin:7px 0;border-radius:10px;background:#111a31;color:#cbd5e1;font-size:14px}.level.active{background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff}
+.hero{background:radial-gradient(circle at top right,rgba(59,130,246,.2),transparent 40%),#0d1326;border:1px solid #202944;border-radius:22px;padding:32px;margin-bottom:22px}.badge{display:inline-block;padding:7px 12px;background:#172554;color:#60a5fa;border-radius:20px;font-size:12px;font-weight:bold;margin-bottom:14px}.hero h1{font-size:38px;margin-bottom:10px}.hero h1 span{background:linear-gradient(90deg,#38bdf8,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:#94a3b8;line-height:1.7}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}.stat{background:#0d1326;border:1px solid #202944;border-radius:16px;padding:17px;text-align:center}.stat-icon{font-size:24px}.stat-number{font-size:24px;font-weight:bold;margin-top:5px}.stat-label{color:#94a3b8;font-size:12px;margin-top:4px}
+.progress-box{background:#0d1326;border:1px solid #202944;padding:18px;border-radius:16px;margin-bottom:22px}.progress-top{display:flex;justify-content:space-between;color:#cbd5e1;margin-bottom:9px}.progress{height:11px;background:#1e293b;border-radius:20px;overflow:hidden}.progress-bar{height:100%;width:0;background:linear-gradient(90deg,#38bdf8,#8b5cf6);transition:.4s}
+.section-title{margin-bottom:14px}.section-title h2{font-size:25px}.section-title p{color:#94a3b8;margin-top:5px}
+.lesson-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.lesson{background:#0d1326;border:1px solid #202944;border-radius:18px;padding:19px;cursor:pointer;transition:.25s;position:relative}.lesson:hover{transform:translateY(-4px);border-color:#3b82f6}.lesson.locked{opacity:.43;cursor:not-allowed}.lesson.locked:hover{transform:none;border-color:#202944}.lesson-icon{font-size:28px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:#172554;border-radius:13px;margin-bottom:13px}.lesson h3{margin-bottom:7px}.lesson p{color:#94a3b8;font-size:13px;line-height:1.5;min-height:39px}.lesson-bottom{display:flex;justify-content:space-between;margin-top:15px;color:#94a3b8;font-size:12px}.lesson-status{color:#60a5fa;font-weight:bold}
+.footer{text-align:center;color:#64748b;padding:35px 0}
+.modal{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.8);display:none;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.modal-box{width:100%;max-width:880px;max-height:92vh;overflow-y:auto;background:#0b1122;border:1px solid #293552;border-radius:22px;box-shadow:0 25px 80px rgba(0,0,0,.55)}.modal-header{position:sticky;top:0;z-index:5;background:#0b1122;border-bottom:1px solid #202944;padding:18px 20px;display:flex;justify-content:space-between;align-items:center}.close{width:38px;height:38px;border:0;border-radius:10px;background:#1e293b;color:#fff;font-size:24px;cursor:pointer}.lesson-content{padding:23px}.lesson-content h3{margin:18px 0 9px}.lesson-content p{color:#cbd5e1;line-height:1.6}.learn-box,.example-box{background:#111827;border:1px solid #273449;border-radius:14px;padding:16px;margin:12px 0}.code{background:#020617;border:1px solid #1e293b;border-radius:12px;padding:14px;margin:10px 0;overflow:auto}.code pre{color:#67e8f9;font-family:Consolas,monospace;font-size:14px;white-space:pre-wrap}.activity{background:#111827;border:1px solid #273449;border-radius:15px;padding:17px;margin-top:15px}.activity h4{margin-bottom:10px}.option{display:block;padding:11px;background:#172033;border-radius:10px;margin-top:7px;cursor:pointer}.option:hover{background:#1e293b}.option input{margin-right:8px}.answer-input{width:100%;background:#020617;border:1px solid #334155;border-radius:10px;padding:11px;color:#fff;outline:none;margin-top:9px;font-family:inherit}.answer-input:focus{border-color:#3b82f6}.btn{border:0;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;padding:11px 17px;border-radius:10px;cursor:pointer;font-weight:bold;margin-top:9px}.btn:hover{transform:translateY(-1px)}.result{margin-top:9px;font-weight:bold;color:#67e8f9}.complete{display:none;text-align:center;background:linear-gradient(135deg,#172554,#312e81);border:1px solid #4f46e5;border-radius:16px;padding:23px;margin-top:20px;line-height:1.8}.complete.show{display:block}.topic-chip{display:inline-block;padding:5px 9px;background:#172033;color:#93c5fd;border-radius:8px;font-size:11px;margin:2px}
+@media(max-width:950px){.container{grid-template-columns:1fr}.sidebar{position:static}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.navbar{flex-direction:column;gap:11px}.hero h1{font-size:28px}.lesson-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.container{width:94%}}
 </style>
 </head>
-
 <body>
 
-<!-- TOP BAR -->
-
-<header class="topbar">
-
-    <div class="logo">
-        🐍 <span>Python Learning</span>
-    </div>
-
-    <nav class="nav">
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="html.html">
-            HTML
-        </a>
-
-        <a href="python-puzzles.html"
-           class="active">
-            Python
-        </a>
-
-        <a href="dashboard.html">
-            Dashboard
-        </a>
-
-    </nav>
-
+<header class="navbar">
+<a href="index.html" class="logo">📊 <span>Data Analytics Hub</span></a>
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="html.html">HTML</a>
+<a href="python-puzzles.html" class="active">Python</a>
+<a href="data-analytics.html">Data Analytics</a>
+<a href="excel.html">Excel</a>
+</nav>
 </header>
 
-
-<div class="layout">
-
-<!-- SIDEBAR -->
-
+<div class="container">
 <aside class="sidebar">
-
-    <h3>Python Course</h3>
-
-    <a href="#level1"
-       class="active">
-        🐍 Level 1
-    </a>
-
-    <a href="#level2">
-        📦 Level 2
-    </a>
-
-    <a href="#level3">
-        ➕ Level 3
-    </a>
-
-    <a href="#level4">
-        🔤 Level 4
-    </a>
-
-    <a href="#level5">
-        📋 Level 5
-    </a>
-
-    <a href="#level6">
-        🔀 Level 6
-    </a>
-
-    <a href="#level7">
-        🔁 Level 7
-    </a>
-
-    <a href="#level8">
-        🧩 Level 8
-    </a>
-
-    <a href="#level9">
-        📊 Data Analytics
-    </a>
-
+<h3>🐍 Python Course</h3>
+<div class="level active">Level 1<br><small>Python Basics</small></div>
+<div class="level">Level 2<br><small>Data Types & Variables</small></div>
+<div class="level">Level 3<br><small>Operators</small></div>
+<div class="level">Level 4<br><small>Strings</small></div>
+<div class="level">Level 5<br><small>Lists</small></div>
+<div class="level">Level 6<br><small>Tuples & Sets</small></div>
+<div class="level">Level 7<br><small>Dictionaries</small></div>
+<div class="level">Level 8<br><small>Conditions</small></div>
+<div class="level">Level 9<br><small>Loops</small></div>
+<div class="level">Level 10<br><small>Functions</small></div>
+<div class="level">Level 11<br><small>Errors & Files</small></div>
+<div class="level">Level 12<br><small>Advanced Python</small></div>
+<div class="level">Level 13<br><small>NumPy</small></div>
+<div class="level">Level 14<br><small>Pandas</small></div>
+<div class="level">Level 15<br><small>Data Analytics</small></div>
 </aside>
 
-
-<!-- MAIN -->
-
-<main class="main">
-
-
+<main>
 <section class="hero">
-
-    <span class="badge">
-        DATA ANALYTICS HUB
-    </span>
-
-    <h1>
-        🐍 Learn Python
-    </h1>
-
-    <p>
-        Learn Python step by step with small lessons,
-        practice activities, coding challenges,
-        debugging and real-world projects.
-    </p>
-
+<span class="badge">🐍 PYTHON + DATA ANALYTICS CHALLENGE</span>
+<h1>Learn Python <span>Step by Step</span></h1>
+<p>120 bite-sized lessons from absolute beginner Python to practical Data Analytics. Complete activities, earn XP, unlock lessons and build real skills.</p>
 </section>
-
-
-<!-- STATS -->
 
 <section class="stats">
-
-    <div class="stat">
-
-        <small>⭐ XP</small>
-
-        <strong id="xp">
-            0
-        </strong>
-
-    </div>
-
-
-    <div class="stat">
-
-        <small>🔥 Streak</small>
-
-        <strong id="streak">
-            0
-        </strong>
-
-    </div>
-
-
-    <div class="stat">
-
-        <small>🏆 Level</small>
-
-        <strong id="currentLevel">
-            1
-        </strong>
-
-    </div>
-
+<div class="stat"><div class="stat-icon">⭐</div><div class="stat-number" id="xp">0</div><div class="stat-label">XP</div></div>
+<div class="stat"><div class="stat-icon">🔥</div><div class="stat-number" id="streak">0</div><div class="stat-label">Streak</div></div>
+<div class="stat"><div class="stat-icon">🏆</div><div class="stat-number" id="levelNumber">1</div><div class="stat-label">Level</div></div>
+<div class="stat"><div class="stat-icon">📚</div><div class="stat-number" id="completedCount">0</div><div class="stat-label">Completed</div></div>
 </section>
-
-
-<!-- PROGRESS -->
 
 <section class="progress-box">
-
-    <div class="progress-top">
-
-        <strong>
-            Course Progress
-        </strong>
-
-        <span id="progressText">
-            1 / 10 lessons
-        </span>
-
-    </div>
-
-    <div class="progress">
-
-        <div
-            class="progress-bar"
-            id="progressBar">
-        </div>
-
-    </div>
-
+<div class="progress-top"><span>Course Progress</span><span id="progressText">0 / 120</span></div>
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
 </section>
 
-
-<!-- LEVEL 1 -->
-
-<section class="level"
-         id="level1">
-
-    <div class="level-title">
-
-        <h2>
-            🐍 Level 1 — Python Basics
-        </h2>
-
-        <span>
-            Beginner
-        </span>
-
-    </div>
-
-
-    <div class="lessons">
-
-
-        <!-- LESSON 1 -->
-
-        <div class="lesson"
-             onclick="openLesson(1)">
-
-            <div class="lesson-icon">
-                🐍
-            </div>
-
-            <h3>
-                Python Introduction
-            </h3>
-
-            <p>
-                What is Python and why do
-                people use it?
-            </p>
-
-            <div class="lesson-bottom">
-
-                <span>
-                    10 activities
-                </span>
-
-                <span
-                    class="lesson-status">
-                    START
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- LESSON 2 -->
-
-        <div class="lesson locked"
-             id="lesson2">
-
-            <div class="lesson-icon">
-                🖨️
-            </div>
-
-            <h3>
-                print()
-            </h3>
-
-            <p>
-                Learn how Python displays
-                information.
-            </p>
-
-            <div class="lesson-bottom">
-
-                <span>
-                    10 activities
-                </span>
-
-                <span>
-                    🔒
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- LESSON 3 -->
-
-        <div class="lesson locked"
-             id="lesson3">
-
-            <div class="lesson-icon">
-                🔢
-            </div>
-
-            <h3>
-                Numbers
-            </h3>
-
-            <p>
-                Work with integers,
-                decimals and calculations.
-            </p>
-
-            <div class="lesson-bottom">
-
-                <span>
-                    10 activities
-                </span>
-
-                <span>
-                    🔒
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- LESSON 4 -->
-
-        <div class="lesson locked"
-             id="lesson4">
-
-            <div class="lesson-icon">
-                💬
-            </div>
-
-            <h3>
-                Strings
-            </h3>
-
-            <p>
-                Learn text and basic
-                string operations.
-            </p>
-
-            <div class="lesson-bottom">
-
-                <span>
-                    10 activities
-                </span>
-
-                <span>
-                    🔒
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- LESSON 5 -->
-
-        <div class="lesson locked"
-             id="lesson5">
-
-            <div class="lesson-icon">
-                📦
-            </div>
-
-            <h3>
-                Variables
-            </h3>
-
-            <p>
-                Store information using
-                Python variables.
-            </p>
-
-            <div class="lesson-bottom">
-
-                <span>
-                    10 activities
-                </span>
-
-                <span>
-                    🔒
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- LESSON 6 -->
-
-        <div class="lesson locked"
-             id="lesson6">
-
-            <div class="lesson-icon">
-                🧠
-            </div>
-
-            <h3>
-                Data Types
-            </h3>
-
-            <p>
-                Understand int, float,
-                string and boolean.
-            </p>
-
-            <div class="lesson-bottom">
-
-                <span>
-                    10 activities
-                </span>
-
-                <span>
-                    🔒
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- LESSON 7 -->
-
-        <div class="lesson locked"
-             id="lesson7">
-
-            <div class="lesson-icon">
-                🔄
-            </div>
-
-            <h3>
-                Type Conversion
-            </h3>
-
-            <p>
-                Convert values from one
-                data type to another.
-            </p>
-
-            <div class="lesson-bottom">
-
-                <span>
-                    10 activities
-                </span>
-
-                <span>
-                    🔒
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- LESSON 8 -->
-
-        <div class="lesson locked"
-             id="lesson8">
-
-            <div class="lesson-icon">
-                ⌨️
-            </div>
-
-            <h3>
-                User Input
-            </h3>
-
-            <p>
-                Make your Python programs
-                interactive.
-            </p>
-
-            <div class="lesson-bottom">
-
-                <span>
-                    10 activities
-                </span>
-
-                <span>
-                    🔒
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- LESSON 9 -->
-
-        <div class="lesson locked"
-             id="lesson9">
-
-            <div class="lesson-icon">
-                📝
-            </div>
-
-            <h3>
-                Comments
-            </h3>
-
-            <p>
-                Add notes and explanations
-                to your Python code.
-            </p>
-
-            <div class="lesson-bottom">
-
-                <span>
-                    10 activities
-                </span>
-
-                <span>
-                    🔒
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- LESSON 10 -->
-
-        <div class="lesson locked"
-             id="lesson10">
-
-            <div class="lesson-icon">
-                🎯
-            </div>
-
-            <h3>
-                Basics Challenge
-            </h3>
-
-            <p>
-                Test everything you learned
-                in Level 1.
-            </p>
-
-            <div class="lesson-bottom">
-
-                <span>
-                    10 activities
-                </span>
-
-                <span>
-                    🔒
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
+<section>
+<div class="section-title">
+<h2 id="levelTitle">Level 1 — Python Basics</h2>
+<p>Complete each lesson to unlock the next one.</p>
+</div>
+<div class="lesson-grid" id="lessonGrid"></div>
 </section>
-
-
-<!-- FUTURE LEVELS -->
-
-<section class="level"
-         id="level2">
-
-    <div class="level-title">
-
-        <h2>
-            📦 Level 2 — Data Types & Variables
-        </h2>
-
-        <span>
-            Coming next
-        </span>
-
-    </div>
-
-</section>
-
-
-<section class="level"
-         id="level3">
-
-    <div class="level-title">
-
-        <h2>
-            ➕ Level 3 — Operators
-        </h2>
-
-        <span>
-            Locked
-        </span>
-
-    </div>
-
-</section>
-
-
-<section class="level"
-         id="level4">
-
-    <div class="level-title">
-
-        <h2>
-            🔤 Level 4 — Strings
-        </h2>
-
-        <span>
-            Locked
-        </span>
-
-    </div>
-
-</section>
-
-
-<section class="level"
-         id="level5">
-
-    <div class="level-title">
-
-        <h2>
-            📋 Level 5 — Lists, Tuples & Sets
-        </h2>
-
-        <span>
-            Locked
-        </span>
-
-    </div>
-
-</section>
-
-
-<section class="level"
-         id="level6">
-
-    <div class="level-title">
-
-        <h2>
-            🔀 Level 6 — Conditions
-        </h2>
-
-        <span>
-            Locked
-        </span>
-
-    </div>
-
-</section>
-
-
-<section class="level"
-         id="level7">
-
-    <div class="level-title">
-
-        <h2>
-            🔁 Level 7 — Loops
-        </h2>
-
-        <span>
-            Locked
-        </span>
-
-    </div>
-
-</section>
-
-
-<section class="level"
-         id="level8">
-
-    <div class="level-title">
-
-        <h2>
-            🧩 Level 8 — Functions
-        </h2>
-
-        <span>
-            Locked
-        </span>
-
-    </div>
-
-</section>
-
-
-<section class="level"
-         id="level9">
-
-    <div class="level-title">
-
-        <h2>
-            📊 Python for Data Analytics
-        </h2>
-
-        <span>
-            Locked
-        </span>
-
-    </div>
-
-</section>
-
-
 </main>
-
 </div>
 
-
-<!-- LESSON MODAL -->
-
-<div class="modal"
-     id="lessonModal">
-
-    <div class="modal-box">
-
-        <div class="modal-header">
-
-            <h2>
-                🐍 Lesson 1
-            </h2>
-
-            <button
-                class="close"
-                onclick="closeLesson()">
-                ×
-            </button>
-
-        </div>
-
-
-        <div class="lesson-content">
-
-            <p>
-                Python is a programming language
-                used to build applications,
-                automate tasks, analyze data
-                and create AI systems.
-            </p>
-
-
-            <h3>
-                🧠 What is Python?
-            </h3>
-
-            <p>
-                Python is a high-level,
-                beginner-friendly programming
-                language with simple syntax.
-            </p>
-
-
-            <div class="code">
-
-<pre>
-print("Hello, Python!")
-</pre>
-
-            </div>
-
-
-            <!-- ACTIVITY 1 -->
-
-            <div class="activity">
-
-                <h4>
-                    1️⃣ Choose the correct answer
-                </h4>
-
-                <p>
-                    Python is a:
-                </p>
-
-                <label class="option">
-                    <input type="radio"
-                           name="q1"
-                           value="wrong">
-                    Web browser
-                </label>
-
-                <label class="option">
-                    <input type="radio"
-                           name="q1"
-                           value="correct">
-                    Programming language
-                </label>
-
-                <label class="option">
-                    <input type="radio"
-                           name="q1"
-                           value="wrong">
-                    Operating system
-                </label>
-
-            </div>
-
-
-            <!-- ACTIVITY 2 -->
-
-            <div class="activity">
-
-                <h4>
-                    2️⃣ True or False
-                </h4>
-
-                <p>
-                    Python can be used for
-                    data analysis.
-                </p>
-
-                <label class="option">
-                    <input type="radio"
-                           name="q2"
-                           value="correct">
-                    True
-                </label>
-
-                <label class="option">
-                    <input type="radio"
-                           name="q2"
-                           value="wrong">
-                    False
-                </label>
-
-            </div>
-
-
-            <!-- ACTIVITY 3 -->
-
-            <div class="activity">
-
-                <h4>
-                    3️⃣ Fill in the blank
-                </h4>
-
-                <p>
-                    Python is a
-                    <strong>_____</strong>
-                    language.
-                </p>
-
-                <input
-                    class="answer-input"
-                    id="answer3"
-                    placeholder="Type your answer">
-
-                <button
-                    class="btn"
-                    onclick="checkAnswer3()">
-                    Check
-                </button>
-
-                <div
-                    class="result"
-                    id="result3">
-                </div>
-
-            </div>
-
-
-            <!-- ACTIVITY 4 -->
-
-            <div class="activity">
-
-                <h4>
-                    4️⃣ Predict
-                </h4>
-
-                <p>
-                    What will this code display?
-                </p>
-
-                <div class="code">
-
-<pre>
-print("Hello")
-</pre>
-
-                </div>
-
-                <input
-                    class="answer-input"
-                    id="answer4"
-                    placeholder="Your answer">
-
-                <button
-                    class="btn"
-                    onclick="checkAnswer4()">
-                    Check
-                </button>
-
-                <div
-                    class="result"
-                    id="result4">
-                </div>
-
-            </div>
-
-
-            <!-- ACTIVITY 5 -->
-
-            <div class="activity">
-
-                <h4>
-                    5️⃣ Complete the code
-                </h4>
-
-                <p>
-                    Write the Python function
-                    used to display output.
-                </p>
-
-                <input
-                    class="answer-input"
-                    id="answer5"
-                    placeholder="Example: print">
-
-                <button
-                    class="btn"
-                    onclick="checkAnswer5()">
-                    Check
-                </button>
-
-                <div
-                    class="result"
-                    id="result5">
-                </div>
-
-            </div>
-
-
-            <!-- ACTIVITY 6 -->
-
-            <div class="activity">
-
-                <h4>
-                    6️⃣ Quick MCQ
-                </h4>
-
-                <p>
-                    Which one is commonly used
-                    with Python?
-                </p>
-
-                <label class="option">
-                    <input type="radio"
-                           name="q6"
-                           value="correct">
-                    Data Analytics
-                </label>
-
-                <label class="option">
-                    <input type="radio"
-                           name="q6"
-                           value="wrong">
-                    Only drawing
-                </label>
-
-                <label class="option">
-                    <input type="radio"
-                           name="q6"
-                           value="wrong">
-                    Only gaming
-                </label>
-
-            </div>
-
-
-            <!-- ACTIVITY 7 -->
-
-            <div class="activity">
-
-                <h4>
-                    7️⃣ Think
-                </h4>
-
-                <p>
-                    Can Python be used to automate
-                    repetitive tasks?
-                </p>
-
-                <label class="option">
-                    <input type="radio"
-                           name="q7"
-                           value="correct">
-                    Yes
-                </label>
-
-                <label class="option">
-                    <input type="radio"
-                           name="q7"
-                           value="wrong">
-                    No
-                </label>
-
-            </div>
-
-
-            <!-- ACTIVITY 8 -->
-
-            <div class="activity">
-
-                <h4>
-                    8️⃣ Code Challenge
-                </h4>
-
-                <p>
-                    Write code that displays:
-                    <strong>Hello Python</strong>
-                </p>
-
-                <input
-                    class="answer-input"
-                    id="answer8"
-                    placeholder='print("Hello Python")'>
-
-                <button
-                    class="btn"
-                    onclick="checkAnswer8()">
-                    Check
-                </button>
-
-                <div
-                    class="result"
-                    id="result8">
-                </div>
-
-            </div>
-
-
-            <!-- ACTIVITY 9 -->
-
-            <div class="activity">
-
-                <h4>
-                    9️⃣ Beginner Challenge
-                </h4>
-
-                <p>
-                    Complete:
-                </p>
-
-                <div class="code">
-
-<pre>
-_____ ("I am learning Python")
-</pre>
-
-                </div>
-
-                <input
-                    class="answer-input"
-                    id="answer9"
-                    placeholder="Your answer">
-
-                <button
-                    class="btn"
-                    onclick="checkAnswer9()">
-                    Check
-                </button>
-
-                <div
-                    class="result"
-                    id="result9">
-                </div>
-
-            </div>
-
-
-            <!-- ACTIVITY 10 -->
-
-            <div class="activity">
-
-                <h4>
-                    🔟 Final Challenge
-                </h4>
-
-                <p>
-                    Write a Python command to
-                    display your name.
-                </p>
-
-                <input
-                    class="answer-input"
-                    id="answer10"
-                    placeholder='print("Shiv")'>
-
-                <button
-                    class="btn"
-                    onclick="checkFinal()">
-                    Complete Lesson
-                </button>
-
-                <div
-                    class="result"
-                    id="result10">
-                </div>
-
-            </div>
-
-
-            <div
-                class="complete"
-                id="lessonComplete">
-
-                🎉 <strong>Lesson Complete!</strong>
-
-                <br><br>
-
-                ⭐ +50 XP
-
-                <br>
-
-                🔥 Keep your streak going!
-
-                <br><br>
-
-                <button
-                    class="btn"
-                    onclick="closeLesson()">
-                    Continue
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
+<footer class="footer">🐍 Learn Python with <strong>Data Analytics Hub</strong><br><br>Excel.expert.66</footer>
+
+<div class="modal" id="lessonModal">
+<div class="modal-box">
+<div class="modal-header"><h2 id="modalTitle">Python Lesson</h2><button class="close" onclick="closeLesson()">×</button></div>
+<div class="lesson-content" id="lessonContent"></div>
 </div>
-
+</div>
 
 <script>
+const lessons = [
+["Python Introduction","What Python is and where it is used.","🐍","Python is a high-level programming language used for automation, web development, AI and data analytics."],
+["print()","Display information on the screen.","🖨️","The print() function displays output on the screen."],
+["Numbers","Integers, floats and calculations.","🔢","Python supports integers and decimal numbers and can perform calculations."],
+["Strings","Work with text values.","🔤","Strings are sequences of characters written inside quotes."],
+["Variables","Store values using names.","📦","Variables give names to values so you can use them later."],
+["Data Types","Understand Python data types.","🧩","Common types include int, float, str and bool."],
+["Type Conversion","Convert one type to another.","🔄","Functions such as int(), float() and str() convert values."],
+["User Input","Take information from users.","⌨️","input() reads text entered by a user."],
+["Comments","Add notes to your code.","💬","A # starts a single-line comment in Python."],
+["Python Basics Challenge","Review the beginner foundations.","🏆","Combine print, variables, strings and numbers."],
 
-/* =========================
-   USER PROGRESS
-========================= */
+["Integers","Work with whole numbers.","🔢","Integers are whole numbers such as 10, 0 and -5."],
+["Floats","Work with decimal numbers.","🔢","Floats represent decimal values such as 3.14."],
+["Booleans","Understand True and False.","✅","Boolean values are True or False."],
+["None","Understand the None value.","⚪","None represents the absence of a value."],
+["Checking Types","Use type() to inspect values.","🔎","type() tells you the type of a Python value."],
+["Multiple Variables","Assign multiple values.","📦","Python can assign several variables in one statement."],
+["Variable Naming","Choose valid variable names.","🏷️","Variable names should be meaningful and follow Python naming rules."],
+["Constants by Convention","Use uppercase names for constants.","🔒","Python commonly uses uppercase names for values intended as constants."],
+["Swapping Variables","Swap values without a temporary variable.","🔁","Python allows a, b = b, a."],
+["Data Types Challenge","Review data types and variables.","🏆","Use the correct type and variable for each task."],
 
-let xp =
-    Number(
-        localStorage.getItem("pythonXP")
-    ) || 0;
+["Addition","Add numbers with +.","➕","The + operator performs addition."],
+["Subtraction","Subtract numbers with -.","➖","The - operator performs subtraction."],
+["Multiplication","Multiply with *.","✖️","The * operator performs multiplication."],
+["Division","Divide with /.","➗","The / operator returns a division result."],
+["Floor Division","Use // for whole-number division.","⬇️","// returns the floor of a division result."],
+["Modulus","Use % to get a remainder.","%","The modulus operator returns the remainder."],
+["Exponentiation","Use ** for powers.","⚡","** raises a number to a power."],
+["Comparison Operators","Compare values.","⚖️","Operators such as ==, !=, > and < compare values."],
+["Logical Operators","Combine conditions with and, or, not.","🧠","Logical operators combine or reverse Boolean expressions."],
+["Operators Challenge","Review Python operators.","🏆","Combine arithmetic, comparison and logical operators."],
 
-let completedLessons =
-    Number(
-        localStorage.getItem(
-            "pythonLessons"
-        )
-    ) || 0;
+["String Basics","Create and display strings.","🔤","Strings are text enclosed by quotes."],
+["String Indexing","Access characters by position.","🔢","Python strings use zero-based indexing."],
+["String Slicing","Extract parts of strings.","✂️","Slicing uses start:stop:step syntax."],
+["String Length","Use len() with strings.","📏","len() returns the number of characters."],
+["upper() and lower()","Change text case.","🔠","upper() makes letters uppercase and lower() makes them lowercase."],
+["strip()","Remove surrounding whitespace.","🧹","strip() removes leading and trailing whitespace."],
+["replace()","Replace text inside strings.","🔁","replace() returns a string with matching text replaced."],
+["split()","Split text into a list.","✂️","split() separates a string using a delimiter."],
+["join()","Join strings together.","🔗","join() combines strings with a separator."],
+["String Challenge","Practice important string methods.","🏆","Combine indexing, slicing and string methods."],
 
-let streak =
-    Number(
-        localStorage.getItem(
-            "pythonStreak"
-        )
-    ) || 0;
+["List Basics","Create lists of values.","📋","Lists are ordered and mutable collections."],
+["List Indexing","Access list items.","🔢","List indexes start at zero."],
+["List Slicing","Slice a list.","✂️","List slicing extracts a range of items."],
+["append()","Add one item to a list.","➕","append() adds an item at the end."],
+["insert()","Insert an item at a position.","📍","insert() places an item at a chosen index."],
+["remove()","Remove an item by value.","🗑️","remove() deletes the first matching value."],
+["pop()","Remove and return an item.","📤","pop() removes an item, usually from the end."],
+["sort()","Sort a list.","↕️","sort() changes a list into sorted order."],
+["List Loops","Loop through list items.","🔁","for loops can process each list item."],
+["Lists Challenge","Combine list operations.","🏆","Create, modify and process lists."],
 
+["Tuple Basics","Create immutable sequences.","📦","Tuples are ordered collections that cannot be changed after creation."],
+["Tuple Indexing","Access tuple items.","🔢","Tuples use zero-based indexing."],
+["Tuple Slicing","Slice tuples.","✂️","Tuple slicing works similarly to string and list slicing."],
+["Tuple Unpacking","Assign tuple values to variables.","📦","Tuple unpacking assigns multiple values at once."],
+["Set Basics","Create sets.","⭕","Sets store unique unordered values."],
+["Add to Sets","Use add() with sets.","➕","add() inserts an item into a set."],
+["Remove from Sets","Use remove() and discard().","🗑️","remove() raises an error if missing; discard() does not."],
+["Union","Combine sets.","🔗","Union combines unique elements from sets."],
+["Intersection","Find common elements.","🎯","Intersection returns elements present in both sets."],
+["Tuples & Sets Challenge","Practice tuples and common set operations.","🏆","Choose tuples or sets based on the task."],
 
-/* =========================
-   UPDATE UI
-========================= */
+["Dictionary Basics","Store key-value pairs.","📖","Dictionaries map keys to values."],
+["Dictionary Access","Read values using keys.","🔑","Use dictionary[key] or get() to access values."],
+["Dictionary Add","Add new key-value pairs.","➕","Assigning a new key creates a new dictionary entry."],
+["Dictionary Update","Update existing values.","✏️","Assign a new value to an existing key."],
+["Dictionary Remove","Remove entries.","🗑️","pop(), popitem() and del can remove dictionary entries."],
+["Dictionary Keys","Use keys().","🔑","keys() returns a view of dictionary keys."],
+["Dictionary Values","Use values().","💎","values() returns a view of dictionary values."],
+["Dictionary Items","Use items().","📦","items() provides key-value pairs."],
+["Nested Dictionaries","Store dictionaries inside dictionaries.","🗂️","Nested dictionaries represent structured data."],
+["Dictionary Challenge","Practice dictionary operations.","🏆","Create and process key-value data."],
+
+["if Statement","Run code when a condition is true.","❓","if executes a block when its condition is True."],
+["else","Handle the alternative case.","↔️","else runs when the if condition is false."],
+["elif","Check multiple conditions.","🔀","elif adds another condition to a decision chain."],
+["Nested Conditions","Put conditions inside conditions.","🪆","Nested if statements handle layered decisions."],
+["Comparison in Conditions","Use comparisons in if statements.","⚖️","Comparisons return Boolean values used by conditions."],
+["and in Conditions","Require multiple conditions.","🧠","and requires all combined conditions to be true."],
+["or in Conditions","Allow alternative conditions.","🧠","or is true when at least one condition is true."],
+["not in Conditions","Reverse a Boolean condition.","🔄","not changes True to False and False to True."],
+["Ternary Expression","Write a compact condition.","⚡","Conditional expressions choose between two values."],
+["Conditions Challenge","Build decision-making programs.","🏆","Combine if, elif, else and logical operators."],
+
+["for Loop","Repeat over a sequence.","🔁","for loops iterate over items in an iterable."],
+["while Loop","Repeat while a condition is true.","🔄","while loops continue while their condition is True."],
+["range()","Generate number sequences.","🔢","range() is commonly used with loops."],
+["Loop Counters","Track repetitions.","🔢","Counters help count iterations."],
+["break","Stop a loop early.","🛑","break exits the nearest loop."],
+["continue","Skip to the next iteration.","⏭️","continue skips the rest of the current iteration."],
+["Nested Loops","Put one loop inside another.","🪆","Nested loops are useful for grids and combinations."],
+["Loop with Lists","Process list data.","📋","Loops can inspect or transform list items."],
+["Loop with Dictionaries","Process key-value data.","📖","items(), keys() and values() help iterate dictionaries."],
+["Loops Challenge","Solve repetition problems.","🏆","Choose for or while and control the loop."],
+
+["Function Basics","Create reusable code.","⚙️","Functions group reusable instructions."],
+["Parameters","Pass data into functions.","📥","Parameters let functions receive values."],
+["Return Values","Send a result back.","📤","return sends a value from a function."],
+["Default Parameters","Provide default values.","🧩","Default parameters are used when an argument is omitted."],
+["Keyword Arguments","Call parameters by name.","🏷️","Keyword arguments make function calls clearer."],
+["*args","Accept many positional arguments.","📚","*args collects extra positional arguments into a tuple."],
+["**kwargs","Accept many keyword arguments.","📖","**kwargs collects extra keyword arguments into a dictionary."],
+["Scope","Understand local and global variables.","🔭","Scope controls where a variable can be accessed."],
+["Lambda Functions","Create small anonymous functions.","⚡","lambda creates a small function expression."],
+["Functions Challenge","Build reusable Python programs.","🏆","Combine parameters, returns and scope."],
+
+["Syntax Errors","Understand invalid Python syntax.","🐞","Syntax errors happen when Python cannot parse code."],
+["NameError","Understand undefined names.","🔎","NameError occurs when a name is not defined."],
+["TypeError","Understand incompatible operations.","⚠️","TypeError occurs when an operation uses an inappropriate type."],
+["ValueError","Understand invalid values.","⚠️","ValueError occurs when a value has the right type but an invalid value."],
+["try and except","Handle runtime errors.","🛡️","try/except lets a program respond to exceptions."],
+["else in Exceptions","Run code when no error occurs.","✅","The exception else block runs if no exception occurred."],
+["finally","Run cleanup code.","🧹","finally runs whether an exception occurred or not."],
+["raise","Create an exception intentionally.","🚨","raise allows code to trigger an exception."],
+["Custom Exceptions","Create specialized exceptions.","🛠️","Custom exception classes can describe application-specific errors."],
+["Error Handling Challenge","Write safer Python code.","🏆","Handle expected errors cleanly."],
+
+["File Basics","Open files safely.","📁","open() gives access to a file."],
+["Read Files","Read text from files.","📖","read() returns file content."],
+["Read Lines","Process files line by line.","📜","readline() and iteration can process lines."],
+["Write Files","Write text to files.","✍️","write() writes text to a file."],
+["Append Files","Add text without replacing existing content.","➕","Append mode adds content to the end."],
+["with open()","Use context managers for files.","🔒","with closes the file automatically."],
+["CSV Basics","Understand CSV data.","📊","CSV stores tabular data in rows and columns."],
+["JSON Basics","Read structured JSON data.","🧾","JSON represents structured data using objects and arrays."],
+["File Paths","Work with file paths.","🗺️","pathlib helps manage paths across operating systems."],
+["Files Challenge","Build a simple file-based program.","🏆","Read, transform and write data safely."],
+
+["Modules","Split code into reusable files.","🧩","Modules are Python files that can be imported."],
+["import","Import modules.","📥","import loads names from another module."],
+["from import","Import selected names.","🎯","from module import name imports a selected object."],
+["Standard Library","Explore Python's built-in modules.","📚","Python includes a large standard library."],
+["math Module","Use mathematical functions.","📐","math provides common mathematical operations."],
+["random Module","Generate random values.","🎲","random provides pseudo-random utilities."],
+["datetime","Work with dates and times.","📅","datetime provides date and time objects."],
+["pip Concept","Understand third-party packages.","📦","pip is commonly used to install Python packages."],
+["Virtual Environments","Isolate project dependencies.","🧪","Virtual environments keep project packages separate."],
+["Modules Challenge","Build a multi-module idea.","🏆","Organize Python code into reusable components."],
+
+["Classes","Create custom object types.","🏛️","Classes define the structure and behavior of objects."],
+["Objects","Create instances of classes.","🧱","Objects are instances created from classes."],
+["__init__","Initialize objects.","🚀","__init__ runs when a new object is created."],
+["Instance Attributes","Store object data.","📦","Instance attributes belong to individual objects."],
+["Methods","Define object behavior.","⚙️","Methods are functions defined inside classes."],
+["Inheritance","Reuse behavior from a parent class.","🧬","Inheritance lets one class derive from another."],
+["Encapsulation","Control access to object data.","🔐","Encapsulation organizes and protects implementation details."],
+["Polymorphism","Use a common interface for different objects.","🔄","Different classes can provide compatible behavior."],
+["Class Methods","Use @classmethod.","🏷️","Class methods receive the class as their first argument."],
+["OOP Challenge","Build a small class-based program.","🏆","Combine classes, methods and inheritance."],
+
+["List Comprehension","Create lists compactly.","⚡","List comprehensions build lists from iterable expressions."],
+["Dictionary Comprehension","Build dictionaries compactly.","📖","Dictionary comprehensions create dictionaries from expressions."],
+["Generator Expressions","Create lazy sequences.","🌱","Generators produce values one at a time."],
+["Iterators","Understand iteration protocols.","🔁","Iterators provide values one at a time."],
+["Decorators","Wrap functions with behavior.","🎁","Decorators modify or extend function behavior."],
+["map()","Transform iterable values.","🗺️","map() applies a function to each item."],
+["filter()","Select iterable values.","🔎","filter() keeps items that satisfy a condition."],
+["zip()","Combine iterables.","🤝","zip() pairs elements from multiple iterables."],
+["enumerate()","Get indexes while looping.","🔢","enumerate() returns index-value pairs."],
+["Advanced Python Challenge","Combine advanced language features.","🏆","Choose suitable Python tools for a task."],
+
+["NumPy Introduction","Why NumPy is useful for analytics.","🔢","NumPy provides fast numerical arrays and operations."],
+["NumPy Arrays","Create arrays.","🧮","NumPy arrays store numerical data efficiently."],
+["Array Indexing","Access NumPy elements.","🎯","NumPy arrays support indexing and slicing."],
+["Array Slicing","Extract array sections.","✂️","Slicing selects ranges from arrays."],
+["Array Shape","Understand dimensions.","📐","shape describes the dimensions of an array."],
+["Reshape","Change array dimensions.","🔄","reshape changes array shape without changing its data."],
+["Vectorized Operations","Calculate without Python loops.","⚡","NumPy performs many operations element-wise."],
+["Boolean Masking","Filter array values.","🎯","Boolean masks select elements meeting conditions."],
+["NumPy Statistics","Calculate mean, sum and more.","📊","NumPy provides statistical functions."],
+["NumPy Challenge","Solve a numerical data task.","🏆","Use arrays and vectorized operations."],
+
+["Pandas Introduction","Why Pandas is used in analytics.","🐼","Pandas provides Series and DataFrame structures for data analysis."],
+["Series","Create and inspect Series.","📈","A Series is a one-dimensional labeled data structure."],
+["DataFrame","Create tabular data.","📊","A DataFrame is a two-dimensional labeled table."],
+["Read CSV with Pandas","Load CSV data.","📂","pd.read_csv() loads CSV data into a DataFrame."],
+["Inspect Data","Use head, tail and info.","🔎","Inspection methods help understand a dataset."],
+["Select Columns","Choose DataFrame columns.","🎯","Bracket notation selects columns."],
+["Filter Rows","Filter records with conditions.","🔎","Boolean conditions can select rows."],
+["Missing Values","Find missing data.","🧹","isna() and related methods identify missing values."],
+["Pandas Challenge","Explore a real table.","🏆","Load and inspect a dataset with Pandas."],
+
+["Data Cleaning","Understand the cleaning process.","🧹","Data cleaning improves accuracy and consistency."],
+["Missing Value Handling","Fill or remove missing values.","🧽","Missing values can be removed or replaced depending on context."],
+["Duplicates","Detect duplicate records.","♻️","duplicated() identifies duplicate rows."],
+["drop_duplicates()","Remove duplicate records.","🗑️","drop_duplicates() returns data without duplicates."],
+["Rename Columns","Make column names clear.","🏷️","rename() changes column labels."],
+["Data Type Conversion","Convert columns to useful types.","🔄","astype() and specialized functions convert data."],
+["String Cleaning","Clean text columns.","🔤","Pandas string methods help standardize text."],
+["Date Cleaning","Parse dates correctly.","📅","to_datetime() converts date-like values."],
+["Outliers","Understand unusual values.","📌","Outliers require context before deciding how to handle them."],
+["Cleaning Challenge","Clean a messy dataset.","🏆","Apply multiple cleaning steps."],
+
+["GroupBy Basics","Summarize data by groups.","📊","groupby() creates grouped calculations."],
+["Aggregation","Calculate sum, mean and count.","➕","Aggregation reduces groups to summary values."],
+["Multiple Aggregations","Apply several statistics.","📈","agg() can calculate multiple summaries."],
+["Sorting Data","Sort DataFrames.","↕️","sort_values() orders rows by columns."],
+["Ranking","Rank observations.","🏅","Ranking helps compare records."],
+["Value Counts","Count category frequency.","🔢","value_counts() counts unique values."],
+["Pivot Tables","Summarize dimensions.","📊","Pivot tables reorganize data for analysis."],
+["Crosstab","Create frequency tables.","🧮","crosstab() summarizes relationships between categories."],
+["GroupBy Visualization","Turn summaries into charts.","📈","Grouped results can feed visualizations."],
+["Aggregation Challenge","Answer business questions with grouped data.","🏆","Use aggregation to find useful insights."],
+
+["Merge Basics","Combine DataFrames.","🔗","merge() joins tables using common keys."],
+["Inner Join","Keep matching records.","🤝","Inner joins return records with matches in both tables."],
+["Left Join","Keep all left records.","⬅️","Left joins preserve every row from the left table."],
+["Right Join","Keep all right records.","➡️","Right joins preserve every row from the right table."],
+["Outer Join","Keep records from both sides.","↔️","Outer joins preserve unmatched records from both tables."],
+["concat()","Stack DataFrames.","📚","concat() combines data along rows or columns."],
+["Join Keys","Choose reliable keys.","🔑","Good keys identify matching records consistently."],
+["Merge Validation","Check join quality.","🔎","Validate joins to detect unexpected duplication."],
+["Relational Thinking","Think in tables and relationships.","🗃️","Relational thinking helps structure analytical data."],
+["Merge Challenge","Combine multiple datasets.","🏆","Use joins to create an analysis-ready table."],
+
+["Matplotlib Introduction","Create Python charts.","📈","Matplotlib is a widely used Python plotting library."],
+["Line Chart","Visualize trends.","📈","Line charts show change across an ordered axis."],
+["Bar Chart","Compare categories.","📊","Bar charts compare values across categories."],
+["Scatter Plot","Explore relationships.","🔵","Scatter plots show relationships between numerical variables."],
+["Histogram","Inspect distributions.","📶","Histograms show the distribution of numerical values."],
+["Chart Labels","Add titles and labels.","🏷️","Labels make charts easier to understand."],
+["Legend","Explain multiple series.","📖","Legends identify plotted series."],
+["Subplots","Create multiple charts.","🖼️","Subplots place several charts in one figure."],
+["Save Figures","Export charts.","💾","Plots can be saved to image files."],
+["Matplotlib Challenge","Build a useful chart.","🏆","Choose a chart that answers a question."],
+
+["Seaborn Introduction","Statistical visualization with Seaborn.","🌊","Seaborn builds attractive statistical charts on Matplotlib."],
+["Countplot","Visualize category counts.","📊","Countplots show the number of observations in categories."],
+["Boxplot","Inspect spread and outliers.","📦","Boxplots summarize distribution and potential outliers."],
+["Heatmap","Visualize matrix relationships.","🔥","Heatmaps use color intensity to represent values."],
+["Pairplot","Explore multiple numeric relationships.","🔗","Pairplots compare several variables."],
+["Distribution Plot","Inspect distributions.","📈","Distribution charts show how values are spread."],
+["Categorical Plots","Compare categories.","🗂️","Seaborn has several categorical plotting functions."],
+["Styling Charts","Improve readability.","✨","Clear labels and appropriate sizing improve communication."],
+["Analytics Visualization","Match chart to question.","🎯","Chart selection should follow the analytical question."],
+["Seaborn Challenge","Build an analytical visualization.","🏆","Use Seaborn to communicate an insight."],
+
+["Data Analysis Workflow","Follow an end-to-end analysis process.","🧭","A typical workflow includes question, data, cleaning, analysis and communication."],
+["Business Questions","Turn business needs into questions.","💼","Good analysis starts with a clear question."],
+["KPI Basics","Understand key performance indicators.","🎯","KPIs measure important business outcomes."],
+["Sales Analysis","Analyze sales performance.","💰","Sales data can reveal revenue, products and customer patterns."],
+["Customer Analysis","Explore customer behavior.","👥","Customer analysis can reveal segments and purchasing patterns."],
+["Time Series Basics","Analyze data over time.","⏱️","Time series analysis studies observations ordered by time."],
+["Correlation","Measure linear association.","🔗","Correlation describes the strength and direction of a linear relationship."],
+["Feature Creation","Create useful analytical columns.","🛠️","Derived features can make analysis more informative."],
+["Insight Writing","Turn numbers into findings.","📝","An insight explains what changed, why it matters and what evidence supports it."],
+["Data Analysis Challenge","Complete a mini analytical workflow.","🏆","Answer a business question using cleaned data."],
+
+["Mini Project: Sales","Build a sales analysis project.","🚀","Analyze sales data and summarize important metrics."],
+["Mini Project: Customers","Build a customer analysis.","🚀","Explore customer counts, segments and purchasing behavior."],
+["Mini Project: Products","Analyze product performance.","🚀","Compare products using sales and profitability measures."],
+["Mini Project: HR","Explore workforce data.","🚀","Analyze employee information and patterns."],
+["Mini Project: Finance","Explore financial records.","🚀","Summarize financial performance and trends."],
+["Mini Project: E-commerce","Analyze online transactions.","🚀","Study orders, customers, products and revenue."],
+["Mini Project: Cleaning","Build a reusable cleaning workflow.","🚀","Turn messy data into an analysis-ready dataset."],
+["Mini Project: Dashboard Data","Prepare data for dashboards.","🚀","Create clean summary tables for BI dashboards."],
+["Portfolio Project","Create a polished analytics project.","🚀","Combine Python, Pandas and visualization into a portfolio piece."],
+["Final Python + Data Analytics Challenge","Test your complete journey.","🏆","Use Python and analytics concepts to solve an end-to-end problem."]
+];
+
+const totalLessons = lessons.length;
+let completedLessons = Number(localStorage.getItem("pythonLessons")||0);
+let xp = Number(localStorage.getItem("pythonXP")||0);
+let streak = Number(localStorage.getItem("pythonStreak")||0);
+let currentLesson = 0;
+
+function esc(s){
+return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+}
+
+function renderLessons(){
+const grid=document.getElementById("lessonGrid");
+grid.innerHTML="";
+lessons.forEach((l,i)=>{
+const unlocked=i<=completedLessons;
+const card=document.createElement("div");
+card.className="lesson"+(unlocked?"":" locked");
+card.onclick=()=>unlocked?openLesson(i):null;
+card.innerHTML=`
+<div class="lesson-icon">${l[2]}</div>
+<h3>Lesson ${i+1}: ${esc(l[0])}</h3>
+<p>${esc(l[1])}</p>
+<div class="lesson-bottom">
+<span>10 activities</span>
+<span class="lesson-status">${unlocked?"START":"🔒 LOCKED"}</span>
+</div>`;
+grid.appendChild(card);
+});
+}
 
 function updateProgress(){
-
-    document.getElementById(
-        "xp"
-    ).textContent = xp;
-
-
-    document.getElementById(
-        "streak"
-    ).textContent = streak;
-
-
-    const completed =
-        Math.min(
-            completedLessons,
-            10
-        );
-
-
-    document.getElementById(
-        "progressText"
-    ).textContent =
-        completed +
-        " / 10 lessons";
-
-
-    const percentage =
-        (completed / 10) * 100;
-
-
-    document.getElementById(
-        "progressBar"
-    ).style.width =
-        percentage + "%";
-
-
-    unlockLessons();
-
+document.getElementById("xp").textContent=xp;
+document.getElementById("streak").textContent=streak;
+document.getElementById("completedCount").textContent=completedLessons;
+document.getElementById("levelNumber").textContent=Math.floor(completedLessons/10)+1;
+document.getElementById("progressText").textContent=`${completedLessons} / ${totalLessons}`;
+document.getElementById("progressBar").style.width=(completedLessons/totalLessons*100)+"%";
+renderLessons();
 }
 
-
-/* =========================
-   UNLOCK SYSTEM
-========================= */
-
-function unlockLessons(){
-
-    for(
-        let i = 2;
-        i <= 10;
-        i++
-    ){
-
-        const lesson =
-            document.getElementById(
-                "lesson" + i
-            );
-
-        if(!lesson) continue;
-
-
-        if(
-            completedLessons >= i - 1
-        ){
-
-            lesson.classList.remove(
-                "locked"
-            );
-
-            lesson.setAttribute(
-                "onclick",
-                "openLesson(" +
-                i +
-                ")"
-            );
-
-            const bottom =
-                lesson.querySelector(
-                    ".lesson-bottom"
-                );
-
-            if(bottom){
-
-                const status =
-                    bottom.querySelector(
-                        "span:last-child"
-                    );
-
-                if(status){
-
-                    status.textContent =
-                        "START";
-
-                    status.classList.add(
-                        "lesson-status"
-                    );
-
-                }
-
-            }
-
-        }
-
-    }
-
+function openLesson(index){
+if(index>completedLessons){alert("🔒 Complete the previous lesson first.");return;}
+currentLesson=index;
+const l=lessons[index];
+document.getElementById("modalTitle").textContent=`${l[2]} Lesson ${index+1}: ${l[0]}`;
+document.getElementById("lessonContent").innerHTML=buildLesson(index,l);
+document.getElementById("lessonModal").classList.add("show");
 }
 
+function closeLesson(){document.getElementById("lessonModal").classList.remove("show");}
 
-/* =========================
-   OPEN LESSON
-========================= */
+function buildLesson(i,l){
+const n=i+1;
+const next=lessons[i+1];
+const example = exampleFor(i,l[0]);
+return `
+<div class="learn-box">
+<h3>🧠 Learn</h3>
+<p>${esc(l[3])}</p>
+<p style="margin-top:8px"><span class="topic-chip">Lesson ${n}</span><span class="topic-chip">10 activities</span><span class="topic-chip">+50 XP</span></p>
+</div>
 
-function openLesson(number){
+<div class="example-box">
+<h3>💻 Example</h3>
+<div class="code"><pre>${esc(example)}</pre></div>
+</div>
 
-    if(number !== 1){
+<div class="activity"><h4>1️⃣ Learn Check</h4><p>Which statement best matches this lesson?</p>
+<label class="option"><input type="radio" name="a1" value="1"> ${esc(l[3])}</label>
+<label class="option"><input type="radio" name="a1" value="0"> Python does not use this concept.</label>
+<label class="option"><input type="radio" name="a1" value="0"> This concept only works outside Python.</label>
+<button class="btn" onclick="checkRadio('a1','r1')">Check</button><div class="result" id="r1"></div></div>
 
-        if(
-            completedLessons <
-            number - 1
-        ){
+<div class="activity"><h4>2️⃣ Predict the Output</h4><div class="code"><pre>${esc(example)}</pre></div>
+<input class="answer-input" id="a2" placeholder="Type your answer">
+<button class="btn" onclick="checkPredict(${i})">Check</button><div class="result" id="r2"></div></div>
 
-            alert(
-                "🔒 Complete the previous lesson first!"
-            );
+<div class="activity"><h4>3️⃣ Fill in the Blank</h4><p>Complete the key Python word/function for this lesson.</p>
+<input class="answer-input" id="a3" placeholder="Your answer">
+<button class="btn" onclick="checkKeyword(${i})">Check</button><div class="result" id="r3"></div></div>
 
-            return;
+<div class="activity"><h4>4️⃣ MCQ</h4><p>How should you approach this topic?</p>
+<label class="option"><input type="radio" name="a4" value="1"> Practice it with small Python examples.</label>
+<label class="option"><input type="radio" name="a4" value="0"> Memorize it without coding.</label>
+<label class="option"><input type="radio" name="a4" value="0"> Avoid testing it.</label>
+<button class="btn" onclick="checkRadio('a4','r4')">Check</button><div class="result" id="r4"></div></div>
 
-        }
+<div class="activity"><h4>5️⃣ Complete the Code</h4><div class="code"><pre>${esc(codeChallenge(i))}</pre></div>
+<input class="answer-input" id="a5" placeholder="Write the missing idea/code">
+<button class="btn" onclick="checkCode(${i})">Check</button><div class="result" id="r5"></div></div>
 
-    }
+<div class="activity"><h4>6️⃣ Arrange the Idea</h4><p>Put these steps in a sensible order:</p>
+<p style="margin-top:8px">Practice → Learn → Test → Review</p>
+<input class="answer-input" id="a6" placeholder="Example: Learn, Practice, Test, Review">
+<button class="btn" onclick="checkArrange()">Check</button><div class="result" id="r6"></div></div>
 
+<div class="activity"><h4>7️⃣ Find the Error</h4><div class="code"><pre>${esc(errorExample(i))}</pre></div>
+<input class="answer-input" id="a7" placeholder="Describe the error">
+<button class="btn" onclick="checkError()">Check</button><div class="result" id="r7"></div></div>
 
-    document.getElementById(
-        "lessonModal"
-    ).classList.add(
-        "show"
-    );
+<div class="activity"><h4>8️⃣ Quick MCQ</h4><p>What is the best way to learn this lesson?</p>
+<label class="option"><input type="radio" name="a8" value="1"> Write and test code.</label>
+<label class="option"><input type="radio" name="a8" value="0"> Only read the title.</label>
+<label class="option"><input type="radio" name="a8" value="0"> Skip examples.</label>
+<button class="btn" onclick="checkRadio('a8','r8')">Check</button><div class="result" id="r8"></div></div>
 
+<div class="activity"><h4>9️⃣ Mini Coding Challenge</h4><p>Write one small Python statement related to <strong>${esc(l[0])}</strong>.</p>
+<textarea class="answer-input" id="a9" style="min-height:90px" placeholder="Write Python code here"></textarea>
+<button class="btn" onclick="checkMini()">Check</button><div class="result" id="r9"></div></div>
+
+<div class="activity"><h4>🔟 Final Challenge</h4><p>Show that you understood the lesson by writing a Python example.</p>
+<textarea class="answer-input" id="a10" style="min-height:120px" placeholder="Write your final Python example"></textarea>
+<button class="btn" onclick="finishLesson()">Complete Lesson</button>
+<div class="result" id="r10"></div></div>
+
+<div class="complete" id="completeBox">
+🎉 <strong>Lesson ${n} Complete!</strong><br><br>
+⭐ +50 XP<br><br>
+${next?`🔓 Next: Lesson ${n+1} — ${esc(next[0])}`:"🏆 You completed the full course!"}
+<br><br><button class="btn" onclick="closeLesson()">Continue →</button>
+</div>`;
 }
 
-
-/* =========================
-   CLOSE
-========================= */
-
-function closeLesson(){
-
-    document.getElementById(
-        "lessonModal"
-    ).classList.remove(
-        "show"
-    );
-
+function exampleFor(i,title){
+if(i===0)return 'print("Hello Python")';
+if(i===1)return 'print("Hello")';
+if(i===2)return 'number = 10\nprint(number + 5)';
+if(i===3)return 'name = "Shiv"\nprint(name)';
+if(i===4)return 'name = "Shiv"\nprint(name)';
+if(i===5)return 'age = 18\nprint(type(age))';
+if(i===6)return 'age = "18"\nprint(int(age))';
+if(i===7)return 'name = input("Name: ")\nprint(name)';
+if(i===8)return '# This is a comment\nprint("Python")';
+if(i>=30&&i<40)return 'text = "Python"\nprint(text.upper())';
+if(i>=40&&i<50)return 'numbers = [1, 2, 3]\nnumbers.append(4)\nprint(numbers)';
+if(i>=50&&i<60)return 'items = {1, 2, 2, 3}\nprint(items)';
+if(i>=60&&i<70)return 'student = {"name": "Shiv", "age": 18}\nprint(student["name"])';
+if(i>=70&&i<80)return 'age = 18\nif age >= 18:\n    print("Adult")';
+if(i>=80&&i<90)return 'for i in range(3):\n    print(i)';
+if(i>=90&&i<100)return 'def greet(name):\n    return "Hello " + name\nprint(greet("Shiv"))';
+if(i>=100&&i<110)return 'try:\n    print(10 / 0)\nexcept ZeroDivisionError:\n    print("Cannot divide by zero")';
+if(i>=110)return 'data = [10, 20, 30]\nprint(sum(data))';
+return `# ${title}\nprint("Practice ${title}")`;
 }
 
-
-/* =========================
-   ANSWERS
-========================= */
-
-function checkAnswer3(){
-
-    const value =
-        document.getElementById(
-            "answer3"
-        ).value
-        .trim()
-        .toLowerCase();
-
-    const result =
-        document.getElementById(
-            "result3"
-        );
-
-
-    if(
-        value ===
-        "programming"
-    ){
-
-        result.textContent =
-            "✅ Correct!";
-
-    }else{
-
-        result.textContent =
-            "❌ Try again.";
-
-    }
-
+function codeChallenge(i){
+if(i===1)return '_____("Python is fun")';
+if(i===2)return 'number = 10\nprint(number _____ 5)';
+if(i===3)return 'name = "Python"\nprint(name.____())';
+if(i===4)return 'name = "Shiv"\n_____ (name)';
+if(i>=40&&i<50)return 'numbers = [1,2,3]\nnumbers._____(4)';
+return `# Practice ${lessons[i][0]}\nprint("I am practicing Python")`;
 }
 
-
-function checkAnswer4(){
-
-    const value =
-        document.getElementById(
-            "answer4"
-        ).value
-        .trim()
-        .toLowerCase();
-
-    const result =
-        document.getElementById(
-            "result4"
-        );
-
-
-    if(
-        value ===
-        "hello"
-    ){
-
-        result.textContent =
-            "✅ Correct!";
-
-    }else{
-
-        result.textContent =
-            "❌ Try again.";
-
-    }
-
+function errorExample(i){
+if(i<3)return 'Print("Hello")';
+if(i<10)return 'name = "Shiv"\nprint(name';
+if(i>=40&&i<50)return 'numbers = [1,2,3]\nnumbers.apend(4)';
+return 'print("Python"';
 }
 
-
-function checkAnswer5(){
-
-    const value =
-        document.getElementById(
-            "answer5"
-        ).value
-        .trim()
-        .toLowerCase();
-
-    const result =
-        document.getElementById(
-            "result5"
-        );
-
-
-    if(
-        value ===
-        "print"
-    ){
-
-        result.textContent =
-            "✅ Correct!";
-
-    }else{
-
-        result.textContent =
-            "❌ Try again.";
-
-    }
-
+function checkRadio(name,resultId){
+const el=document.querySelector(`input[name="${name}"]:checked`);
+document.getElementById(resultId).textContent=el&&el.value==="1"?"✅ Correct!":"❌ Try again.";
 }
 
-
-function checkAnswer8(){
-
-    const value =
-        document.getElementById(
-            "answer8"
-        ).value
-        .trim()
-        .replace(
-            /\s+/g,
-            ""
-        )
-        .toLowerCase();
-
-    const result =
-        document.getElementById(
-            "result8"
-        );
-
-
-    if(
-        value ===
-        'print("hellopython")'
-    ){
-
-        result.textContent =
-            "✅ Correct!";
-
-    }else{
-
-        result.textContent =
-            "❌ Try again.";
-
-    }
-
+function checkPredict(i){
+const v=document.getElementById("a2").value.trim().toLowerCase();
+let ok=i===0?v==="hello python":i===1?v==="hello":v.includes("python")||v.includes("10")||v.includes("0");
+document.getElementById("r2").textContent=ok?"✅ Correct!":"❌ Try again.";
 }
 
-
-function checkAnswer9(){
-
-    const value =
-        document.getElementById(
-            "answer9"
-        ).value
-        .trim()
-        .toLowerCase();
-
-    const result =
-        document.getElementById(
-            "result9"
-        );
-
-
-    if(
-        value ===
-        "print"
-    ){
-
-        result.textContent =
-            "✅ Correct!";
-
-    }else{
-
-        result.textContent =
-            "❌ Try again.";
-
-    }
-
+function checkKeyword(i){
+const v=document.getElementById("a3").value.trim().toLowerCase();
+const title=lessons[i][0].toLowerCase();
+const words=title.replace(/[()]/g,"").split(/\s+/).filter(x=>x.length>3);
+const ok=v==="print"||v===words[0]||v.includes(words[0])||v==="pandas"||v==="numpy";
+document.getElementById("r3").textContent=ok?"✅ Good!":"❌ Try again.";
 }
 
-
-/* =========================
-   FINAL LESSON
-========================= */
-
-function checkFinal(){
-
-    const value =
-        document.getElementById(
-            "answer10"
-        ).value
-        .trim()
-        .replace(
-            /\s+/g,
-            ""
-        )
-        .toLowerCase();
-
-
-    const result =
-        document.getElementById(
-            "result10"
-        );
-
-
-    if(
-        value.startsWith(
-            "print("
-        )
-        &&
-        value.endsWith(
-            ")"
-        )
-    ){
-
-        result.textContent =
-            "🎉 Correct!";
-
-
-        if(
-            completedLessons < 1
-        ){
-
-            completedLessons = 1;
-
-            xp += 50;
-
-            streak += 1;
-
-
-            localStorage.setItem(
-                "pythonLessons",
-                completedLessons
-            );
-
-            localStorage.setItem(
-                "pythonXP",
-                xp
-            );
-
-            localStorage.setItem(
-                "pythonStreak",
-                streak
-            );
-
-
-            updateProgress();
-
-
-            document.getElementById(
-                "lessonComplete"
-            ).classList.add(
-                "show"
-            );
-
-        }
-
-    }else{
-
-        result.textContent =
-            "❌ Write a print() statement.";
-
-    }
-
+function checkCode(i){
+const v=document.getElementById("a5").value.trim().toLowerCase();
+const ok=v.includes("print")||v.includes("append")||v.includes("name")||v.includes("5")||v.includes("4");
+document.getElementById("r5").textContent=ok?"✅ Good attempt!":"❌ Try again.";
 }
 
+function checkArrange(){
+const v=document.getElementById("a6").value.toLowerCase();
+document.getElementById("r6").textContent=v.includes("learn")&&v.includes("practice")&&v.includes("test")&&v.includes("review")?"✅ Correct!":"❌ Include Learn, Practice, Test, Review.";
+}
 
-/* =========================
-   START
-========================= */
+function checkError(){
+const v=document.getElementById("a7").value.toLowerCase();
+document.getElementById("r7").textContent=v.includes("lowercase")||v.includes("missing")||v.includes("parenth")||v.includes("spelling")||v.includes("syntax")?"✅ Correct!":"❌ Look for a syntax, spelling or bracket error.";
+}
+
+function checkMini(){
+const v=document.getElementById("a9").value.trim();
+document.getElementById("r9").textContent=v.includes("print")||v.length>2?"✅ Nice!":"❌ Write some Python code.";
+}
+
+function finishLesson(){
+const v=document.getElementById("a10").value.trim();
+const r=document.getElementById("r10");
+if(!v){r.textContent="❌ Write your final answer first.";return;}
+if(currentLesson===completedLessons){
+completedLessons++;
+xp+=50;
+streak++;
+localStorage.setItem("pythonLessons",completedLessons);
+localStorage.setItem("pythonXP",xp);
+localStorage.setItem("pythonStreak",streak);
+}
+r.textContent="🎉 Excellent!";
+document.getElementById("completeBox").classList.add("show");
+updateProgress();
+}
+
+window.addEventListener("click",e=>{
+const m=document.getElementById("lessonModal");
+if(e.target===m)closeLesson();
+});
 
 updateProgress();
-
-
-/* =========================
-   CLOSE MODAL OUTSIDE
-========================= */
-
-document.getElementById(
-    "lessonModal"
-).addEventListener(
-    "click",
-    function(event){
-
-        if(
-            event.target ===
-            this
-        ){
-
-            closeLesson();
-
-        }
-
-    }
-);
-
 </script>
-
 </body>
-</html>
+</html>'''
+
+path.write_text(html, encoding="utf-8")
+print(f"Created: {path}")
+print(f"Lessons included: 120")
