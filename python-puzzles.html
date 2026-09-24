@@ -3,904 +3,2291 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>Python Tutorial - Data Analytics Hub</title>
 
 <script src="https://cdn.jsdelivr.net/pyodide/v0.27.2/full/pyodide.js"></script>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#222}
 
-.top{
-    height:55px;background:#04aa6d;color:white;
-    display:flex;align-items:center;padding:0 20px;
-    position:fixed;top:0;left:0;right:0;z-index:10
+*{
+    box-sizing:border-box;
 }
-.logo{font-size:23px;font-weight:bold;margin-right:35px}
-.top a{color:white;text-decoration:none;margin-right:25px;font-weight:bold}
-.top a:hover{text-decoration:underline}
 
-.side{
-    position:fixed;top:55px;bottom:0;left:0;width:245px;
-    background:#f1f1f1;overflow-y:auto;padding:15px
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    color:#222;
+    background:white;
 }
-.side h3{font-size:15px;margin:18px 5px 7px}
-.side a{
-    display:block;color:#222;text-decoration:none;
-    padding:7px 9px;border-radius:4px;font-size:14px
+
+/* ================= TOP NAV ================= */
+
+.topbar{
+    height:58px;
+    background:#282a35;
+    color:white;
+    display:flex;
+    align-items:center;
+    padding:0 20px;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
 }
-.side a:hover{background:#ddd}
-.side a.active{background:#04aa6d;color:white}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    margin-right:35px;
+}
+
+.topbar a{
+    color:white;
+    text-decoration:none;
+    padding:20px 15px;
+}
+
+.topbar a:hover{
+    background:#444;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+    position:fixed;
+    top:58px;
+    left:0;
+    bottom:0;
+    width:255px;
+    background:#f1f1f1;
+    overflow-y:auto;
+    padding:15px;
+}
+
+.sidebar h2{
+    font-size:20px;
+    margin-top:5px;
+}
+
+.sidebar h3{
+    font-size:15px;
+    margin:20px 5px 7px;
+}
+
+.search{
+    width:100%;
+    padding:10px;
+    border:1px solid #aaa;
+    border-radius:4px;
+    margin-bottom:10px;
+}
+
+.sidebar a{
+    display:block;
+    color:#222;
+    text-decoration:none;
+    padding:7px 9px;
+    border-radius:4px;
+    font-size:14px;
+}
+
+.sidebar a:hover{
+    background:#ddd;
+}
+
+/* PINK ACTIVE */
+
+.sidebar a.active{
+    background:#ff1493;
+    color:white;
+}
+
+/* ================= MAIN ================= */
 
 .main{
-    margin-left:245px;padding:80px 35px 50px;
-    max-width:1100px
+    margin-left:255px;
+    padding:80px 40px 50px;
+    max-width:1150px;
 }
 
 .hero{
-    background:#282a35;color:white;padding:35px;
-    border-radius:8px;margin-bottom:30px
+    background:#282a35;
+    color:white;
+    padding:40px;
+    border-radius:8px;
+    margin-bottom:35px;
 }
-.hero h1{font-size:40px;margin:0 0 10px}
-.hero p{font-size:18px}
 
-.lesson{display:none}
-.lesson.active{display:block}
+.hero h1{
+    font-size:42px;
+    margin:0 0 12px;
+}
 
-h2{font-size:32px;margin-top:10px}
+.hero p{
+    font-size:18px;
+}
 
-.box{
-    background:#e7f6ef;border-left:5px solid #04aa6d;
-    padding:18px;margin:20px 0
+/* ================= LESSON ================= */
+
+.lesson{
+    display:none;
+}
+
+.lesson.active{
+    display:block;
+}
+
+.lesson h1{
+    font-size:38px;
+}
+
+.lesson h2{
+    font-size:32px;
+}
+
+.theory{
+    background:#eaf7f1;
+    border-left:5px solid #ff1493;
+    padding:20px;
+    margin:20px 0;
+    line-height:1.6;
+}
+
+.key{
+    background:#fff4fa;
+    border-left:5px solid #ff1493;
+    padding:20px;
+    margin:20px 0;
 }
 
 .example{
-    background:#f1f1f1;padding:20px;margin:20px 0;
-    border-radius:5px
+    background:#f1f1f1;
+    padding:20px;
+    margin:20px 0;
+    border-radius:5px;
 }
 
+.example h3{
+    margin-top:0;
+}
+
+/* ================= EDITOR ================= */
+
 .editor{
-    background:#282a35;border-radius:6px;
-    overflow:hidden;margin-top:20px
+    background:#282a35;
+    border-radius:6px;
+    margin-top:25px;
+    overflow:hidden;
 }
 
 .editor-title{
-    color:white;padding:10px 15px;
-    background:#1e1f26;font-weight:bold
+    color:white;
+    padding:12px 16px;
+    font-weight:bold;
+    background:#1e1f26;
 }
 
 textarea{
-    width:100%;height:260px;border:0;outline:0;
-    resize:vertical;padding:18px;
+    display:block;
+    width:100%;
+    height:260px;
+    resize:vertical;
+    border:0;
+    outline:none;
+    padding:18px;
     font-family:Consolas,monospace;
-    font-size:15px;background:#fff;color:#111
+    font-size:15px;
+    background:#fff;
+    color:#111;
 }
+
+/* PINK RUN BUTTON */
 
 .run{
-    background:#04aa6d;color:white;border:0;
-    padding:12px 22px;margin:12px 15px;
-    border-radius:5px;font-size:16px;
-    cursor:pointer;font-weight:bold
+    background:#ff1493;
+    color:white;
+    border:0;
+    padding:12px 25px;
+    margin:12px 15px;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
 }
-.run:hover{background:#038e5b}
+
+.run:hover{
+    background:#d90075;
+}
 
 .output-title{
-    background:#ddd;padding:10px 15px;font-weight:bold
+    background:#ddd;
+    padding:10px 15px;
+    font-weight:bold;
 }
 
-pre.output{
-    background:#111;color:#00ff88;
-    min-height:120px;margin:0;padding:18px;
-    white-space:pre-wrap;font-family:Consolas,monospace
+.output{
+    margin:0;
+    min-height:130px;
+    padding:18px;
+    background:#111;
+    color:#00ff88;
+    white-space:pre-wrap;
+    font-family:Consolas,monospace;
 }
 
-.nav{
-    display:flex;justify-content:space-between;
-    margin-top:35px
-}
-.nav button{
-    padding:12px 20px;border:0;border-radius:5px;
-    background:#04aa6d;color:white;cursor:pointer
-}
-.nav button:hover{background:#038e5b}
+/* ================= NEXT PREVIOUS ================= */
 
-.search{
-    width:100%;padding:9px;border:1px solid #bbb;
-    border-radius:4px;margin-bottom:10px
+.navigation{
+    display:flex;
+    justify-content:space-between;
+    margin-top:35px;
 }
+
+.navigation button{
+    background:#ff1493;
+    color:white;
+    border:0;
+    padding:12px 22px;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.navigation button:hover{
+    background:#d90075;
+}
+
+/* ================= FOOTER ================= */
 
 footer{
-    margin-left:245px;background:#282a35;
-    color:white;text-align:center;padding:25px
+    margin-left:255px;
+    background:#282a35;
+    color:white;
+    text-align:center;
+    padding:30px;
 }
 
+/* ================= MOBILE ================= */
+
 @media(max-width:700px){
-    .side{width:190px}
-    .main{margin-left:190px;padding:75px 15px}
-    footer{margin-left:190px}
-    .top a{margin-right:10px;font-size:13px}
+
+    .sidebar{
+        width:200px;
+    }
+
+    .main{
+        margin-left:200px;
+        padding:75px 15px;
+    }
+
+    footer{
+        margin-left:200px;
+    }
+
+    .logo{
+        font-size:17px;
+        margin-right:10px;
+    }
+
+    .topbar a{
+        padding:20px 7px;
+        font-size:13px;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="top">
-    <div class="logo">Data Analytics Hub</div>
+<!-- ================= TOP BAR ================= -->
+
+<div class="topbar">
+
+    <div class="logo">
+        Data Analytics Hub
+    </div>
+
     <a href="index.html">Home</a>
     <a href="html.html">HTML</a>
     <a href="python-puzzles.html">Python</a>
     <a href="excel.html">Excel</a>
+
 </div>
 
-<div class="side">
+
+<!-- ================= SIDEBAR ================= -->
+
+<div class="sidebar">
+
     <h2>Python Tutorial</h2>
 
-    <input class="search" id="search"
-           placeholder="Search Python..."
-           onkeyup="searchTopics()">
+    <input
+        class="search"
+        id="search"
+        placeholder="Search Python..."
+        onkeyup="searchTopics()"
+    >
 
     <div id="menu"></div>
+
 </div>
+
+
+<!-- ================= MAIN ================= -->
 
 <main class="main">
 
 <div class="hero">
+
     <h1>Python Tutorial</h1>
-    <p>Learn Python from Beginner to Data Analytics.</p>
-    <p>Write code → Run Code → See Output</p>
+
+    <p>
+        Learn Python from Beginner to Advanced.
+    </p>
+
+    <p>
+        Python + NumPy + Pandas + Data Analytics
+    </p>
+
 </div>
+
 
 <div id="lessons"></div>
 
 </main>
 
+
 <footer>
-    <b>Data Analytics Hub</b><br>
-    Learn Python • Excel • SQL • Power BI • Data Analytics
+
+    <b>Data Analytics Hub</b>
+
+    <br><br>
+
+    Python • Excel • SQL • Power BI • Data Analytics
+
 </footer>
+
 
 <script>
 
-const topics = [
+/* =========================================================
+   TOPIC-WISE PYTHON COURSE
+========================================================= */
 
-"Python Introduction",
-"Python Installation",
-"Your First Python Program",
-"print() Function",
-"Comments",
-"Variables",
-"Input Function",
-"Numbers",
-"Strings",
-"Booleans",
+const course = [
 
-"Data Types",
-"Type Checking",
-"Type Conversion",
-"Multiple Variables",
-"Constants",
-"Python Operators",
-"Arithmetic Operators",
-"Assignment Operators",
-"Comparison Operators",
-"Logical Operators",
+/* ================= PYTHON BASICS ================= */
 
-"String Indexing",
-"String Slicing",
-"String Length",
-"upper() and lower()",
-"strip()",
-"replace()",
-"split()",
-"join()",
-"f-Strings",
-"String Methods",
+{
+group:"Python Basics",
+topics:[
 
-"Python Lists",
-"List Indexing",
-"List Slicing",
-"append()",
-"insert()",
-"remove()",
-"pop()",
-"sort()",
-"reverse()",
-"List Loops",
+{
+title:"Python Introduction",
+theory:"Python is a high-level, interpreted programming language. It is widely used for web development, automation, artificial intelligence, machine learning and data analytics.",
+code:`print("Hello Python")`
+},
 
-"Tuples",
-"Tuple Indexing",
-"Tuple Slicing",
-"Tuple Unpacking",
-"Sets",
-"Set add()",
-"Set remove()",
-"Set Union",
-"Set Intersection",
-"Set Difference",
+{
+title:"Python Installation",
+theory:"To run Python programs on your computer, install Python from the official Python website and check the installation using the terminal.",
+code:`print("Python is ready!")`
+},
 
-"Dictionaries",
-"Dictionary Access",
-"get()",
-"Add Dictionary Values",
-"Update Dictionary",
-"pop() Dictionary",
-"keys()",
-"values()",
-"items()",
-"Nested Dictionaries",
+{
+title:"Your First Python Program",
+theory:"A Python program can contain instructions that are executed from top to bottom.",
+code:`print("My First Python Program")
+print("Welcome to Data Analytics Hub")`
+},
 
-"if Statement",
-"else Statement",
-"elif Statement",
-"Nested if",
-"and Condition",
-"or Condition",
-"not Condition",
-"Ternary Operator",
-"Conditional Calculator",
-"Conditions Practice",
+{
+title:"Print Function",
+theory:"The print() function is used to display information on the screen. It can print text, numbers, variables and multiple values.",
+code:`print("Hello World")
+print("Welcome to Python")
+print(10)
+print(10 + 20)
+print("Python", "Excel", "SQL")`
+},
 
-"for Loop",
-"while Loop",
-"range()",
-"Loop Counter",
-"break",
-"continue",
-"Nested Loops",
-"Loop with Lists",
-"Loop with Dictionaries",
-"Loop Practice",
+{
+title:"Comments",
+theory:"Comments are notes written inside code. Python ignores comments while executing the program.",
+code:`# This is a comment
+print("Python Comments")`
+},
 
-"Functions",
-"Function Parameters",
-"return",
-"Default Parameters",
-"Keyword Arguments",
-"*args",
-"**kwargs",
-"Variable Scope",
-"lambda",
-"Functions Practice",
+{
+title:"Variables",
+theory:"Variables are names used to store data values.",
+code:`name = "Shiv"
+age = 18
+marks = 85
 
-"Exception Handling",
-"try and except",
-"else in Exception",
-"finally",
-"raise",
-"Custom Exceptions",
-"File Handling",
-"Read Files",
-"Write Files",
-"CSV Files",
+print(name)
+print(age)
+print(marks)`
+},
 
-"JSON",
-"Python Modules",
-"import",
-"Python Packages",
-"pip",
-"Virtual Environment",
-"Classes",
-"Objects",
-"__init__",
-"Inheritance",
+{
+title:"Input Function",
+theory:"input() is used to take information from the user.",
+code:`name = input("Enter your name: ")
+print("Hello", name)`
+},
 
-"Polymorphism",
-"Encapsulation",
-"Decorators",
-"Generators",
-"Iterators",
-"List Comprehension",
-"Dictionary Comprehension",
-"Lambda Practice",
-"Map Filter Reduce",
-"Advanced Python",
+{
+title:"Numbers",
+theory:"Python supports integers and floating-point numbers.",
+code:`age = 18
+price = 99.50
 
-"NumPy Introduction",
-"NumPy Arrays",
-"NumPy Indexing",
-"NumPy Slicing",
-"NumPy Shape",
-"NumPy Reshape",
-"NumPy Statistics",
-"NumPy Mathematical Operations",
-"NumPy Random",
-"NumPy Practice",
+print(age)
+print(price)`
+},
 
-"Pandas Introduction",
-"Pandas Series",
-"Pandas DataFrame",
-"Create DataFrame",
-"Read CSV",
-"Read Excel",
-"DataFrame Columns",
-"DataFrame Rows",
-"loc and iloc",
-"Pandas Practice",
+{
+title:"Strings",
+theory:"A string is a sequence of characters written inside quotes.",
+code:`name = "Shiv"
+course = "Python"
 
-"Data Cleaning",
-"Missing Values",
-"dropna()",
-"fillna()",
-"Duplicate Data",
-"Data Type Conversion",
-"String Cleaning",
-"Date Handling",
-"Data Filtering",
-"Data Cleaning Project",
+print(name)
+print(course)`
+},
 
-"GroupBy",
-"Aggregation",
-"Sorting Data",
-"Merge DataFrames",
-"Join DataFrames",
-"Concat DataFrames",
-"Pivot Tables",
-"Correlation",
-"Descriptive Statistics",
-"Data Analysis Project",
+{
+title:"Booleans",
+theory:"Boolean values are True and False.",
+code:`is_student = True
+is_working = False
 
-"Matplotlib Introduction",
-"Line Chart",
-"Bar Chart",
-"Pie Chart",
-"Scatter Plot",
-"Histogram",
-"Chart Customization",
-"Seaborn Introduction",
-"Seaborn Charts",
-"Visualization Project",
+print(is_student)
+print(is_working)`
+}
 
-"Mini Project: Calculator",
-"Mini Project: Contact Card",
-"Mini Project: Student Marks",
-"Mini Project: Expense Tracker",
-"Mini Project: CSV Analyzer",
-"Mini Project: Sales Analysis",
-"Mini Project: Data Cleaning",
-"Mini Project: Dashboard Data",
-"Python Data Analytics Project",
-"Final Python Project"
+]
+},
+
+/* ================= DATA TYPES ================= */
+
+{
+group:"Data Types & Variables",
+topics:[
+
+{
+title:"Data Types",
+theory:"Python has several built-in data types including int, float, str, bool, list, tuple, set and dict.",
+code:`a = 10
+b = 10.5
+c = "Python"
+d = True
+
+print(type(a))
+print(type(b))
+print(type(c))
+print(type(d))`
+},
+
+{
+title:"type() Function",
+theory:"The type() function tells us the data type of a value.",
+code:`x = 100
+print(type(x))`
+},
+
+{
+title:"Type Conversion",
+theory:"Type conversion changes a value from one data type to another.",
+code:`x = "100"
+y = int(x)
+
+print(y)
+print(y + 50)`
+},
+
+{
+title:"Multiple Variables",
+theory:"Python allows multiple variables to be created in one statement.",
+code:`name, age, city = "Shiv", 18, "Kasganj"
+
+print(name)
+print(age)
+print(city)`
+},
+
+{
+title:"Constants",
+theory:"Python does not have a strict constant keyword. Uppercase variable names are commonly used for values that should not change.",
+code:`PI = 3.14159
+COLLEGE = "AKTU"
+
+print(PI)
+print(COLLEGE)`
+}
+
+]
+},
+
+/* ================= OPERATORS ================= */
+
+{
+group:"Operators",
+topics:[
+
+{
+title:"Arithmetic Operators",
+theory:"Arithmetic operators are used for mathematical calculations.",
+code:`a = 10
+b = 3
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)`
+},
+
+{
+title:"Floor Division",
+theory:"Floor division returns the integer part of a division.",
+code:`print(10 // 3)`
+},
+
+{
+title:"Modulus",
+theory:"The modulus operator returns the remainder.",
+code:`print(10 % 3)`
+},
+
+{
+title:"Exponentiation",
+theory:"The ** operator is used to calculate powers.",
+code:`print(2 ** 5)`
+},
+
+{
+title:"Comparison Operators",
+theory:"Comparison operators compare two values and return True or False.",
+code:`a = 10
+b = 5
+
+print(a > b)
+print(a < b)
+print(a == b)
+print(a != b)`
+},
+
+{
+title:"Logical Operators",
+theory:"and, or and not are logical operators.",
+code:`age = 20
+
+print(age >= 18 and age <= 60)
+print(age < 18 or age > 60)
+print(not age < 18)`
+},
+
+{
+title:"Assignment Operators",
+theory:"Assignment operators are used to assign and update values.",
+code:`x = 10
+x += 5
+x *= 2
+
+print(x)`
+}
+
+]
+},
+
+/* ================= STRINGS ================= */
+
+{
+group:"Strings",
+topics:[
+
+{
+title:"String Indexing",
+theory:"Indexing is used to access individual characters from a string.",
+code:`text = "Python"
+
+print(text[0])
+print(text[1])
+print(text[-1])`
+},
+
+{
+title:"String Slicing",
+theory:"Slicing extracts a part of a string.",
+code:`text = "Python Programming"
+
+print(text[0:6])
+print(text[7:18])`
+},
+
+{
+title:"String Length",
+theory:"len() returns the number of characters in a string.",
+code:`text = "Python"
+
+print(len(text))`
+},
+
+{
+title:"upper() and lower()",
+theory:"upper() converts text to uppercase and lower() converts it to lowercase.",
+code:`text = "Python"
+
+print(text.upper())
+print(text.lower())`
+},
+
+{
+title:"strip()",
+theory:"strip() removes extra spaces from the beginning and end of a string.",
+code:`text = "   Python   "
+
+print(text.strip())`
+},
+
+{
+title:"replace()",
+theory:"replace() replaces one part of a string with another.",
+code:`text = "I love Java"
+
+print(text.replace("Java","Python"))`
+},
+
+{
+title:"split()",
+theory:"split() breaks a string into a list.",
+code:`text = "Python SQL Excel"
+
+print(text.split())`
+},
+
+{
+title:"join()",
+theory:"join() combines multiple strings into one string.",
+code:`words = ["Python","SQL","Excel"]
+
+print(" - ".join(words))`
+},
+
+{
+title:"f-Strings",
+theory:"f-strings make it easy to insert variables inside strings.",
+code:`name = "Shiv"
+age = 18
+
+print(f"My name is {name}")
+print(f"My age is {age}")`
+}
+
+]
+},
+
+/* ================= LISTS ================= */
+
+{
+group:"Lists",
+topics:[
+
+{
+title:"Lists",
+theory:"A list stores multiple values and can be changed after creation.",
+code:`fruits = ["Apple","Banana","Mango"]
+
+print(fruits)`
+},
+
+{
+title:"List Indexing",
+theory:"List indexing accesses individual elements.",
+code:`fruits = ["Apple","Banana","Mango"]
+
+print(fruits[0])
+print(fruits[1])`
+},
+
+{
+title:"List Slicing",
+theory:"List slicing extracts multiple elements.",
+code:`numbers = [1,2,3,4,5]
+
+print(numbers[1:4])`
+},
+
+{
+title:"append()",
+theory:"append() adds an item at the end of a list.",
+code:`numbers = [1,2,3]
+
+numbers.append(4)
+
+print(numbers)`
+},
+
+{
+title:"insert()",
+theory:"insert() adds an item at a specific position.",
+code:`numbers = [1,3]
+
+numbers.insert(1,2)
+
+print(numbers)`
+},
+
+{
+title:"remove()",
+theory:"remove() removes a specific value.",
+code:`numbers = [10,20,30]
+
+numbers.remove(20)
+
+print(numbers)`
+},
+
+{
+title:"pop()",
+theory:"pop() removes an element from a list.",
+code:`numbers = [10,20,30]
+
+x = numbers.pop()
+
+print(x)
+print(numbers)`
+},
+
+{
+title:"sort()",
+theory:"sort() sorts list values.",
+code:`numbers = [5,2,8,1]
+
+numbers.sort()
+
+print(numbers)`
+},
+
+{
+title:"List Loop",
+theory:"A for loop can be used to process every element of a list.",
+code:`numbers = [10,20,30]
+
+for number in numbers:
+    print(number)`
+}
+
+]
+},
+
+/* ================= TUPLES & SETS ================= */
+
+{
+group:"Tuples & Sets",
+topics:[
+
+{
+title:"Tuples",
+theory:"A tuple is an ordered collection that cannot normally be changed after creation.",
+code:`data = (10,20,30)
+
+print(data)`
+},
+
+{
+title:"Tuple Indexing",
+theory:"Tuple elements can be accessed using indexes.",
+code:`data = ("Python","SQL","Excel")
+
+print(data[0])`
+},
+
+{
+title:"Tuple Unpacking",
+theory:"Tuple unpacking assigns tuple values to variables.",
+code:`a,b,c = (10,20,30)
+
+print(a)
+print(b)
+print(c)`
+},
+
+{
+title:"Sets",
+theory:"A set stores unique values.",
+code:`numbers = {1,2,3,3,4}
+
+print(numbers)`
+},
+
+{
+title:"Set Union",
+theory:"Union combines values from two sets.",
+code:`a = {1,2,3}
+b = {3,4,5}
+
+print(a | b)`
+},
+
+{
+title:"Set Intersection",
+theory:"Intersection returns common values.",
+code:`a = {1,2,3}
+b = {2,3,4}
+
+print(a & b)`
+}
+
+]
+},
+
+/* ================= DICTIONARIES ================= */
+
+{
+group:"Dictionaries",
+topics:[
+
+{
+title:"Dictionaries",
+theory:"A dictionary stores data using key-value pairs.",
+code:`student = {
+    "name":"Shiv",
+    "age":18
+}
+
+print(student)`
+},
+
+{
+title:"Dictionary Access",
+theory:"Dictionary values can be accessed using their keys.",
+code:`student = {
+    "name":"Shiv",
+    "age":18
+}
+
+print(student["name"])`
+},
+
+{
+title:"get()",
+theory:"get() safely accesses dictionary values.",
+code:`student = {
+    "name":"Shiv"
+}
+
+print(student.get("name"))`
+},
+
+{
+title:"Update Dictionary",
+theory:"Dictionary values can be changed or added.",
+code:`student = {
+    "name":"Shiv"
+}
+
+student["age"] = 18
+
+print(student)`
+},
+
+{
+title:"Dictionary keys()",
+theory:"keys() returns dictionary keys.",
+code:`student = {
+    "name":"Shiv",
+    "age":18
+}
+
+print(student.keys())`
+},
+
+{
+title:"Dictionary values()",
+theory:"values() returns dictionary values.",
+code:`student = {
+    "name":"Shiv",
+    "age":18
+}
+
+print(student.values())`
+},
+
+{
+title:"Dictionary items()",
+theory:"items() returns key-value pairs.",
+code:`student = {
+    "name":"Shiv",
+    "age":18
+}
+
+print(student.items())`
+}
+
+]
+},
+
+/* ================= CONDITIONS ================= */
+
+{
+group:"Conditions",
+topics:[
+
+{
+title:"if Statement",
+theory:"The if statement executes code when a condition is True.",
+code:`age = 20
+
+if age >= 18:
+    print("Adult")`
+},
+
+{
+title:"else Statement",
+theory:"else executes when the if condition is False.",
+code:`age = 15
+
+if age >= 18:
+    print("Adult")
+else:
+    print("Minor")`
+},
+
+{
+title:"elif Statement",
+theory:"elif allows multiple conditions.",
+code:`marks = 75
+
+if marks >= 90:
+    print("A")
+elif marks >= 60:
+    print("B")
+else:
+    print("C")`
+},
+
+{
+title:"Nested if",
+theory:"An if statement can be placed inside another if statement.",
+code:`age = 20
+
+if age >= 18:
+    if age <= 60:
+        print("Working Age")`
+},
+
+{
+title:"Combining Conditions",
+theory:"Multiple conditions can be combined using and, or and not.",
+code:`age = 20
+student = True
+
+if age >= 18 and student:
+    print("Adult Student")`
+},
+
+{
+title:"Ternary Operator",
+theory:"A ternary expression provides a short way to write a simple if-else.",
+code:`age = 20
+
+status = "Adult" if age >= 18 else "Minor"
+
+print(status)`
+}
+
+]
+},
+
+/* ================= LOOPS ================= */
+
+{
+group:"Loops",
+topics:[
+
+{
+title:"for Loop",
+theory:"A for loop repeats code for each item in a sequence.",
+code:`for i in range(5):
+    print(i)`
+},
+
+{
+title:"while Loop",
+theory:"A while loop continues while a condition is True.",
+code:`i = 1
+
+while i <= 5:
+    print(i)
+    i += 1`
+},
+
+{
+title:"range()",
+theory:"range() generates a sequence of numbers.",
+code:`for i in range(1,6):
+    print(i)`
+},
+
+{
+title:"break",
+theory:"break stops a loop.",
+code:`for i in range(10):
+
+    if i == 5:
+        break
+
+    print(i)`
+},
+
+{
+title:"continue",
+theory:"continue skips the current iteration.",
+code:`for i in range(5):
+
+    if i == 2:
+        continue
+
+    print(i)`
+},
+
+{
+title:"Nested Loops",
+theory:"A loop can be placed inside another loop.",
+code:`for i in range(3):
+
+    for j in range(3):
+
+        print(i,j)`
+}
+
+]
+},
+
+/* ================= FUNCTIONS ================= */
+
+{
+group:"Functions",
+topics:[
+
+{
+title:"Functions",
+theory:"Functions are reusable blocks of code.",
+code:`def greet():
+    print("Hello Python")
+
+greet()`
+},
+
+{
+title:"Function Parameters",
+theory:"Parameters allow functions to receive values.",
+code:`def greet(name):
+    print("Hello",name)
+
+greet("Shiv")`
+},
+
+{
+title:"return",
+theory:"return sends a value back from a function.",
+code:`def add(a,b):
+    return a+b
+
+print(add(10,20))`
+},
+
+{
+title:"Default Parameters",
+theory:"Default parameters provide a value when an argument is not supplied.",
+code:`def greet(name="Shiv"):
+    print("Hello",name)
+
+greet()`
+},
+
+{
+title:"*args",
+theory:"*args allows a function to accept multiple positional arguments.",
+code:`def total(*numbers):
+    print(sum(numbers))
+
+total(10,20,30)`
+},
+
+{
+title:"**kwargs",
+theory:"**kwargs allows multiple keyword arguments.",
+code:`def show(**data):
+    print(data)
+
+show(name="Shiv",age=18)`
+},
+
+{
+title:"Lambda Functions",
+theory:"Lambda creates small anonymous functions.",
+code:`square = lambda x: x*x
+
+print(square(5))`
+},
+
+{
+title:"List Comprehension",
+theory:"List comprehension creates lists using a compact syntax.",
+code:`numbers = [1,2,3,4,5]
+
+squares = [x*x for x in numbers]
+
+print(squares)`
+}
+
+]
+},
+
+/* ================= FILES ================= */
+
+{
+group:"Files & Exceptions",
+topics:[
+
+{
+title:"try and except",
+theory:"try and except are used to handle runtime errors.",
+code:`try:
+    print(10/0)
+except:
+    print("Something went wrong")`
+},
+
+{
+title:"finally",
+theory:"finally executes whether an error occurs or not.",
+code:`try:
+    print("Program running")
+finally:
+    print("Finished")`
+},
+
+{
+title:"File Handling",
+theory:"Python can create, read and write files.",
+code:`file = open("demo.txt","w")
+
+file.write("Hello Python")
+
+file.close()
+
+print("File created")`
+},
+
+{
+title:"Read Files",
+theory:"read() reads file content.",
+code:`file = open("demo.txt","r")
+
+print(file.read())
+
+file.close()`
+},
+
+{
+title:"CSV Files",
+theory:"CSV files are commonly used to store tabular data.",
+code:`import csv
+
+print("CSV module ready")`
+},
+
+{
+title:"JSON",
+theory:"JSON is commonly used to store and exchange structured data.",
+code:`import json
+
+data = {
+    "name":"Shiv",
+    "age":18
+}
+
+print(json.dumps(data))`
+}
+
+]
+},
+
+/* ================= MODULES & OOP ================= */
+
+{
+group:"Modules & OOP",
+topics:[
+
+{
+title:"Modules",
+theory:"A module is a Python file containing reusable code.",
+code:`import math
+
+print(math.sqrt(25))`
+},
+
+{
+title:"import",
+theory:"The import statement loads a module.",
+code:`import random
+
+print(random.randint(1,10))`
+},
+
+{
+title:"Classes",
+theory:"A class is a blueprint for creating objects.",
+code:`class Student:
+    pass
+
+print("Class created")`
+},
+
+{
+title:"Objects",
+theory:"An object is an instance of a class.",
+code:`class Student:
+    name = "Shiv"
+
+student = Student()
+
+print(student.name)`
+},
+
+{
+title:"__init__",
+theory:"__init__ initializes an object when it is created.",
+code:`class Student:
+
+    def __init__(self,name):
+        self.name = name
+
+s = Student("Shiv")
+
+print(s.name)`
+},
+
+{
+title:"Inheritance",
+theory:"Inheritance allows one class to use features of another class.",
+code:`class Animal:
+
+    def sound(self):
+        print("Animal sound")
+
+class Dog(Animal):
+    pass
+
+Dog().sound()`
+}
+
+]
+},
+
+/* ================= ADVANCED ================= */
+
+{
+group:"Advanced Python",
+topics:[
+
+{
+title:"Iterators",
+theory:"Iterators allow values to be accessed one at a time.",
+code:`numbers = iter([10,20,30])
+
+print(next(numbers))
+print(next(numbers))`
+},
+
+{
+title:"Generators",
+theory:"Generators produce values one at a time using yield.",
+code:`def numbers():
+
+    yield 1
+    yield 2
+    yield 3
+
+for x in numbers():
+    print(x)`
+},
+
+{
+title:"Decorators",
+theory:"Decorators modify the behavior of functions.",
+code:`def decorator(func):
+
+    def wrapper():
+        print("Before")
+        func()
+
+    return wrapper
+
+@decorator
+def hello():
+    print("Hello")
+
+hello()`
+},
+
+{
+title:"Map",
+theory:"map() applies a function to every item.",
+code:`numbers = [1,2,3]
+
+result = list(map(lambda x:x*2,numbers))
+
+print(result)`
+},
+
+{
+title:"Filter",
+theory:"filter() selects values based on a condition.",
+code:`numbers = [1,2,3,4,5]
+
+result = list(filter(lambda x:x%2==0,numbers))
+
+print(result)`
+},
+
+{
+title:"Reduce",
+theory:"reduce() can combine values into one result.",
+code:`from functools import reduce
+
+numbers = [1,2,3,4]
+
+result = reduce(lambda a,b:a+b,numbers)
+
+print(result)`
+}
+
+]
+},
+
+/* ================= NUMPY ================= */
+
+{
+group:"NumPy",
+topics:[
+
+{
+title:"NumPy Introduction",
+theory:"NumPy is a Python library used for numerical computing and arrays.",
+code:`import numpy as np
+
+numbers = np.array([1,2,3,4])
+
+print(numbers)`
+},
+
+{
+title:"NumPy Arrays",
+theory:"NumPy arrays store numerical data efficiently.",
+code:`import numpy as np
+
+arr = np.array([10,20,30])
+
+print(arr)`
+},
+
+{
+title:"NumPy Indexing",
+theory:"Array elements can be accessed using indexes.",
+code:`import numpy as np
+
+arr = np.array([10,20,30])
+
+print(arr[0])`
+},
+
+{
+title:"NumPy Slicing",
+theory:"Slicing extracts part of an array.",
+code:`import numpy as np
+
+arr = np.array([1,2,3,4,5])
+
+print(arr[1:4])`
+},
+
+{
+title:"NumPy Shape",
+theory:"shape tells us the dimensions of an array.",
+code:`import numpy as np
+
+arr = np.array([[1,2],[3,4]])
+
+print(arr.shape)`
+},
+
+{
+title:"NumPy Statistics",
+theory:"NumPy provides mathematical and statistical functions.",
+code:`import numpy as np
+
+numbers = np.array([10,20,30,40])
+
+print(np.mean(numbers))
+print(np.max(numbers))
+print(np.min(numbers))`
+}
+
+]
+},
+
+/* ================= PANDAS ================= */
+
+{
+group:"Pandas",
+topics:[
+
+{
+title:"Pandas Introduction",
+theory:"Pandas is one of the most important Python libraries for data analysis.",
+code:`import pandas as pd
+
+print("Pandas ready")`
+},
+
+{
+title:"Pandas Series",
+theory:"A Series is a one-dimensional Pandas data structure.",
+code:`import pandas as pd
+
+data = pd.Series([10,20,30])
+
+print(data)`
+},
+
+{
+title:"DataFrame",
+theory:"A DataFrame is a two-dimensional table-like data structure.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "Name":["A","B"],
+    "Marks":[80,90]
+})
+
+print(df)`
+},
+
+{
+title:"DataFrame Columns",
+theory:"Columns contain individual variables in a DataFrame.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "Name":["A","B"],
+    "Marks":[80,90]
+})
+
+print(df["Name"])`
+},
+
+{
+title:"DataFrame Rows",
+theory:"Rows contain individual records.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "Name":["A","B"],
+    "Marks":[80,90]
+})
+
+print(df.iloc[0])`
+},
+
+{
+title:"Read CSV",
+theory:"Pandas can read CSV files using read_csv().",
+code:`import pandas as pd
+
+print("Use pd.read_csv('data.csv')")`
+},
+
+{
+title:"Read Excel",
+theory:"Pandas can read Excel files using read_excel().",
+code:`import pandas as pd
+
+print("Use pd.read_excel('data.xlsx')")`
+},
+
+{
+title:"Filtering Data",
+theory:"DataFrames can be filtered using conditions.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "Marks":[40,70,90]
+})
+
+print(df[df["Marks"] >= 60])`
+},
+
+{
+title:"GroupBy",
+theory:"groupby() is used to group data and calculate summaries.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "City":["Delhi","Delhi","Agra"],
+    "Sales":[100,200,150]
+})
+
+print(df.groupby("City")["Sales"].sum())`
+},
+
+{
+title:"Merge DataFrames",
+theory:"merge() combines related DataFrames.",
+code:`import pandas as pd
+
+a = pd.DataFrame({
+    "id":[1,2],
+    "name":["A","B"]
+})
+
+b = pd.DataFrame({
+    "id":[1,2],
+    "marks":[80,90]
+})
+
+print(pd.merge(a,b,on="id"))`
+}
+
+]
+},
+
+/* ================= DATA CLEANING ================= */
+
+{
+group:"Data Cleaning",
+topics:[
+
+{
+title:"Missing Values",
+theory:"Real-world datasets often contain missing values.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "Name":["A","B","C"],
+    "Marks":[80,None,90]
+})
+
+print(df)`
+},
+
+{
+title:"dropna()",
+theory:"dropna() removes rows containing missing values.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "Marks":[80,None,90]
+})
+
+print(df.dropna())`
+},
+
+{
+title:"fillna()",
+theory:"fillna() replaces missing values.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "Marks":[80,None,90]
+})
+
+print(df.fillna(0))`
+},
+
+{
+title:"Duplicate Data",
+theory:"Duplicate records can be removed using drop_duplicates().",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "Name":["A","A","B"]
+})
+
+print(df.drop_duplicates())`
+},
+
+{
+title:"Data Type Conversion",
+theory:"astype() can change the data type of a column.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "Marks":["80","90"]
+})
+
+df["Marks"] = df["Marks"].astype(int)
+
+print(df)`
+},
+
+{
+title:"Date Handling",
+theory:"Pandas can convert strings into date values.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "Date":["2026-01-01","2026-01-02"]
+})
+
+df["Date"] = pd.to_datetime(df["Date"])
+
+print(df)`
+}
+
+]
+},
+
+/* ================= DATA ANALYSIS ================= */
+
+{
+group:"Data Analysis",
+topics:[
+
+{
+title:"Sorting Data",
+theory:"sort_values() sorts DataFrame records.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "Marks":[80,60,90]
+})
+
+print(df.sort_values("Marks"))`
+},
+
+{
+title:"Aggregation",
+theory:"Aggregation functions calculate summaries such as sum, mean and count.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "Sales":[100,200,300]
+})
+
+print(df["Sales"].sum())
+print(df["Sales"].mean())`
+},
+
+{
+title:"Descriptive Statistics",
+theory:"describe() provides useful statistical information.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "Marks":[50,60,70,80,90]
+})
+
+print(df.describe())`
+},
+
+{
+title:"Correlation",
+theory:"Correlation measures the relationship between numerical variables.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "Hours":[1,2,3,4],
+    "Marks":[40,50,70,80]
+})
+
+print(df.corr())`
+},
+
+{
+title:"Data Analysis Project",
+theory:"A data analysis project combines loading, cleaning, filtering, grouping and analyzing data.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "City":["Delhi","Delhi","Agra"],
+    "Sales":[100,200,150]
+})
+
+print("Total Sales:",df["Sales"].sum())
+print(df.groupby("City")["Sales"].sum())`
+}
+
+]
+},
+
+/* ================= VISUALIZATION ================= */
+
+{
+group:"Matplotlib & Seaborn",
+topics:[
+
+{
+title:"Matplotlib Introduction",
+theory:"Matplotlib is used to create charts and visualizations.",
+code:`import matplotlib.pyplot as plt
+
+plt.plot([1,2,3],[10,20,15])
+
+plt.title("Sales")
+plt.show()`
+},
+
+{
+title:"Line Chart",
+theory:"Line charts are useful for showing trends.",
+code:`import matplotlib.pyplot as plt
+
+months = ["Jan","Feb","Mar"]
+sales = [100,150,130]
+
+plt.plot(months,sales)
+
+plt.show()`
+},
+
+{
+title:"Bar Chart",
+theory:"Bar charts compare values between categories.",
+code:`import matplotlib.pyplot as plt
+
+cities = ["Delhi","Agra","Noida"]
+sales = [100,150,120]
+
+plt.bar(cities,sales)
+
+plt.show()`
+},
+
+{
+title:"Scatter Plot",
+theory:"Scatter plots show relationships between two numerical variables.",
+code:`import matplotlib.pyplot as plt
+
+x = [1,2,3,4]
+y = [10,20,15,30]
+
+plt.scatter(x,y)
+
+plt.show()`
+},
+
+{
+title:"Histogram",
+theory:"Histograms show the distribution of numerical data.",
+code:`import matplotlib.pyplot as plt
+
+marks = [40,50,60,60,70,80,90]
+
+plt.hist(marks)
+
+plt.show()`
+},
+
+{
+title:"Seaborn",
+theory:"Seaborn is a statistical visualization library built on Matplotlib.",
+code:`import seaborn as sns
+
+print("Seaborn is ready for visualization")`
+}
+
+]
+},
+
+/* ================= PROJECTS ================= */
+
+{
+group:"Python Projects",
+topics:[
+
+{
+title:"Calculator Project",
+theory:"Create a calculator using Python operators and conditions.",
+code:`a = 10
+b = 5
+
+print("Addition:",a+b)
+print("Subtraction:",a-b)
+print("Multiplication:",a*b)
+print("Division:",a/b)`
+},
+
+{
+title:"Contact Card Generator",
+theory:"Create a small program that stores contact information.",
+code:`name = "Shiv"
+phone = "9876543210"
+email = "shiv@example.com"
+
+print("CONTACT CARD")
+print("Name:",name)
+print("Phone:",phone)
+print("Email:",email)`
+},
+
+{
+title:"Student Marks Project",
+theory:"Calculate total, average and result from student marks.",
+code:`marks = [80,75,90,85,70]
+
+total = sum(marks)
+average = total / len(marks)
+
+print("Total:",total)
+print("Average:",average)
+
+if average >= 40:
+    print("Pass")
+else:
+    print("Fail")`
+},
+
+{
+title:"Expense Tracker",
+theory:"Calculate total expenses using a Python list.",
+code:`expenses = [100,250,80,120]
+
+total = sum(expenses)
+
+print("Total Expense:",total)`
+},
+
+{
+title:"Sales Analysis Project",
+theory:"Use Pandas to calculate total sales and group sales by city.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "City":["Delhi","Delhi","Agra"],
+    "Sales":[100,200,150]
+})
+
+print("Total Sales:")
+print(df["Sales"].sum())
+
+print()
+print("City Wise Sales:")
+print(df.groupby("City")["Sales"].sum())`
+},
+
+{
+title:"Final Python Data Analytics Project",
+theory:"This final project combines Python, Pandas and basic data analysis concepts.",
+code:`import pandas as pd
+
+df = pd.DataFrame({
+    "Name":["A","B","C","D"],
+    "Marks":[80,65,90,45]
+})
+
+print("DATA")
+print(df)
+
+print()
+print("Average Marks:")
+print(df["Marks"].mean())
+
+print()
+print("Students Above 60:")
+print(df[df["Marks"] > 60])`
+}
+
+]
+}
 
 ];
 
-const codes = [
 
-`print("Hello, Python!")`,
+/* =========================================================
+   CREATE SIDEBAR + LESSONS
+========================================================= */
 
-`print("Python Installation Check")\nprint(2 + 3)`,
+let menu = document.getElementById("menu");
+let lessons = document.getElementById("lessons");
 
-`name = "Shiv"\nprint("Hello", name)`,
+let allLessons = [];
+let counter = 0;
 
-`print("Hello World")\nprint(10 + 20)`,
+course.forEach(group => {
 
-`# This is a comment\nprint("Comments are ignored by Python")`,
+    let heading = document.createElement("h3");
 
-`name = "Shiv"\nage = 18\nprint(name)\nprint(age)`,
+    heading.textContent = group.group;
 
-`name = input("Enter your name: ")\nprint("Hello", name)`,
+    menu.appendChild(heading);
 
-`a = 10\nb = 5\nprint(a + b)`,
+    group.topics.forEach(topic => {
 
-`name = "Shiv"\nprint(name)\nprint(len(name))`,
+        let index = counter++;
 
-`age = 18\nprint(age >= 18)`,
+        allLessons.push(topic);
 
-`x = 10\nprint(type(x))`,
+        let link = document.createElement("a");
 
-`x = 10\nprint(type(x))`,
+        link.href = "#lesson" + index;
+        link.textContent = topic.title;
 
-`x = "10"\ny = int(x)\nprint(y + 5)`,
+        link.dataset.title =
+            topic.title.toLowerCase();
 
-`a,b,c = 10,20,30\nprint(a,b,c)`,
+        link.onclick = function(){
+            showLesson(index);
+        };
 
-`PI = 3.14159\nprint(PI)`,
+        menu.appendChild(link);
 
-`a = 10\nb = 3\nprint(a + b)`,
 
-`print(10 + 5)\nprint(10 - 5)`,
+        let section =
+            document.createElement("section");
 
-`x = 10\nx += 5\nprint(x)`,
+        section.className = "lesson";
 
-`print(10 > 5)\nprint(10 == 10)`,
+        section.id = "lesson" + index;
 
-`age = 20\nprint(age >= 18 and age <= 60)`,
 
-`text = "Python"\nprint(text[0])`,
+        section.innerHTML = `
 
-`text = "Python"\nprint(text[0:3])`,
+            <h1>${topic.title}</h1>
 
-`text = "Python"\nprint(len(text))`,
+            <div class="theory">
 
-`text = "python"\nprint(text.upper())\nprint(text.lower())`,
+                <h3>Learn ${topic.title}</h3>
 
-`text = "  Python  "\nprint(text.strip())`,
+                <p>
+                    ${topic.theory}
+                </p>
 
-`text = "I like Java"\nprint(text.replace("Java","Python"))`,
+            </div>
 
-`text = "Python SQL Excel"\nprint(text.split())`,
 
-`words = ["Python","SQL"]\nprint(" ".join(words))`,
+            <div class="example">
 
-`name = "Shiv"\nage = 18\nprint(f"My name is {name} and I am {age}")`,
+                <h3>Example</h3>
 
-`text = "python programming"\nprint(text.upper())\nprint(text.title())`,
+                <p>
+                    Try the Python program below.
+                </p>
 
-`fruits = ["Apple","Banana","Mango"]\nprint(fruits)`,
+            </div>
 
-`fruits = ["Apple","Banana"]\nprint(fruits[0])`,
 
-`numbers = [1,2,3,4,5]\nprint(numbers[1:4])`,
+            <div class="editor">
 
-`items = [1,2]\nitems.append(3)\nprint(items)`,
+                <div class="editor-title">
+                    Python Editor
+                </div>
 
-`items = [1,3]\nitems.insert(1,2)\nprint(items)`,
+                <textarea id="code${index}">${escapeHTML(topic.code)}</textarea>
 
-`items = ["A","B","C"]\nitems.remove("B")\nprint(items)`,
+                <button
+                    class="run"
+                    onclick="runPython(${index})">
 
-`items = [10,20,30]\nprint(items.pop())`,
+                    ▶ Run Code
 
-`numbers = [5,2,8,1]\nnumbers.sort()\nprint(numbers)`,
+                </button>
 
-`numbers = [1,2,3]\nnumbers.reverse()\nprint(numbers)`,
+                <div class="output-title">
+                    Output
+                </div>
 
-`for x in [1,2,3]:\n    print(x)`,
+                <pre
+                    class="output"
+                    id="output${index}">Click "Run Code" to execute Python.</pre>
 
-`t = (10,20,30)\nprint(t)`,
+            </div>
 
-`t = ("A","B","C")\nprint(t[0])`,
 
-`t = (1,2,3,4)\nprint(t[1:3])`,
+            <div class="key">
 
-`a,b,c = (10,20,30)\nprint(a,b,c)`,
+                <h3>Key Points</h3>
 
-`numbers = {1,2,3,3}\nprint(numbers)`,
+                <ul>
 
-`s = {1,2}\ns.add(3)\nprint(s)`,
+                    <li>
+                        Understand the concept.
+                    </li>
 
-`s = {1,2,3}\ns.remove(2)\nprint(s)`,
+                    <li>
+                        Run the example.
+                    </li>
 
-`a = {1,2,3}\nb = {3,4,5}\nprint(a | b)`,
+                    <li>
+                        Change the code.
+                    </li>
 
-`a = {1,2,3}\nb = {2,3,4}\nprint(a & b)`,
+                    <li>
+                        Practice yourself.
+                    </li>
 
-`a = {1,2,3}\nb = {2,3}\nprint(a - b)`,
+                </ul>
 
-`student = {"name":"Shiv","age":18}\nprint(student)`,
+            </div>
 
-`student = {"name":"Shiv"}\nprint(student["name"])`,
 
-`student = {"name":"Shiv"}\nprint(student.get("name"))`,
+            <div class="navigation">
 
-`student = {}\nstudent["name"] = "Shiv"\nprint(student)`,
+                <button onclick="previousLesson(${index})">
+                    ❮ Previous
+                </button>
 
-`student = {"name":"Shiv"}\nstudent.update({"age":18})\nprint(student)`,
+                <button onclick="nextLesson(${index})">
+                    Next ❯
+                </button>
 
-`student = {"name":"Shiv","age":18}\nstudent.pop("age")\nprint(student)`,
+            </div>
 
-`student = {"name":"Shiv","age":18}\nprint(student.keys())`,
+        `;
 
-`student = {"name":"Shiv","age":18}\nprint(student.values())`,
+        lessons.appendChild(section);
 
-`student = {"name":"Shiv","age":18}\nprint(student.items())`,
+    });
 
-`data = {"student":{"name":"Shiv","age":18}}\nprint(data["student"]["name"])`,
-
-`age = 20\nif age >= 18:\n    print("Adult")`,
-
-`age = 15\nif age >= 18:\n    print("Adult")\nelse:\n    print("Minor")`,
-
-`marks = 75\nif marks >= 90:\n    print("A")\nelif marks >= 60:\n    print("B")\nelse:\n    print("C")`,
-
-`age = 20\nif age >= 18:\n    if age < 60:\n        print("Working Age")`,
-
-`age = 25\nif age >= 18 and age <= 60:\n    print("Valid")`,
-
-`day = "Sunday"\nif day == "Sunday" or day == "Saturday":\n    print("Weekend")`,
-
-`x = 10\nif not x == 5:\n    print("True")`,
-
-`age = 20\nstatus = "Adult" if age >= 18 else "Minor"\nprint(status)`,
-
-`a = 10\nb = 5\nop = "+"\nif op == "+":\n    print(a+b)`,
-
-`marks = 75\nprint("Pass" if marks >= 40 else "Fail")`,
-
-`for i in range(5):\n    print(i)`,
-
-`i = 1\nwhile i <= 5:\n    print(i)\n    i += 1`,
-
-`for i in range(1,6):\n    print(i)`,
-
-`for i in range(1,6):\n    print("Count:",i)`,
-
-`for i in range(10):\n    if i == 5:\n        break\n    print(i)`,
-
-`for i in range(5):\n    if i == 2:\n        continue\n    print(i)`,
-
-`for i in range(3):\n    for j in range(3):\n        print(i,j)`,
-
-`numbers = [1,2,3]\nfor n in numbers:\n    print(n*2)`,
-
-`student = {"name":"Shiv","age":18}\nfor key,value in student.items():\n    print(key,value)`,
-
-`for i in range(1,6):\n    print(i*i)`,
-
-`def greet():\n    print("Hello")\ngreet()`,
-
-`def greet(name):\n    print("Hello",name)\ngreet("Shiv")`,
-
-`def add(a,b):\n    return a+b\nprint(add(10,20))`,
-
-`def greet(name="Shiv"):\n    print("Hello",name)\ngreet()`,
-
-`def student(name,age):\n    print(name,age)\nstudent(age=18,name="Shiv")`,
-
-`def total(*numbers):\n    print(sum(numbers))\ntotal(1,2,3,4)`,
-
-`def show(**data):\n    print(data)\nshow(name="Shiv",age=18)`,
-
-`x = 10\ndef test():\n    x = 20\n    print(x)\ntest()\nprint(x)`,
-
-`square = lambda x: x*x\nprint(square(5))`,
-
-`def even(x):\n    return x % 2 == 0\nprint(even(10))`,
-
-`try:\n    print(10/0)\nexcept ZeroDivisionError:\n    print("Cannot divide by zero")`,
-
-`try:\n    x = int("abc")\nexcept ValueError:\n    print("Invalid number")`,
-
-`try:\n    x = 10\nexcept:\n    print("Error")\nelse:\n    print("No error")`,
-
-`try:\n    print("Start")\nfinally:\n    print("Always runs")`,
-
-`age = -1\nif age < 0:\n    raise ValueError("Age cannot be negative")`,
-
-`try:\n    raise Exception("Custom error")\nexcept Exception as e:\n    print(e)`,
-
-`file = open("demo.txt","w")\nfile.write("Hello Python")\nfile.close()\nprint("File created")`,
-
-`file = open("demo.txt","r")\nprint(file.read())\nfile.close()`,
-
-`file = open("demo.txt","w")\nfile.write("Python Data Analytics")\nfile.close()\nprint("Written")`,
-
-`import csv\nprint("CSV module imported")`,
-
-`import json\ndata = {"name":"Shiv"}\nprint(json.dumps(data))`,
-
-`import math\nprint(math.sqrt(25))`,
-
-`from math import sqrt\nprint(sqrt(36))`,
-
-`print("Use pip to install external packages")`,
-
-`print("Virtual environments keep projects isolated")`,
-
-`class Student:\n    pass\nprint(Student)`,
-
-`class Student:\n    def __init__(self,name):\n        self.name=name\ns=Student("Shiv")\nprint(s.name)`,
-
-`class Animal:\n    def sound(self):\n        print("Sound")\nclass Dog(Animal):\n    pass\nDog().sound()`,
-
-`class Animal:\n    def sound(self):\n        print("Animal")\nclass Dog(Animal):\n    def sound(self):\n        print("Bark")\nDog().sound()`,
-
-`class Student:\n    def __init__(self):\n        self.__marks = 90\ns=Student()\nprint("Encapsulation")`,
-
-`def log(func):\n    def wrapper():\n        print("Before")\n        func()\n    return wrapper\n@log\ndef hello():\n    print("Hello")\nhello()`,
-
-`def numbers():\n    yield 1\n    yield 2\nfor x in numbers():\n    print(x)`,
-
-`it = iter([1,2,3])\nprint(next(it))`,
-
-`numbers = [1,2,3,4]\nsquares = [x*x for x in numbers]\nprint(squares)`,
-
-`data = {"a":1,"b":2}\nresult = {k:v*2 for k,v in data.items()}\nprint(result)`,
-
-`nums = [1,2,3,4]\nprint(list(map(lambda x:x*2,nums)))`,
-
-`print("Advanced Python")\nprint("Ready for Data Analytics")`,
-
-`import numpy as np\narr=np.array([1,2,3])\nprint(arr)`,
-
-`import numpy as np\narr=np.array([10,20,30])\nprint(arr[0])`,
-
-`import numpy as np\narr=np.array([1,2,3,4])\nprint(arr[1:3])`,
-
-`import numpy as np\narr=np.array([[1,2],[3,4]])\nprint(arr.shape)`,
-
-`import numpy as np\narr=np.array([1,2,3,4,5,6])\nprint(arr.reshape(2,3))`,
-
-`import numpy as np\narr=np.array([1,2,3,4])\nprint(np.mean(arr))\nprint(np.sum(arr))`,
-
-`import numpy as np\nprint(np.add([1,2],[3,4]))`,
-
-`import numpy as np\nprint(np.random.randint(1,10,5))`,
-
-`import numpy as np\narr=np.array([1,2,3])\nprint(arr*2)`,
-
-`import numpy as np\nprint(np.max([10,20,30]))`,
-
-`import pandas as pd\ns=pd.Series([10,20,30])\nprint(s)`,
-
-`import pandas as pd\ndf=pd.DataFrame({"Name":["A","B"],"Marks":[80,90]})\nprint(df)`,
-
-`import pandas as pd\ndf=pd.DataFrame({"Name":["A","B"],"Marks":[80,90]})\nprint(df)`,
-
-`import pandas as pd\ndf=pd.DataFrame({"Name":["A","B"],"Marks":[80,90]})\nprint(df["Name"])`,
-
-`import pandas as pd\nprint("Use pd.read_csv('data.csv') for CSV files")`,
-
-`import pandas as pd\nprint("Use pd.read_excel('data.xlsx') for Excel files")`,
-
-`import pandas as pd\ndf=pd.DataFrame({"Name":["A","B"],"Marks":[80,90]})\nprint(df.columns)`,
-
-`import pandas as pd\ndf=pd.DataFrame({"Name":["A","B"],"Marks":[80,90]})\nprint(df.iloc[0])`,
-
-`import pandas as pd\ndf=pd.DataFrame({"Name":["A","B"],"Marks":[80,90]})\nprint(df.loc[0])`,
-
-`import pandas as pd\ndf=pd.DataFrame({"Marks":[80,90,70]})\nprint(df["Marks"].mean())`,
-
-`import pandas as pd\ndf=pd.DataFrame({"A":[1,None,3]})\nprint(df)`,
-
-`import pandas as pd\ndf=pd.DataFrame({"A":[1,None,3]})\nprint(df.dropna())`,
-
-`import pandas as pd\ndf=pd.DataFrame({"A":[1,None,3]})\nprint(df.fillna(0))`,
-
-`import pandas as pd\ndf=pd.DataFrame({"A":[1,1,2]})\nprint(df.drop_duplicates())`,
-
-`import pandas as pd\ndf=pd.DataFrame({"A":["10","20"]})\ndf["A"]=df["A"].astype(int)\nprint(df)`,
-
-`text = "  Python Data  "\nprint(text.strip().lower())`,
-
-`import pandas as pd\ndf=pd.DataFrame({"Date":["2026-01-01"]})\ndf["Date"]=pd.to_datetime(df["Date"])\nprint(df)`,
-
-`import pandas as pd\ndf=pd.DataFrame({"Marks":[40,80,90]})\nprint(df[df["Marks"]>=60])`,
-
-`import pandas as pd\ndf=pd.DataFrame({"Marks":[40,80,90]})\nprint(df["Marks"].mean())`,
-
-`import pandas as pd\ndf=pd.DataFrame({"City":["Delhi","Delhi","Agra"],"Sales":[100,200,150]})\nprint(df.groupby("City")["Sales"].sum())`,
-
-`import pandas as pd\ndf=pd.DataFrame({"City":["Delhi","Delhi","Agra"],"Sales":[100,200,150]})\nprint(df.groupby("City")["Sales"].mean())`,
-
-`import pandas as pd\ndf=pd.DataFrame({"Marks":[80,60,90]})\nprint(df.sort_values("Marks"))`,
-
-`import pandas as pd\na=pd.DataFrame({"id":[1,2],"name":["A","B"]})\nb=pd.DataFrame({"id":[1,2],"marks":[80,90]})\nprint(pd.merge(a,b,on="id"))`,
-
-`import pandas as pd\na=pd.DataFrame({"id":[1,2]})\nb=pd.DataFrame({"id":[1,2]})\nprint(a.join(b,lsuffix="_a",rsuffix="_b"))`,
-
-`import pandas as pd\na=pd.DataFrame({"A":[1,2]})\nb=pd.DataFrame({"A":[3,4]})\nprint(pd.concat([a,b]))`,
-
-`import pandas as pd\ndf=pd.DataFrame({"City":["Delhi","Agra"],"Sales":[100,200]})\nprint(df.pivot_table(values="Sales",index="City"))`,
-
-`import pandas as pd\ndf=pd.DataFrame({"A":[1,2,3],"B":[2,4,6]})\nprint(df.corr())`,
-
-`import pandas as pd\ndf=pd.DataFrame({"Marks":[50,60,70]})\nprint(df.describe())`,
-
-`import matplotlib.pyplot as plt\nplt.plot([1,2,3],[10,20,15])\nplt.title("Line Chart")\nplt.show()`,
-
-`import matplotlib.pyplot as plt\nplt.bar(["A","B","C"],[10,20,15])\nplt.show()`,
-
-`import matplotlib.pyplot as plt\nplt.plot([1,2,3],[10,20,15],marker="o")\nplt.show()`,
-
-`import matplotlib.pyplot as plt\nplt.pie([40,30,30],labels=["A","B","C"])\nplt.show()`,
-
-`import matplotlib.pyplot as plt\nplt.scatter([1,2,3],[10,20,15])\nplt.show()`,
-
-`import matplotlib.pyplot as plt\nplt.hist([1,2,2,3,3,3])\nplt.show()`,
-
-`import matplotlib.pyplot as plt\nplt.title("Sales Chart")\nplt.xlabel("Month")\nplt.ylabel("Sales")\nplt.show()`,
-
-`import seaborn as sns\nprint("Seaborn is used for statistical visualization")`,
-
-`import seaborn as sns\nprint("Seaborn charts can visualize DataFrames")`,
-
-`print("Visualization project completed")`,
-
-`a=10\nb=5\nprint("Sum:",a+b)\nprint("Difference:",a-b)`,
-
-`name=input("Name: ")\nphone=input("Phone: ")\nprint("Name:",name)\nprint("Phone:",phone)`,
-
-`marks=[80,70,90]\nprint("Average:",sum(marks)/len(marks))`,
-
-`expenses=[100,250,50]\nprint("Total Expense:",sum(expenses))`,
-
-`print("CSV Analyzer Project")`,
-
-`import pandas as pd\ndf=pd.DataFrame({"Sales":[100,200,150]})\nprint("Total:",df["Sales"].sum())`,
-
-`print("Data Cleaning Project")`,
-
-`print("Dashboard data is ready")`,
-
-`print("Python + Pandas + NumPy = Data Analytics")`,
-
-`print("FINAL PYTHON DATA ANALYTICS PROJECT")`
-
-];
-
-const menu = document.getElementById("menu");
-const lessons = document.getElementById("lessons");
-
-topics.forEach((topic,i)=>{
-
-    let id="lesson"+i;
-
-    let a=document.createElement("a");
-    a.href="#"+id;
-    a.textContent=(i+1)+" "+topic;
-    a.onclick=()=>showLesson(i);
-    a.dataset.title=topic.toLowerCase();
-
-    menu.appendChild(a);
-
-    let section=document.createElement("section");
-    section.className="lesson";
-    section.id=id;
-
-    let code=codes[i] || `print("Lesson: ${topic}")`;
-
-    section.innerHTML=`
-        <h2>${topic}</h2>
-
-        <div class="box">
-            <b>Python Concept</b>
-            <p>
-                In this lesson you will learn about
-                <b>${topic}</b> with practical Python examples.
-            </p>
-        </div>
-
-        <div class="example">
-            <h3>Example</h3>
-            <p>Write Python code in the editor and run it.</p>
-        </div>
-
-        <div class="editor">
-            <div class="editor-title">Python Editor</div>
-
-            <textarea id="code${i}">${escapeHTML(code)}</textarea>
-
-            <button class="run" onclick="runPython(${i})">
-                ▶ Run Code
-            </button>
-
-            <div class="output-title">Output</div>
-            <pre class="output" id="output${i}">
-Click "Run Code" to see the output.
-            </pre>
-        </div>
-
-        <div class="box">
-            <b>Key Points</b>
-            <ul>
-                <li>Understand the concept.</li>
-                <li>Run the example yourself.</li>
-                <li>Modify the code and experiment.</li>
-                <li>Practice without copying.</li>
-            </ul>
-        </div>
-
-        <div class="nav">
-            <button onclick="previousLesson(${i})">
-                ❮ Previous
-            </button>
-
-            <button onclick="nextLesson(${i})">
-                Next ❯
-            </button>
-        </div>
-    `;
-
-    lessons.appendChild(section);
 });
 
+
+/* =========================================================
+   HTML ESCAPE
+========================================================= */
+
 function escapeHTML(text){
+
     return text
         .replace(/&/g,"&amp;")
         .replace(/</g,"&lt;")
         .replace(/>/g,"&gt;");
+
 }
+
+
+/* =========================================================
+   SHOW LESSON
+========================================================= */
 
 function showLesson(index){
 
-    document.querySelectorAll(".lesson")
-        .forEach(x=>x.classList.remove("active"));
+    document
+        .querySelectorAll(".lesson")
+        .forEach(x => {
 
-    document.querySelectorAll(".side a")
-        .forEach(x=>x.classList.remove("active"));
+            x.classList.remove("active");
 
-    document.getElementById("lesson"+index)
-        .classList.add("active");
+        });
 
-    document.querySelectorAll(".side a")[index]
-        .classList.add("active");
+
+    document
+        .querySelectorAll(".sidebar a")
+        .forEach(x => {
+
+            x.classList.remove("active");
+
+        });
+
+
+    let lesson =
+        document.getElementById("lesson"+index);
+
+    if(lesson){
+
+        lesson.classList.add("active");
+
+    }
+
+
+    let links =
+        document.querySelectorAll(".sidebar a");
+
+    let topicLinks = [];
+
+    links.forEach(link => {
+
+        if(link.dataset.title){
+            topicLinks.push(link);
+        }
+
+    });
+
+
+    if(topicLinks[index]){
+
+        topicLinks[index]
+            .classList.add("active");
+
+    }
+
 
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
+
 }
 
-function previousLesson(i){
-    if(i>0) showLesson(i-1);
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+function previousLesson(index){
+
+    if(index > 0){
+
+        showLesson(index - 1);
+
+    }
+
 }
 
-function nextLesson(i){
-    if(i<topics.length-1) showLesson(i+1);
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+function nextLesson(index){
+
+    if(index < allLessons.length - 1){
+
+        showLesson(index + 1);
+
+    }
+
 }
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
 
 function searchTopics(){
 
-    let value=document
+    let value =
+        document
         .getElementById("search")
         .value
         .toLowerCase();
 
-    document.querySelectorAll(".side a")
-        .forEach(a=>{
 
-            a.style.display =
-                a.dataset.title.includes(value)
-                ? "block"
-                : "none";
+    document
+        .querySelectorAll(".sidebar a")
+        .forEach(link => {
+
+            if(!link.dataset.title)
+                return;
+
+            if(
+                link.dataset.title
+                .includes(value)
+            ){
+
+                link.style.display = "block";
+
+            }else{
+
+                link.style.display = "none";
+
+            }
 
         });
+
 }
 
-/* Python Runtime */
 
-let pyodideReady = false;
-let pyodide;
+/* =========================================================
+   PYODIDE
+========================================================= */
 
-async function loadPython(){
+let pyodide = null;
 
-    if(!pyodideReady){
+async function getPyodide(){
+
+    if(!pyodide){
 
         pyodide =
             await loadPyodide();
 
-        pyodideReady=true;
     }
+
+    return pyodide;
+
 }
 
-async function runPython(i){
 
-    let output=
-        document.getElementById("output"+i);
+/* =========================================================
+   RUN PYTHON
+========================================================= */
 
-    let code=
-        document.getElementById("code"+i).value;
+async function runPython(index){
 
-    output.textContent="Running Python...";
+    let code =
+        document
+        .getElementById("code"+index)
+        .value;
+
+
+    let output =
+        document
+        .getElementById("output"+index);
+
+
+    output.textContent =
+        "Running Python...";
+
 
     try{
 
-        await loadPython();
+        let python =
+            await getPyodide();
 
-        pyodide.runPython(`
+
+        python.runPython(`
 import sys
 from io import StringIO
+
 sys.stdout = StringIO()
 `);
 
-        await pyodide.runPythonAsync(code);
 
-        let result=
-            pyodide.runPython(
+        await python.runPythonAsync(code);
+
+
+        let result =
+            python.runPython(
                 "sys.stdout.getvalue()"
             );
 
-        output.textContent=
+
+        output.textContent =
             result || "Code executed successfully.";
+
 
     }catch(error){
 
-        output.textContent=
-            "Error:\\n"+error;
+        output.textContent =
+            "Python Error:\\n\\n" +
+            error;
 
     }
 
 }
+
+
+/* =========================================================
+   FIRST LESSON
+========================================================= */
 
 showLesson(0);
 
