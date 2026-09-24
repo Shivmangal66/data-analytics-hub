@@ -2234,25 +2234,20 @@ async function runPython(index){
 
     let code =
         document
-        .getElementById("code"+index)
+        .getElementById("code" + index)
         .value;
-
 
     let output =
         document
-        .getElementById("output"+index);
+        .getElementById("output" + index);
 
-
-    output.textContent =
-        "Running Python...";
-
+    output.textContent = "Loading Python...";
 
     try{
 
-        let python =
-            await getPyodide();
+        let python = await getPyodide();
 
-
+        // Reset output
         python.runPython(`
 import sys
 from io import StringIO
@@ -2260,21 +2255,21 @@ from io import StringIO
 sys.stdout = StringIO()
 `);
 
-
+        // Run user's Python code
         await python.runPythonAsync(code);
 
-
+        // Get output
         let result =
             python.runPython(
                 "sys.stdout.getvalue()"
             );
 
-
         output.textContent =
             result || "Code executed successfully.";
 
+    }
 
-    }catch(error){
+    catch(error){
 
         output.textContent =
             "Python Error:\\n\\n" +
