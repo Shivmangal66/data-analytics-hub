@@ -2208,58 +2208,72 @@ function searchTopics(){
 
 /* =========================================================
    PYODIDE
+   Load only the packages required by the current lesson.
 ========================================================= */
-
 let pyodide = null;
 
-async function getPyodide(){
+async function getPyodide() {
 
-    if(!pyodide){
+    if (pyodide === null) {
 
-        pyodide =
-            await loadPyodide();
+        pyodide = await loadPyodide({
+            indexURL: "https://cdn.jsdelivr.net/pyodide/v0.27.2/full/"
+        });
 
     }
 
     return pyodide;
-
 }
 
+async function loadPackagesForCode(python, code) {
+
+    // Official Pyodide method: detect imports and load the
+    // matching built-in packages automatically.
+    await python.loadPackagesFromImports(code);
+
+    // Seaborn is not part of the built-in Pyodide 0.27.2 package
+    // list, so install it only for the Seaborn lesson.
+    if (/^\s*(?:from\s+seaborn|import\s+seaborn)/m.test(code)) {
+
+        await python.runPythonAsync(`
+import micropip
+await micropip.install("seaborn")
+`);
+
+    }
+}
 
 /* =========================================================
    RUN PYTHON
 ========================================================= */
 
-async function runPython(index){
+async function runPython(index) {
 
-    let code =
-        document
-        .getElementById("code" + index)
-        .value;
+    const code =
+        document.getElementById("code" + index).value;
 
-    let output =
-        document
-        .getElementById("output" + index);
+    const output =
+        document.getElementById("output" + index);
 
     output.textContent = "Loading Python...";
 
-    try{
+    try {
 
-        let python = await getPyodide();
+        const python = await getPyodide();
 
-        // Reset output
+        // Load only packages required by this lesson.
+        await loadPackagesForCode(python, code);
+
+        // Reset stdout before every execution.
         python.runPython(`
 import sys
 from io import StringIO
-
 sys.stdout = StringIO()
 `);
 
-        // Run user's Python code
         await python.runPythonAsync(code);
 
-        // Get output
-        let result =
+        const result =
             python.runPython(
                 "sys.stdout.getvalue()"
             );
@@ -2267,18 +2281,14 @@ sys.stdout = StringIO()
         output.textContent =
             result || "Code executed successfully.";
 
-    }
-
-    catch(error){
+    } catch (error) {
 
         output.textContent =
-            "Python Error:\\n\\n" +
-            error;
+            "Python Error:\n\n" +
+            (error && error.message ? error.message : error);
 
     }
-
 }
-
 
 /* =========================================================
    FIRST LESSON
