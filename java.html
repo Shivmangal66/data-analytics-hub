@@ -1,1177 +1,2521 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Java With Shiv | Data Analytics Hub</title>
-
-    <meta name="description"
-          content="Learn Java from beginner to advanced with Java With Shiv. Learn Java programming, OOP, collections, exception handling and projects.">
-
-    <meta name="keywords"
-          content="Java course, Java tutorial, Learn Java, Java programming, Java With Shiv, Data Analytics Hub">
-
-    <meta name="author" content="Shiv Mishra">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #07111f;
-            color: #f5f7fa;
-            line-height: 1.6;
-        }
-
-        /* ================= NAVBAR ================= */
-
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 16px 7%;
-
-            background: rgba(5, 13, 25, 0.95);
-            backdrop-filter: blur(10px);
-
-            border-bottom: 1px solid rgba(0, 190, 255, 0.2);
-        }
-
-        .logo {
-            color: white;
-            text-decoration: none;
-            font-size: 21px;
-            font-weight: bold;
-
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .logo span {
-            color: #00c8ff;
-        }
-
-        .nav {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .nav a {
-            color: #dce8f5;
-            text-decoration: none;
-            padding: 8px 13px;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        .nav a:hover,
-        .nav a.active {
-            background: #00a8e8;
-            color: white;
-        }
-
-        /* ================= HERO ================= */
-
-        .hero {
-            min-height: 560px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            text-align: center;
-
-            padding: 80px 7%;
-
-            background:
-                radial-gradient(circle at 20% 20%, rgba(0, 174, 255, 0.18), transparent 35%),
-                radial-gradient(circle at 80% 80%, rgba(128, 0, 255, 0.15), transparent 35%),
-                #07111f;
-        }
-
-        .hero-content {
-            max-width: 850px;
-        }
-
-        .java-icon {
-            font-size: 75px;
-            margin-bottom: 15px;
-        }
-
-        .hero h1 {
-            font-size: clamp(42px, 7vw, 75px);
-            margin-bottom: 15px;
-
-            background: linear-gradient(
-                90deg,
-                #00c8ff,
-                #7b61ff,
-                #00e5ff
-            );
-
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero h2 {
-            font-size: 27px;
-            color: #d8e8f5;
-            margin-bottom: 18px;
-        }
-
-        .hero p {
-            color: #9fb2c7;
-            font-size: 18px;
-            max-width: 700px;
-            margin: auto;
-        }
-
-        .hero-buttons {
-            margin-top: 30px;
-
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 13px 24px;
-
-            border-radius: 10px;
-
-            text-decoration: none;
-            font-weight: bold;
-
-            transition: 0.3s;
-        }
-
-        .btn-primary {
-            background: #00a8e8;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #008fc5;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            border: 1px solid #00c8ff;
-            color: #00c8ff;
-        }
-
-        .btn-secondary:hover {
-            background: #00c8ff;
-            color: #06101c;
-        }
-
-        /* ================= COMMON SECTION ================= */
-
-        .section {
-            padding: 75px 7%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-title h2 {
-            font-size: 35px;
-            color: #00c8ff;
-            margin-bottom: 8px;
-        }
-
-        .section-title p {
-            color: #9fb2c7;
-        }
-
-        /* ================= TOPIC GRID ================= */
-
-        .topic-grid {
-            max-width: 1100px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-
-            gap: 20px;
-        }
-
-        .topic-card {
-            padding: 25px;
-
-            background: #0c1b2d;
-
-            border: 1px solid rgba(0, 200, 255, 0.18);
-
-            border-radius: 15px;
-
-            transition: 0.3s;
-        }
-
-        .topic-card:hover {
-            transform: translateY(-6px);
-
-            border-color: #00c8ff;
-
-            box-shadow:
-                0 10px 30px rgba(0, 200, 255, 0.12);
-        }
-
-        .topic-icon {
-            font-size: 35px;
-            margin-bottom: 10px;
-        }
-
-        .topic-card h3 {
-            color: white;
-            margin-bottom: 8px;
-        }
-
-        .topic-card p {
-            color: #9fb2c7;
-            font-size: 14px;
-        }
-
-        /* ================= ROADMAP ================= */
-
-        .roadmap {
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .roadmap-item {
-            position: relative;
-
-            margin-bottom: 18px;
-            padding: 20px 25px 20px 65px;
-
-            background: #0c1b2d;
-
-            border-radius: 12px;
-
-            border-left: 4px solid #00c8ff;
-        }
-
-        .roadmap-number {
-            position: absolute;
-
-            left: 18px;
-            top: 18px;
-
-            width: 32px;
-            height: 32px;
-
-            border-radius: 50%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: #00a8e8;
-
-            font-weight: bold;
-        }
-
-        .roadmap-item h3 {
-            color: #ffffff;
-            margin-bottom: 4px;
-        }
-
-        .roadmap-item p {
-            color: #9fb2c7;
-        }
-
-        /* ================= CODE BOX ================= */
-
-        .code-section {
-            background: #050c16;
-        }
-
-        .code-box {
-            max-width: 850px;
-            margin: auto;
-
-            background: #02070d;
-
-            border: 1px solid #1a3c53;
-
-            border-radius: 14px;
-
-            overflow: hidden;
-
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
-        }
-
-        .code-header {
-            padding: 12px 18px;
-
-            background: #0d1b2b;
-
-            color: #9fb2c7;
-
-            font-size: 14px;
-        }
-
-        pre {
-            padding: 25px;
-
-            overflow-x: auto;
-
-            color: #d9f7ff;
-
-            font-family: Consolas, monospace;
-
-            font-size: 15px;
-        }
-
-        .keyword {
-            color: #ff79c6;
-        }
-
-        .string {
-            color: #a8ff60;
-        }
-
-        .function {
-            color: #8be9fd;
-        }
-
-        /* ================= PRACTICE ================= */
-
-        .practice-grid {
-            max-width: 1000px;
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(250px, 1fr));
-
-            gap: 20px;
-        }
-
-        .practice-card {
-            padding: 25px;
-
-            background: linear-gradient(
-                145deg,
-                #0d2034,
-                #091625
-            );
-
-            border-radius: 15px;
-
-            border: 1px solid rgba(123, 97, 255, 0.3);
-        }
-
-        .practice-card h3 {
-            color: #b69cff;
-            margin-bottom: 10px;
-        }
-
-        .practice-card p {
-            color: #b4c2d0;
-        }
-
-        /* ================= CTA ================= */
-
-        .cta {
-            padding: 80px 7%;
-            text-align: center;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #07111f,
-                    #102b46,
-                    #111a38
-                );
-        }
-
-        .cta h2 {
-            font-size: 38px;
-            margin-bottom: 12px;
-        }
-
-        .cta p {
-            color: #aebed0;
-            max-width: 650px;
-            margin: auto;
-        }
-
-        /* ================= FOOTER ================= */
-
-        footer {
-            padding: 35px 7%;
-
-            text-align: center;
-
-            background: #040a12;
-
-            border-top: 1px solid rgba(0, 200, 255, 0.15);
-        }
-
-        footer h3 {
-            color: #00c8ff;
-            margin-bottom: 7px;
-        }
-
-        footer p {
-            color: #8799aa;
-            font-size: 14px;
-        }
-
-        .footer-links {
-            margin: 15px 0;
-
-            display: flex;
-            justify-content: center;
-
-            gap: 15px;
-
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #aebed0;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            color: #00c8ff;
-        }
-
-        /* ================= MOBILE ================= */
-
-        @media (max-width: 700px) {
-
-            .navbar {
-                flex-direction: column;
-                gap: 14px;
-            }
-
-            .nav {
-                justify-content: center;
-            }
-
-            .nav a {
-                font-size: 14px;
-                padding: 7px 10px;
-            }
-
-            .hero {
-                min-height: 500px;
-                padding: 60px 6%;
-            }
-
-            .hero h2 {
-                font-size: 21px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .section {
-                padding: 55px 6%;
-            }
-
-            .section-title h2 {
-                font-size: 29px;
-            }
-
-            .roadmap-item {
-                padding-left: 55px;
-            }
-
-            pre {
-                font-size: 13px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Java With Shiv | Data Analytics Hub</title>
+
+<meta name="description"
+content="Learn Java step by step with Java With Shiv. Learn Java programming, OOP, arrays, methods, collections, exception handling and projects.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#07111f;
+    color:#f5f7fa;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:999;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 6%;
+
+    background:rgba(4,10,20,.96);
+    border-bottom:1px solid #163653;
+    backdrop-filter:blur(12px);
+}
+
+.logo{
+    color:white;
+    text-decoration:none;
+    font-size:21px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#00c8ff;
+}
+
+.nav{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.nav a{
+    text-decoration:none;
+    color:#c8d6e5;
+    padding:8px 12px;
+    border-radius:8px;
+}
+
+.nav a:hover,
+.nav a.active{
+    background:#008fc5;
+    color:white;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:70px 6% 55px;
+
+    background:
+    radial-gradient(circle at 20% 20%,rgba(0,200,255,.18),transparent 35%),
+    radial-gradient(circle at 80% 70%,rgba(124,77,255,.16),transparent 35%);
+}
+
+.coffee{
+    font-size:65px;
+}
+
+.hero h1{
+    margin-top:10px;
+    font-size:clamp(42px,7vw,75px);
+
+    background:linear-gradient(
+        90deg,
+        #00c8ff,
+        #8b5cf6,
+        #00e5ff
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    max-width:750px;
+    margin:18px auto;
+    color:#9fb2c7;
+    font-size:17px;
+}
+
+/* CONTROLS */
+
+.controls{
+    max-width:1150px;
+    margin:25px auto;
+    padding:0 20px;
+
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.search{
+    flex:1;
+    min-width:220px;
+
+    background:#0c1b2d;
+    color:white;
+
+    border:1px solid #21435c;
+    border-radius:10px;
+
+    padding:13px 15px;
+    outline:none;
+}
+
+.search:focus{
+    border-color:#00c8ff;
+}
+
+.select{
+    background:#0c1b2d;
+    color:white;
+    border:1px solid #21435c;
+    border-radius:10px;
+    padding:13px;
+}
+
+/* MAIN */
+
+.container{
+    max-width:1150px;
+    margin:auto;
+    padding:20px;
+}
+
+/* PROGRESS */
+
+.progress-card{
+    background:#0c1b2d;
+    border:1px solid #183b55;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:10px;
+    color:#a9bbcc;
+}
+
+.progress-bar{
+    height:10px;
+    background:#172a3c;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#00c8ff,#7c4dff);
+    transition:.3s;
+}
+
+/* LESSON */
+
+.lesson{
+    background:#0b1929;
+    border:1px solid #1b3b55;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 15px 45px rgba(0,0,0,.25);
+}
+
+.lesson-header{
+    padding:28px;
+    background:linear-gradient(135deg,#0d2338,#101b36);
+    border-bottom:1px solid #1d405b;
+}
+
+.lesson-number{
+    display:inline-block;
+    padding:6px 12px;
+    background:#063e59;
+    color:#00d5ff;
+    border-radius:20px;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.lesson-header h2{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.lesson-header p{
+    color:#9fb2c7;
+}
+
+/* SECTIONS */
+
+.lesson-body{
+    padding:28px;
+}
+
+.info-box{
+    background:#091421;
+    border-left:4px solid #00c8ff;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:25px;
+}
+
+.info-box h3{
+    color:#00c8ff;
+    margin-bottom:10px;
+}
+
+.info-box p{
+    color:#c0ccd8;
+    white-space:pre-line;
+}
+
+/* EDITOR */
+
+.editor-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+}
+
+.editor-title h3{
+    color:#e7f7ff;
+}
+
+.editor{
+    width:100%;
+    min-height:330px;
+
+    background:#02070d;
+    color:#d9f7ff;
+
+    border:1px solid #1e465e;
+    border-radius:12px;
+
+    padding:20px;
+
+    font-family:Consolas,"Courier New",monospace;
+    font-size:15px;
+    line-height:1.6;
+
+    resize:vertical;
+    outline:none;
+}
+
+.editor:focus{
+    border-color:#00c8ff;
+}
+
+/* BUTTONS */
+
+.run-btn{
+    margin-top:12px;
+
+    background:linear-gradient(
+        135deg,
+        #00a8e8,
+        #006bc7
+    );
+
+    color:white;
+    border:none;
+
+    padding:13px 22px;
+    border-radius:10px;
+
+    font-size:15px;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.run-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,174,255,.2);
+}
+
+/* OUTPUT */
+
+.output-box{
+    margin-top:20px;
+}
+
+.output-title{
+    color:#7cffb2;
+    margin-bottom:8px;
+}
+
+.output{
+    min-height:100px;
+
+    background:#020806;
+    border:1px solid #174b34;
+
+    color:#8cffb5;
+
+    border-radius:10px;
+
+    padding:18px;
+
+    font-family:Consolas,monospace;
+    white-space:pre-wrap;
+}
+
+/* PRACTICE */
+
+.practice{
+    margin-top:28px;
+
+    background:#15122a;
+    border:1px solid #453477;
+
+    padding:22px;
+    border-radius:12px;
+}
+
+.practice h3{
+    color:#b99cff;
+    margin-bottom:10px;
+}
+
+.practice p{
+    color:#c5bed8;
+}
+
+/* NAVIGATION */
+
+.lesson-nav{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+
+    margin-top:28px;
+}
+
+.nav-btn{
+    border:none;
+    padding:13px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.prev{
+    background:#17293a;
+    color:#b8c8d8;
+}
+
+.next{
+    background:#00a8e8;
+    color:white;
+}
+
+.nav-btn:disabled{
+    opacity:.35;
+    cursor:not-allowed;
+}
+
+/* LESSON LIST */
+
+.list-section{
+    margin-top:30px;
+
+    background:#0b1929;
+    border:1px solid #1b3b55;
+    border-radius:16px;
+
+    padding:25px;
+}
+
+.list-section h2{
+    color:#00c8ff;
+    margin-bottom:18px;
+}
+
+.lesson-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:10px;
+}
+
+.lesson-item{
+    padding:12px 15px;
+
+    background:#091421;
+
+    border:1px solid #19354b;
+    border-radius:9px;
+
+    cursor:pointer;
+
+    color:#aebdca;
+}
+
+.lesson-item:hover,
+.lesson-item.selected{
+    border-color:#00c8ff;
+    color:white;
+    background:#0c263b;
+}
+
+/* CTA */
+
+.cta{
+    text-align:center;
+    padding:70px 6%;
+    margin-top:40px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #071522,
+        #102c46,
+        #17133c
+    );
+}
+
+.cta h2{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.cta p{
+    color:#9fb2c7;
+    max-width:650px;
+    margin:auto;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:35px 6%;
+    background:#040a12;
+    border-top:1px solid #153149;
+}
+
+footer h3{
+    color:#00c8ff;
+    margin-bottom:8px;
+}
+
+footer p{
+    color:#788b9d;
+    font-size:14px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin:15px 0;
+}
+
+.footer-links a{
+    color:#aebdca;
+    text-decoration:none;
+}
+
+.footer-links a:hover{
+    color:#00c8ff;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .navbar{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .nav{
+        justify-content:center;
+    }
+
+    .hero{
+        padding-top:50px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .lesson-header h2{
+        font-size:26px;
+    }
+
+    .lesson-body{
+        padding:18px;
+    }
+
+    .editor{
+        min-height:280px;
+        font-size:13px;
+    }
+
+    .lesson-nav{
+        flex-direction:column;
+    }
+
+    .nav-btn{
+        width:100%;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- NAVBAR -->
 
 <header class="navbar">
 
-    <a href="index.html" class="logo">
-        📊
-        <span>Data Analytics Hub</span>
-    </a>
+<a href="index.html" class="logo">
+📊 <span>Data Analytics Hub</span>
+</a>
 
-    <nav class="nav">
+<nav class="nav">
 
-        <a href="index.html">
-            Home
-        </a>
+<a href="index.html">Home</a>
+<a href="html.html">HTML</a>
+<a href="python-puzzles.html">Python</a>
+<a href="excel.html">Excel</a>
+<a href="cpp.html">C++</a>
+<a href="java.html" class="active">Java</a>
 
-        <a href="html.html">
-            HTML
-        </a>
-
-        <a href="python-puzzles.html">
-            Python
-        </a>
-
-        <a href="excel.html">
-            Excel
-        </a>
-
-        <a href="cpp.html">
-            C++
-        </a>
-
-        <a href="java.html" class="active">
-            Java
-        </a>
-
-    </nav>
+</nav>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <section class="hero">
 
-    <div class="hero-content">
+<div class="coffee">☕</div>
 
-        <div class="java-icon">
-            ☕
-        </div>
+<h1>JAVA WITH SHIV</h1>
 
-        <h1>JAVA WITH SHIV</h1>
-
-        <h2>Learn Java From Zero to Advanced</h2>
-
-        <p>
-            Learn Java programming step-by-step with simple explanations,
-            practical coding, projects and problem solving.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#topics" class="btn btn-primary">
-                Start Learning
-            </a>
-
-            <a href="#practice" class="btn btn-secondary">
-                Practice Java
-            </a>
-
-        </div>
-
-    </div>
+<p>
+Learn Java step by step from beginner to advanced.
+Understand every concept, write code, practice and build projects.
+</p>
 
 </section>
 
 
-<!-- ================= TOPICS ================= -->
+<!-- CONTROLS -->
 
-<section class="section" id="topics">
+<div class="controls">
 
-    <div class="section-title">
+<input
+class="search"
+id="searchBox"
+placeholder="🔍 Search Java lessons..."
+oninput="searchLessons()"
+>
 
-        <h2>☕ Java Learning Path</h2>
+<select class="select" id="lessonSelect" onchange="goToLesson(this.value)">
+</select>
 
-        <p>
-            Learn Java step-by-step from basics to advanced concepts.
-        </p>
+</div>
 
-    </div>
 
+<!-- MAIN -->
 
-    <div class="topic-grid">
+<main class="container">
 
-        <div class="topic-card">
+<!-- PROGRESS -->
 
-            <div class="topic-icon">🚀</div>
+<div class="progress-card">
 
-            <h3>Java Basics</h3>
+<div class="progress-top">
 
-            <p>
-                Introduction, installation, syntax, Hello World,
-                variables and data types.
-            </p>
+<span id="progressText">
+Lesson 1 of 47
+</span>
 
-        </div>
+<span id="progressPercent">
+2%
+</span>
 
+</div>
 
-        <div class="topic-card">
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div>
 
-            <div class="topic-icon">➗</div>
+</div>
 
-            <h3>Operators</h3>
 
-            <p>
-                Arithmetic, relational, logical, assignment,
-                unary and ternary operators.
-            </p>
+<!-- LESSON -->
 
-        </div>
+<section class="lesson">
 
+<div class="lesson-header">
 
-        <div class="topic-card">
+<div class="lesson-number" id="lessonNumber">
+LESSON 1
+</div>
 
-            <div class="topic-icon">🔀</div>
+<h2 id="lessonTitle">
+What is Java?
+</h2>
 
-            <h3>Conditions</h3>
+<p id="lessonSubtitle">
+Introduction to Java programming
+</p>
 
-            <p>
-                if, else, else-if, nested if and switch statements.
-            </p>
+</div>
 
-        </div>
 
+<div class="lesson-body">
 
-        <div class="topic-card">
+<!-- EXPLANATION -->
 
-            <div class="topic-icon">🔁</div>
+<div class="info-box">
 
-            <h3>Loops</h3>
+<h3>📖 Explanation</h3>
 
-            <p>
-                for loop, while loop, do-while,
-                break and continue.
-            </p>
+<p id="explanation"></p>
 
-        </div>
+</div>
 
 
-        <div class="topic-card">
+<!-- EDITOR -->
 
-            <div class="topic-icon">📦</div>
+<div class="editor-title">
 
-            <h3>Arrays</h3>
+<h3>💻 Try It Yourself</h3>
 
-            <p>
-                One-dimensional arrays, multidimensional arrays
-                and array problems.
-            </p>
+<span style="color:#71879a;font-size:13px;">
+Java Example
+</span>
 
-        </div>
+</div>
 
+<textarea
+class="editor"
+id="codeEditor"
+spellcheck="false"
+></textarea>
 
-        <div class="topic-card">
+<button class="run-btn" onclick="runCode()">
+▶ Run Code
+</button>
 
-            <div class="topic-icon">🔤</div>
 
-            <h3>Strings</h3>
+<!-- OUTPUT -->
 
-            <p>
-                String creation, methods, comparison,
-                StringBuilder and StringBuffer.
-            </p>
+<div class="output-box">
 
-        </div>
+<h3 class="output-title">
+📤 Output
+</h3>
 
+<pre class="output" id="output">
+Click "Run Code" to see the output.
+</pre>
 
-        <div class="topic-card">
+</div>
 
-            <div class="topic-icon">🏗️</div>
 
-            <h3>OOP</h3>
+<!-- PRACTICE -->
 
-            <p>
-                Classes, objects, constructors,
-                inheritance and polymorphism.
-            </p>
+<div class="practice">
 
-        </div>
+<h3>📝 Practice</h3>
 
+<p id="practice"></p>
 
-        <div class="topic-card">
+</div>
 
-            <div class="topic-icon">🛡️</div>
 
-            <h3>Exception Handling</h3>
+<!-- NAVIGATION -->
 
-            <p>
-                try, catch, finally, throw,
-                throws and custom exceptions.
-            </p>
+<div class="lesson-nav">
 
-        </div>
+<button
+class="nav-btn prev"
+id="prevBtn"
+onclick="previousLesson()"
+>
+← Previous
+</button>
 
+<button
+class="nav-btn next"
+id="nextBtn"
+onclick="nextLesson()"
+>
+Next →
+</button>
 
-        <div class="topic-card">
+</div>
 
-            <div class="topic-icon">🗂️</div>
-
-            <h3>Collections</h3>
-
-            <p>
-                ArrayList, LinkedList, HashSet,
-                HashMap and Collections Framework.
-            </p>
-
-        </div>
-
-
-        <div class="topic-card">
-
-            <div class="topic-icon">📁</div>
-
-            <h3>File Handling</h3>
-
-            <p>
-                Read, write and manage files
-                using Java.
-            </p>
-
-        </div>
-
-
-        <div class="topic-card">
-
-            <div class="topic-icon">🧵</div>
-
-            <h3>Multithreading</h3>
-
-            <p>
-                Threads, Runnable, synchronization
-                and concurrent programming basics.
-            </p>
-
-        </div>
-
-
-        <div class="topic-card">
-
-            <div class="topic-icon">💼</div>
-
-            <h3>Projects</h3>
-
-            <p>
-                Build practical Java projects
-                to strengthen your programming skills.
-            </p>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- ================= ROADMAP ================= -->
+<!-- LESSON LIST -->
 
-<section class="section">
+<section class="list-section">
 
-    <div class="section-title">
+<h2>📚 Java Course Lessons</h2>
 
-        <h2>🗺️ Java Roadmap</h2>
+<div class="lesson-list" id="lessonList"></div>
 
-        <p>
-            Follow this order to learn Java properly.
-        </p>
+</section>
 
-    </div>
+</main>
 
 
-    <div class="roadmap">
+<!-- CTA -->
 
-        <div class="roadmap-item">
+<section class="cta">
 
-            <div class="roadmap-number">1</div>
+<h2>☕ Keep Learning Java</h2>
 
-            <h3>Java Fundamentals</h3>
-
-            <p>
-                Introduction, JDK, JRE, JVM, syntax,
-                variables and data types.
-            </p>
-
-        </div>
-
-
-        <div class="roadmap-item">
-
-            <div class="roadmap-number">2</div>
-
-            <h3>Operators & Conditions</h3>
-
-            <p>
-                Operators, if-else, nested conditions
-                and switch.
-            </p>
-
-        </div>
-
-
-        <div class="roadmap-item">
-
-            <div class="roadmap-number">3</div>
-
-            <h3>Loops & Patterns</h3>
-
-            <p>
-                for, while, do-while, break,
-                continue and pattern problems.
-            </p>
-
-        </div>
-
-
-        <div class="roadmap-item">
-
-            <div class="roadmap-number">4</div>
-
-            <h3>Arrays & Strings</h3>
-
-            <p>
-                Arrays, multidimensional arrays,
-                strings and important methods.
-            </p>
-
-        </div>
-
-
-        <div class="roadmap-item">
-
-            <div class="roadmap-number">5</div>
-
-            <h3>Object Oriented Programming</h3>
-
-            <p>
-                Class, object, constructor,
-                inheritance, polymorphism,
-                abstraction and encapsulation.
-            </p>
-
-        </div>
-
-
-        <div class="roadmap-item">
-
-            <div class="roadmap-number">6</div>
-
-            <h3>Advanced Java Concepts</h3>
-
-            <p>
-                Exception handling, collections,
-                file handling and multithreading.
-            </p>
-
-        </div>
-
-
-        <div class="roadmap-item">
-
-            <div class="roadmap-number">7</div>
-
-            <h3>Projects & Practice</h3>
-
-            <p>
-                Solve coding questions and build
-                practical Java projects.
-            </p>
-
-        </div>
-
-    </div>
+<p>
+Practice every concept, solve problems and build projects.
+Consistency is the key to becoming a programmer.
+</p>
 
 </section>
 
 
-<!-- ================= FIRST PROGRAM ================= -->
+<!-- FOOTER -->
 
-<section class="section code-section">
+<footer>
 
-    <div class="section-title">
+<h3>☕ Java With Shiv</h3>
 
-        <h2>💻 Your First Java Program</h2>
+<p>Part of Data Analytics Hub</p>
 
-        <p>
-            Start your Java journey with this simple program.
-        </p>
+<div class="footer-links">
 
-    </div>
+<a href="index.html">Home</a>
+<a href="python-puzzles.html">Python</a>
+<a href="excel.html">Excel</a>
+<a href="cpp.html">C++</a>
+<a href="java.html">Java</a>
+
+</div>
+
+<p>
+© 2026 Data Analytics Hub | Java With Shiv
+</p>
+
+</footer>
 
 
-    <div class="code-box">
+<script>
 
-        <div class="code-header">
-            Main.java
-        </div>
+/* =========================================================
+   JAVA COURSE DATA
+========================================================= */
 
-<pre>
+const lessons = [
+
+{
+title:"What is Java?",
+subtitle:"Introduction to Java programming",
+explanation:`Java is a high-level, object-oriented programming language.
+
+Java was designed to be simple, secure and platform independent.
+
+Java programs are compiled into bytecode that runs on the Java Virtual Machine (JVM).`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Hello Java!");
+
+    }
+
+}`,
+output:`Hello Java!`,
+practice:`Write a Java program that prints your name, age and city.`
+},
+
+{
+title:"JDK, JRE and JVM",
+subtitle:"Understanding the Java platform",
+explanation:`JDK stands for Java Development Kit.
+
+JRE stands for Java Runtime Environment.
+
+JVM stands for Java Virtual Machine.
+
+JDK is used to develop Java programs.
+JRE provides the environment to run Java applications.
+JVM executes Java bytecode.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("JDK = Development");
+        System.out.println("JRE = Runtime");
+        System.out.println("JVM = Executes Bytecode");
+
+    }
+
+}`,
+output:`JDK = Development
+JRE = Runtime
+JVM = Executes Bytecode`,
+practice:`Explain the difference between JDK, JRE and JVM in your own words.`
+},
+
+{
+title:"First Java Program",
+subtitle:"Understanding the basic structure",
+explanation:`A Java program normally contains a class.
+
+The main() method is the entry point of a basic Java application.
+
+System.out.println() is used to display output.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("My first Java program");
+
+    }
+
+}`,
+output:`My first Java program`,
+practice:`Change the message and print "I am learning Java".`
+},
+
+{
+title:"Java Syntax",
+subtitle:"Basic rules of Java",
+explanation:`Java is case-sensitive.
+
+Statements normally end with a semicolon.
+
+Code blocks are enclosed inside curly braces.
+
+Class and method names follow naming conventions.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        int age = 18;
+
+        System.out.println(age);
+
+    }
+
+}`,
+output:`18`,
+practice:`Create a variable named marks and print its value.`
+},
+
+{
+title:"Variables",
+subtitle:"Storing information",
+explanation:`A variable is a named memory location used to store data.
+
+A variable has a data type, a name and a value.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        String name = "Shiv";
+        int age = 18;
+
+        System.out.println(name);
+        System.out.println(age);
+
+    }
+
+}`,
+output:`Shiv
+18`,
+practice:`Create variables for your name, age and college.`
+},
+
+{
+title:"Data Types",
+subtitle:"Types of data in Java",
+explanation:`Java provides primitive data types such as int, double, char and boolean.
+
+It also provides reference types such as String and arrays.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        int age = 18;
+        double price = 99.99;
+        char grade = 'A';
+        boolean student = true;
+
+        System.out.println(age);
+        System.out.println(price);
+        System.out.println(grade);
+        System.out.println(student);
+
+    }
+
+}`,
+output:`18
+99.99
+A
+true`,
+practice:`Create variables using int, double, char and boolean.`
+},
+
+{
+title:"Taking Input",
+subtitle:"Using Scanner",
+explanation:`The Scanner class can be used to take input from the user.
+
+We can use nextInt() for integers and nextLine() for text.`,
+code:`import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Hello, Java!");
+        Scanner sc = new Scanner(System.in);
+
+        String name = sc.nextLine();
+
+        System.out.println("Hello " + name);
+
+    }
+
+}`,
+output:`Hello Shiv`,
+practice:`Take two numbers as input and print their sum.`
+},
+
+{
+title:"Type Casting",
+subtitle:"Converting one data type into another",
+explanation:`Type casting means converting a value from one data type to another.
+
+Widening conversion happens automatically in many cases.
+
+Narrowing conversion can be done manually.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        int number = 10;
+
+        double value = number;
+
+        System.out.println(value);
+
+    }
+
+}`,
+output:`10.0`,
+practice:`Convert a double value into an integer using explicit casting.`
+},
+
+{
+title:"Operators",
+subtitle:"Performing operations",
+explanation:`Operators are symbols used to perform operations.
+
+Common operators include arithmetic, relational, logical and assignment operators.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        int a = 10;
+        int b = 3;
+
+        System.out.println(a + b);
+        System.out.println(a - b);
+        System.out.println(a * b);
+        System.out.println(a / b);
+
+    }
+
+}`,
+output:`13
+7
+30
+3`,
+practice:`Create a program that calculates +, -, * and / for two numbers.`
+},
+
+{
+title:"if Statement",
+subtitle:"Making decisions",
+explanation:`The if statement executes a block of code when a condition is true.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        int age = 18;
+
+        if (age >= 18) {
+            System.out.println("Adult");
+        }
+
+    }
+
+}`,
+output:`Adult`,
+practice:`Check whether a number is greater than 10.`
+},
+
+{
+title:"if-else",
+subtitle:"Two-way decision making",
+explanation:`The if-else statement allows the program to choose between two blocks of code.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        int number = 7;
+
+        if (number % 2 == 0) {
+            System.out.println("Even");
+        } else {
+            System.out.println("Odd");
+        }
+
+    }
+
+}`,
+output:`Odd`,
+practice:`Check whether a number is positive or negative.`
+},
+
+{
+title:"else-if",
+subtitle:"Multiple conditions",
+explanation:`The else-if structure is useful when a program has multiple conditions.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        int marks = 85;
+
+        if (marks >= 90) {
+            System.out.println("A+");
+        } else if (marks >= 80) {
+            System.out.println("A");
+        } else {
+            System.out.println("B");
+        }
+
+    }
+
+}`,
+output:`A`,
+practice:`Create a grading system using else-if.`
+},
+
+{
+title:"Nested if",
+subtitle:"if inside another if",
+explanation:`A nested if is an if statement placed inside another if statement.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        int age = 20;
+        boolean id = true;
+
+        if (age >= 18) {
+
+            if (id) {
+                System.out.println("Entry allowed");
+            }
+
+        }
+
+    }
+
+}`,
+output:`Entry allowed`,
+practice:`Create a nested condition for a login system.`
+},
+
+{
+title:"switch",
+subtitle:"Multiple fixed choices",
+explanation:`The switch statement can be used when a value needs to be compared with several fixed cases.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        int day = 2;
+
+        switch(day) {
+
+            case 1:
+                System.out.println("Monday");
+                break;
+
+            case 2:
+                System.out.println("Tuesday");
+                break;
+
+            default:
+                System.out.println("Invalid");
+
+        }
+
+    }
+
+}`,
+output:`Tuesday`,
+practice:`Create a calculator menu using switch.`
+},
+
+{
+title:"for Loop",
+subtitle:"Repeating code",
+explanation:`A for loop is useful when you know how many times you want to repeat a block of code.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        for(int i = 1; i <= 5; i++) {
+
+            System.out.println(i);
+
+        }
+
+    }
+
+}`,
+output:`1
+2
+3
+4
+5`,
+practice:`Print numbers from 1 to 100.`
+},
+
+{
+title:"while Loop",
+subtitle:"Repeating while a condition is true",
+explanation:`A while loop continues executing as long as its condition remains true.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        int i = 1;
+
+        while(i <= 5) {
+
+            System.out.println(i);
+
+            i++;
+
+        }
+
+    }
+
+}`,
+output:`1
+2
+3
+4
+5`,
+practice:`Print even numbers from 2 to 20 using while.`
+},
+
+{
+title:"do-while Loop",
+subtitle:"Executing at least once",
+explanation:`A do-while loop executes its body first and checks the condition afterward.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        int i = 1;
+
+        do {
+
+            System.out.println(i);
+            i++;
+
+        } while(i <= 5);
+
+    }
+
+}`,
+output:`1
+2
+3
+4
+5`,
+practice:`Create a do-while menu program.`
+},
+
+{
+title:"break and continue",
+subtitle:"Controlling loops",
+explanation:`break stops a loop completely.
+
+continue skips the current iteration and moves to the next iteration.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        for(int i = 1; i <= 5; i++) {
+
+            if(i == 3)
+                continue;
+
+            System.out.println(i);
+
+        }
+
+    }
+
+}`,
+output:`1
+2
+4
+5`,
+practice:`Use break to stop a loop when the number reaches 5.`
+},
+
+{
+title:"Arrays",
+subtitle:"Storing multiple values",
+explanation:`An array stores multiple values of the same type.
+
+Array indexes start from 0.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        int[] numbers = {10, 20, 30, 40};
+
+        System.out.println(numbers[0]);
+        System.out.println(numbers[2]);
+
+    }
+
+}`,
+output:`10
+30`,
+practice:`Create an array containing five numbers and print all values.`
+},
+
+{
+title:"2D Arrays",
+subtitle:"Working with rows and columns",
+explanation:`A two-dimensional array can be used to represent data in rows and columns.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        int[][] matrix = {
+            {1, 2},
+            {3, 4}
+        };
+
+        System.out.println(matrix[0][0]);
+        System.out.println(matrix[1][1]);
+
+    }
+
+}`,
+output:`1
+4`,
+practice:`Create a 3x3 matrix and print its values.`
+},
+
+{
+title:"Strings",
+subtitle:"Working with text",
+explanation:`A String is used to store text.
+
+Strings are objects in Java and provide many useful methods.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        String name = "Shiv";
+
+        System.out.println(name);
+        System.out.println(name.length());
+
+    }
+
+}`,
+output:`Shiv
+4`,
+practice:`Create a String and print its length.`
+},
+
+{
+title:"String Methods",
+subtitle:"Useful String operations",
+explanation:`Java provides methods such as length(), toUpperCase(), toLowerCase() and contains().`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        String text = "Java Programming";
+
+        System.out.println(text.toUpperCase());
+        System.out.println(text.toLowerCase());
+        System.out.println(text.length());
+
+    }
+
+}`,
+output:`JAVA PROGRAMMING
+java programming
+16`,
+practice:`Try substring(), replace() and contains().`
+},
+
+{
+title:"Methods",
+subtitle:"Reusable blocks of code",
+explanation:`A method is a reusable block of code designed to perform a particular task.`,
+code:`public class Main {
+
+    static void greet() {
+
+        System.out.println("Hello Java");
+
+    }
+
+    public static void main(String[] args) {
+
+        greet();
+
+    }
+
+}`,
+output:`Hello Java`,
+practice:`Create a method called welcome() that prints a message.`
+},
+
+{
+title:"Method Parameters",
+subtitle:"Passing data to methods",
+explanation:`Parameters allow us to pass values into a method.`,
+code:`public class Main {
+
+    static void greet(String name) {
+
+        System.out.println("Hello " + name);
+
+    }
+
+    public static void main(String[] args) {
+
+        greet("Shiv");
+
+    }
+
+}`,
+output:`Hello Shiv`,
+practice:`Create a method that accepts two numbers.`
+},
+
+{
+title:"Return Values",
+subtitle:"Getting a result from a method",
+explanation:`A method can return a value using the return statement.`,
+code:`public class Main {
+
+    static int add(int a, int b) {
+
+        return a + b;
+
+    }
+
+    public static void main(String[] args) {
+
+        int result = add(10, 20);
+
+        System.out.println(result);
+
+    }
+
+}`,
+output:`30`,
+practice:`Create a method that returns the square of a number.`
+},
+
+{
+title:"Method Overloading",
+subtitle:"Multiple methods with the same name",
+explanation:`Method overloading allows multiple methods to have the same name with different parameter lists.`,
+code:`public class Main {
+
+    static int add(int a, int b) {
+        return a + b;
+    }
+
+    static int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(add(10,20));
+        System.out.println(add(10,20,30));
+
+    }
+
+}`,
+output:`30
+60`,
+practice:`Create overloaded methods for calculating area.`
+},
+
+{
+title:"Class and Object",
+subtitle:"The foundation of OOP",
+explanation:`A class is a blueprint.
+
+An object is an instance of a class.
+
+Classes allow us to combine data and behavior.`,
+code:`class Student {
+
+    String name = "Shiv";
+
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Student s = new Student();
+
+        System.out.println(s.name);
+
+    }
+
+}`,
+output:`Shiv`,
+practice:`Create a Car class with brand and model fields.`
+},
+
+{
+title:"Constructor",
+subtitle:"Initializing objects",
+explanation:`A constructor is called when an object is created.
+
+It is commonly used to initialize object data.`,
+code:`class Student {
+
+    String name;
+
+    Student(String name) {
+
+        this.name = name;
 
     }
 
 }
-</pre>
 
-    </div>
+public class Main {
 
-</section>
+    public static void main(String[] args) {
 
+        Student s = new Student("Shiv");
 
-<!-- ================= PRACTICE ================= -->
+        System.out.println(s.name);
 
-<section class="section" id="practice">
+    }
 
-    <div class="section-title">
+}`,
+output:`Shiv`,
+practice:`Create a constructor for a Book class.`
+},
 
-        <h2>🔥 Java Practice</h2>
+{
+title:"this Keyword",
+subtitle:"Referring to the current object",
+explanation:`The this keyword refers to the current object.
 
-        <p>
-            Practice is the key to becoming a better programmer.
-        </p>
+It is commonly used when parameter names and instance variable names are the same.`,
+code:`class Student {
 
-    </div>
+    String name;
 
+    Student(String name) {
 
-    <div class="practice-grid">
+        this.name = name;
 
-        <div class="practice-card">
+    }
 
-            <h3>Question 01</h3>
+    void show() {
 
-            <p>
-                Write a Java program to print
-                your name, age and city.
-            </p>
+        System.out.println(this.name);
 
-        </div>
+    }
 
+}
 
-        <div class="practice-card">
+public class Main {
 
-            <h3>Question 02</h3>
+    public static void main(String[] args) {
 
-            <p>
-                Write a program to check whether
-                a number is positive, negative or zero.
-            </p>
+        Student s = new Student("Shiv");
 
-        </div>
+        s.show();
 
+    }
 
-        <div class="practice-card">
+}`,
+output:`Shiv`,
+practice:`Use this keyword inside a Student class.`
+},
 
-            <h3>Question 03</h3>
+{
+title:"Encapsulation",
+subtitle:"Protecting data",
+explanation:`Encapsulation means keeping data private and controlling access through methods.
 
-            <p>
-                Write a program to print numbers
-                from 1 to 100 using a for loop.
-            </p>
+Getters and setters are commonly used for this.`,
+code:`class Student {
 
-        </div>
+    private int marks;
 
+    public void setMarks(int marks) {
 
-        <div class="practice-card">
+        this.marks = marks;
 
-            <h3>Question 04</h3>
+    }
 
-            <p>
-                Write a program to find the largest
-                number among three numbers.
-            </p>
+    public int getMarks() {
 
-        </div>
+        return marks;
 
+    }
 
-        <div class="practice-card">
+}
 
-            <h3>Question 05</h3>
+public class Main {
 
-            <p>
-                Write a Java program to reverse
-                a string.
-            </p>
+    public static void main(String[] args) {
 
-        </div>
+        Student s = new Student();
 
+        s.setMarks(90);
 
-        <div class="practice-card">
+        System.out.println(s.getMarks());
 
-            <h3>Question 06</h3>
+    }
 
-            <p>
-                Create a Student class with name,
-                age and marks.
-            </p>
+}`,
+output:`90`,
+practice:`Create private name and age variables with getters and setters.`
+},
 
-        </div>
+{
+title:"Inheritance",
+subtitle:"Reusing existing classes",
+explanation:`Inheritance allows one class to acquire properties and methods from another class.
 
-    </div>
+The extends keyword is used.`,
+code:`class Animal {
 
-</section>
+    void sound() {
 
+        System.out.println("Animal sound");
 
-<!-- ================= PROJECTS ================= -->
+    }
 
-<section class="section">
+}
 
-    <div class="section-title">
+class Dog extends Animal {
 
-        <h2>🚀 Java Mini Projects</h2>
+    void bark() {
 
-        <p>
-            Build projects while learning Java.
-        </p>
+        System.out.println("Dog barks");
 
-    </div>
+    }
 
+}
 
-    <div class="topic-grid">
+public class Main {
 
-        <div class="topic-card">
+    public static void main(String[] args) {
 
-            <div class="topic-icon">🧮</div>
+        Dog d = new Dog();
 
-            <h3>Calculator</h3>
+        d.sound();
+        d.bark();
 
-            <p>
-                Build a calculator using Java
-                operators and conditions.
-            </p>
+    }
 
-        </div>
+}`,
+output:`Animal sound
+Dog barks`,
+practice:`Create a Vehicle parent class and Car child class.`
+},
 
+{
+title:"Method Overriding",
+subtitle:"Changing inherited behavior",
+explanation:`Method overriding happens when a child class provides its own implementation of an inherited method.`,
+code:`class Animal {
 
-        <div class="topic-card">
+    void sound() {
 
-            <div class="topic-icon">🎓</div>
+        System.out.println("Animal sound");
 
-            <h3>Student Management</h3>
+    }
 
-            <p>
-                Create a basic student management
-                system using OOP.
-            </p>
+}
 
-        </div>
+class Dog extends Animal {
 
+    @Override
+    void sound() {
 
-        <div class="topic-card">
+        System.out.println("Dog barks");
 
-            <div class="topic-icon">🏦</div>
+    }
 
-            <h3>Bank Management</h3>
+}
 
-            <p>
-                Practice classes, objects,
-                methods and conditions.
-            </p>
+public class Main {
 
-        </div>
+    public static void main(String[] args) {
 
+        Dog d = new Dog();
 
-        <div class="topic-card">
+        d.sound();
 
-            <div class="topic-icon">🎮</div>
+    }
 
-            <h3>Number Guessing Game</h3>
+}`,
+output:`Dog barks`,
+practice:`Override a method in a child class.`
+},
 
-            <p>
-                Build a simple interactive
-                guessing game.
-            </p>
+{
+title:"Polymorphism",
+subtitle:"One interface, many forms",
+explanation:`Polymorphism allows one reference or method name to represent different forms of behavior.`,
+code:`class Animal {
 
-        </div>
+    void sound() {
 
-    </div>
+        System.out.println("Animal");
 
-</section>
+    }
 
+}
 
-<!-- ================= CTA ================= -->
+class Dog extends Animal {
 
-<section class="cta">
+    void sound() {
 
-    <h2>☕ Start Learning Java Today</h2>
+        System.out.println("Dog");
 
-    <p>
-        Learn Java step-by-step with Data Analytics Hub
-        and build your programming foundation.
-    </p>
+    }
 
-    <div class="hero-buttons">
+}
 
-        <a href="#topics" class="btn btn-primary">
-            Start Java
-        </a>
+public class Main {
 
-        <a href="index.html" class="btn btn-secondary">
-            Back to Home
-        </a>
+    public static void main(String[] args) {
 
-    </div>
+        Animal a = new Dog();
 
-</section>
+        a.sound();
 
+    }
 
-<!-- ================= FOOTER ================= -->
+}`,
+output:`Dog`,
+practice:`Create polymorphism using an Animal reference.`
+},
 
-<footer>
+{
+title:"Abstraction",
+subtitle:"Hiding implementation details",
+explanation:`Abstraction focuses on what an object does rather than how it does it.
 
-    <h3>☕ Java With Shiv</h3>
+Abstract classes can contain abstract methods.`,
+code:`abstract class Animal {
 
-    <p>
-        Part of Data Analytics Hub
-    </p>
+    abstract void sound();
 
+}
 
-    <div class="footer-links">
+class Dog extends Animal {
 
-        <a href="index.html">
-            Home
-        </a>
+    void sound() {
 
-        <a href="python-puzzles.html">
-            Python
-        </a>
+        System.out.println("Dog barks");
 
-        <a href="excel.html">
-            Excel
-        </a>
+    }
 
-        <a href="cpp.html">
-            C++
-        </a>
+}
 
-        <a href="java.html">
-            Java
-        </a>
+public class Main {
 
-    </div>
+    public static void main(String[] args) {
 
+        Dog d = new Dog();
 
-    <p>
-        © 2026 Data Analytics Hub | Java With Shiv
-    </p>
+        d.sound();
 
-</footer>
+    }
+
+}`,
+output:`Dog barks`,
+practice:`Create an abstract Shape class.`
+},
+
+{
+title:"Interface",
+subtitle:"Defining a contract",
+explanation:`An interface defines methods that implementing classes can provide.
+
+A class uses the implements keyword to implement an interface.`,
+code:`interface Animal {
+
+    void sound();
+
+}
+
+class Dog implements Animal {
+
+    public void sound() {
+
+        System.out.println("Dog barks");
+
+    }
+
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Dog d = new Dog();
+
+        d.sound();
+
+    }
+
+}`,
+output:`Dog barks`,
+practice:`Create a Vehicle interface with a start() method.`
+},
+
+{
+title:"Exception Handling",
+subtitle:"Handling runtime problems",
+explanation:`Exception handling prevents a program from terminating unexpectedly.
+
+try and catch are commonly used to handle exceptions.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        try {
+
+            int result = 10 / 0;
+
+            System.out.println(result);
+
+        } catch (ArithmeticException e) {
+
+            System.out.println("Cannot divide by zero");
+
+        }
+
+    }
+
+}`,
+output:`Cannot divide by zero`,
+practice:`Handle an ArrayIndexOutOfBoundsException.`
+},
+
+{
+title:"Collections",
+subtitle:"Managing groups of objects",
+explanation:`The Java Collections Framework provides classes and interfaces for storing and manipulating groups of objects.
+
+Common collections include List, Set and Map.`,
+code:`import java.util.ArrayList;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        ArrayList<String> names = new ArrayList<>();
+
+        names.add("Shiv");
+        names.add("Rahul");
+
+        System.out.println(names);
+
+    }
+
+}`,
+output:`[Shiv, Rahul]`,
+practice:`Create an ArrayList containing five student names.`
+},
+
+{
+title:"ArrayList",
+subtitle:"Dynamic lists",
+explanation:`ArrayList is a resizable array implementation.
+
+It allows elements to be added and removed dynamically.`,
+code:`import java.util.ArrayList;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(30);
+
+        System.out.println(numbers);
+
+    }
+
+}`,
+output:`[10, 20, 30]`,
+practice:`Add five numbers to an ArrayList and print them.`
+},
+
+{
+title:"HashSet",
+subtitle:"Storing unique values",
+explanation:`HashSet stores unique elements.
+
+Duplicate values are automatically ignored.`,
+code:`import java.util.HashSet;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        HashSet<Integer> numbers = new HashSet<>();
+
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(10);
+
+        System.out.println(numbers);
+
+    }
+
+}`,
+output:`[10, 20]`,
+practice:`Create a HashSet of unique city names.`
+},
+
+{
+title:"HashMap",
+subtitle:"Key-value data",
+explanation:`HashMap stores data in key-value pairs.
+
+Each key is associated with a value.`,
+code:`import java.util.HashMap;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        HashMap<String,Integer> marks = new HashMap<>();
+
+        marks.put("Shiv", 90);
+        marks.put("Rahul", 85);
+
+        System.out.println(marks.get("Shiv"));
+
+    }
+
+}`,
+output:`90`,
+practice:`Create a HashMap containing student names and marks.`
+},
+
+{
+title:"File Handling",
+subtitle:"Reading and writing files",
+explanation:`Java provides classes such as File, FileWriter and Scanner for working with files.`,
+code:`import java.io.FileWriter;
+import java.io.IOException;
+
+public class Main {
+
+    public static void main(String[] args)
+            throws IOException {
+
+        FileWriter writer =
+            new FileWriter("data.txt");
+
+        writer.write("Hello Java");
+
+        writer.close();
+
+        System.out.println("File written successfully");
+
+    }
+
+}`,
+output:`File written successfully`,
+practice:`Create a file and write your name into it.`
+},
+
+{
+title:"Multithreading",
+subtitle:"Running tasks concurrently",
+explanation:`A thread is a lightweight unit of execution.
+
+Multithreading allows multiple tasks to run concurrently.`,
+code:`class MyThread extends Thread {
+
+    public void run() {
+
+        System.out.println("Thread is running");
+
+    }
+
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        MyThread t = new MyThread();
+
+        t.start();
+
+    }
+
+}`,
+output:`Thread is running`,
+practice:`Create a thread that prints numbers from 1 to 5.`
+},
+
+{
+title:"Mini Project: Calculator",
+subtitle:"Build your first Java project",
+explanation:`Now combine variables, operators and methods to create a simple calculator.`,
+code:`public class Main {
+
+    static int add(int a, int b) {
+        return a + b;
+    }
+
+    static int subtract(int a, int b) {
+        return a - b;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(add(20,10));
+        System.out.println(subtract(20,10));
+
+    }
+
+}`,
+output:`30
+10`,
+practice:`Add multiplication and division to the calculator.`
+},
+
+{
+title:"Mini Project: Student Management",
+subtitle:"Using classes and objects",
+explanation:`This project combines classes, objects, constructors and methods.`,
+code:`class Student {
+
+    String name;
+    int marks;
+
+    Student(String name, int marks) {
+
+        this.name = name;
+        this.marks = marks;
+
+    }
+
+    void show() {
+
+        System.out.println(name);
+        System.out.println(marks);
+
+    }
+
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Student s =
+            new Student("Shiv", 90);
+
+        s.show();
+
+    }
+
+}`,
+output:`Shiv
+90`,
+practice:`Add age and course to the Student class.`
+},
+
+{
+title:"Mini Project: Bank Management",
+subtitle:"Applying OOP concepts",
+explanation:`This project demonstrates how classes and methods can model a simple bank account.`,
+code:`class BankAccount {
+
+    String name;
+    double balance;
+
+    BankAccount(String name, double balance) {
+
+        this.name = name;
+        this.balance = balance;
+
+    }
+
+    void deposit(double amount) {
+
+        balance += amount;
+
+    }
+
+    void showBalance() {
+
+        System.out.println(balance);
+
+    }
+
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        BankAccount account =
+            new BankAccount("Shiv",1000);
+
+        account.deposit(500);
+
+        account.showBalance();
+
+    }
+
+}`,
+output:`1500.0`,
+practice:`Add a withdraw() method to the bank account.`
+},
+
+{
+title:"Mini Project: Number Guessing Game",
+subtitle:"Combining Java fundamentals",
+explanation:`This project combines variables, conditions and loops to create a simple number guessing game.`,
+code:`public class Main {
+
+    public static void main(String[] args) {
+
+        int secret = 7;
+        int guess = 7;
+
+        if(guess == secret) {
+
+            System.out.println("Correct!");
+
+        } else {
+
+            System.out.println("Try again");
+
+        }
+
+    }
+
+}`,
+output:`Correct!`,
+practice:`Add multiple attempts using a loop.`
+},
+
+{
+title:"Final Java Project",
+subtitle:"Putting everything together",
+explanation:`You have reached the final project.
+
+Use classes, methods, conditions, loops, arrays and collections to build a complete Java application.`,
+code:`import java.util.ArrayList;
+
+class Student {
+
+    String name;
+    int marks;
+
+    Student(String name, int marks) {
+
+        this.name = name;
+        this.marks = marks;
+
+    }
+
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        ArrayList<Student> students =
+            new ArrayList<>();
+
+        students.add(
+            new Student("Shiv",90)
+        );
+
+        students.add(
+            new Student("Rahul",85)
+        );
+
+        for(Student s : students) {
+
+            System.out.println(
+                s.name + " : " + s.marks
+            );
+
+        }
+
+    }
+
+}`,
+output:`Shiv : 90
+Rahul : 85`,
+practice:`Build your own Student Management System with add, search and display features.`
+}
+
+];
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let currentLesson = 0;
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const titleEl =
+document.getElementById("lessonTitle");
+
+const subtitleEl =
+document.getElementById("lessonSubtitle");
+
+const explanationEl =
+document.getElementById("explanation");
+
+const codeEditor =
+document.getElementById("codeEditor");
+
+const outputEl =
+document.getElementById("output");
+
+const practiceEl =
+document.getElementById("practice");
+
+const lessonNumberEl =
+document.getElementById("lessonNumber");
+
+const progressText =
+document.getElementById("progressText");
+
+const progressPercent =
+document.getElementById("progressPercent");
+
+const progressFill =
+document.getElementById("progressFill");
+
+const prevBtn =
+document.getElementById("prevBtn");
+
+const nextBtn =
+document.getElementById("nextBtn");
+
+const lessonList =
+document.getElementById("lessonList");
+
+const lessonSelect =
+document.getElementById("lessonSelect");
+
+
+/* =========================================================
+   LOAD LESSON
+========================================================= */
+
+function loadLesson(index){
+
+    currentLesson = index;
+
+    const lesson = lessons[index];
+
+    lessonNumberEl.textContent =
+        "LESSON " + (index + 1);
+
+    titleEl.textContent =
+        lesson.title;
+
+    subtitleEl.textContent =
+        lesson.subtitle;
+
+    explanationEl.textContent =
+        lesson.explanation;
+
+    codeEditor.value =
+        lesson.code;
+
+    practiceEl.textContent =
+        lesson.practice;
+
+    outputEl.textContent =
+        'Click "Run Code" to see the output.';
+
+    const percent =
+        Math.round(((index + 1) / lessons.length) * 100);
+
+    progressText.textContent =
+        `Lesson ${index + 1} of ${lessons.length}`;
+
+    progressPercent.textContent =
+        percent + "%";
+
+    progressFill.style.width =
+        percent + "%";
+
+    prevBtn.disabled =
+        index === 0;
+
+    nextBtn.disabled =
+        index === lessons.length - 1;
+
+    lessonSelect.value =
+        index;
+
+    updateSelectedLesson();
+
+    window.scrollTo({
+        top:document.querySelector(".lesson").offsetTop - 90,
+        behavior:"smooth"
+    });
+}
+
+
+/* =========================================================
+   RUN CODE
+========================================================= */
+
+function runCode(){
+
+    /*
+      IMPORTANT:
+
+      GitHub Pages cannot compile arbitrary Java code
+      without a Java compiler/backend.
+
+      This static version displays the expected output
+      associated with the current lesson.
+    */
+
+    const lesson = lessons[currentLesson];
+
+    outputEl.textContent =
+        lesson.output;
+
+}
+
+
+/* =========================================================
+   NEXT LESSON
+========================================================= */
+
+function nextLesson(){
+
+    if(currentLesson < lessons.length - 1){
+
+        loadLesson(currentLesson + 1);
+
+    }
+
+}
+
+
+/* =========================================================
+   PREVIOUS LESSON
+========================================================= */
+
+function previousLesson(){
+
+    if(currentLesson > 0){
+
+        loadLesson(currentLesson - 1);
+
+    }
+
+}
+
+
+/* =========================================================
+   LESSON LIST
+========================================================= */
+
+function createLessonList(){
+
+    lessonList.innerHTML = "";
+
+    lessonSelect.innerHTML = "";
+
+    lessons.forEach((lesson,index)=>{
+
+        const item =
+        document.createElement("div");
+
+        item.className =
+            "lesson-item";
+
+        item.dataset.index =
+            index;
+
+        item.textContent =
+            `${index + 1}. ${lesson.title}`;
+
+        item.onclick = ()=>{
+            loadLesson(index);
+        };
+
+        lessonList.appendChild(item);
+
+
+        const option =
+        document.createElement("option");
+
+        option.value =
+            index;
+
+        option.textContent =
+            `${index + 1}. ${lesson.title}`;
+
+        lessonSelect.appendChild(option);
+
+    });
+
+}
+
+
+/* =========================================================
+   SELECT LESSON
+========================================================= */
+
+function goToLesson(index){
+
+    loadLesson(Number(index));
+
+}
+
+
+/* =========================================================
+   SELECTED LESSON
+========================================================= */
+
+function updateSelectedLesson(){
+
+    document
+    .querySelectorAll(".lesson-item")
+    .forEach(item=>{
+
+        item.classList.remove("selected");
+
+    });
+
+    const selected =
+        document.querySelector(
+            `.lesson-item[data-index="${currentLesson}"]`
+        );
+
+    if(selected){
+
+        selected.classList.add("selected");
+
+        selected.scrollIntoView({
+            behavior:"smooth",
+            block:"nearest"
+        });
+
+    }
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchLessons(){
+
+    const search =
+        document
+        .getElementById("searchBox")
+        .value
+        .toLowerCase()
+        .trim();
+
+    document
+    .querySelectorAll(".lesson-item")
+    .forEach(item=>{
+
+        const text =
+            item.textContent.toLowerCase();
+
+        if(text.includes(search)){
+
+            item.style.display =
+                "block";
+
+        }else{
+
+            item.style.display =
+                "none";
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   KEYBOARD SHORTCUTS
+========================================================= */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+    if(event.ctrlKey && event.key === "Enter"){
+
+        event.preventDefault();
+
+        runCode();
+
+    }
+
+});
+
+
+/* =========================================================
+   START
+========================================================= */
+
+createLessonList();
+
+loadLesson(0);
+
+</script>
 
 </body>
 </html>
