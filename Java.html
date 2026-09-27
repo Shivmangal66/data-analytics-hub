@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Java With Shiv | Data Analytics Hub</title>
+
+    <meta name="description"
+          content="Learn Java from beginner to advanced with Java With Shiv. Learn Java programming, OOP, collections, exception handling and projects.">
+
+    <meta name="keywords"
+          content="Java course, Java tutorial, Learn Java, Java programming, Java With Shiv, Data Analytics Hub">
+
+    <meta name="author" content="Shiv Mishra">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #07111f;
+            color: #f5f7fa;
+            line-height: 1.6;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 16px 7%;
+
+            background: rgba(5, 13, 25, 0.95);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid rgba(0, 190, 255, 0.2);
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 21px;
+            font-weight: bold;
+
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: #00c8ff;
+        }
+
+        .nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: #dce8f5;
+            text-decoration: none;
+            padding: 8px 13px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .nav a:hover,
+        .nav a.active {
+            background: #00a8e8;
+            color: white;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 560px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 80px 7%;
+
+            background:
+                radial-gradient(circle at 20% 20%, rgba(0, 174, 255, 0.18), transparent 35%),
+                radial-gradient(circle at 80% 80%, rgba(128, 0, 255, 0.15), transparent 35%),
+                #07111f;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .java-icon {
+            font-size: 75px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 75px);
+            margin-bottom: 15px;
+
+            background: linear-gradient(
+                90deg,
+                #00c8ff,
+                #7b61ff,
+                #00e5ff
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h2 {
+            font-size: 27px;
+            color: #d8e8f5;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            color: #9fb2c7;
+            font-size: 18px;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 24px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #00a8e8;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #008fc5;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid #00c8ff;
+            color: #00c8ff;
+        }
+
+        .btn-secondary:hover {
+            background: #00c8ff;
+            color: #06101c;
+        }
+
+        /* ================= COMMON SECTION ================= */
+
+        .section {
+            padding: 75px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            color: #00c8ff;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #9fb2c7;
+        }
+
+        /* ================= TOPIC GRID ================= */
+
+        .topic-grid {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 20px;
+        }
+
+        .topic-card {
+            padding: 25px;
+
+            background: #0c1b2d;
+
+            border: 1px solid rgba(0, 200, 255, 0.18);
+
+            border-radius: 15px;
+
+            transition: 0.3s;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-6px);
+
+            border-color: #00c8ff;
+
+            box-shadow:
+                0 10px 30px rgba(0, 200, 255, 0.12);
+        }
+
+        .topic-icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .topic-card h3 {
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .topic-card p {
+            color: #9fb2c7;
+            font-size: 14px;
+        }
+
+        /* ================= ROADMAP ================= */
+
+        .roadmap {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .roadmap-item {
+            position: relative;
+
+            margin-bottom: 18px;
+            padding: 20px 25px 20px 65px;
+
+            background: #0c1b2d;
+
+            border-radius: 12px;
+
+            border-left: 4px solid #00c8ff;
+        }
+
+        .roadmap-number {
+            position: absolute;
+
+            left: 18px;
+            top: 18px;
+
+            width: 32px;
+            height: 32px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #00a8e8;
+
+            font-weight: bold;
+        }
+
+        .roadmap-item h3 {
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .roadmap-item p {
+            color: #9fb2c7;
+        }
+
+        /* ================= CODE BOX ================= */
+
+        .code-section {
+            background: #050c16;
+        }
+
+        .code-box {
+            max-width: 850px;
+            margin: auto;
+
+            background: #02070d;
+
+            border: 1px solid #1a3c53;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .code-header {
+            padding: 12px 18px;
+
+            background: #0d1b2b;
+
+            color: #9fb2c7;
+
+            font-size: 14px;
+        }
+
+        pre {
+            padding: 25px;
+
+            overflow-x: auto;
+
+            color: #d9f7ff;
+
+            font-family: Consolas, monospace;
+
+            font-size: 15px;
+        }
+
+        .keyword {
+            color: #ff79c6;
+        }
+
+        .string {
+            color: #a8ff60;
+        }
+
+        .function {
+            color: #8be9fd;
+        }
+
+        /* ================= PRACTICE ================= */
+
+        .practice-grid {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 20px;
+        }
+
+        .practice-card {
+            padding: 25px;
+
+            background: linear-gradient(
+                145deg,
+                #0d2034,
+                #091625
+            );
+
+            border-radius: 15px;
+
+            border: 1px solid rgba(123, 97, 255, 0.3);
+        }
+
+        .practice-card h3 {
+            color: #b69cff;
+            margin-bottom: 10px;
+        }
+
+        .practice-card p {
+            color: #b4c2d0;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            padding: 80px 7%;
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #07111f,
+                    #102b46,
+                    #111a38
+                );
+        }
+
+        .cta h2 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #aebed0;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 35px 7%;
+
+            text-align: center;
+
+            background: #040a12;
+
+            border-top: 1px solid rgba(0, 200, 255, 0.15);
+        }
+
+        footer h3 {
+            color: #00c8ff;
+            margin-bottom: 7px;
+        }
+
+        footer p {
+            color: #8799aa;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            margin: 15px 0;
+
+            display: flex;
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #aebed0;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #00c8ff;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .nav {
+                justify-content: center;
+            }
+
+            .nav a {
+                font-size: 14px;
+                padding: 7px 10px;
+            }
+
+            .hero {
+                min-height: 500px;
+                padding: 60px 6%;
+            }
+
+            .hero h2 {
+                font-size: 21px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section {
+                padding: 55px 6%;
+            }
+
+            .section-title h2 {
+                font-size: 29px;
+            }
+
+            .roadmap-item {
+                padding-left: 55px;
+            }
+
+            pre {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        📊
+        <span>Data Analytics Hub</span>
+    </a>
+
+    <nav class="nav">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="html.html">
+            HTML
+        </a>
+
+        <a href="python-puzzles.html">
+            Python
+        </a>
+
+        <a href="excel.html">
+            Excel
+        </a>
+
+        <a href="cpp.html">
+            C++
+        </a>
+
+        <a href="java.html" class="active">
+            Java
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="java-icon">
+            ☕
+        </div>
+
+        <h1>JAVA WITH SHIV</h1>
+
+        <h2>Learn Java From Zero to Advanced</h2>
+
+        <p>
+            Learn Java programming step-by-step with simple explanations,
+            practical coding, projects and problem solving.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#topics" class="btn btn-primary">
+                Start Learning
+            </a>
+
+            <a href="#practice" class="btn btn-secondary">
+                Practice Java
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TOPICS ================= -->
+
+<section class="section" id="topics">
+
+    <div class="section-title">
+
+        <h2>☕ Java Learning Path</h2>
+
+        <p>
+            Learn Java step-by-step from basics to advanced concepts.
+        </p>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+        <div class="topic-card">
+
+            <div class="topic-icon">🚀</div>
+
+            <h3>Java Basics</h3>
+
+            <p>
+                Introduction, installation, syntax, Hello World,
+                variables and data types.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">➗</div>
+
+            <h3>Operators</h3>
+
+            <p>
+                Arithmetic, relational, logical, assignment,
+                unary and ternary operators.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">🔀</div>
+
+            <h3>Conditions</h3>
+
+            <p>
+                if, else, else-if, nested if and switch statements.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">🔁</div>
+
+            <h3>Loops</h3>
+
+            <p>
+                for loop, while loop, do-while,
+                break and continue.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">📦</div>
+
+            <h3>Arrays</h3>
+
+            <p>
+                One-dimensional arrays, multidimensional arrays
+                and array problems.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">🔤</div>
+
+            <h3>Strings</h3>
+
+            <p>
+                String creation, methods, comparison,
+                StringBuilder and StringBuffer.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">🏗️</div>
+
+            <h3>OOP</h3>
+
+            <p>
+                Classes, objects, constructors,
+                inheritance and polymorphism.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">🛡️</div>
+
+            <h3>Exception Handling</h3>
+
+            <p>
+                try, catch, finally, throw,
+                throws and custom exceptions.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">🗂️</div>
+
+            <h3>Collections</h3>
+
+            <p>
+                ArrayList, LinkedList, HashSet,
+                HashMap and Collections Framework.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">📁</div>
+
+            <h3>File Handling</h3>
+
+            <p>
+                Read, write and manage files
+                using Java.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">🧵</div>
+
+            <h3>Multithreading</h3>
+
+            <p>
+                Threads, Runnable, synchronization
+                and concurrent programming basics.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">💼</div>
+
+            <h3>Projects</h3>
+
+            <p>
+                Build practical Java projects
+                to strengthen your programming skills.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ROADMAP ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>🗺️ Java Roadmap</h2>
+
+        <p>
+            Follow this order to learn Java properly.
+        </p>
+
+    </div>
+
+
+    <div class="roadmap">
+
+        <div class="roadmap-item">
+
+            <div class="roadmap-number">1</div>
+
+            <h3>Java Fundamentals</h3>
+
+            <p>
+                Introduction, JDK, JRE, JVM, syntax,
+                variables and data types.
+            </p>
+
+        </div>
+
+
+        <div class="roadmap-item">
+
+            <div class="roadmap-number">2</div>
+
+            <h3>Operators & Conditions</h3>
+
+            <p>
+                Operators, if-else, nested conditions
+                and switch.
+            </p>
+
+        </div>
+
+
+        <div class="roadmap-item">
+
+            <div class="roadmap-number">3</div>
+
+            <h3>Loops & Patterns</h3>
+
+            <p>
+                for, while, do-while, break,
+                continue and pattern problems.
+            </p>
+
+        </div>
+
+
+        <div class="roadmap-item">
+
+            <div class="roadmap-number">4</div>
+
+            <h3>Arrays & Strings</h3>
+
+            <p>
+                Arrays, multidimensional arrays,
+                strings and important methods.
+            </p>
+
+        </div>
+
+
+        <div class="roadmap-item">
+
+            <div class="roadmap-number">5</div>
+
+            <h3>Object Oriented Programming</h3>
+
+            <p>
+                Class, object, constructor,
+                inheritance, polymorphism,
+                abstraction and encapsulation.
+            </p>
+
+        </div>
+
+
+        <div class="roadmap-item">
+
+            <div class="roadmap-number">6</div>
+
+            <h3>Advanced Java Concepts</h3>
+
+            <p>
+                Exception handling, collections,
+                file handling and multithreading.
+            </p>
+
+        </div>
+
+
+        <div class="roadmap-item">
+
+            <div class="roadmap-number">7</div>
+
+            <h3>Projects & Practice</h3>
+
+            <p>
+                Solve coding questions and build
+                practical Java projects.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FIRST PROGRAM ================= -->
+
+<section class="section code-section">
+
+    <div class="section-title">
+
+        <h2>💻 Your First Java Program</h2>
+
+        <p>
+            Start your Java journey with this simple program.
+        </p>
+
+    </div>
+
+
+    <div class="code-box">
+
+        <div class="code-header">
+            Main.java
+        </div>
+
+<pre>
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Hello, Java!");
+
+    }
+
+}
+</pre>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRACTICE ================= -->
+
+<section class="section" id="practice">
+
+    <div class="section-title">
+
+        <h2>🔥 Java Practice</h2>
+
+        <p>
+            Practice is the key to becoming a better programmer.
+        </p>
+
+    </div>
+
+
+    <div class="practice-grid">
+
+        <div class="practice-card">
+
+            <h3>Question 01</h3>
+
+            <p>
+                Write a Java program to print
+                your name, age and city.
+            </p>
+
+        </div>
+
+
+        <div class="practice-card">
+
+            <h3>Question 02</h3>
+
+            <p>
+                Write a program to check whether
+                a number is positive, negative or zero.
+            </p>
+
+        </div>
+
+
+        <div class="practice-card">
+
+            <h3>Question 03</h3>
+
+            <p>
+                Write a program to print numbers
+                from 1 to 100 using a for loop.
+            </p>
+
+        </div>
+
+
+        <div class="practice-card">
+
+            <h3>Question 04</h3>
+
+            <p>
+                Write a program to find the largest
+                number among three numbers.
+            </p>
+
+        </div>
+
+
+        <div class="practice-card">
+
+            <h3>Question 05</h3>
+
+            <p>
+                Write a Java program to reverse
+                a string.
+            </p>
+
+        </div>
+
+
+        <div class="practice-card">
+
+            <h3>Question 06</h3>
+
+            <p>
+                Create a Student class with name,
+                age and marks.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>🚀 Java Mini Projects</h2>
+
+        <p>
+            Build projects while learning Java.
+        </p>
+
+    </div>
+
+
+    <div class="topic-grid">
+
+        <div class="topic-card">
+
+            <div class="topic-icon">🧮</div>
+
+            <h3>Calculator</h3>
+
+            <p>
+                Build a calculator using Java
+                operators and conditions.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">🎓</div>
+
+            <h3>Student Management</h3>
+
+            <p>
+                Create a basic student management
+                system using OOP.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">🏦</div>
+
+            <h3>Bank Management</h3>
+
+            <p>
+                Practice classes, objects,
+                methods and conditions.
+            </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+            <div class="topic-icon">🎮</div>
+
+            <h3>Number Guessing Game</h3>
+
+            <p>
+                Build a simple interactive
+                guessing game.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+    <h2>☕ Start Learning Java Today</h2>
+
+    <p>
+        Learn Java step-by-step with Data Analytics Hub
+        and build your programming foundation.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#topics" class="btn btn-primary">
+            Start Java
+        </a>
+
+        <a href="index.html" class="btn btn-secondary">
+            Back to Home
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>☕ Java With Shiv</h3>
+
+    <p>
+        Part of Data Analytics Hub
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="python-puzzles.html">
+            Python
+        </a>
+
+        <a href="excel.html">
+            Excel
+        </a>
+
+        <a href="cpp.html">
+            C++
+        </a>
+
+        <a href="java.html">
+            Java
+        </a>
+
+    </div>
+
+
+    <p>
+        © 2026 Data Analytics Hub | Java With Shiv
+    </p>
+
+</footer>
+
+</body>
+</html>
