@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript With Shiv | Data Analytics Hub</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#0b0f14;
+    color:#f5f7fa;
+    line-height:1.6;
+}
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#111820;
+    border-bottom:1px solid #242d38;
+    padding:15px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:#f7df1e;
+    text-decoration:none;
+    font-size:21px;
+    font-weight:bold;
+}
+
+.nav{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.nav a{
+    color:#dce3ea;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:7px;
+    font-size:14px;
+}
+
+.nav a:hover,
+.nav a.active{
+    background:#f7df1e;
+    color:#111;
+}
+
+.hero{
+    padding:65px 6%;
+    text-align:center;
+    background:
+    radial-gradient(circle at top,#202a35 0%,#0b0f14 55%);
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 15px;
+    border:1px solid #f7df1e;
+    border-radius:30px;
+    color:#f7df1e;
+    margin-bottom:18px;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:clamp(38px,7vw,70px);
+    color:#f7df1e;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#aeb8c2;
+    max-width:700px;
+    margin:auto;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.toolbar{
+    margin:30px 0;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.search{
+    flex:1;
+    min-width:220px;
+    padding:13px 16px;
+    border-radius:10px;
+    border:1px solid #303b48;
+    background:#111820;
+    color:white;
+    outline:none;
+}
+
+.search:focus{
+    border-color:#f7df1e;
+}
+
+.layout{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:25px;
+    padding-bottom:50px;
+}
+
+.sidebar{
+    background:#111820;
+    border:1px solid #26313d;
+    border-radius:15px;
+    padding:18px;
+    height:max-content;
+    position:sticky;
+    top:85px;
+}
+
+.sidebar h3{
+    color:#f7df1e;
+    margin-bottom:15px;
+}
+
+.lesson-list{
+    max-height:600px;
+    overflow-y:auto;
+}
+
+.lesson-btn{
+    width:100%;
+    text-align:left;
+    background:transparent;
+    color:#b8c2cc;
+    border:0;
+    padding:11px;
+    margin:3px 0;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.lesson-btn:hover,
+.lesson-btn.active{
+    background:#f7df1e;
+    color:#111;
+}
+
+.progress-wrap{
+    margin-bottom:18px;
+}
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    color:#9da8b3;
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.progress{
+    height:7px;
+    background:#252f3a;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:#f7df1e;
+    transition:.3s;
+}
+
+.card{
+    background:#111820;
+    border:1px solid #26313d;
+    border-radius:15px;
+    padding:25px;
+    margin-bottom:20px;
+}
+
+.lesson-number{
+    color:#f7df1e;
+    font-size:13px;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.lesson-title{
+    font-size:30px;
+    margin:5px 0 15px;
+}
+
+.explanation{
+    color:#c5cdd5;
+    white-space:pre-line;
+}
+
+.code-title,
+.output-title,
+.practice-title{
+    color:#f7df1e;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.editor{
+    width:100%;
+    min-height:300px;
+    resize:vertical;
+    background:#070a0e;
+    color:#f5f7fa;
+    border:1px solid #303b48;
+    border-radius:10px;
+    padding:17px;
+    font-family:Consolas,monospace;
+    font-size:15px;
+    line-height:1.6;
+    outline:none;
+}
+
+.editor:focus{
+    border-color:#f7df1e;
+}
+
+.run-btn{
+    margin-top:12px;
+    padding:12px 22px;
+    border:none;
+    border-radius:8px;
+    background:#f7df1e;
+    color:#111;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.run-btn:hover{
+    transform:translateY(-1px);
+    opacity:.9;
+}
+
+.output{
+    margin-top:15px;
+    background:#070a0e;
+    border:1px solid #26313d;
+    border-radius:10px;
+    padding:17px;
+    min-height:90px;
+    white-space:pre-wrap;
+    font-family:Consolas,monospace;
+    color:#d8e1e8;
+}
+
+.practice{
+    border-left:4px solid #f7df1e;
+    background:#171e26;
+    padding:17px;
+    border-radius:8px;
+    color:#d4dbe2;
+}
+
+.navigation{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:20px;
+}
+
+.nav-btn{
+    padding:12px 20px;
+    border-radius:8px;
+    border:1px solid #35414d;
+    background:#161e27;
+    color:white;
+    cursor:pointer;
+}
+
+.nav-btn:hover{
+    border-color:#f7df1e;
+    color:#f7df1e;
+}
+
+.nav-btn.next{
+    background:#f7df1e;
+    color:#111;
+    border-color:#f7df1e;
+    font-weight:bold;
+}
+
+footer{
+    border-top:1px solid #26313d;
+    text-align:center;
+    padding:30px 15px;
+    color:#7f8a95;
+}
+
+.brand{
+    color:#f7df1e;
+    font-weight:bold;
+}
+
+@media(max-width:800px){
+    .navbar{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .layout{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        position:static;
+    }
+
+    .lesson-list{
+        max-height:250px;
+    }
+
+    .lesson-title{
+        font-size:24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+
+<a href="index.html" class="logo">
+📊 Data Analytics Hub
+</a>
+
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="html.html">HTML</a>
+<a href="python-puzzles.html">Python</a>
+<a href="excel.html">Excel</a>
+<a href="cpp.html">C++</a>
+<a href="java.html">Java</a>
+<a href="javascript.html" class="active">JavaScript</a>
+</nav>
+
+</header>
+
+
+<section class="hero">
+
+<div class="badge">45 LESSONS • BEGINNER TO PROJECT</div>
+
+<h1>JAVASCRIPT WITH SHIV</h1>
+
+<p>
+Learn JavaScript step-by-step with explanation, editable code,
+real browser execution, output and practice questions.
+</p>
+
+</section>
+
+
+<main class="container">
+
+<div class="toolbar">
+
+<input
+class="search"
+id="search"
+type="text"
+placeholder="🔎 Search JavaScript lessons..."
+oninput="searchLessons()">
+
+</div>
+
+
+<div class="layout">
+
+<aside class="sidebar">
+
+<h3>JavaScript Course</h3>
+
+<div class="progress-wrap">
+
+<div class="progress-info">
+<span>Progress</span>
+<span id="progressText">0%</span>
+</div>
+
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+</div>
+
+<div class="lesson-list" id="lessonList"></div>
+
+</aside>
+
+
+<section>
+
+<div class="card">
+
+<div class="lesson-number" id="lessonNumber">
+Lesson 1
+</div>
+
+<h2 class="lesson-title" id="lessonTitle">
+What is JavaScript?
+</h2>
+
+<div class="explanation" id="explanation"></div>
+
+</div>
+
+
+<div class="card">
+
+<div class="code-title">
+💻 Code Editor
+</div>
+
+<textarea
+id="editor"
+class="editor"
+spellcheck="false"></textarea>
+
+<button class="run-btn" onclick="runCode()">
+▶ Run Code
+</button>
+
+<div style="margin-top:18px" class="output-title">
+📤 Output
+</div>
+
+<div class="output" id="output">
+Click "Run Code" to execute your JavaScript.
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="practice-title">
+🧠 Practice Question
+</div>
+
+<div class="practice" id="practice"></div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="nav-btn" onclick="previousLesson()">
+← Previous
+</button>
+
+<button class="nav-btn next" onclick="nextLesson()">
+Next →
+</button>
+
+</div>
+
+</section>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<div>
+© 2026 <span class="brand">Data Analytics Hub</span>
+</div>
+
+<div style="margin-top:6px">
+JavaScript With Shiv • Learn • Practice • Build
+</div>
+
+<div style="margin-top:8px">
+Excel.expert.66
+</div>
+
+</footer>
+
+
+<script>
+
+const lessons = [
+
+{
+title:"What is JavaScript?",
+explanation:`JavaScript is a programming language mainly used to make websites interactive.
+
+HTML creates the structure.
+CSS creates the design.
+JavaScript adds behavior and logic.
+
+JavaScript can also be used for web applications, servers, APIs and many other technologies.`,
+code:`console.log("Hello JavaScript");`,
+practice:`Print your name using console.log().`
+},
+
+{
+title:"How JavaScript Works",
+explanation:`JavaScript code can run directly inside a web browser.
+
+Modern browsers contain JavaScript engines that read and execute JavaScript code.
+
+For example, Chrome uses the V8 JavaScript engine.`,
+code:`console.log("JavaScript is running in the browser");`,
+practice:`Print a message that says "I am learning JavaScript".`
+},
+
+{
+title:"Your First JavaScript Program",
+explanation:`The console.log() function is commonly used to display information.
+
+It is very useful for learning and debugging JavaScript.`,
+code:`console.log("Hello World");`,
+practice:`Print "Welcome to JavaScript".`
+},
+
+{
+title:"Variables",
+explanation:`Variables are used to store data.
+
+JavaScript commonly uses let and const.
+
+A variable can store numbers, strings, arrays, objects and other values.`,
+code:`let name = "Shiv";
+let age = 18;
+
+console.log(name);
+console.log(age);`,
+practice:`Create variables for your name, age and city.`
+},
+
+{
+title:"let, const and var",
+explanation:`let is used when a variable may change.
+
+const is used when the variable should not be reassigned.
+
+var is the older way of declaring variables and is generally avoided in modern JavaScript.`,
+code:`let age = 18;
+age = 19;
+
+const country = "India";
+
+console.log(age);
+console.log(country);`,
+practice:`Create one let variable and one const variable.`
+},
+
+{
+title:"Data Types",
+explanation:`JavaScript has several important data types.
+
+String
+Number
+Boolean
+Undefined
+Null
+Object
+BigInt
+Symbol
+
+The typeof operator can be used to check a value's type.`,
+code:`let name = "Shiv";
+let age = 18;
+let student = true;
+
+console.log(typeof name);
+console.log(typeof age);
+console.log(typeof student);`,
+practice:`Create a string, number and boolean and check their types.`
+},
+
+{
+title:"Type Conversion",
+explanation:`Type conversion means changing one data type into another.
+
+Common methods include Number(), String() and Boolean().`,
+code:`let value = "100";
+
+let number = Number(value);
+
+console.log(number);
+console.log(typeof number);`,
+practice:`Convert the string "50" into a number.`
+},
+
+{
+title:"Operators",
+explanation:`Operators perform operations on values.
+
+Arithmetic:
++ - * / %
+
+Comparison:
+> < >= <= == === != !==
+
+Logical:
+&& || !`,
+code:`let a = 10;
+let b = 3;
+
+console.log(a + b);
+console.log(a - b);
+console.log(a * b);
+console.log(a / b);
+console.log(a % b);`,
+practice:`Create two numbers and calculate their sum, difference and product.`
+},
+
+{
+title:"Strings",
+explanation:`Strings represent text.
+
+Strings can be written using single quotes, double quotes or template literals.`,
+code:`let firstName = "Shiv";
+let message = "Hello " + firstName;
+
+console.log(message);`,
+practice:`Create a variable containing your full name and print it.`
+},
+
+{
+title:"String Methods",
+explanation:`JavaScript provides many methods for working with strings.
+
+Examples:
+toUpperCase()
+toLowerCase()
+trim()
+includes()
+replace()
+slice()`,
+code:`let text = "javascript";
+
+console.log(text.toUpperCase());
+console.log(text.includes("script"));`,
+practice:`Convert your name to uppercase.`
+},
+
+{
+title:"Numbers",
+explanation:`JavaScript uses the Number type for most numeric values.
+
+Numbers can be integers or decimal values.`,
+code:`let price = 99.99;
+let quantity = 3;
+
+console.log(price * quantity);`,
+practice:`Calculate the total price of 5 items costing 20 each.`
+},
+
+{
+title:"Math",
+explanation:`The Math object provides useful mathematical functions.
+
+Examples:
+Math.round()
+Math.floor()
+Math.ceil()
+Math.max()
+Math.min()
+Math.random()`,
+code:`console.log(Math.round(4.6));
+console.log(Math.floor(4.9));
+console.log(Math.ceil(4.1));
+console.log(Math.max(10, 20, 30));`,
+practice:`Generate a random number between 1 and 10.`
+},
+
+{
+title:"User Input",
+explanation:`In a browser, prompt() can be used to ask the user for input.
+
+The returned value is normally a string.`,
+code:`let name = prompt("Enter your name:");
+
+console.log("Hello " + name);`,
+practice:`Ask the user for their city and print it.`
+},
+
+{
+title:"if Statement",
+explanation:`The if statement executes code only when a condition is true.`,
+code:`let age = 20;
+
+if(age >= 18){
+    console.log("Adult");
+}`,
+practice:`Check whether a number is greater than 10.`
+},
+
+{
+title:"if-else",
+explanation:`if-else allows us to choose between two possibilities.`,
+code:`let age = 16;
+
+if(age >= 18){
+    console.log("Adult");
+}else{
+    console.log("Minor");
+}`,
+practice:`Check whether a person can vote based on age.`
+},
+
+{
+title:"else-if",
+explanation:`else-if is used when there are multiple conditions.`,
+code:`let marks = 75;
+
+if(marks >= 90){
+    console.log("A+");
+}else if(marks >= 75){
+    console.log("A");
+}else if(marks >= 60){
+    console.log("B");
+}else{
+    console.log("C");
+}`,
+practice:`Create a marks grading system.`
+},
+
+{
+title:"Nested if",
+explanation:`A nested if means placing one if statement inside another if statement.`,
+code:`let age = 20;
+let hasId = true;
+
+if(age >= 18){
+
+    if(hasId){
+        console.log("Entry allowed");
+    }
+
+}`,
+practice:`Create a nested condition for login access.`
+},
+
+{
+title:"switch",
+explanation:`switch is useful when one value needs to be compared with multiple possible cases.`,
+code:`let day = 2;
+
+switch(day){
+
+case 1:
+    console.log("Monday");
+    break;
+
+case 2:
+    console.log("Tuesday");
+    break;
+
+case 3:
+    console.log("Wednesday");
+    break;
+
+default:
+    console.log("Invalid day");
+}`,
+practice:`Create a switch program for menu choices 1, 2 and 3.`
+},
+
+{
+title:"for Loop",
+explanation:`A for loop repeats code a specific number of times.`,
+code:`for(let i = 1; i <= 5; i++){
+    console.log(i);
+}`,
+practice:`Print numbers from 1 to 10.`
+},
+
+{
+title:"while Loop",
+explanation:`A while loop runs while its condition is true.`,
+code:`let i = 1;
+
+while(i <= 5){
+    console.log(i);
+    i++;
+}`,
+practice:`Use a while loop to print 10 down to 1.`
+},
+
+{
+title:"do-while Loop",
+explanation:`A do-while loop executes its code at least once before checking the condition.`,
+code:`let i = 1;
+
+do{
+    console.log(i);
+    i++;
+}while(i <= 5);`,
+practice:`Create a do-while loop that prints numbers 1 to 5.`
+},
+
+{
+title:"break and continue",
+explanation:`break stops a loop completely.
+
+continue skips the current iteration and continues with the next iteration.`,
+code:`for(let i = 1; i <= 10; i++){
+
+    if(i === 5){
+        break;
+    }
+
+    console.log(i);
+}`,
+practice:`Use continue to skip number 5.`
+},
+
+{
+title:"Arrays",
+explanation:`An array stores multiple values in a single variable.
+
+Array indexes start from 0.`,
+code:`let fruits = ["Apple", "Banana", "Mango"];
+
+console.log(fruits[0]);
+console.log(fruits[1]);
+console.log(fruits[2]);`,
+practice:`Create an array containing five student names.`
+},
+
+{
+title:"Array Methods",
+explanation:`JavaScript arrays have many useful methods.
+
+push()
+pop()
+shift()
+unshift()
+includes()
+indexOf()
+join()`,
+code:`let numbers = [10,20,30];
+
+numbers.push(40);
+
+console.log(numbers);
+
+numbers.pop();
+
+console.log(numbers);`,
+practice:`Create an array and add two new values using push().`
+},
+
+{
+title:"Objects",
+explanation:`Objects store data using key-value pairs.
+
+Objects are useful for representing real-world entities.`,
+code:`let student = {
+    name: "Shiv",
+    age: 18,
+    city: "Kasganj"
+};
+
+console.log(student.name);
+console.log(student.age);`,
+practice:`Create an object for a book with title, author and price.`
+},
+
+{
+title:"Object Methods",
+explanation:`Objects can also contain functions.
+
+A function stored inside an object is called a method.`,
+code:`let person = {
+
+    name: "Shiv",
+
+    greet: function(){
+        console.log("Hello " + this.name);
+    }
+
+};
+
+person.greet();`,
+practice:`Create an object with a method that prints a welcome message.`
+},
+
+{
+title:"Functions",
+explanation:`Functions are reusable blocks of code.
+
+They help reduce repetition and make programs easier to maintain.`,
+code:`function greet(){
+    console.log("Hello Shiv");
+}
+
+greet();`,
+practice:`Create a function called welcome().`
+},
+
+{
+title:"Function Parameters",
+explanation:`Parameters allow functions to receive values.`,
+code:`function greet(name){
+    console.log("Hello " + name);
+}
+
+greet("Shiv");
+greet("Rahul");`,
+practice:`Create a function that accepts a person's name.`
+},
+
+{
+title:"Return",
+explanation:`The return statement sends a value back from a function.`,
+code:`function add(a,b){
+    return a + b;
+}
+
+let result = add(10,20);
+
+console.log(result);`,
+practice:`Create a function that returns the square of a number.`
+},
+
+{
+title:"Arrow Functions",
+explanation:`Arrow functions provide a shorter syntax for writing functions.`,
+code:`const add = (a,b) => {
+    return a + b;
+};
+
+console.log(add(10,20));`,
+practice:`Create an arrow function that multiplies two numbers.`
+},
+
+{
+title:"Scope",
+explanation:`Scope determines where a variable can be accessed.
+
+Important types include global scope, function scope and block scope.`,
+code:`let globalValue = "Global";
+
+function test(){
+
+    let localValue = "Local";
+
+    console.log(globalValue);
+    console.log(localValue);
+
+}
+
+test();`,
+practice:`Create a local variable inside a function.`
+},
+
+{
+title:"DOM",
+explanation:`DOM stands for Document Object Model.
+
+JavaScript uses the DOM to interact with HTML elements on a webpage.`,
+code:`document.body.style.background = "#101820";
+
+console.log("DOM changed");`,
+practice:`Change the page background using JavaScript.`
+},
+
+{
+title:"Selecting HTML Elements",
+explanation:`JavaScript can select HTML elements using methods such as:
+
+getElementById()
+querySelector()
+querySelectorAll()`,
+code:`let heading = document.querySelector("h1");
+
+console.log(heading.textContent);`,
+practice:`Select an HTML element using querySelector().`
+},
+
+{
+title:"Changing HTML",
+explanation:`JavaScript can change the content of HTML elements using textContent or innerHTML.`,
+code:`let heading = document.querySelector("h1");
+
+heading.textContent = "JavaScript With Shiv";`,
+practice:`Change the text of an HTML element using JavaScript.`
+},
+
+{
+title:"Changing CSS",
+explanation:`JavaScript can change CSS properties dynamically.
+
+This makes webpages interactive.`,
+code:`let heading = document.querySelector("h1");
+
+heading.style.color = "yellow";`,
+practice:`Change an element's font size using JavaScript.`
+},
+
+{
+title:"Events",
+explanation:`Events happen when users interact with a webpage.
+
+Examples:
+click
+mouseover
+keydown
+submit
+change`,
+code:`document.addEventListener("click", function(){
+    console.log("Page clicked");
+});`,
+practice:`Create a click event that prints a message.`
+},
+
+{
+title:"Event Listeners",
+explanation:`addEventListener() allows JavaScript to listen for events without putting event code directly into HTML.`,
+code:`document.addEventListener("keydown", function(event){
+
+    console.log("Key pressed:", event.key);
+
+});`,
+practice:`Create an event listener for a button click.`
+},
+
+{
+title:"Forms",
+explanation:`JavaScript can read form values and validate user input.
+
+Forms are commonly used in login pages, registration pages and applications.`,
+code:`let name = "Shiv";
+
+if(name.length > 0){
+    console.log("Form value is valid");
+}else{
+    console.log("Please enter your name");
+}`,
+practice:`Check whether a username is empty or not.`
+},
+
+{
+title:"JSON",
+explanation:`JSON stands for JavaScript Object Notation.
+
+It is commonly used to store and exchange data between websites and APIs.`,
+code:`let student = {
+    name: "Shiv",
+    age: 18
+};
+
+let jsonData = JSON.stringify(student);
+
+console.log(jsonData);`,
+practice:`Convert a JavaScript object into JSON.`
+},
+
+{
+title:"Local Storage",
+explanation:`localStorage allows websites to store data in the browser.
+
+The data can remain available even after refreshing the page.`,
+code:`localStorage.setItem("name", "Shiv");
+
+let name = localStorage.getItem("name");
+
+console.log(name);`,
+practice:`Store your city in localStorage and read it back.`
+},
+
+{
+title:"Error Handling",
+explanation:`try-catch is used to handle errors without completely stopping the application.`,
+code:`try{
+
+    let result = unknownVariable;
+
+    console.log(result);
+
+}catch(error){
+
+    console.log("An error occurred");
+
+}`,
+practice:`Create a try-catch block that handles an error.`
+},
+
+{
+title:"Dates",
+explanation:`JavaScript provides the Date object for working with dates and times.`,
+code:`let today = new Date();
+
+console.log(today);
+console.log(today.getFullYear());`,
+practice:`Print the current year.`
+},
+
+{
+title:"Mini Project: Calculator",
+explanation:`Let's combine variables, functions and operators to create a simple calculator.`,
+code:`function calculator(a,b,operator){
+
+    if(operator === "+"){
+        return a + b;
+    }
+
+    if(operator === "-"){
+        return a - b;
+    }
+
+    if(operator === "*"){
+        return a * b;
+    }
+
+    if(operator === "/"){
+        return a / b;
+    }
+
+    return "Invalid operator";
+}
+
+console.log(calculator(20,10,"+"));
+console.log(calculator(20,10,"*"));`,
+practice:`Add support for % to your calculator.`
+},
+
+{
+title:"Mini Project: To-Do List",
+explanation:`A To-Do List combines arrays, objects, functions and DOM manipulation.
+
+This is a good beginner JavaScript project.`,
+code:`let tasks = [];
+
+function addTask(task){
+    tasks.push(task);
+}
+
+addTask("Learn JavaScript");
+addTask("Practice coding");
+addTask("Build project");
+
+console.log(tasks);`,
+practice:`Add a function to remove a task from the array.`
+},
+
+{
+title:"Final JavaScript Project",
+explanation:`Congratulations!
+
+Now combine your JavaScript knowledge to build a complete interactive project.
+
+Recommended project:
+
+Student Management System
+
+Features:
+• Add student
+• Delete student
+• Search student
+• Display students
+• Calculate average marks
+• Store data in localStorage`,
+code:`let students = [];
+
+function addStudent(name, marks){
+    students.push({
+        name:name,
+        marks:marks
+    });
+}
+
+function showStudents(){
+
+    students.forEach(function(student){
+
+        console.log(
+            student.name + " - " + student.marks
+        );
+
+    });
+
+}
+
+addStudent("Shiv", 85);
+addStudent("Rahul", 78);
+
+showStudents();`,
+practice:`Build your own Student Management System using JavaScript, HTML and CSS.`
+}
+
+];
+
+
+let currentLesson = 0;
+
+
+/* -------------------------------
+   CREATE LESSON LIST
+-------------------------------- */
+
+function renderLessonList(){
+
+    const list = document.getElementById("lessonList");
+
+    list.innerHTML = "";
+
+    lessons.forEach((lesson,index)=>{
+
+        const button = document.createElement("button");
+
+        button.className = "lesson-btn";
+
+        button.innerHTML =
+        (index + 1) + ". " + lesson.title;
+
+        button.onclick = function(){
+            loadLesson(index);
+        };
+
+        list.appendChild(button);
+
+    });
+
+}
+
+
+/* -------------------------------
+   LOAD LESSON
+-------------------------------- */
+
+function loadLesson(index){
+
+    if(index < 0) index = 0;
+
+    if(index >= lessons.length){
+        index = lessons.length - 1;
+    }
+
+    currentLesson = index;
+
+    const lesson = lessons[index];
+
+    document.getElementById("lessonNumber").textContent =
+        "Lesson " + (index + 1);
+
+    document.getElementById("lessonTitle").textContent =
+        lesson.title;
+
+    document.getElementById("explanation").textContent =
+        lesson.explanation;
+
+    document.getElementById("editor").value =
+        lesson.code;
+
+    document.getElementById("practice").textContent =
+        lesson.practice;
+
+    document.getElementById("output").textContent =
+        'Click "Run Code" to execute your JavaScript.';
+
+    updateProgress();
+
+    document.querySelectorAll(".lesson-btn").forEach((btn,i)=>{
+
+        btn.classList.toggle(
+            "active",
+            i === currentLesson
+        );
+
+    });
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* -------------------------------
+   REAL JAVASCRIPT RUNNER
+-------------------------------- */
+
+function runCode(){
+
+    const code =
+        document.getElementById("editor").value;
+
+    const output =
+        document.getElementById("output");
+
+    let logs = [];
+
+    const oldLog = console.log;
+    const oldWarn = console.warn;
+    const oldError = console.error;
+
+    console.log = function(...args){
+
+        logs.push(
+            args.map(formatValue).join(" ")
+        );
+
+    };
+
+    console.warn = function(...args){
+
+        logs.push(
+            "Warning: " +
+            args.map(formatValue).join(" ")
+        );
+
+    };
+
+    console.error = function(...args){
+
+        logs.push(
+            "Error: " +
+            args.map(formatValue).join(" ")
+        );
+
+    };
+
+
+    try{
+
+        /*
+        eval allows the lesson editor to execute
+        JavaScript directly in this page.
+        */
+
+        const result = eval(code);
+
+        if(
+            result !== undefined &&
+            logs.length === 0
+        ){
+
+            logs.push(formatValue(result));
+
+        }
+
+        if(logs.length === 0){
+
+            output.textContent =
+                "Code executed successfully.";
+
+        }else{
+
+            output.textContent =
+                logs.join("\n");
+
+        }
+
+    }catch(error){
+
+        output.textContent =
+            "❌ " + error.name + ": " + error.message;
+
+    }
+
+
+    console.log = oldLog;
+    console.warn = oldWarn;
+    console.error = oldError;
+
+}
+
+
+/* -------------------------------
+   FORMAT OUTPUT
+-------------------------------- */
+
+function formatValue(value){
+
+    if(typeof value === "object"){
+
+        try{
+            return JSON.stringify(value);
+        }catch{
+            return String(value);
+        }
+
+    }
+
+    return String(value);
+
+}
+
+
+/* -------------------------------
+   PROGRESS
+-------------------------------- */
+
+function updateProgress(){
+
+    const percent =
+        Math.round(
+            ((currentLesson + 1) / lessons.length) * 100
+        );
+
+    document.getElementById("progressBar")
+        .style.width = percent + "%";
+
+    document.getElementById("progressText")
+        .textContent = percent + "%";
+
+}
+
+
+/* -------------------------------
+   NEXT
+-------------------------------- */
+
+function nextLesson(){
+
+    if(currentLesson < lessons.length - 1){
+
+        loadLesson(currentLesson + 1);
+
+    }else{
+
+        alert(
+            "🎉 Congratulations Boss! You completed the JavaScript course!"
+        );
+
+    }
+
+}
+
+
+/* -------------------------------
+   PREVIOUS
+-------------------------------- */
+
+function previousLesson(){
+
+    if(currentLesson > 0){
+
+        loadLesson(currentLesson - 1);
+
+    }
+
+}
+
+
+/* -------------------------------
+   SEARCH
+-------------------------------- */
+
+function searchLessons(){
+
+    const search =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+    document.querySelectorAll(".lesson-btn")
+    .forEach((button,index)=>{
+
+        const title =
+            lessons[index].title.toLowerCase();
+
+        button.style.display =
+            title.includes(search)
+            ? "block"
+            : "none";
+
+    });
+
+}
+
+
+/* -------------------------------
+   CTRL + ENTER
+-------------------------------- */
+
+document.getElementById("editor")
+.addEventListener("keydown",function(event){
+
+    if(event.ctrlKey && event.key === "Enter"){
+
+        event.preventDefault();
+
+        runCode();
+
+    }
+
+});
+
+
+/* -------------------------------
+   START
+-------------------------------- */
+
+renderLessonList();
+
+loadLesson(0);
+
+</script>
+
+</body>
+</html>
