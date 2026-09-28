@@ -1,0 +1,2416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Data Analytics Live Course | Data Analytics Hub</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#07111f;
+    color:#eef5ff;
+    line-height:1.6;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#0d1828;
+    border-bottom:1px solid #22334a;
+    padding:14px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.logo{
+    text-decoration:none;
+    color:#35d6ff;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.nav{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+}
+
+.nav a{
+    color:#cbd7e6;
+    text-decoration:none;
+    padding:8px 11px;
+    border-radius:7px;
+    font-size:13px;
+}
+
+.nav a:hover,
+.nav a.active{
+    background:#35d6ff;
+    color:#06101c;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:70px 20px;
+    background:
+    radial-gradient(circle at top,#123b55,#07111f 65%);
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid #35d6ff;
+    color:#35d6ff;
+    padding:7px 16px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(35px,7vw,70px);
+    color:#35d6ff;
+    margin-bottom:12px;
+}
+
+.hero p{
+    max-width:850px;
+    margin:auto;
+    color:#aebdce;
+    font-size:17px;
+}
+
+/* CONTAINER */
+
+.container{
+    width:92%;
+    max-width:1350px;
+    margin:auto;
+}
+
+/* COURSE INFO */
+
+.course-info{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin:35px 0;
+}
+
+.info-box{
+    background:#0d1828;
+    border:1px solid #22334a;
+    border-radius:14px;
+    padding:20px;
+    text-align:center;
+}
+
+.info-box strong{
+    display:block;
+    font-size:27px;
+    color:#35d6ff;
+}
+
+/* TOOLBAR */
+
+.toolbar{
+    display:flex;
+    gap:12px;
+    margin-bottom:25px;
+    flex-wrap:wrap;
+}
+
+.search{
+    flex:1;
+    min-width:240px;
+    background:#0d1828;
+    color:white;
+    border:1px solid #29405b;
+    padding:13px;
+    border-radius:9px;
+    outline:none;
+}
+
+.search:focus{
+    border-color:#35d6ff;
+}
+
+/* LAYOUT */
+
+.layout{
+    display:grid;
+    grid-template-columns:290px 1fr;
+    gap:25px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    background:#0d1828;
+    border:1px solid #22334a;
+    border-radius:15px;
+    padding:18px;
+    height:max-content;
+    position:sticky;
+    top:80px;
+}
+
+.sidebar h3{
+    color:#35d6ff;
+    margin-bottom:15px;
+}
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:#a8b7c9;
+    margin-bottom:6px;
+}
+
+.progress{
+    height:8px;
+    background:#1c2a3d;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    width:0;
+    background:#35d6ff;
+    transition:.4s;
+}
+
+.lesson-list{
+    margin-top:18px;
+    max-height:650px;
+    overflow-y:auto;
+}
+
+.lesson-btn{
+    width:100%;
+    text-align:left;
+    padding:10px;
+    margin:3px 0;
+    border:0;
+    border-radius:7px;
+    background:transparent;
+    color:#b7c5d6;
+    cursor:pointer;
+}
+
+.lesson-btn:hover,
+.lesson-btn.active{
+    background:#35d6ff;
+    color:#06101c;
+}
+
+/* CARDS */
+
+.card{
+    background:#0d1828;
+    border:1px solid #22334a;
+    border-radius:15px;
+    padding:25px;
+    margin-bottom:20px;
+}
+
+.lesson-number{
+    color:#35d6ff;
+    text-transform:uppercase;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.lesson-title{
+    font-size:31px;
+    margin:5px 0 15px;
+}
+
+.explanation{
+    color:#c4d0de;
+    white-space:pre-line;
+}
+
+/* EXAMPLE */
+
+.example{
+    margin-top:20px;
+    background:#081321;
+    border-left:4px solid #35d6ff;
+    padding:18px;
+    border-radius:8px;
+}
+
+.example-title{
+    color:#35d6ff;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+/* TABLE */
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:650px;
+}
+
+th{
+    background:#16283d;
+    color:#35d6ff;
+    text-align:left;
+}
+
+th,td{
+    padding:11px;
+    border:1px solid #273a50;
+}
+
+tr:nth-child(even){
+    background:#0a1523;
+}
+
+/* KPI */
+
+.kpis{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:18px;
+}
+
+.kpi{
+    background:#081321;
+    border:1px solid #24384e;
+    padding:16px;
+    border-radius:10px;
+}
+
+.kpi small{
+    color:#8fa1b5;
+}
+
+.kpi strong{
+    display:block;
+    font-size:24px;
+    color:#35d6ff;
+}
+
+/* CODE */
+
+.code{
+    background:#050a10;
+    color:#e7f2ff;
+    padding:18px;
+    border-radius:10px;
+    overflow:auto;
+    font-family:Consolas,monospace;
+    margin-top:12px;
+}
+
+/* BUTTON */
+
+button{
+    font-family:inherit;
+}
+
+.action-btn{
+    border:0;
+    background:#35d6ff;
+    color:#06101c;
+    font-weight:bold;
+    padding:11px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:12px;
+}
+
+.action-btn:hover{
+    opacity:.85;
+}
+
+/* PRACTICE */
+
+.practice{
+    border-left:4px solid #ffcc33;
+    background:#171a16;
+    padding:18px;
+    border-radius:8px;
+}
+
+.practice h3{
+    color:#ffcc33;
+    margin-bottom:7px;
+}
+
+/* ANALYST THINKING */
+
+.analyst{
+    background:#101d2d;
+    border:1px solid #29445f;
+    padding:20px;
+    border-radius:12px;
+}
+
+.analyst li{
+    margin-left:20px;
+    margin-bottom:6px;
+}
+
+/* NAVIGATION */
+
+.navigation{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:50px;
+}
+
+.nav-btn{
+    padding:12px 20px;
+    background:#142235;
+    color:#fff;
+    border:1px solid #30465e;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.nav-btn.next{
+    background:#35d6ff;
+    color:#06101c;
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    border-top:1px solid #22334a;
+    padding:35px;
+    color:#8495a8;
+}
+
+.brand{
+    color:#35d6ff;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .navbar{
+        flex-direction:column;
+    }
+
+    .layout{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        position:static;
+    }
+
+    .course-info{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .kpis{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:550px){
+
+    .course-info,
+    .kpis{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        padding:17px;
+    }
+
+    .lesson-title{
+        font-size:24px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+<a href="index.html" class="logo">
+📊 Data Analytics Hub
+</a>
+
+<nav class="nav">
+
+<a href="index.html">Home</a>
+
+<a href="excel.html">Excel</a>
+
+<a href="python-puzzles.html">Python</a>
+
+<a href="sql.html">SQL</a>
+
+<a href="powerbi.html">Power BI</a>
+
+<a href="javascript.html">JavaScript</a>
+
+<a href="data-analytics.html" class="active">
+Data Analytics
+</a>
+
+</nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="badge">
+LIVE DATA ANALYTICS COURSE
+</div>
+
+<h1>DATA ANALYTICS WITH SHIV</h1>
+
+<p>
+Learn Data Analytics from zero to job-ready level through
+real datasets, tables, calculations, Excel, SQL, Python,
+statistics, visualization, Power BI and practical projects.
+</p>
+
+</section>
+
+
+<main class="container">
+
+
+<!-- COURSE STATS -->
+
+<section class="course-info">
+
+<div class="info-box">
+<strong id="totalTopics">40</strong>
+Topics
+</div>
+
+<div class="info-box">
+<strong>10+</strong>
+Datasets
+</div>
+
+<div class="info-box">
+<strong>5+</strong>
+Projects
+</div>
+
+<div class="info-box">
+<strong>100%</strong>
+Practical
+</div>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<div class="toolbar">
+
+<input
+class="search"
+id="search"
+placeholder="🔎 Search topics..."
+oninput="searchTopics()">
+
+</div>
+
+
+<div class="layout">
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<h3>📚 Data Analyst Roadmap</h3>
+
+<div class="progress-info">
+<span>Course Progress</span>
+<span id="progressText">0%</span>
+</div>
+
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<div class="lesson-list" id="lessonList"></div>
+
+</aside>
+
+
+<!-- CONTENT -->
+
+<section>
+
+
+<!-- TOPIC -->
+
+<div class="card">
+
+<div class="lesson-number" id="lessonNumber">
+Topic 1
+</div>
+
+<h2 class="lesson-title" id="lessonTitle">
+What is Data Analytics?
+</h2>
+
+<div class="explanation" id="explanation"></div>
+
+</div>
+
+
+<!-- EXAMPLE -->
+
+<div class="card">
+
+<div class="example-title">
+📌 Real Business Example
+</div>
+
+<div id="example"></div>
+
+</div>
+
+
+<!-- DATA TABLE -->
+
+<div class="card">
+
+<div class="example-title">
+📊 Live Dataset
+</div>
+
+<p style="color:#9eafc2">
+Use this table to understand how a Data Analyst works with real data.
+</p>
+
+<div class="table-wrap">
+
+<table id="dataTable"></table>
+
+</div>
+
+</div>
+
+
+<!-- KPI -->
+
+<div class="card">
+
+<div class="example-title">
+📈 Live Analysis
+</div>
+
+<div class="kpis">
+
+<div class="kpi">
+<small>Total Sales</small>
+<strong id="totalSales">₹0</strong>
+</div>
+
+<div class="kpi">
+<small>Total Orders</small>
+<strong id="totalOrders">0</strong>
+</div>
+
+<div class="kpi">
+<small>Average Order</small>
+<strong id="avgOrder">₹0</strong>
+</div>
+
+<div class="kpi">
+<small>Top Product</small>
+<strong id="topProduct">-</strong>
+</div>
+
+</div>
+
+<button class="action-btn" onclick="analyzeData()">
+🔎 Analyze Dataset
+</button>
+
+<div id="analysisResult"
+style="margin-top:15px;color:#c7d4e2">
+Click Analyze Dataset to calculate business insights.
+</div>
+
+</div>
+
+
+<!-- SKILL CONNECTION -->
+
+<div class="card">
+
+<div class="example-title">
+🛠️ How Analysts Use This Skill
+</div>
+
+<div id="tools"></div>
+
+</div>
+
+
+<!-- CODE -->
+
+<div class="card">
+
+<div class="example-title">
+💻 Practical Example
+</div>
+
+<pre class="code" id="codeExample"></pre>
+
+</div>
+
+
+<!-- PRACTICE -->
+
+<div class="card">
+
+<div class="practice">
+
+<h3>🧠 Practice Question</h3>
+
+<div id="practice"></div>
+
+</div>
+
+</div>
+
+
+<!-- ANALYST THINKING -->
+
+<div class="card">
+
+<div class="analyst">
+
+<h3 style="color:#35d6ff;margin-bottom:10px">
+🎯 Think Like a Data Analyst
+</h3>
+
+<div id="analystThinking"></div>
+
+</div>
+
+</div>
+
+
+<!-- NAV -->
+
+<div class="navigation">
+
+<button class="nav-btn" onclick="previousTopic()">
+← Previous
+</button>
+
+<button class="nav-btn next" onclick="nextTopic()">
+Next →
+</button>
+
+</div>
+
+
+</section>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<p>
+© 2026 <span class="brand">Data Analytics Hub</span>
+</p>
+
+<p>
+Data Analytics With Shiv • Learn • Analyze • Build
+</p>
+
+<p style="margin-top:7px">
+Excel.expert.66
+</p>
+
+</footer>
+
+
+<script>
+
+
+/* =====================================================
+   DATASET
+===================================================== */
+
+const salesData = [
+
+{
+id:1,
+date:"2026-01-05",
+product:"Laptop",
+category:"Electronics",
+city:"Delhi",
+quantity:2,
+price:55000
+},
+
+{
+id:2,
+date:"2026-01-07",
+product:"Mouse",
+category:"Electronics",
+city:"Delhi",
+quantity:5,
+price:800
+},
+
+{
+id:3,
+date:"2026-01-10",
+product:"Keyboard",
+category:"Electronics",
+city:"Noida",
+quantity:3,
+price:1500
+},
+
+{
+id:4,
+date:"2026-01-12",
+product:"Monitor",
+category:"Electronics",
+city:"Ghaziabad",
+quantity:2,
+price:12000
+},
+
+{
+id:5,
+date:"2026-01-15",
+product:"Chair",
+category:"Furniture",
+city:"Delhi",
+quantity:4,
+price:7000
+},
+
+{
+id:6,
+date:"2026-01-18",
+product:"Desk",
+category:"Furniture",
+city:"Noida",
+quantity:2,
+price:9000
+},
+
+{
+id:7,
+date:"2026-01-20",
+product:"Laptop",
+category:"Electronics",
+city:"Gurugram",
+quantity:1,
+price:60000
+},
+
+{
+id:8,
+date:"2026-01-23",
+product:"Headphones",
+category:"Electronics",
+city:"Delhi",
+quantity:4,
+price:2500
+},
+
+{
+id:9,
+date:"2026-01-25",
+product:"Chair",
+category:"Furniture",
+city:"Noida",
+quantity:3,
+price:6500
+},
+
+{
+id:10,
+date:"2026-01-28",
+product:"Monitor",
+category:"Electronics",
+city:"Gurugram",
+quantity:2,
+price:15000
+}
+
+];
+
+
+/* =====================================================
+   COURSE
+===================================================== */
+
+const topics = [
+
+{
+title:"What is Data Analytics?",
+explanation:`Data Analytics is the process of collecting, cleaning, transforming and analyzing data to find useful information and support business decisions.
+
+A Data Analyst does not simply create charts.
+
+A Data Analyst asks:
+• What happened?
+• Why did it happen?
+• What is changing?
+• What should the business investigate next?
+• What action can be taken from the data?
+
+Typical workflow:
+
+Data → Clean → Explore → Analyze → Visualize → Explain → Decision`,
+example:`An online store has 10,000 orders.
+
+Management wants to know why sales decreased.
+
+The analyst can study:
+• Sales by month
+• Sales by product
+• Sales by city
+• Average order value
+• Customer behavior
+• Returns
+• Discounts
+
+The final goal is not just a chart. The goal is a useful business insight.`,
+tools:`Excel • SQL • Python • Power BI • Statistics`,
+code:`sales = 100000
+orders = 250
+
+average_order = sales / orders
+
+print(average_order)`,
+practice:`Explain the difference between Data and Information.`,
+analyst:`Always connect your analysis to a business question.`
+},
+
+{
+title:"Data Analyst Workflow",
+explanation:`A professional Data Analyst normally follows a structured process.
+
+1. Understand the business problem
+2. Collect data
+3. Inspect data
+4. Clean data
+5. Transform data
+6. Explore data
+7. Analyze data
+8. Visualize results
+9. Communicate insights
+10. Recommend next investigation or action`,
+example:`Business question:
+
+"Why did monthly revenue fall?"
+
+Do not immediately open Power BI.
+
+First understand:
+• What period?
+• Which revenue?
+• Which customers?
+• Which products?
+• Which regions?
+• Is revenue actually falling or only one segment?`,
+tools:`Excel • SQL • Python • Power BI`,
+code:`Problem
+   ↓
+Data
+   ↓
+Cleaning
+   ↓
+Analysis
+   ↓
+Visualization
+   ↓
+Insight
+   ↓
+Business Decision`,
+practice:`Write the 7 main steps you would follow to analyze a sales dataset.`,
+analyst:`A good analyst solves the right problem, not merely a complicated problem.`
+},
+
+{
+title:"Understanding Rows and Columns",
+explanation:`A dataset is usually organized into rows and columns.
+
+Column = variable / field / attribute.
+
+Row = one observation or record.
+
+Example:
+
+Customer | City | Sales
+
+Each row represents one sale or customer record depending on the dataset design.`,
+example:`If a sales table contains 10,000 rows, it may represent 10,000 orders.
+
+Columns may include:
+
+Order_ID
+Date
+Customer
+Product
+Quantity
+Price
+City
+Revenue`,
+tools:`Excel • SQL • Python • Power BI`,
+code:`Column = Product
+Column = Quantity
+Column = Price
+
+Row = one complete record`,
+practice:`In a student table, identify 5 possible columns.`,
+analyst:`Always understand what one row represents before calculating anything.`
+},
+
+{
+title:"Data Types",
+explanation:`Data types tell us what kind of information a column contains.
+
+Common types:
+
+Text
+Integer
+Decimal
+Date
+Boolean
+Category
+
+Correct data types are important for calculations and analysis.`,
+example:`Customer_Name → Text
+
+Age → Integer
+
+Salary → Decimal
+
+Joining_Date → Date
+
+Is_Active → Boolean`,
+tools:`Excel • SQL • Python • Power BI`,
+code:`name = "Shiv"
+age = 18
+salary = 25000.50
+active = True`,
+practice:`Identify the data type of Order_ID, Date, Price and City.`,
+analyst:`Wrong data types can cause incorrect calculations and failed analysis.`
+},
+
+{
+title:"Data Quality",
+explanation:`Before analysis, check whether the data is reliable.
+
+Important quality checks:
+
+Missing values
+Duplicate rows
+Incorrect values
+Wrong data types
+Outliers
+Inconsistent spelling
+Invalid dates
+Negative values where they should not exist`,
+example:`City values:
+
+Delhi
+Delhi
+delhi
+DELHI
+New Delhi
+
+A computer may treat these as different values.
+
+The analyst may standardize them.`,
+tools:`Excel • SQL • Python`,
+code:`Delhi
+Delhi
+DELHI
+
+→
+
+Delhi
+Delhi
+Delhi`,
+practice:`Find 3 possible data quality problems in a sales dataset.`,
+analyst:`Never trust raw data automatically. Validate it first.`
+},
+
+{
+title:"Missing Values",
+explanation:`Missing data occurs when a field does not contain a value.
+
+Example:
+
+Customer | Age
+Shiv | 18
+Rahul | blank
+Aman | 21
+
+Possible approaches:
+
+Remove
+Replace
+Keep as missing
+Investigate source`,
+example:`If only 2 rows out of 100,000 are missing and those rows are not important, removal may be considered.
+
+If 40% of salary values are missing, simply filling them with 0 may create a misleading analysis.`,
+tools:`Excel • SQL • Python`,
+code:`Age
+18
+25
+NULL
+21
+
+Possible analysis:
+
+COUNT
+AVERAGE
+Missing count`,
+practice:`Why is replacing every missing value with 0 dangerous?`,
+analyst:`The correct treatment depends on why the value is missing.`
+},
+
+{
+title:"Duplicate Data",
+explanation:`Duplicate records can make totals incorrect.
+
+If the same order appears twice, sales calculations may become double the real value.`,
+example:`Order_ID
+1001
+1002
+1002
+1003
+
+Order 1002 is duplicated.
+
+If its revenue is ₹5,000, the total can be overstated by ₹5,000.`,
+tools:`Excel • SQL • Python`,
+code:`Before:
+1001
+1002
+1002
+1003
+
+After removing duplicate:
+1001
+1002
+1003`,
+practice:`Create an example showing how duplicate orders affect revenue.`,
+analyst:`Always identify the unique key of a dataset.`
+},
+
+{
+title:"Data Cleaning",
+explanation:`Data cleaning prepares raw data for reliable analysis.
+
+Typical operations:
+
+Remove duplicates
+Handle missing values
+Fix spelling
+Correct data types
+Standardize dates
+Remove invalid records
+Handle outliers
+Create consistent categories`,
+example:`Raw:
+
+" delhi "
+"Delhi"
+"DELHI"
+
+Clean:
+
+Delhi`,
+tools:`Excel • Power Query • SQL • Python`,
+code:`text = "  Delhi  "
+
+cleaned = text.strip().title()
+
+print(cleaned)`,
+practice:`Clean these values conceptually:
+
+" delhi "
+"DELHI"
+"delhi"`,
+analyst:`Cleaning is not about making data look beautiful. It is about making analysis trustworthy.`
+},
+
+{
+title:"Excel for Data Analysts",
+explanation:`Excel remains useful for quick analysis, reporting and business work.
+
+Important skills:
+
+Sorting
+Filtering
+Tables
+Formulas
+IF
+SUMIF
+COUNTIF
+XLOOKUP
+INDEX MATCH
+Pivot Tables
+Charts
+Conditional Formatting
+Power Query`,
+example:`Sales data can be converted into an Excel Table.
+
+Then you can filter:
+
+City = Delhi
+
+Category = Electronics
+
+and immediately inspect that segment.`,
+tools:`Microsoft Excel • LibreOffice Calc`,
+code:`=SUM(E2:E100)
+
+=AVERAGE(E2:E100)
+
+=COUNTIF(C2:C100,"Delhi")`,
+practice:`Calculate total sales and average sales using spreadsheet formulas.`,
+analyst:`Excel is especially useful for quick exploration and business reporting.`
+},
+
+{
+title:"SUM, AVERAGE, COUNT",
+explanation:`These are foundational aggregation functions.
+
+SUM → total
+
+AVERAGE → average
+
+COUNT → number of numeric values
+
+COUNTA → number of non-empty cells`,
+example:`Sales:
+
+100
+200
+300
+
+SUM = 600
+
+AVERAGE = 200`,
+tools:`Excel • LibreOffice`,
+code:`=SUM(B2:B10)
+
+=AVERAGE(B2:B10)
+
+=COUNT(B2:B10)`,
+practice:`For 10,20,30,40 calculate SUM and AVERAGE.`,
+analyst:`Aggregations are the foundation of business reporting.`
+},
+
+{
+title:"IF and Conditional Logic",
+explanation:`IF lets you create logic based on conditions.
+
+Example:
+
+If Sales >= 50000 → High
+
+Otherwise → Low`,
+example:`Sales = ₹70,000
+
+Result = High Sales`,
+tools:`Excel • SQL CASE WHEN • Python if`,
+code:`=IF(B2>=50000,"High","Low")`,
+practice:`Create a formula that labels marks >= 40 as Pass.`,
+analyst:`Business rules are often converted into analytical categories.`
+},
+
+{
+title:"Pivot Tables",
+explanation:`Pivot Tables summarize large datasets quickly.
+
+They can answer questions such as:
+
+Sales by city
+Sales by product
+Sales by month
+Quantity by category`,
+example:`City | Sales
+
+Delhi → ₹80,000
+Noida → ₹45,000
+Gurugram → ₹75,000
+
+A Pivot Table can produce this summary from thousands of rows.`,
+tools:`Excel • LibreOffice`,
+code:`Rows → City
+
+Values → SUM(Sales)
+
+Filter → Category`,
+practice:`Design a Pivot Table for Sales by Product.`,
+analyst:`Pivot Tables are excellent for quick exploratory analysis.`
+},
+
+{
+title:"SQL Basics",
+explanation:`SQL is used to communicate with relational databases.
+
+Basic commands:
+
+SELECT
+FROM
+WHERE
+ORDER BY
+GROUP BY
+HAVING
+JOIN`,
+example:`Suppose a company has a sales table.
+
+You want all Delhi orders.
+
+SQL:
+
+SELECT *
+FROM sales
+WHERE city = 'Delhi';`,
+tools:`MySQL • PostgreSQL • SQL Server`,
+code:`SELECT *
+FROM sales
+WHERE city = 'Delhi';`,
+practice:`Write SQL to select all orders where sales are greater than 50000.`,
+analyst:`SQL becomes extremely important when data is stored in databases.`
+},
+
+{
+title:"SQL SELECT",
+explanation:`SELECT chooses which columns you want to retrieve.`,
+example:`Instead of selecting everything:
+
+SELECT *
+
+you can select specific fields:
+
+SELECT product, city, sales`,
+tools:`SQL`,
+code:`SELECT product, city, quantity, price
+FROM sales;`,
+practice:`Write a query that selects product and price.`,
+analyst:`Select only the fields you actually need when practical.`
+},
+
+{
+title:"SQL WHERE",
+explanation:`WHERE filters rows based on a condition.`,
+example:`Find Electronics:
+
+SELECT *
+FROM sales
+WHERE category = 'Electronics';`,
+tools:`SQL`,
+code:`SELECT *
+FROM sales
+WHERE price > 10000;`,
+practice:`Filter sales where quantity is greater than 2.`,
+analyst:`Filtering lets you investigate specific business segments.`
+},
+
+{
+title:"SQL GROUP BY",
+explanation:`GROUP BY creates summaries by category.
+
+Examples:
+
+Sales by city
+Orders by product
+Revenue by month`,
+example:`SELECT city, SUM(sales)
+FROM sales
+GROUP BY city;`,
+tools:`SQL`,
+code:`SELECT city, SUM(price * quantity) AS revenue
+FROM sales
+GROUP BY city;`,
+practice:`Write SQL to calculate revenue by product.`,
+analyst:`GROUP BY is one of the most important SQL skills for analysts.`
+},
+
+{
+title:"SQL JOIN",
+explanation:`JOIN combines information from multiple tables.
+
+Example:
+
+customers
+
+Customer_ID | Name | City
+
+orders
+
+Order_ID | Customer_ID | Amount
+
+JOIN connects the tables using Customer_ID.`,
+example:`Without JOIN, information may be separated.
+
+With JOIN:
+
+Customer Name + Order Amount
+
+can be analyzed together.`,
+tools:`SQL`,
+code:`SELECT
+    c.name,
+    o.amount
+FROM customers c
+JOIN orders o
+ON c.customer_id = o.customer_id;`,
+practice:`Explain why Customer_ID can be used to connect customers and orders.`,
+analyst:`Before joining, understand the relationship between the tables.`
+},
+
+{
+title:"SQL CASE WHEN",
+explanation:`CASE WHEN creates conditional categories inside SQL.`,
+example:`CASE
+WHEN sales >= 50000 THEN 'High'
+WHEN sales >= 20000 THEN 'Medium'
+ELSE 'Low'
+END`,
+tools:`SQL`,
+code:`SELECT
+sales,
+CASE
+WHEN sales >= 50000 THEN 'High'
+WHEN sales >= 20000 THEN 'Medium'
+ELSE 'Low'
+END AS sales_level
+FROM sales;`,
+practice:`Create High/Low classification using CASE WHEN.`,
+analyst:`SQL can perform much of the transformation needed before visualization.`
+},
+
+{
+title:"Python for Data Analytics",
+explanation:`Python is useful for automation, data cleaning, analysis and advanced workflows.
+
+Important libraries:
+
+pandas
+numpy
+matplotlib
+seaborn
+
+A common workflow is:
+
+Load → Clean → Transform → Analyze → Visualize`,
+example:`A CSV file containing 1 million rows may be easier to process programmatically than manually.`,
+tools:`Python • pandas • NumPy • Matplotlib`,
+code:`import pandas as pd
+
+df = pd.read_csv("sales.csv")
+
+print(df.head())
+print(df.info())`,
+practice:`Learn what df.head() and df.info() do.`,
+analyst:`Python becomes especially useful when datasets or analysis become repetitive or large.`
+},
+
+{
+title:"Pandas DataFrame",
+explanation:`A pandas DataFrame is a table-like data structure.
+
+It has rows and columns and is one of the most important objects in Python analytics.`,
+example:`Name | Age
+Shiv | 18
+Aman | 20
+
+This can be represented as a DataFrame.`,
+tools:`Python + pandas`,
+code:`import pandas as pd
+
+data = {
+    "Name":["Shiv","Aman"],
+    "Age":[18,20]
+}
+
+df = pd.DataFrame(data)
+
+print(df)`,
+practice:`Create a DataFrame containing Product and Price.`,
+analyst:`Think of a DataFrame as a programmable analytical table.`
+},
+
+{
+title:"Pandas Filtering",
+explanation:`Pandas can filter rows based on conditions.`,
+example:`Find sales above ₹10,000.`,
+tools:`Python + pandas`,
+code:`high_sales = df[df["Sales"] > 10000]
+
+print(high_sales)`,
+practice:`Filter a DataFrame where Age is greater than 18.`,
+analyst:`Filtering is one of the most common operations in data analysis.`
+},
+
+{
+title:"Pandas GroupBy",
+explanation:`groupby() is used to summarize data by categories.
+
+It is similar to GROUP BY in SQL.`,
+example:`Sales by city can be calculated using:
+
+df.groupby("City")["Sales"].sum()`,
+tools:`Python + pandas`,
+code:`city_sales = df.groupby("City")["Sales"].sum()
+
+print(city_sales)`,
+practice:`Calculate total sales by Product.`,
+analyst:`Learn SQL GROUP BY and pandas groupby together because the concepts are closely related.`
+},
+
+{
+title:"Data Visualization",
+explanation:`Visualization converts numbers into visual patterns.
+
+Common charts:
+
+Bar
+Line
+Pie
+Histogram
+Scatter
+Box Plot`,
+example:`Use a bar chart for:
+
+Sales by Product
+
+Use a line chart for:
+
+Sales over Time`,
+tools:`Excel • Python • Power BI`,
+code:`import matplotlib.pyplot as plt
+
+products = ["Laptop","Mouse","Monitor"]
+sales = [120000,4000,30000]
+
+plt.bar(products,sales)
+plt.show()`,
+practice:`Which chart would you use for monthly sales?`,
+analyst:`Choose a chart based on the question, not because it looks attractive.`
+},
+
+{
+title:"Statistics for Data Analysts",
+explanation:`Statistics helps analysts understand distributions and relationships.
+
+Important concepts:
+
+Mean
+Median
+Mode
+Range
+Variance
+Standard Deviation
+Percentiles
+Correlation`,
+example:`Data:
+
+10, 20, 30
+
+Mean = 20
+
+Median = 20`,
+tools:`Excel • Python • Statistics`,
+code:`data = [10,20,30]
+
+mean = sum(data) / len(data)
+
+print(mean)`,
+practice:`Find the mean of 10,20,30,40,50.`,
+analyst:`Statistics helps you avoid misleading conclusions from simple averages.`
+},
+
+{
+title:"Mean vs Median",
+explanation:`Mean can be strongly affected by extreme values.
+
+Median is often more resistant to outliers.
+
+Example:
+
+10, 20, 30, 1000
+
+Mean becomes very large.
+
+Median remains closer to the typical values.`,
+example:`For income data, median salary can sometimes describe the typical employee better than mean salary when a few salaries are extremely high.`,
+tools:`Excel • Python • Statistics`,
+code:`data = [10,20,30,1000]
+
+# Mean
+print(sum(data)/len(data))`,
+practice:`Why might median be useful for salary analysis?`,
+analyst:`Always consider the distribution before choosing a summary statistic.`
+},
+
+{
+title:"Correlation",
+explanation:`Correlation measures the strength and direction of a linear relationship between variables.
+
+It does not automatically prove causation.`,
+example:`Advertising Spend ↑
+
+Sales may also ↑
+
+There may be a positive correlation.
+
+But other factors may influence sales.`,
+tools:`Excel • Python • Statistics`,
+code:`# Example concept
+
+Advertising = [10,20,30,40]
+Sales = [100,180,260,350]`,
+practice:`Explain why correlation does not automatically mean causation.`,
+analyst:`Do not turn a statistical relationship into a causal claim without evidence.`
+},
+
+{
+title:"Power BI Basics",
+explanation:`Power BI is used to transform data, create data models and build interactive reports and dashboards.
+
+Typical workflow:
+
+Get Data
+→ Transform
+→ Model
+→ Visualize
+→ Publish`,
+example:`A sales dashboard may contain:
+
+Total Revenue
+Total Orders
+Profit
+Top Product
+Sales by City
+Monthly Trend`,
+tools:`Power BI Desktop`,
+code:`Data
+ ↓
+Power Query
+ ↓
+Data Model
+ ↓
+DAX
+ ↓
+Visuals
+ ↓
+Dashboard`,
+practice:`Design a one-page sales dashboard.`,
+analyst:`A dashboard should answer business questions quickly.`
+},
+
+{
+title:"Power Query",
+explanation:`Power Query is used to connect to data and transform it.
+
+Typical tasks:
+
+Remove columns
+Rename columns
+Change data types
+Remove duplicates
+Split columns
+Merge tables
+Append tables
+Filter rows`,
+example:`If a CSV contains:
+
+"Delhi "
+
+you can trim spaces during transformation.`,
+tools:`Power BI • Excel`,
+code:`Source
+ ↓
+Clean
+ ↓
+Transform
+ ↓
+Load`,
+practice:`List 5 data-cleaning operations you can perform in Power Query.`,
+analyst:`Repeatable transformations are better than manually cleaning data every day.`
+},
+
+{
+title:"DAX Basics",
+explanation:`DAX is the formula language used in Power BI for calculations.
+
+Examples:
+
+SUM
+COUNT
+AVERAGE
+CALCULATE
+FILTER
+DISTINCTCOUNT`,
+example:`Total Sales:
+
+Total Sales =
+SUM(Sales[Amount])`,
+tools:`Power BI`,
+code:`Total Sales =
+SUM(Sales[Amount])
+
+Total Orders =
+COUNTROWS(Sales)`,
+practice:`Create a Total Quantity measure.`,
+analyst:`DAX becomes important when simple aggregations are not enough.`
+},
+
+{
+title:"KPIs",
+explanation:`A KPI is a key performance indicator.
+
+Examples:
+
+Revenue
+Profit
+Orders
+Conversion Rate
+Customer Retention
+Average Order Value`,
+example:`Online store:
+
+Revenue = ₹10,00,000
+Orders = 5,000
+
+Average Order Value = ₹200`,
+tools:`Excel • SQL • Power BI • Python`,
+code:`AOV = Revenue / Orders`,
+practice:`If Revenue is ₹5,00,000 and Orders are 2,500, calculate AOV.`,
+analyst:`A KPI should have a clear business meaning.`
+},
+
+{
+title:"Business Questions",
+explanation:`A Data Analyst must translate vague business questions into measurable analytical questions.
+
+Bad:
+
+"Sales are bad. Find out why."
+
+Better:
+
+"Which products, cities and months contributed most to the revenue decline?"`,
+example:`Business question:
+
+Why did sales fall?
+
+Analytical questions:
+
+• Which month?
+• Which product?
+• Which city?
+• Which customer segment?
+• Was quantity lower?
+• Was price lower?
+• Were returns higher?`,
+tools:`Business Analysis • SQL • Excel • Power BI`,
+code:`Business Question
+      ↓
+Analytical Questions
+      ↓
+Data
+      ↓
+Analysis`,
+practice:`Convert "customers are leaving" into 3 measurable questions.`,
+analyst:`Good analytical questions produce focused analysis.`
+},
+
+{
+title:"EDA - Exploratory Data Analysis",
+explanation:`EDA means exploring data before making final conclusions.
+
+Check:
+
+Shape
+Columns
+Data types
+Missing values
+Duplicates
+Distribution
+Minimum
+Maximum
+Average
+Categories
+Relationships`,
+example:`For sales data ask:
+
+How many rows?
+
+Which product sells most?
+
+Which city generates most revenue?
+
+Which month performs best?`,
+tools:`Python • Excel • SQL`,
+code:`df.shape
+df.info()
+df.describe()
+df.isnull().sum()`,
+practice:`Create an EDA checklist for a new CSV file.`,
+analyst:`EDA helps you discover what the data actually contains.`
+},
+
+{
+title:"Outliers",
+explanation:`An outlier is a value that is unusually far from other observations.
+
+Outliers may represent:
+
+Real events
+Data errors
+Fraud
+Special customers
+Exceptional sales`,
+example:`Orders:
+
+100
+120
+90
+110
+50000
+
+50000 is an obvious unusual value.
+
+Do not automatically delete it.`,
+tools:`Statistics • Python • Excel`,
+code:`orders = [100,120,90,110,50000]
+
+# Investigate the unusual value
+print(max(orders))`,
+practice:`Give 3 possible reasons for an outlier.`,
+analyst:`Investigate before removing.`
+},
+
+{
+title:"Data Storytelling",
+explanation:`A Data Analyst must communicate findings clearly.
+
+A useful structure:
+
+1. What happened?
+2. Evidence
+3. Why it matters
+4. What should be investigated next?`,
+example:`Weak:
+
+"Delhi has ₹80,000 sales."
+
+Better:
+
+"Delhi generated the highest revenue in this dataset at ₹80,000, so it is an important market to investigate further."`,
+tools:`Power BI • Excel • Presentations`,
+code:`Finding
+→ Evidence
+→ Meaning
+→ Next question`,
+practice:`Write one insight from the sales dataset.`,
+analyst:`Your audience should understand the important point without reading every number.`
+},
+
+{
+title:"Data Analyst Portfolio",
+explanation:`A portfolio demonstrates your ability to solve practical problems.
+
+A strong beginner portfolio can contain:
+
+1. Sales Dashboard
+2. Customer Analysis
+3. SQL Business Analysis
+4. Python EDA
+5. Excel Reporting Project`,
+example:`Each project should explain:
+
+Problem
+Dataset
+Cleaning
+Analysis
+Visualizations
+Insights
+Conclusion`,
+tools:`GitHub • Power BI • Excel • Python • SQL`,
+code:`Project
+ ↓
+Problem
+ ↓
+Data
+ ↓
+Cleaning
+ ↓
+Analysis
+ ↓
+Dashboard
+ ↓
+Insights`,
+practice:`Plan your first Data Analytics project.`,
+analyst:`Show the thinking behind the dashboard, not only screenshots.`
+},
+
+{
+title:"Final Project - Complete Sales Analysis",
+explanation:`This is your final practical project.
+
+Use the provided sales dataset.
+
+Your goal is to answer:
+
+1. What is total revenue?
+2. What is total quantity?
+3. Which product generated the highest revenue?
+4. Which city generated the highest revenue?
+5. Which category performed best?
+6. What is the average order value?
+7. What business insights can you identify?
+
+Complete the project using:
+
+Excel
+SQL
+Python
+Power BI`,
+example:`Final deliverables:
+
+Excel analysis
+SQL queries
+Python notebook
+Power BI dashboard
+1-page insight report`,
+tools:`Excel + SQL + Python + Power BI`,
+code:`Raw Data
+   ↓
+Cleaning
+   ↓
+EDA
+   ↓
+SQL Analysis
+   ↓
+Python Analysis
+   ↓
+Power BI Dashboard
+   ↓
+Business Insights`,
+practice:`Build the complete project from the dataset on this page.`,
+analyst:`A project is complete only when you can explain what you found and why it matters.`
+}
+
+];
+
+
+let currentTopic = 0;
+
+
+/* =====================================================
+   RENDER LESSON LIST
+===================================================== */
+
+function renderLessonList(){
+
+    const list =
+        document.getElementById("lessonList");
+
+    list.innerHTML = "";
+
+    topics.forEach((topic,index)=>{
+
+        const btn =
+            document.createElement("button");
+
+        btn.className = "lesson-btn";
+
+        btn.textContent =
+            (index+1) + ". " + topic.title;
+
+        btn.onclick = function(){
+
+            loadTopic(index);
+
+        };
+
+        list.appendChild(btn);
+
+    });
+
+    document.getElementById("totalTopics")
+    .textContent = topics.length;
+
+}
+
+
+/* =====================================================
+   LOAD TOPIC
+===================================================== */
+
+function loadTopic(index){
+
+    if(index < 0)
+        index = 0;
+
+    if(index >= topics.length)
+        index = topics.length-1;
+
+    currentTopic = index;
+
+    const topic =
+        topics[index];
+
+    document.getElementById("lessonNumber")
+    .textContent =
+        "Topic " + (index+1);
+
+    document.getElementById("lessonTitle")
+    .textContent =
+        topic.title;
+
+    document.getElementById("explanation")
+    .textContent =
+        topic.explanation;
+
+    document.getElementById("example")
+    .innerHTML =
+        topic.example
+        .replace(/\n/g,"<br>");
+
+    document.getElementById("tools")
+    .innerHTML =
+        "<strong style='color:#35d6ff'>Tools / Skills:</strong><br><br>"
+        +
+        topic.tools;
+
+    document.getElementById("codeExample")
+    .textContent =
+        topic.code;
+
+    document.getElementById("practice")
+    .textContent =
+        topic.practice;
+
+    document.getElementById("analystThinking")
+    .innerHTML =
+        "<ul><li>" +
+        topic.analyst +
+        "</li><li>Ask what the business needs to know before choosing a calculation or chart.</li><li>Always verify your data before presenting conclusions.</li></ul>";
+
+    renderDataTable();
+
+    updateProgress();
+
+    document
+    .querySelectorAll(".lesson-btn")
+    .forEach((button,i)=>{
+
+        button.classList.toggle(
+            "active",
+            i === currentTopic
+        );
+
+    });
+
+    saveProgress();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   DATA TABLE
+===================================================== */
+
+function renderDataTable(){
+
+    const table =
+        document.getElementById("dataTable");
+
+    table.innerHTML = "";
+
+    const headers = [
+        "Order ID",
+        "Date",
+        "Product",
+        "Category",
+        "City",
+        "Quantity",
+        "Price",
+        "Revenue"
+    ];
+
+    let headerHTML = "<tr>";
+
+    headers.forEach(header=>{
+
+        headerHTML +=
+            "<th>" + header + "</th>";
+
+    });
+
+    headerHTML += "</tr>";
+
+    table.innerHTML += headerHTML;
+
+
+    salesData.forEach(row=>{
+
+        const revenue =
+            row.quantity * row.price;
+
+        table.innerHTML += `
+        <tr>
+            <td>${row.id}</td>
+            <td>${row.date}</td>
+            <td>${row.product}</td>
+            <td>${row.category}</td>
+            <td>${row.city}</td>
+            <td>${row.quantity}</td>
+            <td>₹${row.price.toLocaleString()}</td>
+            <td>₹${revenue.toLocaleString()}</td>
+        </tr>
+        `;
+
+    });
+
+    analyzeData();
+
+}
+
+
+/* =====================================================
+   ANALYZE DATA
+===================================================== */
+
+function analyzeData(){
+
+    let totalSales = 0;
+    let totalQuantity = 0;
+
+    const productSales = {};
+    const citySales = {};
+    const categorySales = {};
+
+    salesData.forEach(row=>{
+
+        const revenue =
+            row.quantity * row.price;
+
+        totalSales += revenue;
+
+        totalQuantity += row.quantity;
+
+
+        productSales[row.product] =
+            (productSales[row.product] || 0)
+            + revenue;
+
+
+        citySales[row.city] =
+            (citySales[row.city] || 0)
+            + revenue;
+
+
+        categorySales[row.category] =
+            (categorySales[row.category] || 0)
+            + revenue;
+
+    });
+
+
+    const avgOrder =
+        totalSales / salesData.length;
+
+
+    const topProduct =
+        Object.entries(productSales)
+        .sort((a,b)=>b[1]-a[1])[0];
+
+
+    const topCity =
+        Object.entries(citySales)
+        .sort((a,b)=>b[1]-a[1])[0];
+
+
+    const topCategory =
+        Object.entries(categorySales)
+        .sort((a,b)=>b[1]-a[1])[0];
+
+
+    document.getElementById("totalSales")
+    .textContent =
+        "₹" + totalSales.toLocaleString();
+
+
+    document.getElementById("totalOrders")
+    .textContent =
+        salesData.length;
+
+
+    document.getElementById("avgOrder")
+    .textContent =
+        "₹" + Math.round(avgOrder).toLocaleString();
+
+
+    document.getElementById("topProduct")
+    .textContent =
+        topProduct[0];
+
+
+    document.getElementById("analysisResult")
+    .innerHTML = `
+
+    <strong style="color:#35d6ff">
+    🔎 Dataset Insights
+    </strong>
+
+    <br><br>
+
+    Total Revenue:
+    <strong>₹${totalSales.toLocaleString()}</strong>
+
+    <br>
+
+    Total Quantity:
+    <strong>${totalQuantity}</strong>
+
+    <br>
+
+    Average Order Value:
+    <strong>₹${Math.round(avgOrder).toLocaleString()}</strong>
+
+    <br>
+
+    Top Product by Revenue:
+    <strong>${topProduct[0]}</strong>
+
+    <br>
+
+    Top City by Revenue:
+    <strong>${topCity[0]}</strong>
+
+    <br>
+
+    Top Category by Revenue:
+    <strong>${topCategory[0]}</strong>
+
+    <br><br>
+
+    <strong style="color:#ffcc33">
+    Analyst Tip:
+    </strong>
+
+    These are descriptive insights from this sample dataset.
+    In a real business analysis, investigate data quality,
+    time period, definitions and business context before
+    making decisions.
+    `;
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+function searchTopics(){
+
+    const query =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+    document
+    .querySelectorAll(".lesson-btn")
+    .forEach((button,index)=>{
+
+        const title =
+            topics[index]
+            .title
+            .toLowerCase();
+
+        button.style.display =
+            title.includes(query)
+            ? "block"
+            : "none";
+
+    });
+
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+function updateProgress(){
+
+    const percent =
+        Math.round(
+            ((currentTopic+1) /
+            topics.length) * 100
+        );
+
+    document.getElementById("progressBar")
+    .style.width =
+        percent + "%";
+
+    document.getElementById("progressText")
+    .textContent =
+        percent + "%";
+
+}
+
+
+/* =====================================================
+   NEXT
+===================================================== */
+
+function nextTopic(){
+
+    if(currentTopic < topics.length-1){
+
+        loadTopic(currentTopic+1);
+
+    }else{
+
+        alert(
+            "🎉 Congratulations Boss! You completed the Data Analytics course!"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   PREVIOUS
+===================================================== */
+
+function previousTopic(){
+
+    if(currentTopic > 0){
+
+        loadTopic(currentTopic-1);
+
+    }
+
+}
+
+
+/* =====================================================
+   SAVE PROGRESS
+===================================================== */
+
+function saveProgress(){
+
+    localStorage.setItem(
+        "dataAnalyticsProgress",
+        currentTopic
+    );
+
+}
+
+
+/* =====================================================
+   LOAD SAVED PROGRESS
+===================================================== */
+
+function loadSavedProgress(){
+
+    const saved =
+        localStorage.getItem(
+            "dataAnalyticsProgress"
+        );
+
+    if(saved !== null){
+
+        const index =
+            parseInt(saved);
+
+        if(!isNaN(index) &&
+           index >= 0 &&
+           index < topics.length){
+
+            currentTopic = index;
+
+        }
+
+    }
+
+}
+
+
+/* =====================================================
+   START COURSE
+===================================================== */
+
+loadSavedProgress();
+
+renderLessonList();
+
+loadTopic(currentTopic);
+
+
+</script>
+
+</body>
+</html>
