@@ -1,0 +1,2341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQL With Shiv | Data Analytics Hub</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#07101d;
+    color:#edf5ff;
+    line-height:1.65;
+}
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#0d1828;
+    border-bottom:1px solid #26384d;
+    padding:14px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.logo{
+    text-decoration:none;
+    color:#00e5ff;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.nav{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+}
+
+.nav a{
+    color:#c5d2df;
+    text-decoration:none;
+    padding:7px 10px;
+    border-radius:7px;
+    font-size:13px;
+}
+
+.nav a:hover,.nav a.active{
+    background:#00e5ff;
+    color:#06101a;
+}
+
+.hero{
+    text-align:center;
+    padding:70px 20px;
+    background:radial-gradient(circle at top,#123e54,#07101d 65%);
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid #00e5ff;
+    color:#00e5ff;
+    border-radius:30px;
+    padding:7px 16px;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(38px,7vw,72px);
+    color:#00e5ff;
+}
+
+.hero p{
+    max-width:850px;
+    margin:10px auto 0;
+    color:#aebdcd;
+    font-size:17px;
+}
+
+.container{
+    width:92%;
+    max-width:1400px;
+    margin:auto;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin:35px 0;
+}
+
+.stat{
+    background:#0d1828;
+    border:1px solid #26384d;
+    border-radius:14px;
+    padding:18px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-size:28px;
+    color:#00e5ff;
+}
+
+.search{
+    width:100%;
+    padding:14px;
+    margin-bottom:25px;
+    border-radius:9px;
+    border:1px solid #29415a;
+    background:#0d1828;
+    color:white;
+    outline:none;
+}
+
+.layout{
+    display:grid;
+    grid-template-columns:290px 1fr;
+    gap:25px;
+}
+
+.sidebar{
+    background:#0d1828;
+    border:1px solid #26384d;
+    border-radius:15px;
+    padding:18px;
+    height:max-content;
+    position:sticky;
+    top:80px;
+}
+
+.sidebar h3{
+    color:#00e5ff;
+    margin-bottom:15px;
+}
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    color:#9eb0c3;
+    font-size:13px;
+}
+
+.progress{
+    height:8px;
+    background:#1b2a3c;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:6px;
+}
+
+.progress-bar{
+    height:100%;
+    width:0;
+    background:#00e5ff;
+    transition:.3s;
+}
+
+.lesson-list{
+    margin-top:18px;
+    max-height:650px;
+    overflow-y:auto;
+}
+
+.lesson-btn{
+    width:100%;
+    border:0;
+    background:transparent;
+    color:#b8c6d5;
+    text-align:left;
+    padding:10px;
+    margin:3px 0;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.lesson-btn:hover,.lesson-btn.active{
+    background:#00e5ff;
+    color:#06101a;
+}
+
+.card{
+    background:#0d1828;
+    border:1px solid #26384d;
+    border-radius:15px;
+    padding:25px;
+    margin-bottom:20px;
+}
+
+.lesson-number{
+    color:#00e5ff;
+    font-size:13px;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.lesson-title{
+    font-size:30px;
+    margin:5px 0 15px;
+}
+
+.explanation{
+    color:#c6d2df;
+    white-space:pre-line;
+}
+
+.section-title{
+    color:#00e5ff;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:600px;
+}
+
+th{
+    background:#173047;
+    color:#00e5ff;
+}
+
+th,td{
+    border:1px solid #294158;
+    padding:10px;
+    text-align:left;
+}
+
+tr:nth-child(even){
+    background:#0a1421;
+}
+
+.sql-box{
+    background:#050a11;
+    border:1px solid #24384d;
+    border-radius:10px;
+    padding:18px;
+    overflow:auto;
+}
+
+pre{
+    font-family:Consolas,monospace;
+    white-space:pre-wrap;
+}
+
+.run{
+    background:#00e5ff;
+    color:#06101a;
+    border:0;
+    border-radius:8px;
+    padding:11px 18px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:12px;
+}
+
+.output{
+    background:#08131f;
+    border:1px solid #294158;
+    padding:16px;
+    border-radius:9px;
+    margin-top:15px;
+    white-space:pre-line;
+}
+
+.practice{
+    background:#181a15;
+    border-left:4px solid #ffd43b;
+    padding:18px;
+    border-radius:8px;
+}
+
+.practice h3{
+    color:#ffd43b;
+    margin-bottom:7px;
+}
+
+.tip{
+    background:#101e2e;
+    border-left:4px solid #00e5ff;
+    padding:18px;
+    border-radius:8px;
+}
+
+.navigation{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:50px;
+}
+
+.nav-btn{
+    background:#142337;
+    border:1px solid #30475e;
+    color:white;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.nav-btn.next{
+    background:#00e5ff;
+    color:#06101a;
+    font-weight:bold;
+}
+
+footer{
+    border-top:1px solid #26384d;
+    padding:35px;
+    text-align:center;
+    color:#8294a8;
+}
+
+.brand{
+    color:#00e5ff;
+    font-weight:bold;
+}
+
+@media(max-width:900px){
+    .navbar{flex-direction:column}
+    .layout{grid-template-columns:1fr}
+    .sidebar{position:static}
+    .stats{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:550px){
+    .stats{grid-template-columns:1fr}
+    .card{padding:17px}
+    .lesson-title{font-size:24px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+
+<a href="index.html" class="logo">
+📊 Data Analytics Hub
+</a>
+
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="excel.html">Excel</a>
+<a href="python-puzzles.html">Python</a>
+<a href="sql.html" class="active">SQL</a>
+<a href="powerbi.html">Power BI</a>
+<a href="java.html">Java</a>
+<a href="javascript.html">JavaScript</a>
+<a href="data-analytics.html">Data Analytics</a>
+</nav>
+
+</header>
+
+
+<section class="hero">
+
+<div class="badge">SQL • DATABASE • DATA ANALYTICS</div>
+
+<h1>SQL WITH SHIV</h1>
+
+<p>
+Learn SQL from beginner to advanced level using practical
+datasets, business problems, queries, results and projects.
+</p>
+
+</section>
+
+
+<main class="container">
+
+<section class="stats">
+
+<div class="stat">
+<strong id="topicCount">0</strong>
+Topics
+</div>
+
+<div class="stat">
+<strong>20+</strong>
+Datasets
+</div>
+
+<div class="stat">
+<strong>50+</strong>
+Queries
+</div>
+
+<div class="stat">
+<strong>5</strong>
+Projects
+</div>
+
+</section>
+
+
+<input
+class="search"
+id="search"
+placeholder="🔎 Search SQL topics..."
+oninput="searchLessons()">
+
+
+<div class="layout">
+
+<aside class="sidebar">
+
+<h3>📚 SQL Roadmap</h3>
+
+<div class="progress-info">
+<span>Progress</span>
+<span id="progressText">0%</span>
+</div>
+
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<div class="lesson-list" id="lessonList"></div>
+
+</aside>
+
+
+<section>
+
+<div class="card">
+
+<div class="lesson-number" id="lessonNumber"></div>
+
+<h2 class="lesson-title" id="lessonTitle"></h2>
+
+<div class="explanation" id="explanation"></div>
+
+</div>
+
+
+<div class="card">
+
+<div class="section-title">📊 Topic Dataset</div>
+
+<div class="table-wrap">
+<table id="dataTable"></table>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="section-title">💻 SQL Query</div>
+
+<div class="sql-box">
+<pre id="sqlCode"></pre>
+</div>
+
+<button class="run" onclick="showResult()">
+▶ Show Query Result
+</button>
+
+<div class="output" id="output">
+Click the button to see the expected result.
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="section-title">🔎 What Is Happening?</div>
+
+<div class="explanation" id="how"></div>
+
+</div>
+
+
+<div class="card">
+
+<div class="practice">
+
+<h3>🧠 Practice Question</h3>
+
+<div id="practice"></div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="tip">
+
+<strong style="color:#00e5ff">
+🎯 Data Analyst Tip
+</strong>
+
+<p id="tip" style="margin-top:7px"></p>
+
+</div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="nav-btn" onclick="previousLesson()">
+← Previous
+</button>
+
+<button class="nav-btn next" onclick="nextLesson()">
+Next →
+</button>
+
+</div>
+
+</section>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<p>
+© 2026 <span class="brand">Data Analytics Hub</span>
+</p>
+
+<p>SQL With Shiv • Learn • Query • Analyze</p>
+
+<p>Excel.expert.66</p>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   COURSE DATA
+========================================================= */
+
+const lessons = [
+
+{
+title:"What is SQL?",
+explanation:`SQL stands for Structured Query Language.
+
+SQL is used to communicate with relational databases.
+
+A Data Analyst commonly uses SQL to:
+
+• Retrieve data
+• Filter data
+• Sort data
+• Group data
+• Join tables
+• Calculate metrics
+• Clean data
+• Answer business questions
+
+SQL is one of the most important skills for working with structured business data.`,
+columns:["Student_ID","Name","Age","City"],
+rows:[
+[101,"Shiv",18,"Kasganj"],
+[102,"Aman",20,"Delhi"],
+[103,"Rahul",19,"Noida"]
+],
+query:`SELECT *
+FROM students;`,
+result:`101 | Shiv  | 18 | Kasganj
+102 | Aman  | 20 | Delhi
+103 | Rahul | 19 | Noida`,
+how:`SELECT tells SQL that we want to retrieve data.
+
+FROM tells SQL which table contains the data.
+
+The * means all columns.`,
+practice:`What is SQL and why is it useful for Data Analysts?`,
+tip:`Do not memorize SQL commands blindly. Understand what question each command helps you answer.`
+},
+
+{
+title:"Database and Table",
+explanation:`A database is a structured collection of data.
+
+A database can contain many tables.
+
+A table contains:
+
+• Columns — attributes
+• Rows — records
+
+For example, an e-commerce database might contain:
+
+customers
+products
+orders
+payments
+employees`,
+columns:["Product_ID","Product_Name","Category","Price"],
+rows:[
+[1,"Laptop","Electronics",55000],
+[2,"Mouse","Electronics",800],
+[3,"Chair","Furniture",7000],
+[4,"Desk","Furniture",9000]
+],
+query:`SELECT Product_Name, Price
+FROM products;`,
+result:`Laptop | 55000
+Mouse  | 800
+Chair  | 7000
+Desk   | 9000`,
+how:`The products table stores information about products.
+
+Product_ID identifies a product.
+
+Product_Name describes the product.
+
+Category groups products.
+
+Price stores the product price.`,
+practice:`Create a database design for a small online store. Name at least four tables.`,
+tip:`Before writing queries, understand what each table represents and what one row means.`
+},
+
+{
+title:"SELECT",
+explanation:`SELECT is used to retrieve specific columns from a table.
+
+Instead of selecting every column, you can select only the information needed for your analysis.`,
+columns:["Employee_ID","Name","Department","Salary"],
+rows:[
+[1,"Shiv","Analytics",45000],
+[2,"Aman","IT",52000],
+[3,"Rahul","Sales",38000],
+[4,"Priya","Analytics",60000]
+],
+query:`SELECT Name, Salary
+FROM employees;`,
+result:`Shiv  | 45000
+Aman  | 52000
+Rahul | 38000
+Priya | 60000`,
+how:`SELECT Name, Salary means we only want two columns.
+
+FROM employees tells SQL where those columns are stored.`,
+practice:`Write a query to select Name and Department from employees.`,
+tip:`Selecting only required columns makes queries easier to understand and can reduce unnecessary data processing.`
+},
+
+{
+title:"DISTINCT",
+explanation:`DISTINCT removes duplicate values from the query result.
+
+It is useful when you want to know unique categories, cities, departments or customers.`,
+columns:["Order_ID","Customer","City"],
+rows:[
+[1001,"Aman","Delhi"],
+[1002,"Shiv","Noida"],
+[1003,"Rahul","Delhi"],
+[1004,"Priya","Gurugram"],
+[1005,"Aman","Delhi"]
+],
+query:`SELECT DISTINCT City
+FROM orders;`,
+result:`Delhi
+Noida
+Gurugram`,
+how:`Delhi appears multiple times in the original table.
+
+DISTINCT returns each city only once.`,
+practice:`Find all unique departments from an employee table.`,
+tip:`DISTINCT is especially useful during data exploration when you want to understand categorical values.`
+},
+
+{
+title:"WHERE",
+explanation:`WHERE filters rows.
+
+It allows you to retrieve only records that satisfy a condition.
+
+This is one of the most frequently used SQL clauses.`,
+columns:["Employee_ID","Name","Department","Salary"],
+rows:[
+[1,"Shiv","Analytics",45000],
+[2,"Aman","IT",52000],
+[3,"Rahul","Sales",38000],
+[4,"Priya","Analytics",60000]
+],
+query:`SELECT *
+FROM employees
+WHERE Department = 'Analytics';`,
+result:`1 | Shiv  | Analytics | 45000
+4 | Priya | Analytics | 60000`,
+how:`SQL checks every row.
+
+Only rows where Department equals Analytics are returned.`,
+practice:`Find employees whose salary is greater than 50000.`,
+tip:`Filtering early can make large-data analysis more efficient and easier to understand.`
+},
+
+{
+title:"Comparison Operators",
+explanation:`SQL uses comparison operators to compare values.
+
+Common operators:
+
+= equal
+<> not equal
+> greater than
+< less than
+>= greater than or equal
+<= less than or equal`,
+columns:["Product","Price"],
+rows:[
+["Mouse",800],
+["Keyboard",1500],
+["Monitor",12000],
+["Laptop",55000]
+],
+query:`SELECT Product, Price
+FROM products
+WHERE Price >= 10000;`,
+result:`Monitor | 12000
+Laptop  | 55000`,
+how:`The condition Price >= 10000 keeps products priced at ₹10,000 or more.`,
+practice:`Find products costing less than ₹5,000.`,
+tip:`Comparison operators are the building blocks of analytical filters.`
+},
+
+{
+title:"AND, OR and NOT",
+explanation:`AND requires all conditions to be true.
+
+OR requires at least one condition to be true.
+
+NOT reverses a condition.
+
+These operators allow you to create more specific filters.`,
+columns:["Customer","City","Age","Status"],
+rows:[
+["Shiv","Delhi",18,"Active"],
+["Aman","Noida",22,"Active"],
+["Rahul","Delhi",30,"Inactive"],
+["Priya","Gurugram",25,"Active"]
+],
+query:`SELECT *
+FROM customers
+WHERE City = 'Delhi'
+AND Status = 'Active';`,
+result:`Shiv | Delhi | 18 | Active`,
+how:`The row must satisfy both conditions:
+
+City = Delhi
+AND
+Status = Active`,
+practice:`Find active customers from Noida or Delhi.`,
+tip:`Use parentheses when combining complex AND/OR conditions to make your logic clear.`
+},
+
+{
+title:"IN",
+explanation:`IN checks whether a value belongs to a list of possible values.
+
+It is cleaner than writing many OR conditions.`,
+columns:["Employee","Department"],
+rows:[
+["Shiv","Analytics"],
+["Aman","IT"],
+["Rahul","Sales"],
+["Priya","HR"],
+["Neha","Finance"]
+],
+query:`SELECT *
+FROM employees
+WHERE Department IN ('Analytics','IT','Finance');`,
+result:`Shiv  | Analytics
+Aman  | IT
+Neha  | Finance`,
+how:`SQL checks whether Department matches any value inside the IN list.`,
+practice:`Find customers from Delhi, Noida and Gurugram.`,
+tip:`IN is very useful when filtering business categories or a selected group of regions.`
+},
+
+{
+title:"BETWEEN",
+explanation:`BETWEEN filters values within an inclusive range.
+
+It is commonly used with numbers and dates.`,
+columns:["Product","Price"],
+rows:[
+["Mouse",800],
+["Keyboard",1500],
+["Monitor",12000],
+["Laptop",55000]
+],
+query:`SELECT *
+FROM products
+WHERE Price BETWEEN 1000 AND 15000;`,
+result:`Keyboard | 1500
+Monitor  | 12000`,
+how:`The query returns values from 1000 through 15000, including the boundary values.`,
+practice:`Find employees whose salary is between 40000 and 60000.`,
+tip:`For dates, always understand whether your chosen range includes the start and end dates.`
+},
+
+{
+title:"LIKE",
+explanation:`LIKE searches for text patterns.
+
+% means any number of characters.
+
+_ means one character.
+
+Example:
+
+'A%' means starts with A.
+
+'%son' means ends with son.`,
+columns:["Customer_ID","Name"],
+rows:[
+[1,"Aman"],
+[2,"Ankit"],
+[3,"Rahul"],
+[4,"Aarav"],
+[5,"Priya"]
+],
+query:`SELECT *
+FROM customers
+WHERE Name LIKE 'A%';`,
+result:`Aman
+Ankit
+Aarav`,
+how:`A% means the name must begin with A, followed by any number of characters.`,
+practice:`Find customers whose names start with P.`,
+tip:`LIKE is useful for exploratory searches, but be careful with performance on very large tables.`
+},
+
+{
+title:"ORDER BY",
+explanation:`ORDER BY sorts query results.
+
+ASC means ascending.
+
+DESC means descending.
+
+You can sort by numbers, text or dates.`,
+columns:["Product","Sales"],
+rows:[
+["Laptop",120000],
+["Mouse",4000],
+["Monitor",30000],
+["Keyboard",7500]
+],
+query:`SELECT Product, Sales
+FROM product_sales
+ORDER BY Sales DESC;`,
+result:`Laptop   | 120000
+Monitor  | 30000
+Keyboard | 7500
+Mouse    | 4000`,
+how:`DESC sorts the highest sales value first.`,
+practice:`Sort employees from highest salary to lowest salary.`,
+tip:`Sorting is often used to identify top-performing products, customers or employees.`
+},
+
+{
+title:"LIMIT",
+explanation:`LIMIT restricts the number of rows returned.
+
+It is useful when you only need the top few results.`,
+columns:["Product","Sales"],
+rows:[
+["Laptop",120000],
+["Monitor",30000],
+["Keyboard",7500],
+["Mouse",4000],
+["Chair",22000]
+],
+query:`SELECT Product, Sales
+FROM product_sales
+ORDER BY Sales DESC
+LIMIT 3;`,
+result:`Laptop  | 120000
+Monitor | 30000
+Chair   | 22000`,
+how:`ORDER BY first sorts the data.
+
+LIMIT then keeps only the first three rows.`,
+practice:`Find the top 5 highest-paid employees.`,
+tip:`LIMIT is extremely useful for top-N business questions.`
+},
+
+{
+title:"COUNT",
+explanation:`COUNT counts records or values.
+
+COUNT(*) counts rows.
+
+COUNT(column) counts non-NULL values in that column.`,
+columns:["Order_ID","Customer","Amount"],
+rows:[
+[1001,"Shiv",5000],
+[1002,"Aman",7000],
+[1003,"Rahul",3000],
+[1004,"Priya",9000]
+],
+query:`SELECT COUNT(*) AS total_orders
+FROM orders;`,
+result:`total_orders
+4`,
+how:`There are four rows in the orders table, so COUNT(*) returns 4.`,
+practice:`Count the number of employees in an employee table.`,
+tip:`COUNT is commonly used to calculate order volume, customer count and transaction count.`
+},
+
+{
+title:"SUM",
+explanation:`SUM calculates the total of a numeric column.
+
+It is commonly used for revenue, salary, quantity and transaction amounts.`,
+columns:["Order_ID","Amount"],
+rows:[
+[1001,5000],
+[1002,7000],
+[1003,3000],
+[1004,9000]
+],
+query:`SELECT SUM(Amount) AS total_revenue
+FROM orders;`,
+result:`total_revenue
+24000`,
+how:`SQL adds all Amount values:
+
+5000 + 7000 + 3000 + 9000 = 24000`,
+practice:`Calculate total salary from an employee table.`,
+tip:`Always verify the business definition of the metric before using SUM.`
+},
+
+{
+title:"AVG",
+explanation:`AVG calculates the arithmetic average of numeric values.`,
+columns:["Employee","Salary"],
+rows:[
+["Shiv",45000],
+["Aman",52000],
+["Rahul",38000],
+["Priya",60000]
+],
+query:`SELECT AVG(Salary) AS average_salary
+FROM employees;`,
+result:`average_salary
+48750`,
+how:`SQL adds all salaries and divides by the number of salary records.`,
+practice:`Calculate the average order amount.`,
+tip:`Average can be distorted by extreme values, so compare it with the median when appropriate.`
+},
+
+{
+title:"MIN and MAX",
+explanation:`MIN returns the smallest value.
+
+MAX returns the largest value.
+
+They are useful for understanding ranges and extremes.`,
+columns:["Employee","Salary"],
+rows:[
+["Shiv",45000],
+["Aman",52000],
+["Rahul",38000],
+["Priya",60000]
+],
+query:`SELECT
+MIN(Salary) AS minimum_salary,
+MAX(Salary) AS maximum_salary
+FROM employees;`,
+result:`minimum_salary | maximum_salary
+38000          | 60000`,
+how:`MIN identifies the lowest salary and MAX identifies the highest salary.`,
+practice:`Find the minimum and maximum product price.`,
+tip:`Minimum and maximum values are useful during exploratory analysis and quality checks.`
+},
+
+{
+title:"GROUP BY",
+explanation:`GROUP BY creates summaries for categories.
+
+It is one of the most important SQL concepts for Data Analysts.
+
+Common examples:
+
+Revenue by city
+Orders by product
+Salary by department`,
+columns:["Order_ID","City","Amount"],
+rows:[
+[1,"Delhi",5000],
+[2,"Noida",7000],
+[3,"Delhi",3000],
+[4,"Noida",4000],
+[5,"Gurugram",8000]
+],
+query:`SELECT City, SUM(Amount) AS revenue
+FROM orders
+GROUP BY City;`,
+result:`Delhi    | 8000
+Noida    | 11000
+Gurugram | 8000`,
+how:`Rows are grouped by City.
+
+Then SUM calculates revenue separately for each city.`,
+practice:`Calculate total sales by product.`,
+tip:`Think of GROUP BY as "create one summary row for each category."`
+},
+
+{
+title:"HAVING",
+explanation:`HAVING filters groups after GROUP BY.
+
+WHERE filters individual rows.
+
+HAVING filters aggregated groups.`,
+columns:["City","Amount"],
+rows:[
+["Delhi",5000],
+["Delhi",6000],
+["Noida",2000],
+["Noida",3000],
+["Gurugram",9000]
+],
+query:`SELECT City, SUM(Amount) AS revenue
+FROM orders
+GROUP BY City
+HAVING SUM(Amount) > 7000;`,
+result:`Delhi    | 11000
+Gurugram | 9000`,
+how:`SQL first groups by City.
+
+Then HAVING keeps only cities whose total revenue exceeds 7000.`,
+practice:`Find departments where average salary is above 50000.`,
+tip:`Remember: WHERE → rows, HAVING → groups.`
+},
+
+{
+title:"CASE WHEN",
+explanation:`CASE WHEN creates conditional logic inside SQL.
+
+It is useful for creating categories such as:
+
+High / Medium / Low
+Pass / Fail
+New / Existing
+Profit / Loss`,
+columns:["Student","Marks"],
+rows:[
+["Shiv",88],
+["Aman",72],
+["Rahul",45],
+["Priya",91]
+],
+query:`SELECT Student, Marks,
+CASE
+WHEN Marks >= 80 THEN 'Excellent'
+WHEN Marks >= 60 THEN 'Good'
+ELSE 'Needs Improvement'
+END AS Result
+FROM students;`,
+result:`Shiv  | 88 | Excellent
+Aman  | 72 | Good
+Rahul | 45 | Needs Improvement
+Priya | 91 | Excellent`,
+how:`CASE checks conditions from top to bottom and returns the result for the first matching condition.`,
+practice:`Create High, Medium and Low categories for sales.`,
+tip:`CASE WHEN is extremely useful for creating business-friendly analytical dimensions.`
+},
+
+{
+title:"NULL Values",
+explanation:`NULL means that a value is missing or unknown.
+
+NULL is not the same as:
+
+0
+empty string
+false
+
+You must use IS NULL or IS NOT NULL to check it.`,
+columns:["Employee","Department","Bonus"],
+rows:[
+["Shiv","Analytics",5000],
+["Aman","IT",null],
+["Rahul","Sales",3000],
+["Priya","HR",null]
+],
+query:`SELECT *
+FROM employees
+WHERE Bonus IS NULL;`,
+result:`Aman | IT | NULL
+Priya | HR | NULL`,
+how:`The query finds records where Bonus has no value.`,
+practice:`Find all customers whose phone number is NULL.`,
+tip:`Never use = NULL. Use IS NULL.`
+},
+
+{
+title:"COALESCE",
+explanation:`COALESCE returns the first non-NULL value.
+
+It is useful when you need a fallback value.`,
+columns:["Customer","Discount"],
+rows:[
+["Shiv",100],
+["Aman",null],
+["Rahul",50],
+["Priya",null]
+],
+query:`SELECT
+Customer,
+COALESCE(Discount,0) AS Discount
+FROM customers;`,
+result:`Shiv  | 100
+Aman   | 0
+Rahul  | 50
+Priya  | 0`,
+how:`If Discount is NULL, COALESCE replaces it with 0 in the result.`,
+practice:`Use COALESCE to replace missing commission with 0.`,
+tip:`Be careful: replacing NULL with zero is only correct when NULL logically means zero.`
+},
+
+{
+title:"String Functions",
+explanation:`SQL provides functions for manipulating text.
+
+Common functions include:
+
+UPPER
+LOWER
+LENGTH
+TRIM
+CONCAT
+SUBSTRING`,
+columns:["Customer","City"],
+rows:[
+[" Shiv ","Delhi"],
+["AMAn","Noida"],
+["Rahul","Gurugram"]
+],
+query:`SELECT
+TRIM(Customer) AS clean_name,
+UPPER(City) AS city_name
+FROM customers;`,
+result:`Shiv   | DELHI
+AMAn    | NOIDA
+Rahul   | GURUGRAM`,
+how:`TRIM removes unwanted spaces.
+
+UPPER converts text to uppercase.`,
+practice:`Convert all customer names to lowercase.`,
+tip:`String functions are very useful during data cleaning.`
+},
+
+{
+title:"Date Functions",
+explanation:`Dates are extremely important in business analytics.
+
+Analysts often need:
+
+Year
+Month
+Day
+Date difference
+Monthly sales
+Daily sales
+Year-over-year comparisons`,
+columns:["Order_ID","Order_Date","Amount"],
+rows:[
+[1,"2026-01-05",5000],
+[2,"2026-02-10",7000],
+[3,"2026-02-20",3000],
+[4,"2026-03-05",9000]
+],
+query:`SELECT
+EXTRACT(MONTH FROM Order_Date) AS month,
+SUM(Amount) AS revenue
+FROM orders
+GROUP BY EXTRACT(MONTH FROM Order_Date);`,
+result:`1 | 5000
+2 | 10000
+3 | 9000`,
+how:`The month is extracted from each date and revenue is grouped by month.`,
+practice:`Calculate sales by year or month.`,
+tip:`Time-based analysis is one of the most common tasks in business analytics.`
+},
+
+{
+title:"Primary Key",
+explanation:`A Primary Key uniquely identifies each row in a table.
+
+A primary key should be unique and should not be NULL.
+
+Examples:
+
+Customer_ID
+Order_ID
+Employee_ID
+Product_ID`,
+columns:["Customer_ID","Name","City"],
+rows:[
+[101,"Shiv","Delhi"],
+[102,"Aman","Noida"],
+[103,"Rahul","Gurugram"]
+],
+query:`SELECT *
+FROM customers
+WHERE Customer_ID = 102;`,
+result:`102 | Aman | Noida`,
+how:`Customer_ID identifies exactly one customer record.`,
+practice:`Which column should be the primary key in an orders table?`,
+tip:`Knowing unique keys is essential before joining or deduplicating data.`
+},
+
+{
+title:"Foreign Key",
+explanation:`A Foreign Key connects one table to another.
+
+Example:
+
+customers.Customer_ID
+
+can connect to
+
+orders.Customer_ID`,
+columns:["Order_ID","Customer_ID","Amount"],
+rows:[
+[1001,101,5000],
+[1002,102,7000],
+[1003,101,3000],
+[1004,103,9000]
+],
+query:`SELECT *
+FROM orders
+WHERE Customer_ID = 101;`,
+result:`1001 | 101 | 5000
+1003 | 101 | 3000`,
+how:`Customer_ID in the orders table points to a customer in the customers table.`,
+practice:`Explain the difference between primary key and foreign key.`,
+tip:`Understanding keys is essential for correct JOINs.`
+},
+
+{
+title:"INNER JOIN",
+explanation:`INNER JOIN returns rows where matching values exist in both tables.`,
+columns:["Customer_ID","Customer_Name","Order_ID","Amount"],
+rows:[
+[101,"Shiv",1001,5000],
+[102,"Aman",1002,7000],
+[101,"Shiv",1003,3000]
+],
+query:`SELECT
+c.Name,
+o.Order_ID,
+o.Amount
+FROM customers c
+INNER JOIN orders o
+ON c.Customer_ID = o.Customer_ID;`,
+result:`Shiv | 1001 | 5000
+Aman | 1002 | 7000
+Shiv | 1003 | 3000`,
+how:`The JOIN matches Customer_ID from both tables and combines their information.`,
+practice:`Join customers and orders using Customer_ID.`,
+tip:`Always understand the relationship and expected row count before joining.`
+},
+
+{
+title:"LEFT JOIN",
+explanation:`LEFT JOIN keeps all rows from the left table even when there is no match in the right table.
+
+This is useful when you want to find entities with no activity.`,
+columns:["Customer_ID","Customer","Order_ID"],
+rows:[
+[101,"Shiv",1001],
+[102,"Aman",1002],
+[103,"Rahul",null],
+[104,"Priya",1003]
+],
+query:`SELECT
+c.Name,
+o.Order_ID
+FROM customers c
+LEFT JOIN orders o
+ON c.Customer_ID = o.Customer_ID;`,
+result:`Shiv  | 1001
+Aman  | 1002
+Rahul | NULL
+Priya | 1003`,
+how:`Rahul remains in the result because LEFT JOIN keeps every customer.`,
+practice:`Find customers who have never placed an order.`,
+tip:`LEFT JOIN + IS NULL is a powerful pattern for finding missing relationships.`
+},
+
+{
+title:"RIGHT JOIN",
+explanation:`RIGHT JOIN keeps all rows from the right table and matching rows from the left table.
+
+It is less commonly used than LEFT JOIN because many queries can be rewritten more clearly using LEFT JOIN.`,
+columns:["Employee_ID","Employee","Department"],
+rows:[
+[1,"Shiv","Analytics"],
+[2,"Aman","IT"],
+[3,"Rahul","Sales"]
+],
+query:`SELECT *
+FROM employees e
+RIGHT JOIN departments d
+ON e.Department_ID = d.Department_ID;`,
+result:`All department rows are retained, including departments without employees.`,
+how:`The right-side table controls which rows must remain in the result.`,
+practice:`Explain when RIGHT JOIN could be useful.`,
+tip:`Use the join that makes the business logic easiest to understand.`
+},
+
+{
+title:"FULL OUTER JOIN",
+explanation:`FULL OUTER JOIN keeps matching rows plus unmatched rows from both tables.
+
+It is useful when comparing two datasets and finding missing records on either side.`,
+columns:["Customer_ID","Customer_Name","CRM_Status"],
+rows:[
+[101,"Shiv","Active"],
+[102,"Aman","Active"],
+[103,"Rahul","Missing in CRM"],
+[104,"Priya","Active"]
+],
+query:`SELECT *
+FROM system_a a
+FULL OUTER JOIN system_b b
+ON a.Customer_ID = b.Customer_ID;`,
+result:`Matching customers appear once.
+
+Customers found only in one system are also retained.`,
+how:`The result can reveal data differences between two systems.`,
+practice:`Give one business use case for FULL OUTER JOIN.`,
+tip:`FULL JOIN is useful for reconciliation and data-quality investigations.`
+},
+
+{
+title:"SELF JOIN",
+explanation:`A SELF JOIN joins a table to itself.
+
+It is useful for hierarchical data such as:
+
+Employee → Manager
+Category → Parent Category
+Employee → Mentor`,
+columns:["Employee_ID","Employee","Manager_ID"],
+rows:[
+[1,"Shiv",null],
+[2,"Aman",1],
+[3,"Rahul",1],
+[4,"Priya",2]
+],
+query:`SELECT
+e.Employee,
+m.Employee AS Manager
+FROM employees e
+LEFT JOIN employees m
+ON e.Manager_ID = m.Employee_ID;`,
+result:`Shiv  | NULL
+Aman  | Shiv
+Rahul | Shiv
+Priya | Aman`,
+how:`The same employees table is given two aliases.
+
+e represents employee.
+
+m represents manager.`,
+practice:`Create a self-join showing employee and manager names.`,
+tip:`Table aliases are essential when joining a table to itself.`
+},
+
+{
+title:"UNION",
+explanation:`UNION combines the results of two compatible SELECT queries.
+
+Duplicate rows are removed.
+
+UNION ALL keeps duplicates.`,
+columns:["Customer"],
+rows:[
+["Shiv"],
+["Aman"],
+["Rahul"],
+["Priya"]
+],
+query:`SELECT Customer FROM customers_2025
+UNION
+SELECT Customer FROM customers_2026;`,
+result:`The result contains customers from both years with duplicates removed.`,
+how:`Both SELECT statements must return compatible numbers and types of columns.`,
+practice:`Explain the difference between UNION and UNION ALL.`,
+tip:`Use UNION ALL when duplicate preservation is required.`
+},
+
+{
+title:"Subqueries",
+explanation:`A subquery is a query inside another query.
+
+Subqueries are useful when one calculation depends on another query.`,
+columns:["Employee","Salary"],
+rows:[
+["Shiv",45000],
+["Aman",52000],
+["Rahul",38000],
+["Priya",60000]
+],
+query:`SELECT Employee, Salary
+FROM employees
+WHERE Salary >
+(
+    SELECT AVG(Salary)
+    FROM employees
+);`,
+result:`Aman  | 52000
+Priya  | 60000`,
+how:`The inner query calculates average salary.
+
+The outer query finds employees whose salary is above that average.`,
+practice:`Find products whose price is greater than the average product price.`,
+tip:`Understand the inner query first, then the outer query.`
+},
+
+{
+title:"CTE",
+explanation:`CTE stands for Common Table Expression.
+
+It uses the WITH keyword.
+
+CTEs make complex queries easier to read and organize.`,
+columns:["City","Revenue"],
+rows:[
+["Delhi",80000],
+["Noida",65000],
+["Gurugram",92000],
+["Agra",35000]
+],
+query:`WITH city_sales AS
+(
+    SELECT City, SUM(Revenue) AS total_sales
+    FROM sales
+    GROUP BY City
+)
+SELECT *
+FROM city_sales
+WHERE total_sales > 60000;`,
+result:`Delhi | 80000
+Noida | 65000
+Gurugram | 92000`,
+how:`The CTE creates a temporary named result called city_sales.
+
+The outer query then filters it.`,
+practice:`Create a CTE that calculates average salary and then selects employees above it.`,
+tip:`CTEs are excellent for making analytical SQL readable.`
+},
+
+{
+title:"ROW_NUMBER",
+explanation:`ROW_NUMBER assigns a unique sequential number to rows.
+
+It is a window function.`,
+columns:["Employee","Department","Salary"],
+rows:[
+["Shiv","Analytics",60000],
+["Aman","Analytics",50000],
+["Rahul","IT",70000],
+["Priya","IT",55000]
+],
+query:`SELECT
+Employee,
+Department,
+Salary,
+ROW_NUMBER() OVER(
+    PARTITION BY Department
+    ORDER BY Salary DESC
+) AS row_num
+FROM employees;`,
+result:`Shiv  | Analytics | 60000 | 1
+Aman  | Analytics | 50000 | 2
+Rahul | IT        | 70000 | 1
+Priya | IT        | 55000 | 2`,
+how:`PARTITION BY creates a separate ranking group for each department.`,
+practice:`Use ROW_NUMBER to identify the highest-paid employee in each department.`,
+tip:`Window functions are essential for advanced analytical SQL.`
+},
+
+{
+title:"RANK and DENSE_RANK",
+explanation:`RANK and DENSE_RANK assign rankings.
+
+If two rows have the same value, they receive the same rank.
+
+RANK can leave gaps.
+
+DENSE_RANK does not leave gaps.`,
+columns:["Student","Marks"],
+rows:[
+["Shiv",95],
+["Aman",90],
+["Rahul",90],
+["Priya",80]
+],
+query:`SELECT
+Student,
+Marks,
+RANK() OVER(ORDER BY Marks DESC) AS ranking
+FROM students;`,
+result:`Shiv  | 95 | 1
+Aman  | 90 | 2
+Rahul | 90 | 2
+Priya | 80 | 4`,
+how:`Aman and Rahul have equal marks, so both receive rank 2.
+
+The next RANK is 4.`,
+practice:`Rank products according to revenue.`,
+tip:`Choose RANK or DENSE_RANK depending on how you want ties handled.`
+},
+
+{
+title:"PARTITION BY",
+explanation:`PARTITION BY divides rows into groups for a window calculation without collapsing rows.
+
+This is different from GROUP BY.
+
+GROUP BY produces summary rows.
+
+PARTITION BY keeps individual rows.`,
+columns:["Employee","Department","Salary"],
+rows:[
+["Shiv","Analytics",60000],
+["Aman","Analytics",50000],
+["Rahul","IT",70000],
+["Priya","IT",55000]
+],
+query:`SELECT
+Employee,
+Department,
+Salary,
+AVG(Salary) OVER(
+    PARTITION BY Department
+) AS dept_avg
+FROM employees;`,
+result:`Shiv  | Analytics | 60000 | 55000
+Aman  | Analytics | 50000 | 55000
+Rahul | IT        | 70000 | 62500
+Priya | IT        | 55000 | 62500`,
+how:`Each employee remains visible while the average is calculated separately within their department.`,
+practice:`Calculate average sales by city while keeping each transaction row.`,
+tip:`PARTITION BY is one of the most important concepts in advanced SQL analytics.`
+},
+
+{
+title:"Running Total",
+explanation:`A running total continuously adds values as you move through an ordered dataset.
+
+It is useful for:
+
+Cumulative sales
+Cumulative profit
+Cumulative customers
+Year-to-date metrics`,
+columns:["Date","Sales"],
+rows:[
+["2026-01-01",10000],
+["2026-01-02",15000],
+["2026-01-03",8000],
+["2026-01-04",12000]
+],
+query:`SELECT
+Date,
+Sales,
+SUM(Sales) OVER(
+    ORDER BY Date
+) AS running_total
+FROM daily_sales;`,
+result:`01 Jan | 10000 | 10000
+02 Jan | 15000 | 25000
+03 Jan | 8000  | 33000
+04 Jan | 12000 | 45000`,
+how:`SUM with ORDER BY adds each row to the previous accumulated value.`,
+practice:`Create a running total for monthly revenue.`,
+tip:`Running totals are common in dashboards and financial reporting.`
+},
+
+{
+title:"SQL Data Cleaning",
+explanation:`SQL can be used to identify and clean bad data.
+
+Common tasks:
+
+Find duplicates
+Find NULLs
+Trim spaces
+Standardize categories
+Validate ranges
+Identify invalid dates`,
+columns:["Customer_ID","Name","City","Age"],
+rows:[
+[1," Shiv ","Delhi",18],
+[2,"Aman","DELHI",22],
+[3,"Rahul","Noida",-5],
+[4,"Priya","Delhi",null]
+],
+query:`SELECT *
+FROM customers
+WHERE Age < 0
+OR Age IS NULL;`,
+result:`Rahul | -5
+Priya | NULL`,
+how:`The query identifies records that need investigation because Age is negative or missing.`,
+practice:`Write a query to find customers whose city is NULL.`,
+tip:`Cleaning should be documented. Do not silently change business data without understanding the reason.`
+},
+
+{
+title:"INSERT",
+explanation:`INSERT adds new rows to a table.
+
+It is a data manipulation operation.`,
+columns:["Product_ID","Product","Price"],
+rows:[
+[1,"Laptop",55000],
+[2,"Mouse",800],
+[3,"Keyboard",1500]
+],
+query:`INSERT INTO products
+(Product_ID, Product, Price)
+VALUES
+(4,'Monitor',12000);`,
+result:`A new Monitor row is inserted.`,
+how:`The INSERT statement specifies the target columns and values.`,
+practice:`Write an INSERT statement for a new product.`,
+tip:`In production databases, INSERT permissions and data validation should be handled carefully.`
+},
+
+{
+title:"UPDATE",
+explanation:`UPDATE changes existing rows.
+
+Always use a WHERE condition when you intend to update specific records.`,
+columns:["Product_ID","Product","Price"],
+rows:[
+[1,"Laptop",55000],
+[2,"Mouse",800],
+[3,"Keyboard",1500]
+],
+query:`UPDATE products
+SET Price = 900
+WHERE Product_ID = 2;`,
+result:`Mouse price changes from 800 to 900.`,
+how:`WHERE identifies the row.
+
+SET changes the selected value.`,
+practice:`Update the price of a specific product.`,
+tip:`Before UPDATE, run the same WHERE condition with SELECT to verify which rows will change.`
+},
+
+{
+title:"DELETE",
+explanation:`DELETE removes rows from a table.
+
+A missing WHERE clause can remove every row, so use it carefully.`,
+columns:["Employee_ID","Employee","Status"],
+rows:[
+[1,"Shiv","Active"],
+[2,"Aman","Inactive"],
+[3,"Rahul","Active"]
+],
+query:`DELETE FROM employees
+WHERE Status = 'Inactive';`,
+result:`Aman is removed from the result/table.`,
+how:`The WHERE condition identifies the rows to delete.`,
+practice:`Write a DELETE query for a specific employee ID.`,
+tip:`Always test the WHERE condition with SELECT before DELETE.`
+},
+
+{
+title:"CREATE TABLE",
+explanation:`CREATE TABLE defines the structure of a new table.
+
+You specify column names and data types.`,
+columns:["Column","Data Type","Purpose"],
+rows:[
+["Customer_ID","INT","Unique customer"],
+["Name","VARCHAR","Customer name"],
+["Email","VARCHAR","Email address"],
+["Age","INT","Customer age"]
+],
+query:`CREATE TABLE customers (
+    Customer_ID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Email VARCHAR(150),
+    Age INT
+);`,
+result:`A customers table is created with four columns.`,
+how:`Each column receives a data type.
+
+Customer_ID is defined as the primary key.`,
+practice:`Create an employees table with ID, name, department and salary.`,
+tip:`Good database design starts with appropriate column names, types and keys.`
+},
+
+{
+title:"ALTER TABLE",
+explanation:`ALTER TABLE changes an existing table structure.
+
+You can add, modify or sometimes remove columns depending on the SQL database system.`,
+columns:["Column","Data Type"],
+rows:[
+["Customer_ID","INT"],
+["Name","VARCHAR"],
+["Email","VARCHAR"]
+],
+query:`ALTER TABLE customers
+ADD COLUMN Phone VARCHAR(20);`,
+result:`A Phone column is added to customers.`,
+how:`ALTER TABLE changes the table definition without recreating the entire table.`,
+practice:`Add a City column to customers.`,
+tip:`Schema changes should be planned carefully in production systems.`
+},
+
+{
+title:"Views",
+explanation:`A VIEW is a saved SQL query that behaves like a virtual table.
+
+Views are useful for:
+
+Reusable reports
+Simplifying complex queries
+Restricting access to sensitive columns
+Creating reporting layers`,
+columns:["Customer","Revenue"],
+rows:[
+["Shiv",50000],
+["Aman",35000],
+["Rahul",62000]
+],
+query:`CREATE VIEW customer_revenue AS
+SELECT Customer, Revenue
+FROM sales;`,
+result:`The view customer_revenue can be queried like a table.`,
+how:`The view stores the query definition rather than necessarily storing a separate copy of the data.`,
+practice:`Create a view containing only product and sales columns.`,
+tip:`Views can make dashboards and recurring reports easier to maintain.`
+},
+
+{
+title:"Indexes",
+explanation:`An index helps a database find rows faster.
+
+Indexes can improve SELECT performance but also have storage and write-performance costs.
+
+Commonly indexed columns include:
+
+IDs
+Foreign keys
+Frequently searched fields`,
+columns:["Customer_ID","Name","City"],
+rows:[
+[101,"Shiv","Delhi"],
+[102,"Aman","Noida"],
+[103,"Rahul","Gurugram"]
+],
+query:`CREATE INDEX idx_customer_city
+ON customers(City);`,
+result:`An index is created on City.`,
+how:`The database can use the index to locate matching City values more efficiently for suitable queries.`,
+practice:`Why should we not create indexes on every column?`,
+tip:`Indexing is a database-engineering topic; analysts should understand the concept even if DBAs manage the implementation.`
+},
+
+{
+title:"Transactions",
+explanation:`A transaction is a group of database operations treated as one logical unit.
+
+Important concepts:
+
+BEGIN
+COMMIT
+ROLLBACK
+
+If something goes wrong, ROLLBACK can undo changes that have not been committed.`,
+columns:["Account","Balance"],
+rows:[
+["A",10000],
+["B",5000]
+],
+query:`BEGIN;
+
+UPDATE accounts
+SET Balance = Balance - 1000
+WHERE Account = 'A';
+
+UPDATE accounts
+SET Balance = Balance + 1000
+WHERE Account = 'B';
+
+COMMIT;`,
+result:`1000 is transferred from Account A to Account B.`,
+how:`The two updates belong to one logical transaction.
+
+COMMIT permanently applies the transaction.`,
+practice:`Why are transactions important in banking systems?`,
+tip:`Transactions help maintain data consistency when multiple related changes must succeed together.`
+},
+
+{
+title:"SQL for Data Analytics",
+explanation:`A Data Analyst often combines many SQL concepts in one query.
+
+Typical analytical query:
+
+Filter
+→ Group
+→ Aggregate
+→ Sort
+→ Limit
+
+Example business question:
+
+Which three cities generated the most revenue?`,
+columns:["City","Revenue"],
+rows:[
+["Delhi",85000],
+["Noida",65000],
+["Gurugram",92000],
+["Agra",30000],
+["Jaipur",55000]
+],
+query:`SELECT
+City,
+SUM(Revenue) AS total_revenue
+FROM sales
+GROUP BY City
+ORDER BY total_revenue DESC
+LIMIT 3;`,
+result:`Gurugram | 92000
+Delhi    | 85000
+Noida    | 65000`,
+how:`GROUP BY creates city-level summaries.
+
+SUM calculates revenue.
+
+ORDER BY sorts the result.
+
+LIMIT returns the top three.`,
+practice:`Find the top 5 products by total revenue.`,
+tip:`Most real analyst queries are combinations of several simple SQL concepts.`
+},
+
+{
+title:"Customer Analysis",
+explanation:`Customer analytics helps businesses understand who buys, how often they buy and how much they spend.
+
+Useful metrics:
+
+Orders per customer
+Revenue per customer
+Average order value
+Last purchase
+Customer segment`,
+columns:["Customer_ID","Customer","Orders","Revenue"],
+rows:[
+[101,"Shiv",8,45000],
+[102,"Aman",3,12000],
+[103,"Rahul",10,70000],
+[104,"Priya",2,8000]
+],
+query:`SELECT
+Customer,
+Orders,
+Revenue
+FROM customer_summary
+ORDER BY Revenue DESC;`,
+result:`Rahul | 10 | 70000
+Shiv  | 8  | 45000
+Aman  | 3  | 12000
+Priya | 2  | 8000`,
+how:`Sorting revenue allows the analyst to identify high-value customers.`,
+practice:`How would you identify customers who have not purchased recently?`,
+tip:`Customer analysis should consider behavior, not just total revenue.`
+},
+
+{
+title:"Product Analysis",
+explanation:`Product analysis helps businesses understand which products drive revenue and quantity.
+
+Useful metrics:
+
+Revenue
+Quantity sold
+Average price
+Profit
+Return rate`,
+columns:["Product","Quantity","Revenue"],
+rows:[
+["Laptop",12,660000],
+["Monitor",20,240000],
+["Mouse",100,80000],
+["Keyboard",60,90000]
+],
+query:`SELECT
+Product,
+SUM(Revenue) AS revenue
+FROM product_sales
+GROUP BY Product
+ORDER BY revenue DESC;`,
+result:`Laptop   | 660000
+Monitor  | 240000
+Keyboard | 90000
+Mouse    | 80000`,
+how:`The query aggregates revenue for every product and sorts the products from highest to lowest.`,
+practice:`Find the product with the highest quantity sold.`,
+tip:`A product with high quantity is not necessarily the product with highest revenue.`
+},
+
+{
+title:"Sales Analysis",
+explanation:`Sales analysis combines multiple SQL skills.
+
+Important questions:
+
+What is total revenue?
+
+Which city is strongest?
+
+Which product performs best?
+
+Which month is strongest?
+
+Who are the top customers?`,
+columns:["Order_ID","Month","City","Product","Revenue"],
+rows:[
+[1,"January","Delhi","Laptop",55000],
+[2,"January","Noida","Mouse",800],
+[3,"February","Delhi","Monitor",24000],
+[4,"February","Gurugram","Laptop",60000],
+[5,"March","Noida","Keyboard",4500]
+],
+query:`SELECT
+Month,
+SUM(Revenue) AS revenue
+FROM sales
+GROUP BY Month
+ORDER BY revenue DESC;`,
+result:`February | 84000
+January  | 55800
+March    | 4500`,
+how:`The dataset is grouped by month and revenue is summed for each month.`,
+practice:`Find the highest-revenue city from this dataset.`,
+tip:`Always break a large business question into smaller measurable questions.`
+},
+
+{
+title:"SQL Data Analyst Interview Questions",
+explanation:`SQL interviews often test whether you can solve practical problems.
+
+Common questions:
+
+1. Find second highest salary.
+2. Find duplicate records.
+3. Find customers with no orders.
+4. Find top 3 products.
+5. Find employees above department average.
+6. Calculate monthly revenue.
+7. Rank products within category.
+8. Calculate running totals.`,
+columns:["Employee","Salary"],
+rows:[
+["Shiv",60000],
+["Aman",55000],
+["Rahul",70000],
+["Priya",65000]
+],
+query:`SELECT MAX(Salary)
+FROM employees
+WHERE Salary <
+(
+    SELECT MAX(Salary)
+    FROM employees
+);`,
+result:`65000`,
+how:`The inner MAX finds the highest salary.
+
+The outer query finds the highest salary below that maximum.`,
+practice:`Write a query to find the third-highest salary.`,
+tip:`Interview questions become easier when you understand the underlying analytical pattern.`
+},
+
+{
+title:"Final SQL Sales Project",
+explanation:`This is your final SQL project.
+
+You are a Data Analyst working for an online store.
+
+Your manager asks you to analyze sales.
+
+Answer:
+
+1. Total revenue
+2. Total orders
+3. Average order value
+4. Top 5 products
+5. Top cities
+6. Monthly revenue
+7. High-value customers
+8. Product performance
+9. Customers with no orders
+10. Revenue ranking
+
+Then prepare a business summary.`,
+columns:["Order_ID","Customer","City","Product","Quantity","Revenue"],
+rows:[
+[1001,"Shiv","Delhi","Laptop",1,55000],
+[1002,"Aman","Noida","Mouse",5,4000],
+[1003,"Rahul","Delhi","Monitor",2,24000],
+[1004,"Priya","Gurugram","Laptop",1,60000],
+[1005,"Shiv","Delhi","Keyboard",3,4500],
+[1006,"Neha","Noida","Monitor",1,12000]
+],
+query:`SELECT
+City,
+SUM(Revenue) AS total_revenue,
+COUNT(*) AS total_orders,
+AVG(Revenue) AS avg_order_value
+FROM sales
+GROUP BY City
+ORDER BY total_revenue DESC;`,
+result:`Delhi    | 83500 | 3 | 27833
+Gurugram | 60000 | 1 | 60000
+Noida    | 16000 | 2 | 8000`,
+how:`This project combines:
+
+SELECT
+SUM
+COUNT
+AVG
+GROUP BY
+ORDER BY
+
+In a complete project you should also use JOINs, CTEs and window functions where appropriate.`,
+practice:`Build a complete SQL sales analysis and write 5 business insights from the results.`,
+tip:`Your final SQL project should show both technical SQL skills and your ability to explain business meaning.`
+}
+
+];
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let currentLesson=0;
+
+
+/* =========================================================
+   RENDER LESSON LIST
+========================================================= */
+
+function renderLessonList(){
+
+    const list=document.getElementById("lessonList");
+
+    list.innerHTML="";
+
+    lessons.forEach((lesson,index)=>{
+
+        const btn=document.createElement("button");
+
+        btn.className="lesson-btn";
+
+        btn.textContent=(index+1)+". "+lesson.title;
+
+        btn.onclick=()=>loadLesson(index);
+
+        list.appendChild(btn);
+
+    });
+
+    document.getElementById("topicCount").textContent=lessons.length;
+
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+function renderTable(data){
+
+    const table=document.getElementById("dataTable");
+
+    table.innerHTML="";
+
+    let head="<tr>";
+
+    data.columns.forEach(col=>{
+        head+="<th>"+col+"</th>";
+    });
+
+    head+="</tr>";
+
+    table.innerHTML=head;
+
+    data.rows.forEach(row=>{
+
+        let tr="<tr>";
+
+        row.forEach(value=>{
+
+            tr+="<td>"+
+                (value===null?"NULL":value)+
+                "</td>";
+
+        });
+
+        tr+="</tr>";
+
+        table.innerHTML+=tr;
+
+    });
+
+}
+
+
+/* =========================================================
+   LOAD LESSON
+========================================================= */
+
+function loadLesson(index){
+
+    if(index<0) index=0;
+
+    if(index>=lessons.length)
+        index=lessons.length-1;
+
+    currentLesson=index;
+
+    const lesson=lessons[index];
+
+    document.getElementById("lessonNumber").textContent=
+        "Lesson "+(index+1);
+
+    document.getElementById("lessonTitle").textContent=
+        lesson.title;
+
+    document.getElementById("explanation").textContent=
+        lesson.explanation;
+
+    renderTable(lesson);
+
+    document.getElementById("sqlCode").textContent=
+        lesson.query;
+
+    document.getElementById("output").textContent=
+        "Click the button to see the expected result.";
+
+    document.getElementById("how").textContent=
+        lesson.how;
+
+    document.getElementById("practice").textContent=
+        lesson.practice;
+
+    document.getElementById("tip").textContent=
+        lesson.tip;
+
+    document.querySelectorAll(".lesson-btn")
+    .forEach((btn,i)=>{
+
+        btn.classList.toggle(
+            "active",
+            i===currentLesson
+        );
+
+    });
+
+    updateProgress();
+
+    localStorage.setItem(
+        "sqlCourseProgress",
+        currentLesson
+    );
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   SHOW RESULT
+========================================================= */
+
+function showResult(){
+
+    document.getElementById("output").textContent=
+        lessons[currentLesson].result;
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchLessons(){
+
+    const value=
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+    document.querySelectorAll(".lesson-btn")
+    .forEach((btn,index)=>{
+
+        const title=
+            lessons[index].title.toLowerCase();
+
+        btn.style.display=
+            title.includes(value)
+            ? "block"
+            : "none";
+
+    });
+
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+function updateProgress(){
+
+    const percent=Math.round(
+        ((currentLesson+1)/lessons.length)*100
+    );
+
+    document.getElementById("progressBar")
+    .style.width=percent+"%";
+
+    document.getElementById("progressText")
+    .textContent=percent+"%";
+
+}
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+function nextLesson(){
+
+    if(currentLesson<lessons.length-1){
+
+        loadLesson(currentLesson+1);
+
+    }else{
+
+        alert(
+            "🎉 Congratulations Boss! You completed the SQL course!"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+function previousLesson(){
+
+    if(currentLesson>0){
+
+        loadLesson(currentLesson-1);
+
+    }
+
+}
+
+
+/* =========================================================
+   LOAD SAVED PROGRESS
+========================================================= */
+
+const saved=
+    localStorage.getItem("sqlCourseProgress");
+
+if(saved!==null){
+
+    const number=parseInt(saved);
+
+    if(
+        !isNaN(number) &&
+        number>=0 &&
+        number<lessons.length
+    ){
+
+        currentLesson=number;
+
+    }
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+renderLessonList();
+
+loadLesson(currentLesson);
+
+</script>
+
+</body>
+</html>
