@@ -6,332 +6,515 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Excel With Shiv | Data Analytics Hub</title>
 <style>
-:root{--bg:#07130f;--panel:#10221a;--green:#22c55e;--text:#f0fff5;--muted:#a7b9ae;--line:#294536}
+:root{--bg:#07120d;--card:#102219;--line:#2b4936;--green:#22c55e;--text:#effff3;--muted:#aec2b3}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
-header{padding:20px 5%;background:#0c1d15;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
-nav{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+header{background:#0b1c12;border-bottom:1px solid var(--line);padding:15px 4%}
+nav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 a{color:#86efac;text-decoration:none}
-.brand{font-weight:bold;font-size:20px}
-.btn{display:inline-block;padding:11px 15px;border-radius:9px;background:var(--green);color:#04130a;font-weight:bold;border:0;cursor:pointer}
-.hero{padding:38px 5% 22px;background:linear-gradient(135deg,#0e2b1b,#07130f)}
-.hero h1{font-size:clamp(30px,5vw,52px);margin:10px 0}
-.hero p,.muted{color:var(--muted);line-height:1.6}
-main{padding:22px 5%;display:grid;grid-template-columns:260px minmax(0,1fr);gap:20px}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}
-input,textarea{width:100%;padding:12px;border-radius:8px;background:#07130f;color:white;border:1px solid var(--line);margin:8px 0}
-#lessons{max-height:70vh;overflow:auto}
-.lesson{display:block;width:100%;text-align:left;background:transparent;color:var(--text);padding:11px;border:0;border-bottom:1px solid var(--line);cursor:pointer;border-radius:6px}
-.lesson:hover,.lesson.active{background:#19442c}
-.stats{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
-.stat{background:#0a1911;padding:12px;border-radius:8px;flex:1;min-width:100px}
-.stat strong{display:block;color:#86efac;font-size:21px}
-.table-wrap{overflow:auto;margin:14px 0}
-table{border-collapse:collapse;width:100%;min-width:360px;background:#0a1911}
-th,td{padding:10px;border:1px solid var(--line);text-align:left}
-th{background:#19442c}
-code,pre{font-family:Consolas,monospace}
-pre{background:#06100b;padding:15px;border-radius:8px;overflow:auto;color:#bbf7d0;white-space:pre-wrap}
-.tag{color:#86efac;font-size:12px;font-weight:bold;letter-spacing:1px}
-h2,h3{line-height:1.3}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-button.secondary{background:#203a2b;color:white;border:1px solid var(--line)}
+.brand{font-size:20px;font-weight:bold}
+.btn{background:var(--green);color:#05200d;border:0;padding:11px 15px;border-radius:8px;font-weight:bold;cursor:pointer}
+.secondary{background:#20382a;color:white;border:1px solid var(--line)}
+.hero{padding:35px 5%;background:linear-gradient(120deg,#123b24,#07120d)}
+.hero h1{font-size:clamp(30px,5vw,50px);margin:8px 0}
+.muted{color:var(--muted);line-height:1.7}
+main{padding:22px 4%;display:grid;grid-template-columns:270px minmax(0,1fr);gap:20px}
+.card{background:var(--card);border:1px solid var(--line);padding:18px;border-radius:13px;min-width:0}
+input,textarea{width:100%;padding:12px;background:#07120d;border:1px solid var(--line);border-radius:8px;color:white;margin:8px 0}
+#lessonList{max-height:70vh;overflow:auto}
+.lesson{width:100%;display:block;text-align:left;padding:12px;background:none;color:white;border:0;border-bottom:1px solid var(--line);cursor:pointer;line-height:1.4}
+.lesson.active,.lesson:hover{background:#1a4029}
+.pill{color:#86efac;font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:1px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.stat{background:#0a1910;padding:12px;border-radius:8px;flex:1;min-width:100px}
+.stat strong{display:block;color:#86efac;font-size:22px;margin-bottom:5px}
+.tableWrap{overflow:auto;margin:15px 0}
+table{border-collapse:collapse;width:100%;min-width:450px;background:#09170f}
+th,td{border:1px solid var(--line);padding:10px;text-align:left}
+th{background:#19452c;color:#d8ffe3}
+tr:nth-child(even) td{background:#10271a}
+pre{white-space:pre-wrap;overflow:auto;background:#07150d;border:1px solid var(--line);padding:14px;border-radius:8px;color:#baf7cb}
+.section{margin-top:24px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 footer{text-align:center;padding:25px;color:var(--muted)}
-@media(max-width:800px){main{grid-template-columns:1fr}#lessons{max-height:330px}header{position:static}}
+@media(max-width:850px){main{grid-template-columns:1fr}#lessonList{max-height:320px}header{position:static}}
 </style>
 </head>
 <body>
+
 <header>
 <nav>
 <a class="brand" href="index.html">📊 Data Analytics Hub</a>
 <div style="display:flex;gap:12px;flex-wrap:wrap">
-<a href="index.html">Home</a><a href="python.html">Python</a>
-<a href="sql.html">SQL</a><a href="powerbi.html">Power BI</a>
+<a href="index.html">Home</a>
+<a href="python.html">Python</a>
+<a href="sql.html">SQL</a>
+<a href="powerbi.html">Power BI</a>
 </div>
 <a class="btn" href="Excel_Data_Analytics_Unit_Wise_Notes_With_Shortcuts.pdf" target="_blank">📥 Get Formula PDF</a>
 </nav>
 </header>
 
 <section class="hero">
-<div class="tag">BEGINNER → JOB READY</div>
+<div class="pill">Beginner to Job Ready</div>
 <h1>Excel With Shiv</h1>
-<p>Learn Excel step by step with practical datasets, formulas, data cleaning, PivotTables, dashboards, and job-oriented projects.</p>
+<p class="muted">Learn Microsoft Excel with practical business data, formulas, data cleaning, PivotTables, dashboards and projects.</p>
 <div class="stats">
 <div class="stat"><strong id="total">36</strong>Lessons</div>
 <div class="stat"><strong id="done">0</strong>Completed</div>
 <div class="stat"><strong id="percent">0%</strong>Progress</div>
 </div>
-<div style="height:8px;background:#263b2e;border-radius:8px;overflow:hidden"><div id="bar" style="height:100%;width:0;background:#22c55e"></div></div>
+<div style="height:8px;background:#294333;border-radius:8px;overflow:hidden">
+<div id="bar" style="height:100%;width:0;background:#22c55e"></div>
+</div>
 </section>
 
 <main>
-<aside class="panel">
-<h2>Course Lessons</h2>
-<input id="search" placeholder="Search a topic..." oninput="renderList()">
-<div id="lessons"></div>
+<aside class="card">
+<h2>Course Contents</h2>
+<input id="search" placeholder="Search lessons..." oninput="renderList()">
+<div id="lessonList"></div>
 </aside>
 
-<section class="panel">
-<div class="tag" id="lessonNumber">LESSON 1</div>
-<h2 id="title">What is Excel?</h2>
+<section class="card">
+<div class="pill" id="number">Lesson 1</div>
+<h2 id="title"></h2>
 <p class="muted" id="description"></p>
-<h3>Practical Dataset</h3>
-<div class="table-wrap" id="dataset"></div>
-<h3>Formula / Example</h3>
+
+<div class="section">
+<h3>1. Practical Dataset</h3>
+<p class="muted" id="tableInfo"></p>
+<div id="dataset" class="tableWrap"></div>
+</div>
+
+<div class="section">
+<h3>2. Formula or Excel Steps</h3>
 <pre id="formula"></pre>
-<button class="btn" onclick="showResult()">Show Expected Result</button>
-<div id="result" class="panel" style="margin-top:12px;display:none"></div>
-<h3>Explanation</h3>
-<p id="explanation" class="muted"></p>
-<h3>Practice Task</h3>
+</div>
+
+<div class="section">
+<h3>3. Step-by-Step Explanation</h3>
+<div id="steps" class="muted"></div>
+</div>
+
+<div class="section">
+<h3>4. Expected Result</h3>
+<p class="muted" id="result"></p>
+</div>
+
+<div class="section">
+<h3>5. Business Use</h3>
+<p class="muted" id="business"></p>
+</div>
+
+<div class="section">
+<h3>6. Practice Task</h3>
 <p id="practice"></p>
-<textarea id="answer" rows="3" placeholder="Write your answer or notes here..."></textarea>
+<textarea id="notes" rows="4" placeholder="Write your solution or notes here..."></textarea>
 <button class="btn" onclick="saveNotes()">Save Notes</button>
-<div id="noteStatus" class="muted"></div>
+<span id="saveStatus" class="muted"></span>
+</div>
+
 <div class="actions">
 <button class="btn secondary" onclick="previousLesson()">← Previous</button>
-<button class="btn" onclick="markComplete()">✓ Mark Complete</button>
+<button class="btn" onclick="completeLesson()">✓ Mark Complete</button>
 <button class="btn secondary" onclick="nextLesson()">Next →</button>
 </div>
 </section>
 </main>
 
-<footer>© Data Analytics Hub | Excel learning by Shiv Mangal</footer>
+<footer>Data Analytics Hub · Excel With Shiv · Learn by doing</footer>
 
 <script>
 const lessons = [
 {
-t:"What is Excel?",d:"Microsoft Excel is a spreadsheet tool used to store, organize, calculate and analyze data.",h:"Employee attendance",
-cols:["Employee","Department","Days Present"],rows:[["Aman","Sales",24],["Riya","HR",22],["Karan","IT",25]],
-f:"=SUM(C2:C4)",r:"71 total attendance days",e:"SUM adds numeric values in the selected cells.",p:"Add the attendance days of all employees."
+title:"What is Excel?",
+level:"Beginner",count:4,
+desc:"Excel is a spreadsheet application used to store, organize, calculate and analyze information. Each workbook can contain multiple worksheets.",
+headers:["Employee","Department","Monthly Salary"],
+rows:[["Aman","Sales",25000],["Riya","HR",30000],["Neha","IT",40000],["Karan","Finance",35000]],
+formula:"Enter data in cells. Use =B2+C2 for calculations when the referenced cells contain numbers.",
+steps:["A workbook is the Excel file.","A worksheet is a sheet inside a workbook.","Rows are horizontal and columns are vertical.","A cell is identified by its column letter and row number, such as A1."],
+result:"You can organize employee records in a structured table and use formulas to calculate totals.",
+business:"Excel is commonly used for attendance, salary records, sales reports, inventory and financial analysis.",
+practice:"Create a table with 5 employees, their departments and salaries."
 },
 {
-t:"Rows, Columns and Cells",d:"Rows run horizontally, columns vertically, and a cell is the intersection of a row and a column.",h:"Student marks",
-cols:["Student","Math","English"],rows:[["Asha",85,78],["Rahul",72,88]],
-f:"B2 refers to the cell in column B, row 2.",r:"B2 contains 85 in this dataset.",e:"A cell address uses a column letter followed by a row number.",p:"Identify the cell containing Rahul's English marks."
+title:"Cell References and Basic Arithmetic",
+level:"Beginner",count:5,
+desc:"Cell references let formulas use values stored in cells. Excel supports addition, subtraction, multiplication and division.",
+headers:["Product","Unit Price","Quantity","Total"],
+rows:[["Pen",10,5,"=B2*C2"],["Notebook",50,4,"=B3*C3"],["Bag",600,2,"=B4*C4"],["Bottle",150,3,"=B5*C5"],["Calculator",350,1,"=B6*C6"]],
+formula:"=B2*C2\n=B2+C2\n=B2-C2\n=B2/C2",
+steps:["Click the cell where you want the answer.","Type = to start a formula.","Select the cells or type their references.","Use * for multiplication and / for division.","Press Enter to calculate."],
+result:"Pen total = 50; notebook total = 200; bag total = 1200.",
+business:"Calculate line-item totals on invoices, purchase orders and sales sheets.",
+practice:"Add a Discount column and calculate the final price after a 10% discount."
 },
 {
-t:"Basic Arithmetic Formulas",d:"Use +, -, * and / to perform calculations in Excel.",h:"Shop bill",
-cols:["Item","Price","Quantity"],rows:[["Pen",10,5],["Book",50,2]],
-f:"=B2*C2",r:"Pen total = 50",e:"Multiplication calculates price times quantity.",p:"Calculate the total cost of the books."
+title:"SUM Function",
+level:"Beginner",count:6,
+desc:"SUM adds numbers in selected cells or ranges. It is one of the most frequently used Excel functions.",
+headers:["Expense Category","January","February","March"],
+rows:[["Rent",8000,8000,8000],["Food",2500,2700,2600],["Travel",1000,1200,900],["Internet",700,700,700],["Electricity",900,1100,950],["Other",500,650,450]],
+formula:"=SUM(B2:B7)\n=SUM(B2:D2)\n=SUM(B2:D7)",
+steps:["Select the cell for the total.","Type =SUM( .","Select the range to add.","Close the bracket and press Enter.","Use a larger range when you need a grand total."],
+result:"January expenses total ₹13,600. The complete three-month total is ₹42,850.",
+business:"Use SUM to calculate revenue, costs, payroll, expenses and inventory totals.",
+practice:"Calculate the total for each month and the overall expense total."
 },
 {
-t:"SUM Function",d:"SUM adds numbers across cells or ranges.",h:"Monthly expenses",
-cols:["Category","Amount"],rows:[["Food",2500],["Travel",1200],["Internet",700]],
-f:"=SUM(B2:B4)",r:"4400",e:"The function adds all numeric values from B2 through B4.",p:"Calculate total monthly expenses."
+title:"AVERAGE, MIN and MAX",
+level:"Beginner",count:7,
+desc:"AVERAGE calculates the mean. MIN returns the smallest numeric value, while MAX returns the largest.",
+headers:["Student","Maths","Science","English"],
+rows:[["Asha",85,82,88],["Rahul",72,75,80],["Neha",94,91,89],["Aman",65,70,68],["Riya",80,87,84],["Karan",77,73,79],["Priya",90,88,95]],
+formula:"=AVERAGE(B2:B8)\n=MIN(B2:B8)\n=MAX(B2:B8)",
+steps:["AVERAGE ignores blank cells and text in a referenced range.","MIN finds the lowest number.","MAX finds the highest number.","Change the range to analyze a different subject."],
+result:"Maths average = 80.43; minimum = 65; maximum = 94.",
+business:"Summarize exam scores, sales performance, delivery times and customer ratings.",
+practice:"Find the average, minimum and maximum score for Science."
 },
 {
-t:"AVERAGE Function",d:"AVERAGE calculates the arithmetic mean of numeric values.",h:"Exam scores",
-cols:["Student","Score"],rows:[["A",70],["B",80],["C",90]],
-f:"=AVERAGE(B2:B4)",r:"80",e:"Excel adds the scores and divides by the number of numeric scores.",p:"Find the average score."
+title:"COUNT, COUNTA and COUNTBLANK",
+level:"Beginner",count:8,
+desc:"These functions count different types of cells: numeric values, non-empty cells or blank cells.",
+headers:["Order ID","Amount","Customer Email"],
+rows:[["O101",500,"a@example.com"],["O102",,"b@example.com"],["O103",1200,""],["O104",850,"d@example.com"],["O105",,"e@example.com"],["O106",400,"f@example.com"],["O107",700,""],["O108",,"h@example.com"]],
+formula:"=COUNT(B2:B9)\n=COUNTA(A2:A9)\n=COUNTBLANK(B2:B9)",
+steps:["COUNT counts numeric values.","COUNTA counts cells that are not empty.","COUNTBLANK counts empty cells.","These functions help assess data completeness."],
+result:"COUNT of Amount = 5; COUNTA of Order ID = 8; blank Amount cells = 3.",
+business:"Check missing values and completeness before building a report.",
+practice:"Count how many customer emails are missing."
 },
 {
-t:"COUNT and COUNTA",d:"COUNT counts numeric cells; COUNTA counts non-empty cells.",h:"Order register",
-cols:["Order ID","Amount"],rows:[["A101",400],["A102",""],["A103",250]],
-f:"=COUNT(B2:B4)\n=COUNTA(A2:A4)",r:"COUNT = 2; COUNTA = 3",e:"COUNT ignores text and blanks. COUNTA counts every non-empty cell.",p:"Count the numeric order amounts."
+title:"IF Function",
+level:"Beginner",count:9,
+desc:"IF checks a condition and returns one result when it is true and another when it is false.",
+headers:["Student","Marks","Attendance %","Result"],
+rows:[["Asha",78,95,"=IF(B2>=40,\"Pass\",\"Fail\")"],["Rahul",32,90,"=IF(B3>=40,\"Pass\",\"Fail\")"],["Neha",61,85,"=IF(B4>=40,\"Pass\",\"Fail\")"],["Aman",39,72,"=IF(B5>=40,\"Pass\",\"Fail\")"],["Riya",88,98,"=IF(B6>=40,\"Pass\",\"Fail\")"],["Karan",55,80,"=IF(B7>=40,\"Pass\",\"Fail\")"],["Priya",29,65,"=IF(B8>=40,\"Pass\",\"Fail\")"],["Mohan",70,91,"=IF(B9>=40,\"Pass\",\"Fail\")"],["Simran",43,88,"=IF(B10>=40,\"Pass\",\"Fail\")"]],
+formula:"=IF(B2>=40,\"Pass\",\"Fail\")",
+steps:["The first argument is the condition.","The second argument is returned if the condition is TRUE.","The third argument is returned if the condition is FALSE.","Copy the formula down for the remaining students."],
+result:"Asha = Pass; Rahul = Fail; Neha = Pass.",
+business:"Use IF for pass/fail results, targets, eligibility and performance classifications.",
+practice:"Create an Attendance Status column: Eligible when attendance is at least 75%, otherwise Not Eligible."
 },
 {
-t:"MIN and MAX",d:"MIN returns the smallest value and MAX returns the largest.",h:"Delivery times",
-cols:["Courier","Hours"],rows:[["Fast",2],["Standard",5],["Express",1]],
-f:"=MIN(B2:B4)\n=MAX(B2:B4)",r:"Minimum = 1; Maximum = 5",e:"Use these functions to find extremes in a numeric dataset.",p:"Find the longest delivery time."
+title:"AND, OR and Nested IF",
+level:"Beginner",count:10,
+desc:"AND requires all conditions to be true. OR requires at least one. Nested IF checks multiple possible outcomes.",
+headers:["Employee","Sales Target %","Attendance %","Performance"],
+rows:[["Aman",110,95,""],["Riya",90,98,""],["Neha",120,70,""],["Karan",75,80,""],["Priya",105,88,""],["Mohan",95,92,""],["Simran",130,97,""],["Arjun",85,76,""],["Meera",100,90,""],["Dev",60,65,""]],
+formula:"=IF(AND(B2>=100,C2>=80),\"Eligible\",\"Review\")\n=IF(OR(B2>=120,C2>=95),\"High Performer\",\"Standard\")",
+steps:["AND(B2>=100,C2>=80) checks both sales and attendance.","OR checks whether either condition is true.","Nested IF allows multiple outcome categories.","Test boundary values to ensure your conditions are correct."],
+result:"Aman meets both conditions for Eligible. Neha fails the attendance condition.",
+business:"Build eligibility checks, employee performance rules and sales classifications.",
+practice:"Classify sales achievement: 120% or more = Excellent, 100% or more = Good, otherwise Needs Improvement."
 },
 {
-t:"IF Function",d:"IF returns one result when a condition is true and another when false.",h:"Pass or fail",
-cols:["Student","Marks"],rows:[["Asha",78],["Mohan",32],["Ravi",61]],
-f:'=IF(B2>=40,"Pass","Fail")',r:"Asha = Pass",e:"Excel tests whether marks are at least 40.",p:"Create a Pass/Fail formula for every student."
+title:"SUMIF and COUNTIF",
+level:"Intermediate",count:11,
+desc:"SUMIF adds values matching one condition. COUNTIF counts cells that match one condition.",
+headers:["Order","Region","Product","Sales"],
+rows:[["O101","North","Laptop",50000],["O102","South","Phone",18000],["O103","North","Phone",22000],["O104","West","Laptop",45000],["O105","South","Laptop",52000],["O106","North","Laptop",48000],["O107","West","Phone",19000],["O108","North","Phone",24000],["O109","South","Tablet",28000],["O110","North","Laptop",61000],["O111","West","Tablet",30000]],
+formula:"=SUMIF(B2:B12,\"North\",D2:D12)\n=COUNTIF(C2:C12,\"Laptop\")",
+steps:["The first argument is the range to check.","The second is the criterion.","SUMIF's third argument is the range to add.","COUNTIF needs only the criteria range and criterion."],
+result:"North region sales = ₹2,05,000. Laptop order count = 5.",
+business:"Summarize revenue by region or count orders by product without manually filtering every row.",
+practice:"Calculate South region sales and count the Phone orders."
 },
 {
-t:"AND and OR",d:"AND requires every condition to be true; OR requires at least one condition to be true.",h:"Employee eligibility",
-cols:["Name","Attendance","Score"],rows:[["Aman",95,80],["Riya",70,90],["Neha",92,45]],
-f:"=AND(B2>=90,C2>=60)\n=OR(B2>=90,C2>=60)",r:"Aman: AND TRUE, OR TRUE",e:"Combine conditions to create more flexible logical tests.",p:"Find employees with attendance above 90 and score above 60."
+title:"SUMIFS, COUNTIFS and AVERAGEIFS",
+level:"Intermediate",count:12,
+desc:"These functions calculate totals, counts and averages using multiple conditions.",
+headers:["Date","Region","Product","Sales","Units"],
+rows:[["01-Oct","North","Laptop",50000,2],["02-Oct","South","Phone",18000,3],["03-Oct","North","Phone",22000,4],["04-Oct","West","Laptop",45000,2],["05-Oct","North","Laptop",52000,2],["06-Oct","South","Laptop",48000,2],["07-Oct","North","Phone",24000,4],["08-Oct","West","Tablet",30000,3],["09-Oct","South","Phone",21000,3],["10-Oct","North","Laptop",61000,3],["11-Oct","South","Tablet",28000,2],["12-Oct","West","Phone",19000,2]],
+formula:"=SUMIFS(D2:D13,B2:B13,\"North\",C2:C13,\"Laptop\")\n=COUNTIFS(B2:B13,\"North\",C2:C13,\"Phone\")\n=AVERAGEIFS(D2:D13,B2:B13,\"South\")",
+steps:["Choose the numeric range to sum, count or average.","Add a criteria range and criterion for each condition.","All SUMIFS conditions must be met for a row to be included.","Make sure all ranges have the same dimensions."],
+result:"North laptop sales = ₹1,63,000; North Phone orders = 2.",
+business:"Create precise summaries by region, product, date, salesperson or order status.",
+practice:"Calculate South region phone sales and average sales for West."
 },
 {
-t:"SUMIF",d:"SUMIF adds values that match one condition.",h:"Regional sales",
-cols:["Region","Sales"],rows:[["North",1200],["South",900],["North",800]],
-f:'=SUMIF(A2:A4,"North",B2:B4)',r:"2000",e:"Excel adds sales only for rows where the region is North.",p:"Calculate total South region sales."
+title:"XLOOKUP",
+level:"Intermediate",count:13,
+desc:"XLOOKUP finds a value in one range and returns the corresponding value from another range.",
+headers:["Employee ID","Name","Department","Salary","Location"],
+rows:[["E101","Aman","Sales",30000,"Delhi"],["E102","Riya","HR",35000,"Noida"],["E103","Neha","IT",45000,"Gurugram"],["E104","Karan","Finance",40000,"Delhi"],["E105","Priya","Sales",32000,"Jaipur"],["E106","Mohan","IT",48000,"Noida"],["E107","Meera","HR",37000,"Delhi"],["E108","Arjun","Finance",42000,"Gurugram"],["E109","Simran","Sales",34000,"Noida"],["E110","Dev","IT",50000,"Jaipur"],["E111","Isha","HR",39000,"Gurugram"],["E112","Kabir","Finance",44000,"Delhi"],["E113","Tina","Sales",36000,"Jaipur"]],
+formula:"=XLOOKUP(\"E103\",A2:A14,D2:D14,\"Not found\")",
+steps:["The lookup value is E103.","A2:A14 is the range to search.","D2:D14 is the range from which the result is returned.","Not found is displayed when no match exists.","XLOOKUP is available in modern Excel versions; older versions may not support it."],
+result:"E103 returns salary 45000.",
+business:"Find salaries, product prices, customer details and matching records across datasets.",
+practice:"Look up the location of E108 and the salary of E110."
 },
 {
-t:"COUNTIF",d:"COUNTIF counts cells that meet a single condition.",h:"Product inventory",
-cols:["Product","Status"],rows:[["Mouse","In Stock"],["Keyboard","Out"],["Monitor","In Stock"]],
-f:'=COUNTIF(B2:B4,"In Stock")',r:"2",e:"COUNTIF checks each status against the supplied criterion.",p:"Count how many products are Out."
+title:"VLOOKUP and HLOOKUP",
+level:"Intermediate",count:14,
+desc:"VLOOKUP searches vertically in the first column of a table. HLOOKUP searches horizontally across the first row.",
+headers:["Product Code","Product","Category","Price","Stock"],
+rows:[["P101","Laptop","Electronics",45000,12],["P102","Phone","Electronics",18000,35],["P103","Desk","Furniture",6500,8],["P104","Chair","Furniture",2500,25],["P105","Printer","Electronics",12000,9],["P106","Notebook","Stationery",80,500],["P107","Pen","Stationery",15,1000],["P108","Monitor","Electronics",14000,17],["P109","Keyboard","Electronics",900,40],["P110","Mouse","Electronics",450,55],["P111","Shelf","Furniture",3200,11],["P112","Lamp","Furniture",1100,30],["P113","Bag","Accessories",1500,22],["P114","Bottle","Accessories",350,65]],
+formula:"=VLOOKUP(\"P102\",A2:E15,4,FALSE)\nHLOOKUP searches a horizontal layout: =HLOOKUP(\"Price\",A1:D2,2,FALSE)",
+steps:["VLOOKUP searches the leftmost column of the selected table.","The column index tells Excel which column to return.","FALSE requests an exact match.","HLOOKUP searches across the top row of a horizontal table.","XLOOKUP is often more flexible when available."],
+result:"P102 returns 18000 for the fourth column, Price.",
+business:"Retrieve product prices, inventory levels and reference data from master tables.",
+practice:"Find the stock quantity of P108 and price of P113."
 },
 {
-t:"SUMIFS",d:"SUMIFS adds values that meet multiple conditions.",h:"Sales by region and product",
-cols:["Region","Product","Sales"],rows:[["North","Laptop",5000],["North","Phone",2000],["South","Laptop",3000]],
-f:'=SUMIFS(C2:C4,A2:A4,"North",B2:B4,"Laptop")',r:"5000",e:"Every supplied condition must match for a row to be included.",p:"Find South region laptop sales."
+title:"INDEX and MATCH",
+level:"Intermediate",count:15,
+desc:"MATCH returns the position of a value. INDEX returns the value at a position. Together they support flexible lookups.",
+headers:["SKU","Product","Supplier","Cost","Lead Time Days"],
+rows:[["S101","Laptop","Supplier A",38000,5],["S102","Phone","Supplier B",13000,3],["S103","Tablet","Supplier C",17000,6],["S104","Monitor","Supplier A",10000,4],["S105","Printer","Supplier D",8500,7],["S106","Keyboard","Supplier B",500,2],["S107","Mouse","Supplier C",250,2],["S108","Router","Supplier D",1800,3],["S109","Webcam","Supplier A",1200,5],["S110","Speaker","Supplier B",900,4],["S111","Desk","Supplier C",5000,8],["S112","Chair","Supplier D",1800,6],["S113","Lamp","Supplier A",750,3],["S114","Shelf","Supplier B",2500,7],["S115","Bag","Supplier C",900,4]],
+formula:"=INDEX(D2:D16,MATCH(\"S105\",A2:A16,0))",
+steps:["MATCH searches for S105 in the SKU column.","The 0 requests an exact match.","INDEX returns the value at the matching position in the Cost range.","Both ranges should align row by row."],
+result:"S105 returns a cost of 8500.",
+business:"Use flexible lookups when return columns are not next to the search column.",
+practice:"Return the lead time for S112 and supplier for S109."
 },
 {
-t:"XLOOKUP",d:"XLOOKUP searches a range and returns the corresponding value from another range. It is available in modern Excel versions.",h:"Employee directory",
-cols:["ID","Name","Salary"],rows:[["E01","Aman",30000],["E02","Riya",35000],["E03","Neha",32000]],
-f:'=XLOOKUP("E02",A2:A4,C2:C4,"Not found")',r:"35000",e:"The formula finds E02 and returns the salary from column C.",p:"Look up Neha's salary."
+title:"LEFT, RIGHT, MID and FIND",
+level:"Intermediate",count:16,
+desc:"Text functions extract parts of a string. FIND returns the position of a substring.",
+headers:["Order Reference","Customer","Region"],
+rows:[["INV-2026-1001","Aman Kumar","North"],["INV-2026-1002","Riya Sharma","South"],["INV-2026-1003","Neha Singh","West"],["INV-2026-1004","Karan Verma","East"],["INV-2026-1005","Priya Gupta","North"],["INV-2026-1006","Mohan Yadav","South"],["INV-2026-1007","Meera Jain","West"],["INV-2026-1008","Arjun Singh","East"],["INV-2026-1009","Simran Kaur","North"],["INV-2026-1010","Dev Patel","South"],["INV-2026-1011","Isha Roy","West"],["INV-2026-1012","Kabir Shah","East"],["INV-2026-1013","Tina Das","North"],["INV-2026-1014","Ravi Bose","South"],["INV-2026-1015","Sara Khan","West"],["INV-2026-1016","Jay Mehta","East"]],
+formula:"=LEFT(A2,3)\n=RIGHT(A2,4)\n=MID(A2,5,4)\n=FIND(\"-\",A2)",
+steps:["LEFT extracts characters from the beginning.","RIGHT extracts characters from the end.","MID starts at a position and extracts a specified number of characters.","FIND returns the position of a substring and is case-sensitive."],
+result:"For INV-2026-1001: LEFT(A2,3) = INV; RIGHT(A2,4) = 1001; MID(A2,5,4) = 2026.",
+business:"Extract invoice numbers, codes, prefixes, suffixes and components of imported text fields.",
+practice:"Extract the final four digits from every order reference."
 },
 {
-t:"VLOOKUP",d:"VLOOKUP searches the first column of a table and returns a value from a specified column.",h:"Product price list",
-cols:["Code","Product","Price"],rows:[["P01","Pen",10],["P02","Book",50],["P03","Bag",500]],
-f:'=VLOOKUP("P02",A2:C4,3,FALSE)',r:"50",e:"3 means the third column of the selected table; FALSE requests an exact match.",p:"Find the price of P03."
+title:"TRIM, CLEAN, SUBSTITUTE and PROPER",
+level:"Intermediate",count:17,
+desc:"These functions standardize text, remove unwanted spaces or characters, replace text and capitalize names.",
+headers:["Raw Customer Name","Raw City","Customer Code"],
+rows:[["  aman kumar  "," delhi ","C-001"],["RIYA   SHARMA","NOIDA","C-002"],["neha singh "," gurugram","C-003"],["  KARAN VERMA","JAIPUR ","C-004"],["priya   gupta","DELHI","C-005"],[" mohan yadav ","noida","C-006"],["MEERA JAIN"," GURUGRAM ","C-007"],["arjun singh ","jaipur","C-008"],[" SIMRAN KAUR","Delhi","C-009"],["dev patel ","NOIDA ","C-010"],["ISHA ROY","gurugram","C-011"],[" kabir shah","JAIPUR","C-012"],["tina das ","delhi","C-013"],["RAVI BOSE","noida","C-014"],[" sara khan ","gurugram","C-015"],["JAY MEHTA","jaipur","C-016"],["  ANJALI RAO","DELHI","C-017"]],
+formula:"=PROPER(TRIM(A2))\n=UPPER(TRIM(B2))\n=SUBSTITUTE(A2,\"  \",\" \")\n=CLEAN(A2)",
+steps:["TRIM removes leading and trailing spaces and reduces repeated ordinary spaces.","PROPER capitalizes the first letter of each word.","UPPER converts text to uppercase.","SUBSTITUTE replaces specified text.","CLEAN removes many non-printing characters."],
+result:"'  aman kumar  ' becomes 'Aman Kumar'; ' delhi ' becomes 'DELHI' with UPPER and TRIM.",
+business:"Clean names and city fields before using lookups, PivotTables or duplicate detection.",
+practice:"Create Clean Name and Standard City columns for all records."
 },
 {
-t:"INDEX and MATCH",d:"MATCH finds a position; INDEX returns the value at a position. Together they enable flexible lookups.",h:"Course scores",
-cols:["Code","Course","Score"],rows:[["C1","Excel",90],["C2","SQL",85],["C3","Python",88]],
-f:'=INDEX(C2:C4,MATCH("SQL",B2:B4,0))',r:"85",e:"MATCH finds SQL's position, and INDEX returns the score at that position.",p:"Return the score for Python."
+title:"TEXT, CONCAT and TEXTJOIN",
+level:"Intermediate",count:18,
+desc:"Combine text fields and format numbers as text for readable labels and reports.",
+headers:["Customer","Invoice No.","Amount","Status"],
+rows:[["Aman","INV001",12500,"Paid"],["Riya","INV002",8500,"Pending"],["Neha","INV003",18750,"Paid"],["Karan","INV004",6500,"Overdue"],["Priya","INV005",22000,"Paid"],["Mohan","INV006",9400,"Pending"],["Meera","INV007",14300,"Paid"],["Arjun","INV008",7200,"Overdue"],["Simran","INV009",16500,"Paid"],["Dev","INV010",11000,"Pending"],["Isha","INV011",19900,"Paid"],["Kabir","INV012",5800,"Overdue"],["Tina","INV013",13200,"Paid"],["Ravi","INV014",7700,"Pending"],["Sara","INV015",21500,"Paid"],["Jay","INV016",9900,"Paid"],["Anjali","INV017",15400,"Pending"],["Vikas","INV018",8800,"Overdue"]],
+formula:"=TEXT(C2,\"₹#,##0\")\n=CONCAT(A2,\" - \",B2)\n=TEXTJOIN(\" | \",TRUE,A2,B2,D2)",
+steps:["TEXT formats a number using a format pattern and returns text.","CONCAT combines text values.","TEXTJOIN combines values using a delimiter.","Use number formatting rather than TEXT when you still need a numeric result for calculations."],
+result:"12500 can display as ₹12,500. A label can display as Aman - INV001.",
+business:"Create invoice labels, report titles and readable descriptions for dashboards.",
+practice:"Create one field that combines customer, invoice number and payment status."
 },
 {
-t:"LEFT, RIGHT and MID",d:"These functions extract characters from the beginning, end or middle of text.",h:"Order codes",
-cols:["Order Code"],rows:[["INV-2026-101"],["INV-2026-102"],["INV-2026-103"]],
-f:"=LEFT(A2,3)\n=RIGHT(A2,3)\n=MID(A2,5,4)",r:"INV; 101; 2026",e:"Specify the starting position and number of characters where required.",p:"Extract the last three digits from the second order code."
+title:"Date and Time Functions",
+level:"Intermediate",count:19,
+desc:"Excel date functions help calculate duration, extract date parts and classify records by month or year.",
+headers:["Project","Start Date","End Date","Owner"],
+rows:[["Website","01-Oct-2026","15-Oct-2026","Aman"],["Dashboard","03-Oct-2026","25-Oct-2026","Riya"],["Report","05-Oct-2026","18-Oct-2026","Neha"],["Migration","10-Oct-2026","31-Oct-2026","Karan"],["Audit","12-Oct-2026","20-Oct-2026","Priya"],["CRM Setup","15-Oct-2026","10-Nov-2026","Mohan"],["Training","17-Oct-2026","22-Oct-2026","Meera"],["Inventory","18-Oct-2026","30-Oct-2026","Arjun"],["Budget","20-Oct-2026","05-Nov-2026","Simran"],["Payroll","21-Oct-2026","28-Oct-2026","Dev"],["Sales Report","22-Oct-2026","04-Nov-2026","Isha"],["Website QA","23-Oct-2026","06-Nov-2026","Kabir"],["Data Review","24-Oct-2026","02-Nov-2026","Tina"],["Forecast","25-Oct-2026","08-Nov-2026","Ravi"],["Launch","26-Oct-2026","15-Nov-2026","Sara"],["Training 2","27-Oct-2026","12-Nov-2026","Jay"],["Review","28-Oct-2026","03-Nov-2026","Anjali"],["Planning","29-Oct-2026","18-Nov-2026","Vikas"],["Cleanup","30-Oct-2026","12-Nov-2026","Aman"],["Final Audit","31-Oct-2026","20-Nov-2026","Riya"]],
+formula:"=B2-A2\n=YEAR(B2)\n=MONTH(B2)\n=DAY(B2)\n=TODAY()",
+steps:["Ensure dates are stored as real Excel dates.","Subtract the start date from the end date to calculate duration in days.","YEAR, MONTH and DAY return date components.","TODAY returns the current date and updates when the workbook recalculates."],
+result:"Website duration = 14 days if the end date is 15-Oct and the start date is 01-Oct, using ordinary date subtraction.",
+business:"Track deadlines, project duration, ageing of orders and monthly performance.",
+practice:"Calculate each project's duration and identify projects lasting more than 15 days."
 },
 {
-t:"TRIM and CLEAN",d:"TRIM removes extra spaces; CLEAN removes many non-printing characters.",h:"Customer names",
-cols:["Raw Name"],rows:[["  Aman Kumar  "],["Riya   Sharma"],["Neha Singh"]],
-f:"=TRIM(A2)\n=CLEAN(A2)",r:"Aman Kumar",e:"Clean text before matching names, building reports or joining datasets.",p:"Write a formula to remove extra spaces from Riya's name."
+title:"Sorting, Filtering and Freeze Panes",
+level:"Intermediate",count:20,
+desc:"Sort records into an order, filter rows to focus on specific conditions, and freeze headers while scrolling.",
+headers:["Ticket ID","Department","Priority","Status","Days Open"],
+rows:[["T101","IT","High","Open",8],["T102","HR","Low","Closed",1],["T103","Finance","Medium","Open",4],["T104","Sales","High","Open",12],["T105","IT","Low","Closed",2],["T106","Operations","High","Pending",9],["T107","HR","Medium","Open",5],["T108","Finance","Low","Closed",3],["T109","Sales","High","Pending",15],["T110","IT","Medium","Open",6],["T111","Operations","Low","Closed",1],["T112","Finance","High","Open",10],["T113","HR","High","Pending",7],["T114","Sales","Medium","Closed",2],["T115","IT","High","Open",14],["T116","Operations","Medium","Open",5],["T117","Finance","Low","Pending",4],["T118","Sales","High","Open",11],["T119","HR","Low","Closed",2],["T120","Operations","High","Pending",13],["T121","IT","Medium","Closed",3]],
+formula:"Ctrl+Shift+L = Toggle filters\nData → Sort\nView → Freeze Panes",
+steps:["Select a cell inside your dataset.","Enable filters with Ctrl+Shift+L.","Filter Priority to High or Status to Open.","Sort Days Open from largest to smallest.","Freeze the header row for easier scrolling."],
+result:"Filtering Priority = High and Status = Open shows only records meeting both criteria.",
+business:"Prioritize support tickets, overdue orders, inventory and operational issues.",
+practice:"Show all High-priority tickets and sort them by Days Open descending."
 },
 {
-t:"TEXT Functions",d:"TEXT formats a numeric value as text; CONCAT or TEXTJOIN combines text.",h:"Invoice records",
-cols:["Customer","Amount"],rows:[["Aman",1500],["Riya",2500],["Neha",900]],
-f:'=TEXT(B2,"₹#,##0")\n=CONCAT(A2," - ",B2)',r:"₹1,500; Aman - 1500",e:"Use TEXT for display formatting and CONCAT to combine values.",p:"Combine the customer name and amount."
+title:"Excel Tables and Structured References",
+level:"Intermediate",count:21,
+desc:"Excel Tables expand as records are added and provide consistent formatting, filters and structured formulas.",
+headers:["Order ID","Product","Units","Unit Price"],
+rows:[["O101","Laptop",2,40000],["O102","Phone",4,15000],["O103","Tablet",3,20000],["O104","Monitor",2,14000],["O105","Keyboard",5,900],["O106","Mouse",6,450],["O107","Printer",1,12000],["O108","Laptop",1,40000],["O109","Phone",3,15000],["O110","Tablet",2,20000],["O111","Monitor",4,14000],["O112","Keyboard",8,900],["O113","Mouse",10,450],["O114","Printer",2,12000],["O115","Laptop",3,40000],["O116","Phone",2,15000],["O117","Tablet",5,20000],["O118","Monitor",1,14000],["O119","Keyboard",4,900],["O120","Mouse",7,450],["O121","Printer",1,12000],["O122","Laptop",2,40000]],
+formula:"Select the dataset → Ctrl+T\nIn the table's Total column: =[@Units]*[@[Unit Price]]",
+steps:["Select the complete data range including headers.","Press Ctrl+T and confirm that the table has headers.","Give the table a descriptive name from Table Design.","Add a Total column and use structured references.","New rows added to the table can inherit formulas and formatting."],
+result:"A row with 2 units at ₹40,000 per unit has a total of ₹80,000.",
+business:"Tables make transaction data easier to maintain and connect to PivotTables.",
+practice:"Create an Excel Table named SalesData and add a Total column."
 },
 {
-t:"Date Functions",d:"TODAY returns today's date; YEAR, MONTH and DAY extract date components.",h:"Project deadlines",
-cols:["Project","Deadline"],rows:[["Website","15-10-2026"],["Dashboard","25-10-2026"],["Report","30-10-2026"]],
-f:"=TODAY()\n=YEAR(B2)\n=MONTH(B2)",r:"TODAY depends on the current date; year and month are extracted from a valid date.",e:"Excel stores dates as serial numbers, so use real date values for reliable calculations.",p:"Extract the year from the first deadline."
+title:"Conditional Formatting",
+level:"Intermediate",count:22,
+desc:"Conditional Formatting highlights cells that meet rules such as low performance, duplicates or dates approaching a deadline.",
+headers:["Employee","Target %","Returns","Rating"],
+rows:[["Aman",120,2,4.8],["Riya",85,8,4.2],["Neha",105,1,4.9],["Karan",62,12,3.6],["Priya",98,4,4.5],["Mohan",135,3,4.7],["Meera",77,10,4.0],["Arjun",110,2,4.6],["Simran",92,5,4.3],["Dev",55,15,3.4],["Isha",118,3,4.8],["Kabir",88,7,4.1],["Tina",102,4,4.5],["Ravi",72,9,3.9],["Sara",125,1,4.9],["Jay",95,6,4.2],["Anjali",108,2,4.7],["Vikas",68,11,3.8],["Pooja",115,3,4.6],["Nikhil",90,5,4.3],["Varun",130,2,4.8],["Aditi",80,8,4.0],["Manav",100,4,4.4]],
+formula:"Home → Conditional Formatting\nHighlight Cell Rules → Less Than → 80\nUse Color Scales or Data Bars for visual comparisons.",
+steps:["Select the Target % values.","Choose Conditional Formatting.","Set a rule for values below 80.","Add another rule for values at or above 100.","Use color carefully so the report remains readable."],
+result:"Employees below 80% are highlighted by the low-performance rule.",
+business:"Spot exceptions, low targets, duplicate values and unusual performance quickly.",
+practice:"Highlight Target % below 80 and Rating below 4.0."
 },
 {
-t:"Sorting and Filtering",d:"Sorting changes row order; filtering temporarily displays only matching records.",h:"Support tickets",
-cols:["Ticket","Priority","Status"],rows:[["T101","High","Open"],["T102","Low","Closed"],["T103","High","Open"]],
-f:"Select the data → Data → Sort or Filter.\nShortcut to toggle filters: Ctrl+Shift+L",r:"Filter Priority to High to show T101 and T103.",e:"Keep headers and full rows selected so records remain aligned.",p:"Filter the table to show only closed tickets."
+title:"Remove Duplicates and Data Validation",
+level:"Intermediate",count:23,
+desc:"Remove Duplicates identifies repeated records. Data Validation controls which values can be entered.",
+headers:["Customer ID","Customer","City","Status"],
+rows:[["C101","Aman","Delhi","Active"],["C102","Riya","Noida","Active"],["C103","Neha","Jaipur","Inactive"],["C101","Aman","Delhi","Active"],["C104","Karan","Delhi","Active"],["C105","Priya","Gurugram","Pending"],["C106","Mohan","Noida","Active"],["C102","Riya","Noida","Active"],["C107","Meera","Jaipur","Inactive"],["C108","Arjun","Delhi","Active"],["C109","Simran","Noida","Pending"],["C110","Dev","Gurugram","Active"],["C111","Isha","Jaipur","Active"],["C112","Kabir","Delhi","Inactive"],["C113","Tina","Noida","Active"],["C114","Ravi","Gurugram","Pending"],["C115","Sara","Jaipur","Active"],["C116","Jay","Delhi","Active"],["C117","Anjali","Noida","Inactive"],["C118","Vikas","Gurugram","Active"],["C119","Pooja","Jaipur","Pending"],["C120","Nikhil","Delhi","Active"],["C121","Varun","Noida","Active"],["C122","Aditi","Gurugram","Inactive"]],
+formula:"Data → Remove Duplicates\nData → Data Validation → Allow: List\nSource: Active,Inactive,Pending",
+steps:["Make a backup before deleting duplicates.","Select the columns that define a duplicate record.","For a status dropdown, select the Status cells.","Choose Data Validation and create a list of permitted values.","Test the dropdown and verify the resulting data."],
+result:"C101 and C102 appear twice in the source data. A duplicate check based on Customer ID identifies repeated IDs.",
+business:"Maintain cleaner customer master data and reduce inconsistent status values.",
+practice:"Remove duplicate Customer IDs in a copy of the data and add a Status dropdown."
 },
 {
-t:"Excel Tables",d:"Excel Tables automatically expand, provide filters and support structured references.",h:"Online orders",
-cols:["Order","Units","Price"],rows:[["O1",2,100],["O2",3,150],["O3",1,400]],
-f:"Select data → Ctrl+T\nAdd Total column: =[@Units]*[@Price]",r:"Totals: 200, 450, 400",e:"Tables make formulas and datasets easier to maintain as new records are added.",p:"Convert the dataset to a table and add a Total column."
+title:"Flash Fill and Text to Columns",
+level:"Intermediate",count:24,
+desc:"Flash Fill detects patterns from examples. Text to Columns splits text into separate fields.",
+headers:["Full Name","Location Code","Import Reference"],
+rows:[["Aman Kumar","DEL-101","A101|North|Paid"],["Riya Sharma","NOI-102","A102|South|Pending"],["Neha Singh","JAI-103","A103|West|Paid"],["Karan Verma","GUR-104","A104|East|Paid"],["Priya Gupta","DEL-105","A105|North|Pending"],["Mohan Yadav","NOI-106","A106|South|Paid"],["Meera Jain","JAI-107","A107|West|Pending"],["Arjun Singh","GUR-108","A108|East|Paid"],["Simran Kaur","DEL-109","A109|North|Paid"],["Dev Patel","NOI-110","A110|South|Pending"],["Isha Roy","JAI-111","A111|West|Paid"],["Kabir Shah","GUR-112","A112|East|Paid"],["Tina Das","DEL-113","A113|North|Pending"],["Ravi Bose","NOI-114","A114|South|Paid"],["Sara Khan","JAI-115","A115|West|Pending"],["Jay Mehta","GUR-116","A116|East|Paid"],["Anjali Rao","DEL-117","A117|North|Paid"],["Vikas Jain","NOI-118","A118|South|Pending"],["Pooja Das","JAI-119","A119|West|Paid"],["Nikhil Roy","GUR-120","A120|East|Paid"],["Varun Shah","DEL-121","A121|North|Paid"],["Aditi Bose","NOI-122","A122|South|Pending"],["Manav Jain","JAI-123","A123|West|Paid"],["Kavya Roy","GUR-124","A124|East|Pending"],["Yash Shah","DEL-125","A125|North|Paid"]],
+formula:"Flash Fill: Ctrl+E\nText to Columns: Data → Text to Columns → Delimited → choose delimiter |",
+steps:["Type a sample first name beside a full name.","Press Ctrl+E to ask Excel to detect the pattern.","For the import reference, use Text to Columns.","Choose the pipe character as the delimiter.","Review the output because pattern detection can make mistakes."],
+result:"A101|North|Paid splits into A101, North and Paid when pipe is selected as delimiter.",
+business:"Prepare names and imported CSV data before reporting or analysis.",
+practice:"Extract first names and split Import Reference into three columns."
 },
 {
-t:"Conditional Formatting",d:"Conditional formatting changes cell appearance based on rules.",h:"Monthly performance",
-cols:["Employee","Achievement %"],rows:[["Aman",95],["Riya",55],["Neha",78]],
-f:"Home → Conditional Formatting → Highlight Cells Rules\nExample rule: cell value < 60",r:"Riya's achievement should be highlighted.",e:"Use colors to draw attention to low scores, duplicates or unusually high values.",p:"Highlight achievement percentages below 70."
+title:"PivotTable Fundamentals",
+level:"Advanced",count:26,
+desc:"PivotTables summarize many transaction rows by product, region, salesperson or time period without manually adding each group.",
+headers:["Order","Region","Product","Salesperson","Sales"],
+rows:[["O101","North","Laptop","Aman",50000],["O102","South","Phone","Riya",18000],["O103","North","Phone","Neha",22000],["O104","West","Laptop","Karan",45000],["O105","South","Laptop","Priya",52000],["O106","North","Tablet","Mohan",28000],["O107","West","Phone","Meera",19000],["O108","North","Laptop","Arjun",61000],["O109","South","Tablet","Simran",26000],["O110","East","Phone","Dev",21000],["O111","North","Tablet","Isha",30000],["O112","West","Laptop","Kabir",48000],["O113","East","Laptop","Tina",44000],["O114","South","Phone","Ravi",23000],["O115","North","Phone","Sara",25000],["O116","West","Tablet","Jay",27000],["O117","East","Tablet","Anjali",29000],["O118","South","Laptop","Vikas",54000],["O119","North","Laptop","Pooja",59000],["O120","West","Phone","Nikhil",20000],["O121","East","Laptop","Varun",46000],["O122","South","Tablet","Aditi",31000],["O123","North","Phone","Manav",24000],["O124","West","Laptop","Kavya",51000],["O125","East","Phone","Yash",22000],["O126","South","Laptop","Aman",57000],["O127","North","Tablet","Riya",32000],["O128","West","Phone","Neha",26000],["O129","East","Tablet","Karan",33000],["O130","South","Phone","Priya",24000]],
+formula:"Select data → Insert → PivotTable\nRows: Region\nColumns: Product\nValues: Sum of Sales",
+steps:["Select the complete dataset including headers.","Choose Insert → PivotTable.","Place Region in Rows.","Place Product in Columns.","Place Sales in Values and ensure it summarizes by Sum.","Refresh the PivotTable after the source data changes."],
+result:"The PivotTable displays total sales by region and product. The values are calculated from the source dataset.",
+business:"Summarize thousands of transactions into a report managers can understand.",
+practice:"Create a PivotTable showing total sales by salesperson and product."
 },
 {
-t:"Remove Duplicates",d:"Remove Duplicates keeps one instance of repeated records based on selected columns.",h:"Customer list",
-cols:["Customer ID","Name"],rows:[["C01","Aman"],["C02","Riya"],["C01","Aman"]],
-f:"Data → Remove Duplicates",r:"One repeated C01 record is removed when both columns are selected.",e:"Keep a backup first and carefully choose the columns used to identify duplicates.",p:"Explain why you should back up data before removing duplicates."
+title:"PivotTable Filters, Grouping and Slicers",
+level:"Advanced",count:28,
+desc:"Filters, date grouping and slicers make PivotTables interactive and allow users to explore specific parts of a dataset.",
+headers:["Date","Region","Channel","Category","Revenue"],
+rows:[["01-Oct-2026","North","Online","Electronics",50000],["03-Oct-2026","South","Store","Furniture",22000],["05-Oct-2026","West","Online","Electronics",35000],["08-Oct-2026","East","Store","Clothing",18000],["10-Oct-2026","North","Store","Furniture",26000],["12-Oct-2026","South","Online","Electronics",42000],["14-Oct-2026","West","Store","Clothing",15000],["16-Oct-2026","East","Online","Furniture",30000],["18-Oct-2026","North","Online","Clothing",19000],["20-Oct-2026","South","Store","Furniture",28000],["22-Oct-2026","West","Online","Electronics",46000],["24-Oct-2026","East","Store","Clothing",21000],["26-Oct-2026","North","Store","Electronics",39000],["28-Oct-2026","South","Online","Clothing",17000],["30-Oct-2026","West","Store","Furniture",32000],["01-Nov-2026","East","Online","Electronics",41000],["03-Nov-2026","North","Online","Furniture",33000],["05-Nov-2026","South","Store","Electronics",38000],["07-Nov-2026","West","Online","Clothing",20000],["09-Nov-2026","East","Store","Furniture",29000],["11-Nov-2026","North","Online","Electronics",53000],["13-Nov-2026","South","Online","Furniture",31000],["15-Nov-2026","West","Store","Electronics",37000],["17-Nov-2026","East","Online","Clothing",24000],["19-Nov-2026","North","Store","Furniture",34000],["21-Nov-2026","South","Online","Electronics",45000],["23-Nov-2026","West","Online","Furniture",36000],["25-Nov-2026","East","Store","Electronics",40000],["27-Nov-2026","North","Online","Clothing",23000],["29-Nov-2026","South","Store","Furniture",27000]],
+formula:"Create PivotTable → Add Date to Rows\nRight-click a date → Group → Months\nPivotTable Analyze → Insert Slicer",
+steps:["Create a PivotTable from the transaction table.","Add Date to Rows and Revenue to Values.","Group dates by month if Excel recognizes them as valid dates.","Insert slicers for Region or Channel where supported.","Use the slicer buttons to filter the PivotTable and connected charts."],
+result:"You can compare revenue by month, region and channel without changing the original records.",
+business:"Build interactive reporting for managers who want to explore different regions and periods.",
+practice:"Create a monthly revenue PivotTable with Region and Channel slicers."
 },
 {
-t:"Data Validation",d:"Data Validation restricts which values users can enter in a cell.",h:"Expense approval",
-cols:["Expense","Approval"],rows:[["Travel","Approved"],["Food","Pending"],["Software","Rejected"]],
-f:"Data → Data Validation → Allow: List\nSource: Approved,Pending,Rejected",r:"A dropdown list lets users choose an allowed approval status.",e:"Validation improves consistency and reduces typing mistakes.",p:"Create a dropdown for Low, Medium and High priority."
+title:"Charts and Data Visualization",
+level:"Advanced",count:30,
+desc:"Choose charts that make comparisons, trends and patterns easier to understand.",
+headers:["Month","Revenue","Orders","Returns"],
+rows:[["Jan",120000,420,18],["Feb",135000,450,20],["Mar",142000,480,17],["Apr",138000,460,22],["May",155000,510,19],["Jun",168000,540,21],["Jul",162000,525,16],["Aug",178000,570,18],["Sep",185000,590,15],["Oct",195000,620,17],["Nov",220000,680,14],["Dec",245000,740,16],["Jan-2",205000,650,19],["Feb-2",215000,670,17],["Mar-2",230000,700,15],["Apr-2",225000,690,18],["May-2",250000,750,16],["Jun-2",265000,790,14],["Jul-2",258000,770,17],["Aug-2",280000,820,13],["Sep-2",295000,850,12],["Oct-2",310000,890,14],["Nov-2",330000,940,11],["Dec-2",360000,1000,10],["Jan-3",325000,920,12],["Feb-3",340000,960,11],["Mar-3",355000,990,10],["Apr-3",350000,980,12],["May-3",380000,1050,9],["Jun-3",400000,1100,8]],
+formula:"Select Month and Revenue → Insert → Line Chart\nSelect Category and Sales → Insert → Column Chart",
+steps:["Line charts help show changes over time.","Column charts help compare categories.","Use clear chart titles and readable labels.","Avoid unnecessary 3D effects and too many colors.","Check that units and date labels are clear."],
+result:"Revenue increases from 120,000 in the first row to 400,000 in the final row.",
+business:"Charts help communicate trends, compare categories and explain business performance.",
+practice:"Create a revenue trend chart and a separate Orders chart."
 },
 {
-t:"Flash Fill",d:"Flash Fill detects a pattern from examples and fills the remaining values.",h:"Full names",
-cols:["Full Name","First Name"],rows:[["Aman Kumar","Aman"],["Riya Sharma","Riya"],["Neha Singh","Neha"]],
-f:"Type the first example → Ctrl+E",r:"Excel attempts to extract the first name for each row.",e:"Review results after Flash Fill, especially when names follow inconsistent patterns.",p:"Extract surnames into a new column."
+title:"Power Query Data Cleaning",
+level:"Advanced",count:32,
+desc:"Power Query imports, transforms and combines data using repeatable steps. It is especially useful for recurring monthly reports.",
+headers:["Raw Customer","City","Order Value","Status"],
+rows:[[" Aman ","Delhi",1200,"Paid"],["Riya","NOIDA",2400,"Pending"],["Neha ","Gurugram",1800,"Paid"],["Karan","jaipur",950,"Paid"],["Priya Gupta","DELHI",3200,"Cancelled"],["Mohan Yadav","Noida",2750,"Paid"],["Meera Jain","GURUGRAM",1650,"Pending"],["Arjun Singh","Jaipur",4100,"Paid"],["Simran Kaur","Delhi",2100,"Paid"],["Dev Patel","NOIDA",1850,"Cancelled"],["Isha Roy","Gurugram",2900,"Paid"],["Kabir Shah","JAIPUR",3300,"Pending"],["Tina Das","Delhi",1450,"Paid"],["Ravi Bose","Noida",2250,"Paid"],["Sara Khan","Gurugram",3900,"Cancelled"],["Jay Mehta","Jaipur",1750,"Paid"],["Anjali Rao","DELHI",2800,"Pending"],["Vikas Jain","Noida",3100,"Paid"],["Pooja Das","Gurugram",1950,"Paid"],["Nikhil Roy","Jaipur",2600,"Pending"],["Varun Shah","Delhi",3550,"Paid"],["Aditi Bose","Noida",1250,"Cancelled"],["Manav Jain","Gurugram",4200,"Paid"],["Kavya Roy","Jaipur",2350,"Paid"],["Yash Shah","Delhi",3050,"Pending"],["Anaya Rao","Noida",1800,"Paid"],["Rohan Das","Gurugram",2750,"Paid"],["Aarav Jain","Jaipur",3650,"Cancelled"],["Diya Roy","Delhi",2200,"Paid"],["Rehan Shah","Noida",3400,"Pending"],["Mira Bose","Gurugram",1500,"Paid"],["Avi Das","Jaipur",2950,"Paid"]],
+formula:"Data → Get Data → From Table/Range\nTransform → Format → Trim/Clean\nSet data types → Filter rows → Close & Load",
+steps:["Import the source into Power Query.","Trim and clean text columns.","Standardize inconsistent city values.","Check numeric and date types.","Filter invalid records using defined business rules.","Close & Load and refresh when new source data arrives."],
+result:"A repeatable cleaning workflow can standardize names and cities while preserving the original source.",
+business:"Automate monthly CSV cleaning instead of repeating manual edits.",
+practice:"Design a cleaning workflow for spaces, inconsistent city names, missing values and incorrect data types."
 },
 {
-t:"PivotTable Basics",d:"A PivotTable summarizes large datasets without manually writing every aggregation.",h:"Store sales",
-cols:["Store","Category","Sales"],rows:[["A","Food",500],["A","Tech",900],["B","Food",700],["B","Tech",400]],
-f:"Insert → PivotTable\nRows: Store | Columns: Category | Values: Sum of Sales",r:"Store A total = 1400; Store B total = 1100.",e:"PivotTables group and aggregate records. Refresh after changing source data.",p:"Create a PivotTable showing total sales by category."
+title:"KPI Analysis and Business Reporting",
+level:"Advanced",count:35,
+desc:"Key Performance Indicators compare actual performance with business targets. The correct formula depends on what the KPI measures.",
+headers:["Department","Target","Actual","Previous Month","Owner"],
+rows:[["Sales",500000,560000,510000,"Aman"],["Marketing",120000,110000,100000,"Riya"],["Support",95,92,90,"Neha"],["Operations",98,99,97,"Karan"],["Finance",100000,104000,101000,"Priya"],["HR",90,94,91,"Mohan"],["IT",99,98,97,"Meera"],["Logistics",95,96,93,"Arjun"],["Customer Success",90,92,88,"Simran"],["Quality",99,98,96,"Dev"],["Sales North",250000,280000,245000,"Isha"],["Sales South",250000,280000,265000,"Kabir"],["Online Sales",300000,325000,295000,"Tina"],["Retail Sales",200000,235000,215000,"Ravi"],["Returns",10000,8500,9500,"Sara"],["Delivery",96,94,92,"Jay"],["Retention",85,88,86,"Anjali"],["Inventory",98,97,96,"Vikas"],["Complaints",500,420,450,"Pooja"],["Collections",150000,165000,148000,"Nikhil"],["Profit",120000,132000,118000,"Varun"],["Leads",2000,2250,1900,"Aditi"],["Conversion",4.5,4.8,4.4,"Manav"],["Satisfaction",90,93,91,"Kavya"],["Training",80,86,78,"Yash"],["Audit",98,99,97,"Anaya"],["Accuracy",99,98.5,98,"Rohan"],["Response Time",4,3.5,4.2,"Diya"],["Cost",200000,190000,205000,"Rehan"],["Growth",10,12,8,"Mira"],["Productivity",85,89,83,"Avi"],["Renewals",400,430,390,"Aarav"],["Churn",5,4.2,4.8,"Sara"],["Forecast",550000,570000,530000,"Kabir"],["Cash Flow",80000,92000,76000,"Riya"]],
+formula:"Achievement %: =C2/B2\nVariance: =C2-B2\nMonth-over-month change: =(C2-D2)/D2",
+steps:["Confirm whether higher or lower values are better for each KPI.","Calculate achievement as Actual divided by Target where appropriate.","Calculate variance as Actual minus Target.","Calculate change against the previous period.","Format percentages consistently and explain exceptions."],
+result:"Sales achievement = 112%; variance = +60,000. A lower actual is not always worse: Returns and Cost are examples where lower may be better.",
+business:"A KPI report should show the target, actual, variance, trend and action required.",
+practice:"Calculate achievement and variance for all departments, and identify which KPIs require a lower-is-better interpretation."
 },
 {
-t:"PivotTable with Multiple Dimensions",d:"Add more than one field to Rows, Columns or Filters to compare groups.",h:"Regional quarterly revenue",
-cols:["Region","Quarter","Revenue"],rows:[["North","Q1",1000],["North","Q2",1300],["South","Q1",900],["South","Q2",1200]],
-f:"Rows: Region\nColumns: Quarter\nValues: Sum of Revenue",r:"North Q1 = 1000; North Q2 = 1300.",e:"Multiple dimensions let managers compare categories and time periods.",p:"Identify which region has the higher Q2 revenue."
-},
-{
-t:"Charts",d:"Charts communicate comparisons, trends and distributions visually.",h:"Quarterly revenue",
-cols:["Quarter","Revenue"],rows:[["Q1",12000],["Q2",15000],["Q3",14000],["Q4",19000]],
-f:"Select data → Insert → Column Chart or Line Chart",r:"Q4 has the highest revenue in this dataset.",e:"Use line charts for trends over time and bars for category comparisons.",p:"Choose a chart to compare quarterly revenue."
-},
-{
-t:"KPI Analysis",d:"KPIs are measurable indicators used to track business performance.",h:"Monthly business KPIs",
-cols:["Metric","Target","Actual"],rows:[["Sales",100000,112000],["Orders",500,460],["Returns",30,22]],
-f:"Achievement %: =C2/B2\nVariance: =C2-B2",r:"Sales achievement = 112%; sales variance = 12000.",e:"Compare actual values with targets and explain why each KPI matters.",p:"Calculate order achievement percentage."
-},
-{
-t:"Power Query",d:"Power Query imports, cleans and transforms data through repeatable steps.",h:"Raw import records",
-cols:["Name","City","Amount"],rows:[[" Aman ","Delhi",100],["Riya","Delhi",200],["Aman","Mumbai",150]],
-f:"Data → Get Data → choose source\nIn Power Query: Trim/Clean, set data types, remove duplicates, Close & Load.",r:"A repeatable transformation process prepares the source data for analysis.",e:"Power Query is particularly useful when the same cleaning steps must be repeated.",p:"List three cleaning steps you would apply to this dataset."
-},
-{
-t:"Data Cleaning Project",d:"Prepare raw data by fixing blanks, duplicates, inconsistent text and data types.",h:"Raw customer records",
-cols:["Customer","City","Email"],rows:[[" Aman ","Delhi","aman@example.com"],["Riya","delhi","riya@example.com"],["Aman","Delhi","aman@example.com"],["Neha","","neha@example.com"]],
-f:"Useful tools: TRIM, CLEAN, Remove Duplicates, Filters, IF and Data Validation.",r:"Standardize city names, inspect duplicate records and review missing cities.",e:"Never delete questionable records without checking the business rules.",p:"Create a cleaning checklist for the four records."
-},
-{
-t:"Sales Analysis Project",d:"Analyze sales by product, region and time period to find opportunities.",h:"Product sales",
-cols:["Product","Region","Units","Price"],rows:[["Laptop","North",5,40000],["Phone","South",12,15000],["Laptop","South",3,40000],["Phone","North",8,15000]],
-f:"Revenue: =C2*D2\nTotal revenue: =SUM(E2:E5)\nUse PivotTables to compare products and regions.",r:"Calculate row-level revenue first, then summarize by product and region.",e:"A strong sales report includes totals, comparisons and a short business recommendation.",p:"Find which product generates more revenue."
-},
-{
-t:"Customer Analysis Project",d:"Use customer-level data to understand repeat purchases and customer value.",h:"Customer transactions",
-cols:["Customer","Orders","Spend"],rows:[["Aman",4,12000],["Riya",1,2500],["Neha",3,9000],["Aman",2,6000]],
-f:"Use SUMIF to total customer spend and COUNTIF to count matching records.",r:'Example: =SUMIF(A2:A5,"Aman",C2:C5) returns 18000.',e:"Aggregate transactions by customer before drawing conclusions about customer value.",p:"Calculate total spend for Neha."
-},
-{
-t:"Dashboard Project",d:"Build a dashboard that combines KPIs, charts and filters on one page.",h:"Dashboard source",
-cols:["Month","Sales","Orders"],rows:[["Jan",50000,200],["Feb",65000,240],["Mar",72000,280]],
-f:"1. Clean data\n2. Create PivotTables\n3. Calculate KPIs\n4. Insert charts\n5. Add slicers where supported\n6. Format a one-page dashboard.",r:"A dashboard should show the key numbers first and make comparisons easy.",e:"Use clear titles, consistent number formats and only visuals that answer business questions.",p:"Sketch a dashboard with three KPIs and two charts."
-},
-{
-t:"Excel Interview Questions",d:"Prepare to explain concepts and demonstrate formulas with small examples.",h:"Interview practice",
-cols:["Question","Skill"],rows:[["SUMIF vs SUMIFS","Conditional totals"],["VLOOKUP vs XLOOKUP","Lookup methods"],["What is a PivotTable?","Summarization"],["How do you remove duplicates?","Data cleaning"]],
-f:"Practice: SUM, IF, COUNTIF, SUMIFS, XLOOKUP, text functions, PivotTables and charts.",r:"Give a definition, a practical example and a business use case.",e:"Interviewers may ask you to solve a task, not only define a function.",p:"Explain the difference between COUNT and COUNTA in your own words."
-},
-{
-t:"Final Job-Ready Excel Project",d:"Combine cleaning, formulas, lookups, summaries and a dashboard into one business report.",h:"Final sales dataset",
-cols:["Order ID","Region","Product","Units","Unit Price"],rows:[["101","North","Laptop",2,40000],["102","South","Phone",5,15000],["103","North","Phone",3,15000],["104","West","Laptop",1,40000]],
-f:"Revenue column: =D2*E2\nTotal revenue: =SUM(F2:F5)\nUse SUMIFS by region, PivotTables by product, and charts for comparisons.",r:"Your final workbook should include a cleaned dataset, revenue calculation, summary report and dashboard.",e:"Explain your analysis, important findings, and recommendations as if presenting to a manager.",p:"Build the complete workbook and write three business insights."
+title:"Final Job-Ready Sales Dashboard Project",
+level:"Capstone",count:40,
+desc:"Create a complete Excel analyst project from transaction data to cleaned records, revenue calculations, summaries and a dashboard.",
+headers:["Order ID","Date","Region","Product","Channel","Units","Unit Price","Salesperson"],
+rows:[["O1001","01-Oct-2026","North","Laptop","Online",2,40000,"Aman"],["O1002","02-Oct-2026","South","Phone","Store",5,15000,"Riya"],["O1003","03-Oct-2026","North","Tablet","Online",3,20000,"Neha"],["O1004","04-Oct-2026","West","Monitor","Store",2,14000,"Karan"],["O1005","05-Oct-2026","East","Laptop","Online",1,40000,"Priya"],["O1006","06-Oct-2026","South","Phone","Online",4,15000,"Mohan"],["O1007","07-Oct-2026","North","Keyboard","Store",8,900,"Meera"],["O1008","08-Oct-2026","West","Laptop","Online",2,40000,"Arjun"],["O1009","09-Oct-2026","East","Tablet","Store",3,20000,"Simran"],["O1010","10-Oct-2026","South","Monitor","Online",2,14000,"Dev"],["O1011","11-Oct-2026","North","Phone","Store",6,15000,"Isha"],["O1012","12-Oct-2026","West","Tablet","Online",4,20000,"Kabir"],["O1013","13-Oct-2026","East","Phone","Online",3,15000,"Tina"],["O1014","14-Oct-2026","North","Laptop","Store",1,40000,"Ravi"],["O1015","15-Oct-2026","South","Keyboard","Online",10,900,"Sara"],["O1016","16-Oct-2026","West","Monitor","Store",3,14000,"Jay"],["O1017","17-Oct-2026","East","Laptop","Online",2,40000,"Anjali"],["O1018","18-Oct-2026","North","Tablet","Store",5,20000,"Vikas"],["O1019","19-Oct-2026","South","Phone","Online",6,15000,"Pooja"],["O1020","20-Oct-2026","West","Laptop","Store",1,40000,"Nikhil"],["O1021","21-Oct-2026","East","Monitor","Online",2,14000,"Varun"],["O1022","22-Oct-2026","North","Phone","Online",4,15000,"Aditi"],["O1023","23-Oct-2026","South","Tablet","Store",3,20000,"Manav"],["O1024","24-Oct-2026","West","Keyboard","Online",12,900,"Kavya"],["O1025","25-Oct-2026","East","Phone","Store",4,15000,"Yash"],["O1026","26-Oct-2026","North","Laptop","Online",2,40000,"Aman"],["O1027","27-Oct-2026","South","Monitor","Store",1,14000,"Riya"],["O1028","28-Oct-2026","West","Tablet","Online",2,20000,"Neha"],["O1029","29-Oct-2026","East","Laptop","Store",1,40000,"Karan"],["O1030","30-Oct-2026","North","Monitor","Online",3,14000,"Priya"],["O1031","31-Oct-2026","South","Phone","Store",5,15000,"Mohan"],["O1032","01-Nov-2026","West","Laptop","Online",2,40000,"Meera"],["O1033","02-Nov-2026","East","Tablet","Store",4,20000,"Arjun"],["O1034","03-Nov-2026","North","Keyboard","Online",10,900,"Simran"],["O1035","04-Nov-2026","South","Laptop","Online",2,40000,"Dev"],["O1036","05-Nov-2026","West","Phone","Store",6,15000,"Isha"],["O1037","06-Nov-2026","East","Monitor","Online",3,14000,"Kabir"],["O1038","07-Nov-2026","North","Tablet","Store",2,20000,"Tina"],["O1039","08-Nov-2026","South","Phone","Online",3,15000,"Ravi"],["O1040","09-Nov-2026","West","Laptop","Store",1,40000,"Sara"]],
+formula:"1. Add Revenue: =F2*G2\n2. Total Revenue: =SUM(I2:I41)\n3. Region revenue: =SUMIF(C2:C41,\"North\",I2:I41)\n4. Build a PivotTable by Region and Product.\n5. Add charts and KPI cards.",
+steps:["Create a backup and validate the source data.","Convert the data range into an Excel Table using Ctrl+T.","Add a Revenue column and calculate Units × Unit Price.","Check missing values, duplicates and data types.","Build PivotTables for region, product, channel and salesperson.","Create charts for sales comparisons and trends.","Add KPI cards for total revenue, units sold and order count.","Write three evidence-based business insights and recommendations."],
+result:"Your final workbook should include a raw-data sheet, cleaned-data sheet, analysis sheet and dashboard sheet. Use Excel to calculate final totals rather than relying on the text shown in this lesson.",
+business:"This project demonstrates a practical workflow similar to entry-level Excel and data analyst tasks.",
+practice:"Build the workbook and submit a dashboard with three KPIs, two charts, one PivotTable and three written insights."
 }
 ];
 
-let current = 0;
-let completed = JSON.parse(localStorage.getItem("excelHubCompleted") || "[]");
+let current=0;
+let completed=JSON.parse(localStorage.getItem("excelShivCompleted")||"[]");
+
+function escapeHTML(value){
+ return String(value ?? "").replace(/[&<>"']/g, ch=>({
+ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ }[ch]));
+}
 
 function renderList(){
- const q = document.getElementById("search").value.toLowerCase();
- document.getElementById("lessons").innerHTML = lessons.map((l,i)=>
- ({l,i})).filter(x=>x.l.t.toLowerCase().includes(q)).map(({l,i})=>
- `<button class="lesson ${i===current?'active':''}" onclick="openLesson(${i})">${completed.includes(i)?'✅':'📘'} ${i+1}. ${l.t}</button>`
- ).join("");
+ const query=document.getElementById("search").value.toLowerCase();
+ document.getElementById("lessonList").innerHTML=lessons
+ .map((l,i)=>({l,i}))
+ .filter(x=>(x.l.title+" "+x.l.level).toLowerCase().includes(query))
+ .map(({l,i})=>`<button class="lesson ${i===current?"active":""}" onclick="openLesson(${i})">${completed.includes(i)?"✅":"📘"} ${i+1}. ${escapeHTML(l.title)}<br><small class="muted">${escapeHTML(l.level)} · ${l.count} rows</small></button>`)
+ .join("");
 }
+
 function updateProgress(){
+ document.getElementById("total").textContent=lessons.length;
  document.getElementById("done").textContent=completed.length;
- document.getElementById("percent").textContent=Math.round(completed.length/lessons.length*100)+"%";
- document.getElementById("bar").style.width=(completed.length/lessons.length*100)+"%";
+ const pct=Math.round(completed.length/lessons.length*100);
+ document.getElementById("percent").textContent=pct+"%";
+ document.getElementById("bar").style.width=pct+"%";
 }
-function openLesson(i){
- current=Math.max(0,Math.min(i,lessons.length-1));
+
+function openLesson(index){
+ current=Math.max(0,Math.min(index,lessons.length-1));
  const l=lessons[current];
- document.getElementById("lessonNumber").textContent="LESSON "+(current+1)+" OF "+lessons.length;
- document.getElementById("title").textContent=l.t;
- document.getElementById("description").textContent=l.d;
- document.getElementById("dataset").innerHTML="<table><thead><tr>"+l.cols.map(c=>"<th>"+c+"</th>").join("")+"</tr></thead><tbody>"+l.rows.map(row=>"<tr>"+row.map(v=>"<td>"+v+"</td>").join("")+"</tr>").join("")+"</tbody></table>";
- document.getElementById("formula").textContent=l.f;
- document.getElementById("result").style.display="none";
- document.getElementById("explanation").textContent=l.e;
- document.getElementById("practice").textContent=l.p;
- document.getElementById("answer").value=localStorage.getItem("excelNote"+current)||"";
- document.getElementById("noteStatus").textContent="";
+ document.getElementById("number").textContent=`Lesson ${current+1} of ${lessons.length} · ${l.level}`;
+ document.getElementById("title").textContent=l.title;
+ document.getElementById("description").textContent=l.desc;
+ document.getElementById("tableInfo").textContent=`${l.rows.length} practical records · ${l.headers.length} columns`;
+ document.getElementById("dataset").innerHTML="<table><thead><tr>"+l.headers.map(h=>"<th>"+escapeHTML(h)+"</th>").join("")+"</tr></thead><tbody>"+l.rows.map(row=>"<tr>"+row.map(v=>"<td>"+escapeHTML(v)+"</td>").join("")+"</tr>").join("")+"</tbody></table>";
+ document.getElementById("formula").textContent=l.formula;
+ document.getElementById("steps").innerHTML="<ol>"+l.steps.map(s=>"<li>"+escapeHTML(s)+"</li>").join("")+"</ol>";
+ document.getElementById("result").textContent=l.result;
+ document.getElementById("business").textContent=l.business;
+ document.getElementById("practice").textContent=l.practice;
+ document.getElementById("notes").value=localStorage.getItem("excelShivNote"+current)||"";
+ document.getElementById("saveStatus").textContent="";
  renderList();
- window.scrollTo({top:0,behavior:"smooth"});
+ updateProgress();
 }
-function showResult(){
- const l=lessons[current];
- const box=document.getElementById("result");
- box.style.display="block";
- box.innerHTML="<strong>Expected result / guidance</strong><p>"+l.r+"</p><p class='muted'>This is a learning example, not a live Excel calculation engine.</p>";
+
+function completeLesson(){
+ if(!completed.includes(current)){
+  completed.push(current);
+  localStorage.setItem("excelShivCompleted",JSON.stringify(completed));
+ }
+ renderList();
+ updateProgress();
 }
-function markComplete(){
- if(!completed.includes(current))completed.push(current);
- localStorage.setItem("excelHubCompleted",JSON.stringify(completed));
- renderList();updateProgress();
-}
+
 function previousLesson(){openLesson(current-1)}
 function nextLesson(){openLesson(current+1)}
 function saveNotes(){
- localStorage.setItem("excelNote"+current,document.getElementById("answer").value);
- document.getElementById("noteStatus").textContent="Notes saved in this browser.";
+ localStorage.setItem("excelShivNote"+current,document.getElementById("notes").value);
+ document.getElementById("saveStatus").textContent=" Notes saved in this browser.";
 }
-document.getElementById("total").textContent=lessons.length;
-renderList();updateProgress();openLesson(0);
+
+openLesson(0);
 </script>
 </body>
 </html>
