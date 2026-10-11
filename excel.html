@@ -1,1786 +1,337 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Excel Mastery | Data Analytics Hub</title>
-
+<title>Excel With Shiv | Data Analytics Hub</title>
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
-
-body{
-    background:#f6f8fc;
-    color:#0f172a;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    background:
-    radial-gradient(circle at 10% 20%,#2563eb45,transparent 35%),
-    radial-gradient(circle at 90% 80%,#7c3aed40,transparent 35%),
-    #080f1f;
-
-    color:white;
-    padding:55px 7%;
-}
-
-.nav{
-    max-width:1200px;
-    margin:auto;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    font-size:21px;
-    font-weight:bold;
-}
-
-.logo span{
-    color:#60a5fa;
-}
-
-.back{
-    color:#cbd5e1;
-    text-decoration:none;
-}
-
-.back:hover{
-    color:white;
-}
-
-.hero-content{
-    max-width:1200px;
-    margin:65px auto 20px;
-}
-
-.badge{
-    display:inline-block;
-
-    background:#ffffff12;
-    border:1px solid #ffffff18;
-
-    padding:8px 14px;
-    border-radius:30px;
-
-    color:#93c5fd;
-    font-size:13px;
-}
-
-h1{
-    font-size:48px;
-    margin:20px 0 12px;
-}
-
-.hero p{
-    color:#94a3b8;
-    font-size:17px;
-    line-height:1.6;
-}
-
-.buttons{
-    margin-top:28px;
-
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    padding:13px 20px;
-    border-radius:9px;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-.primary{
-    background:
-    linear-gradient(135deg,#2563eb,#7c3aed);
-
-    color:white;
-}
-
-.secondary{
-    border:1px solid #475569;
-    color:white;
-}
-
-.secondary:hover{
-    background:#ffffff10;
-}
-
-
-/* =========================
-   CONTAINER
-========================= */
-
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:50px 25px;
-}
-
-
-/* =========================
-   PREMIUM PROGRESS
-========================= */
-
-.progress-panel{
-    background:
-    radial-gradient(
-        circle at 10% 10%,
-        #2563eb30,
-        transparent 30%
-    ),
-    radial-gradient(
-        circle at 90% 90%,
-        #7c3aed25,
-        transparent 30%
-    ),
-    linear-gradient(
-        135deg,
-        #07111f,
-        #111c32
-    );
-
-    border:1px solid #334155;
-    border-radius:24px;
-
-    padding:25px;
-    margin-bottom:35px;
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,.18);
-}
-
-.progress-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-}
-
-.progress-title{
-    color:white;
-}
-
-.progress-title span{
-    display:inline-block;
-
-    background:
-    linear-gradient(135deg,#2563eb,#7c3aed);
-
-    padding:6px 12px;
-    border-radius:20px;
-
-    font-size:11px;
-    font-weight:bold;
-}
-
-.progress-title h2{
-    margin-top:10px;
-    font-size:24px;
-}
-
-.progress-title p{
-    color:#94a3b8;
-    margin-top:5px;
-    font-size:13px;
-}
-
-.progress-percent{
-    font-size:32px;
-    font-weight:bold;
-    color:white;
-}
-
-.main-progress{
-    width:100%;
-    height:12px;
-
-    background:#1e293b;
-    border-radius:20px;
-
-    overflow:hidden;
-    margin-top:22px;
-}
-
-.main-progress-fill{
-    height:100%;
-    width:0%;
-
-    background:
-    linear-gradient(
-        90deg,
-        #2563eb,
-        #7c3aed,
-        #c084fc
-    );
-
-    border-radius:20px;
-
-    transition:
-    width .5s ease;
-
-    box-shadow:
-    0 0 20px #7c3aed80;
-}
-
-.progress-info{
-    display:flex;
-    justify-content:space-between;
-
-    margin-top:12px;
-
-    color:#94a3b8;
-    font-size:13px;
-}
-
-
-/* =========================
-   SECTION TITLE
-========================= */
-
-.section-title{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    margin-bottom:25px;
-}
-
-.section-title h2{
-    font-size:25px;
-}
-
-.progress{
-    color:#2563eb;
-    font-weight:bold;
-}
-
-
-/* =========================
-   DAYS GRID
-========================= */
-
-.days{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-
-/* =========================
-   DAY CARD
-========================= */
-
-.day{
-    position:relative;
-
-    background:white;
-
-    border:1px solid #e5e7eb;
-    border-radius:15px;
-
-    padding:22px;
-
-    transition:.25s;
-
-    overflow:hidden;
-}
-
-.day:hover{
-    transform:translateY(-4px);
-
-    box-shadow:
-    0 15px 35px #00000012;
-}
-
-.day.completed{
-    border-color:#22c55e;
-
-    box-shadow:
-    0 10px 30px #22c55e18;
-}
-
-.day.completed::before{
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    top:0;
-
-    width:4px;
-    height:100%;
-
-    background:#22c55e;
-}
-
-.day-number{
-    color:#2563eb;
-
-    font-size:12px;
-    font-weight:bold;
-
-    text-transform:uppercase;
-
-    margin-bottom:10px;
-}
-
-.day h3{
-    font-size:17px;
-    margin-bottom:8px;
-}
-
-.day p{
-    color:#64748b;
-
-    font-size:13px;
-    line-height:1.5;
-}
-
-
-/* =========================
-   LESSON BUTTON
-========================= */
-
-.lesson{
-    display:block;
-
-    margin-top:17px;
-
-    text-align:center;
-
-    background:#eff6ff;
-    color:#2563eb;
-
-    padding:10px;
-
-    border-radius:8px;
-
-    text-decoration:none;
-
-    font-weight:bold;
-    font-size:13px;
-
-    transition:.2s;
-}
-
-.lesson:hover{
-    background:#2563eb;
-    color:white;
-}
-
-.day.completed .lesson{
-    background:#dcfce7;
-    color:#15803d;
-}
-
-.day.completed .lesson:hover{
-    background:#16a34a;
-    color:white;
-}
-
-
-/* =========================
-   COMPLETED LABEL
-========================= */
-
-.completed-label{
-    display:none;
-
-    margin-top:10px;
-
-    color:#15803d;
-
-    font-size:12px;
-    font-weight:bold;
-}
-
-.day.completed .completed-label{
-    display:block;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:850px){
-
-    .days{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-}
-
-@media(max-width:600px){
-
-    h1{
-        font-size:36px;
-    }
-
-    .days{
-        grid-template-columns:1fr;
-    }
-
-    .section-title{
-        display:block;
-    }
-
-    .progress{
-        display:block;
-        margin-top:8px;
-    }
-
-    .progress-top{
-        display:block;
-    }
-
-    .progress-percent{
-        margin-top:15px;
-    }
-
-}
-
+:root{--bg:#07130f;--panel:#10221a;--green:#22c55e;--text:#f0fff5;--muted:#a7b9ae;--line:#294536}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+header{padding:20px 5%;background:#0c1d15;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+nav{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+a{color:#86efac;text-decoration:none}
+.brand{font-weight:bold;font-size:20px}
+.btn{display:inline-block;padding:11px 15px;border-radius:9px;background:var(--green);color:#04130a;font-weight:bold;border:0;cursor:pointer}
+.hero{padding:38px 5% 22px;background:linear-gradient(135deg,#0e2b1b,#07130f)}
+.hero h1{font-size:clamp(30px,5vw,52px);margin:10px 0}
+.hero p,.muted{color:var(--muted);line-height:1.6}
+main{padding:22px 5%;display:grid;grid-template-columns:260px minmax(0,1fr);gap:20px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}
+input,textarea{width:100%;padding:12px;border-radius:8px;background:#07130f;color:white;border:1px solid var(--line);margin:8px 0}
+#lessons{max-height:70vh;overflow:auto}
+.lesson{display:block;width:100%;text-align:left;background:transparent;color:var(--text);padding:11px;border:0;border-bottom:1px solid var(--line);cursor:pointer;border-radius:6px}
+.lesson:hover,.lesson.active{background:#19442c}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.stat{background:#0a1911;padding:12px;border-radius:8px;flex:1;min-width:100px}
+.stat strong{display:block;color:#86efac;font-size:21px}
+.table-wrap{overflow:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;min-width:360px;background:#0a1911}
+th,td{padding:10px;border:1px solid var(--line);text-align:left}
+th{background:#19442c}
+code,pre{font-family:Consolas,monospace}
+pre{background:#06100b;padding:15px;border-radius:8px;overflow:auto;color:#bbf7d0;white-space:pre-wrap}
+.tag{color:#86efac;font-size:12px;font-weight:bold;letter-spacing:1px}
+h2,h3{line-height:1.3}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+button.secondary{background:#203a2b;color:white;border:1px solid var(--line)}
+footer{text-align:center;padding:25px;color:var(--muted)}
+@media(max-width:800px){main{grid-template-columns:1fr}#lessons{max-height:330px}header{position:static}}
 </style>
-
 </head>
-
-
 <body>
-
-
-<!-- =========================
-     HERO
-========================= -->
+<header>
+<nav>
+<a class="brand" href="index.html">📊 Data Analytics Hub</a>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<a href="index.html">Home</a><a href="python.html">Python</a>
+<a href="sql.html">SQL</a><a href="powerbi.html">Power BI</a>
+</div>
+<a class="btn" href="Excel_Data_Analytics_Unit_Wise_Notes_With_Shortcuts.pdf" target="_blank">📥 Get Formula PDF</a>
+</nav>
+</header>
 
 <section class="hero">
-
-    <div class="nav">
-
-        <div class="logo">
-            📊 Data <span>Analytics</span> Hub
-        </div>
-
-        <a
-            href="dashboard.html"
-            class="back">
-
-            ← Dashboard
-
-        </a>
-
-    </div>
-
-
-    <div class="hero-content">
-
-        <span class="badge">
-            📗 30-Day Excel Course
-        </span>
-
-        <h1>
-            Master Excel
-        </h1>
-
-        <p>
-            Beginner to Advanced — Formulas, Functions,
-            Charts, PivotTables & Automation.
-        </p>
-
-
-        <div class="buttons">
-
-            <a
-                href="Master_Excel_in_30_Days-1.pdf"
-                target="_blank"
-                class="btn primary">
-
-                📖 Read Full PDF
-
-            </a>
-
-
-            <a
-                href="Master_Excel_in_30_Days-1.pdf"
-                download
-                class="btn secondary">
-
-                ⬇ Download PDF
-
-            </a>
-
-        </div>
-
-    </div>
-
+<div class="tag">BEGINNER → JOB READY</div>
+<h1>Excel With Shiv</h1>
+<p>Learn Excel step by step with practical datasets, formulas, data cleaning, PivotTables, dashboards, and job-oriented projects.</p>
+<div class="stats">
+<div class="stat"><strong id="total">36</strong>Lessons</div>
+<div class="stat"><strong id="done">0</strong>Completed</div>
+<div class="stat"><strong id="percent">0%</strong>Progress</div>
+</div>
+<div style="height:8px;background:#263b2e;border-radius:8px;overflow:hidden"><div id="bar" style="height:100%;width:0;background:#22c55e"></div></div>
 </section>
 
+<main>
+<aside class="panel">
+<h2>Course Lessons</h2>
+<input id="search" placeholder="Search a topic..." oninput="renderList()">
+<div id="lessons"></div>
+</aside>
 
-<main class="container">
-
-
-<!-- =========================
-     PREMIUM TRACKER
-========================= -->
-
-<div class="progress-panel">
-
-    <div class="progress-top">
-
-        <div class="progress-title">
-
-            <span>
-                ✨ COURSE PROGRESS
-            </span>
-
-            <h2>
-                Excel Learning Progress
-            </h2>
-
-            <p>
-                Complete each lesson to update your dashboard.
-            </p>
-
-        </div>
-
-
-        <div
-            class="progress-percent"
-            id="progressPercent">
-
-            0%
-
-        </div>
-
-    </div>
-
-
-    <div class="main-progress">
-
-        <div
-            id="mainProgressFill"
-            class="main-progress-fill">
-        </div>
-
-    </div>
-
-
-    <div class="progress-info">
-
-        <span id="progressText">
-            0 of 30 lessons completed
-        </span>
-
-        <span>
-            Excel • 30 Lessons
-        </span>
-
-    </div>
-
+<section class="panel">
+<div class="tag" id="lessonNumber">LESSON 1</div>
+<h2 id="title">What is Excel?</h2>
+<p class="muted" id="description"></p>
+<h3>Practical Dataset</h3>
+<div class="table-wrap" id="dataset"></div>
+<h3>Formula / Example</h3>
+<pre id="formula"></pre>
+<button class="btn" onclick="showResult()">Show Expected Result</button>
+<div id="result" class="panel" style="margin-top:12px;display:none"></div>
+<h3>Explanation</h3>
+<p id="explanation" class="muted"></p>
+<h3>Practice Task</h3>
+<p id="practice"></p>
+<textarea id="answer" rows="3" placeholder="Write your answer or notes here..."></textarea>
+<button class="btn" onclick="saveNotes()">Save Notes</button>
+<div id="noteStatus" class="muted"></div>
+<div class="actions">
+<button class="btn secondary" onclick="previousLesson()">← Previous</button>
+<button class="btn" onclick="markComplete()">✓ Mark Complete</button>
+<button class="btn secondary" onclick="nextLesson()">Next →</button>
 </div>
-
-
-<!-- =========================
-     LESSON TITLE
-========================= -->
-
-<div class="section-title">
-
-    <h2>
-        30 Days of Learning
-    </h2>
-
-    <span
-        class="progress"
-        id="lessonCount">
-
-        0 / 30 Completed
-
-    </span>
-
-</div>
-
-
-<!-- =========================
-     DAYS
-========================= -->
-
-<div class="days">
-
-
-<!-- DAY 01 -->
-
-<div class="day" data-day="1">
-
-    <div class="day-number">
-        Day 01
-    </div>
-
-    <h3>
-        Getting to Know Excel
-    </h3>
-
-    <p>
-        Interface, cells, workbook and worksheet.
-    </p>
-
-    <a
-        href="day1.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(1)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 02 -->
-
-<div class="day" data-day="2">
-
-    <div class="day-number">
-        Day 02
-    </div>
-
-    <h3>
-        Entering & Editing Data
-    </h3>
-
-    <p>
-        Data types, AutoFill and Flash Fill.
-    </p>
-
-    <a
-        href="day2.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(2)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 03 -->
-
-<div class="day" data-day="3">
-
-    <div class="day-number">
-        Day 03
-    </div>
-
-    <h3>
-        Basic Formulas & Cell References
-    </h3>
-
-    <p>
-        Operators and relative vs absolute references.
-    </p>
-
-    <a
-        href="day3.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(3)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 04 -->
-
-<div class="day" data-day="4">
-
-    <div class="day-number">
-        Day 04
-    </div>
-
-    <h3>
-        Formatting Cells
-    </h3>
-
-    <p>
-        Number formats and conditional formatting.
-    </p>
-
-    <a
-        href="day4.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(4)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 05 -->
-
-<div class="day" data-day="5">
-
-    <div class="day-number">
-        Day 05
-    </div>
-
-    <h3>
-        Rows, Columns, Sheets & Freeze Panes
-    </h3>
-
-    <p>
-        Work with rows, columns, sheets and freeze panes.
-    </p>
-
-    <a
-        href="day5.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(5)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 06 -->
-
-<div class="day" data-day="6">
-
-    <div class="day-number">
-        Day 06
-    </div>
-
-    <h3>
-        Basic Functions
-    </h3>
-
-    <p>
-        SUM, AVERAGE, MIN, MAX and COUNT.
-    </p>
-
-    <a
-        href="day6.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(6)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 07 -->
-
-<div class="day" data-day="7">
-
-    <div class="day-number">
-        Day 07
-    </div>
-
-    <h3>
-        Week 1 Review + Mini Project
-    </h3>
-
-    <p>
-        Review and personal budget mini project.
-    </p>
-
-    <a
-        href="day7.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(7)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 08 -->
-
-<div class="day" data-day="8">
-
-    <div class="day-number">
-        Day 08
-    </div>
-
-    <h3>
-        Sorting & Filtering Data
-    </h3>
-
-    <p>
-        Organize and filter your datasets.
-    </p>
-
-    <a
-        href="day8.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(8)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 09 -->
-
-<div class="day" data-day="9">
-
-    <div class="day-number">
-        Day 09
-    </div>
-
-    <h3>
-        The IF Function
-    </h3>
-
-    <p>
-        Logical tests and conditional results.
-    </p>
-
-    <a
-        href="day9.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(9)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 10 -->
-
-<div class="day" data-day="10">
-
-    <div class="day-number">
-        Day 10
-    </div>
-
-    <h3>
-        COUNTIF, COUNTIFS, SUMIF, SUMIFS
-    </h3>
-
-    <p>
-        Conditional counting and summing.
-    </p>
-
-    <a
-        href="day10.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(10)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 11 -->
-
-<div class="day" data-day="11">
-
-    <div class="day-number">
-        Day 11
-    </div>
-
-    <h3>
-        Advanced Conditional Formatting
-    </h3>
-
-    <p>
-        Create smarter visual formatting rules.
-    </p>
-
-    <a
-        href="day11.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(11)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 12 -->
-
-<div class="day" data-day="12">
-
-    <div class="day-number">
-        Day 12
-    </div>
-
-    <h3>
-        Data Validation & Dropdown Lists
-    </h3>
-
-    <p>
-        Control data entry with validation.
-    </p>
-
-    <a
-        href="day12.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(12)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 13 -->
-
-<div class="day" data-day="13">
-
-    <div class="day-number">
-        Day 13
-    </div>
-
-    <h3>
-        VLOOKUP
-    </h3>
-
-    <p>
-        Learn Excel's classic lookup function.
-    </p>
-
-    <a
-        href="day13.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(13)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 14 -->
-
-<div class="day" data-day="14">
-
-    <div class="day-number">
-        Day 14
-    </div>
-
-    <h3>
-        Week 2 Review + Mini Project
-    </h3>
-
-    <p>
-        Review data management and logic skills.
-    </p>
-
-    <a
-        href="day14.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(14)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 15 -->
-
-<div class="day" data-day="15">
-
-    <div class="day-number">
-        Day 15
-    </div>
-
-    <h3>
-        Introduction to Charts
-    </h3>
-
-    <p>
-        Start creating useful Excel charts.
-    </p>
-
-    <a
-        href="day15.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(15)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 16 -->
-
-<div class="day" data-day="16">
-
-    <div class="day-number">
-        Day 16
-    </div>
-
-    <h3>
-        Advanced Charts & Formatting
-    </h3>
-
-    <p>
-        Improve charts and presentation.
-    </p>
-
-    <a
-        href="day16.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(16)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 17 -->
-
-<div class="day" data-day="17">
-
-    <div class="day-number">
-        Day 17
-    </div>
-
-    <h3>
-        PivotTables Basics
-    </h3>
-
-    <p>
-        Summarize and analyze data using PivotTables.
-    </p>
-
-    <a
-        href="day17.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(17)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 18 -->
-
-<div class="day" data-day="18">
-
-    <div class="day-number">
-        Day 18
-    </div>
-
-    <h3>
-        PivotTables: Slicers & Grouping
-    </h3>
-
-    <p>
-        Use slicers, grouping and calculated fields.
-    </p>
-
-    <a
-        href="day18.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(18)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 19 -->
-
-<div class="day" data-day="19">
-
-    <div class="day-number">
-        Day 19
-    </div>
-
-    <h3>
-        INDEX & MATCH
-    </h3>
-
-    <p>
-        Build powerful lookup solutions.
-    </p>
-
-    <a
-        href="da19.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(19)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 20 -->
-
-<div class="day" data-day="20">
-
-    <div class="day-number">
-        Day 20
-    </div>
-
-    <h3>
-        Text Functions
-    </h3>
-
-    <p>
-        LEFT, RIGHT, MID, TRIM, CONCAT and TEXTJOIN.
-    </p>
-
-    <a
-        href="day20.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(20)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 21 -->
-
-<div class="day" data-day="21">
-
-    <div class="day-number">
-        Day 21
-    </div>
-
-    <h3>
-        Week 3 Review + Mini Project
-    </h3>
-
-    <p>
-        Build a sales dashboard mini project.
-    </p>
-
-    <a
-        href="day21.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(21)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 22 -->
-
-<div class="day" data-day="22">
-
-    <div class="day-number">
-        Day 22
-    </div>
-
-    <h3>
-        Date & Time Functions
-    </h3>
-
-    <p>
-        Work with dates, deadlines and business days.
-    </p>
-
-    <a
-        href="day22.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(22)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 23 -->
-
-<div class="day" data-day="23">
-
-    <div class="day-number">
-        Day 23
-    </div>
-
-    <h3>
-        Nested Formulas
-    </h3>
-
-    <p>
-        IFS, AND and OR for advanced logic.
-    </p>
-
-    <a
-        href="day23.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(23)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 24 -->
-
-<div class="day" data-day="24">
-
-    <div class="day-number">
-        Day 24
-    </div>
-
-    <h3>
-        What-If Analysis
-    </h3>
-
-    <p>
-        Goal Seek, Data Tables and Scenarios.
-    </p>
-
-    <a
-        href="day24.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(24)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 25 -->
-
-<div class="day" data-day="25">
-
-    <div class="day-number">
-        Day 25
-    </div>
-
-    <h3>
-        Macros & VBA
-    </h3>
-
-    <p>
-        Introduction to automation with macros and VBA.
-    </p>
-
-    <a
-        href="day25.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(25)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 26 -->
-
-<div class="day" data-day="26">
-
-    <div class="day-number">
-        Day 26
-    </div>
-
-    <h3>
-        Power Query Basics
-    </h3>
-
-    <p>
-        Import and clean data with Power Query.
-    </p>
-
-    <a
-        href="day26.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(26)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 27 -->
-
-<div class="day" data-day="27">
-
-    <div class="day-number">
-        Day 27
-    </div>
-
-    <h3>
-        Dashboards & Visualization
-    </h3>
-
-    <p>
-        Learn dashboard and visualization best practices.
-    </p>
-
-    <a
-        href="day27.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(27)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 28 -->
-
-<div class="day" data-day="28">
-
-    <div class="day-number">
-        Day 28
-    </div>
-
-    <h3>
-        Error Handling
-    </h3>
-
-    <p>
-        IFERROR, ISNA and formula auditing.
-    </p>
-
-    <a
-        href="day28.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(28)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 29 -->
-
-<div class="day" data-day="29">
-
-    <div class="day-number">
-        Day 29
-    </div>
-
-    <h3>
-        Shortcuts & Excel Tables
-    </h3>
-
-    <p>
-        Keyboard shortcuts, tables and teaching tips.
-    </p>
-
-    <a
-        href="day29.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(29)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-<!-- DAY 30 -->
-
-<div class="day" data-day="30">
-
-    <div class="day-number">
-        Day 30
-    </div>
-
-    <h3>
-        Capstone Project + Recap
-    </h3>
-
-    <p>
-        Complete the final project and review the course.
-    </p>
-
-    <a
-        href="day30.html"
-        target="_blank"
-        class="lesson"
-        onclick="completeDay(30)">
-
-        📖 Read Lesson
-
-    </a>
-
-    <div class="completed-label">
-        ✓ Completed
-    </div>
-
-</div>
-
-
-</div>
-
+</section>
 </main>
 
+<footer>© Data Analytics Hub | Excel learning by Shiv Mangal</footer>
 
 <script>
-
-/* =================================
-   EXCEL COURSE TRACKER
-================================= */
-
-
-/* Get saved completed days */
-
-let completedDays =
-    JSON.parse(
-        localStorage.getItem("excelCompletedDays")
-    ) || [];
-
-
-/* =================================
-   COMPLETE DAY
-================================= */
-
-function completeDay(day){
-
-    /*
-       Add day only once.
-       So clicking the same lesson
-       multiple times won't increase
-       progress again.
-    */
-
-    if(!completedDays.includes(day)){
-
-        completedDays.push(day);
-
-        completedDays.sort(
-            function(a,b){
-                return a-b;
-            }
-        );
-
-        localStorage.setItem(
-            "excelCompletedDays",
-            JSON.stringify(completedDays)
-        );
-
-    }
-
-    updateProgress();
-
+const lessons = [
+{
+t:"What is Excel?",d:"Microsoft Excel is a spreadsheet tool used to store, organize, calculate and analyze data.",h:"Employee attendance",
+cols:["Employee","Department","Days Present"],rows:[["Aman","Sales",24],["Riya","HR",22],["Karan","IT",25]],
+f:"=SUM(C2:C4)",r:"71 total attendance days",e:"SUM adds numeric values in the selected cells.",p:"Add the attendance days of all employees."
+},
+{
+t:"Rows, Columns and Cells",d:"Rows run horizontally, columns vertically, and a cell is the intersection of a row and a column.",h:"Student marks",
+cols:["Student","Math","English"],rows:[["Asha",85,78],["Rahul",72,88]],
+f:"B2 refers to the cell in column B, row 2.",r:"B2 contains 85 in this dataset.",e:"A cell address uses a column letter followed by a row number.",p:"Identify the cell containing Rahul's English marks."
+},
+{
+t:"Basic Arithmetic Formulas",d:"Use +, -, * and / to perform calculations in Excel.",h:"Shop bill",
+cols:["Item","Price","Quantity"],rows:[["Pen",10,5],["Book",50,2]],
+f:"=B2*C2",r:"Pen total = 50",e:"Multiplication calculates price times quantity.",p:"Calculate the total cost of the books."
+},
+{
+t:"SUM Function",d:"SUM adds numbers across cells or ranges.",h:"Monthly expenses",
+cols:["Category","Amount"],rows:[["Food",2500],["Travel",1200],["Internet",700]],
+f:"=SUM(B2:B4)",r:"4400",e:"The function adds all numeric values from B2 through B4.",p:"Calculate total monthly expenses."
+},
+{
+t:"AVERAGE Function",d:"AVERAGE calculates the arithmetic mean of numeric values.",h:"Exam scores",
+cols:["Student","Score"],rows:[["A",70],["B",80],["C",90]],
+f:"=AVERAGE(B2:B4)",r:"80",e:"Excel adds the scores and divides by the number of numeric scores.",p:"Find the average score."
+},
+{
+t:"COUNT and COUNTA",d:"COUNT counts numeric cells; COUNTA counts non-empty cells.",h:"Order register",
+cols:["Order ID","Amount"],rows:[["A101",400],["A102",""],["A103",250]],
+f:"=COUNT(B2:B4)\n=COUNTA(A2:A4)",r:"COUNT = 2; COUNTA = 3",e:"COUNT ignores text and blanks. COUNTA counts every non-empty cell.",p:"Count the numeric order amounts."
+},
+{
+t:"MIN and MAX",d:"MIN returns the smallest value and MAX returns the largest.",h:"Delivery times",
+cols:["Courier","Hours"],rows:[["Fast",2],["Standard",5],["Express",1]],
+f:"=MIN(B2:B4)\n=MAX(B2:B4)",r:"Minimum = 1; Maximum = 5",e:"Use these functions to find extremes in a numeric dataset.",p:"Find the longest delivery time."
+},
+{
+t:"IF Function",d:"IF returns one result when a condition is true and another when false.",h:"Pass or fail",
+cols:["Student","Marks"],rows:[["Asha",78],["Mohan",32],["Ravi",61]],
+f:'=IF(B2>=40,"Pass","Fail")',r:"Asha = Pass",e:"Excel tests whether marks are at least 40.",p:"Create a Pass/Fail formula for every student."
+},
+{
+t:"AND and OR",d:"AND requires every condition to be true; OR requires at least one condition to be true.",h:"Employee eligibility",
+cols:["Name","Attendance","Score"],rows:[["Aman",95,80],["Riya",70,90],["Neha",92,45]],
+f:"=AND(B2>=90,C2>=60)\n=OR(B2>=90,C2>=60)",r:"Aman: AND TRUE, OR TRUE",e:"Combine conditions to create more flexible logical tests.",p:"Find employees with attendance above 90 and score above 60."
+},
+{
+t:"SUMIF",d:"SUMIF adds values that match one condition.",h:"Regional sales",
+cols:["Region","Sales"],rows:[["North",1200],["South",900],["North",800]],
+f:'=SUMIF(A2:A4,"North",B2:B4)',r:"2000",e:"Excel adds sales only for rows where the region is North.",p:"Calculate total South region sales."
+},
+{
+t:"COUNTIF",d:"COUNTIF counts cells that meet a single condition.",h:"Product inventory",
+cols:["Product","Status"],rows:[["Mouse","In Stock"],["Keyboard","Out"],["Monitor","In Stock"]],
+f:'=COUNTIF(B2:B4,"In Stock")',r:"2",e:"COUNTIF checks each status against the supplied criterion.",p:"Count how many products are Out."
+},
+{
+t:"SUMIFS",d:"SUMIFS adds values that meet multiple conditions.",h:"Sales by region and product",
+cols:["Region","Product","Sales"],rows:[["North","Laptop",5000],["North","Phone",2000],["South","Laptop",3000]],
+f:'=SUMIFS(C2:C4,A2:A4,"North",B2:B4,"Laptop")',r:"5000",e:"Every supplied condition must match for a row to be included.",p:"Find South region laptop sales."
+},
+{
+t:"XLOOKUP",d:"XLOOKUP searches a range and returns the corresponding value from another range. It is available in modern Excel versions.",h:"Employee directory",
+cols:["ID","Name","Salary"],rows:[["E01","Aman",30000],["E02","Riya",35000],["E03","Neha",32000]],
+f:'=XLOOKUP("E02",A2:A4,C2:C4,"Not found")',r:"35000",e:"The formula finds E02 and returns the salary from column C.",p:"Look up Neha's salary."
+},
+{
+t:"VLOOKUP",d:"VLOOKUP searches the first column of a table and returns a value from a specified column.",h:"Product price list",
+cols:["Code","Product","Price"],rows:[["P01","Pen",10],["P02","Book",50],["P03","Bag",500]],
+f:'=VLOOKUP("P02",A2:C4,3,FALSE)',r:"50",e:"3 means the third column of the selected table; FALSE requests an exact match.",p:"Find the price of P03."
+},
+{
+t:"INDEX and MATCH",d:"MATCH finds a position; INDEX returns the value at a position. Together they enable flexible lookups.",h:"Course scores",
+cols:["Code","Course","Score"],rows:[["C1","Excel",90],["C2","SQL",85],["C3","Python",88]],
+f:'=INDEX(C2:C4,MATCH("SQL",B2:B4,0))',r:"85",e:"MATCH finds SQL's position, and INDEX returns the score at that position.",p:"Return the score for Python."
+},
+{
+t:"LEFT, RIGHT and MID",d:"These functions extract characters from the beginning, end or middle of text.",h:"Order codes",
+cols:["Order Code"],rows:[["INV-2026-101"],["INV-2026-102"],["INV-2026-103"]],
+f:"=LEFT(A2,3)\n=RIGHT(A2,3)\n=MID(A2,5,4)",r:"INV; 101; 2026",e:"Specify the starting position and number of characters where required.",p:"Extract the last three digits from the second order code."
+},
+{
+t:"TRIM and CLEAN",d:"TRIM removes extra spaces; CLEAN removes many non-printing characters.",h:"Customer names",
+cols:["Raw Name"],rows:[["  Aman Kumar  "],["Riya   Sharma"],["Neha Singh"]],
+f:"=TRIM(A2)\n=CLEAN(A2)",r:"Aman Kumar",e:"Clean text before matching names, building reports or joining datasets.",p:"Write a formula to remove extra spaces from Riya's name."
+},
+{
+t:"TEXT Functions",d:"TEXT formats a numeric value as text; CONCAT or TEXTJOIN combines text.",h:"Invoice records",
+cols:["Customer","Amount"],rows:[["Aman",1500],["Riya",2500],["Neha",900]],
+f:'=TEXT(B2,"₹#,##0")\n=CONCAT(A2," - ",B2)',r:"₹1,500; Aman - 1500",e:"Use TEXT for display formatting and CONCAT to combine values.",p:"Combine the customer name and amount."
+},
+{
+t:"Date Functions",d:"TODAY returns today's date; YEAR, MONTH and DAY extract date components.",h:"Project deadlines",
+cols:["Project","Deadline"],rows:[["Website","15-10-2026"],["Dashboard","25-10-2026"],["Report","30-10-2026"]],
+f:"=TODAY()\n=YEAR(B2)\n=MONTH(B2)",r:"TODAY depends on the current date; year and month are extracted from a valid date.",e:"Excel stores dates as serial numbers, so use real date values for reliable calculations.",p:"Extract the year from the first deadline."
+},
+{
+t:"Sorting and Filtering",d:"Sorting changes row order; filtering temporarily displays only matching records.",h:"Support tickets",
+cols:["Ticket","Priority","Status"],rows:[["T101","High","Open"],["T102","Low","Closed"],["T103","High","Open"]],
+f:"Select the data → Data → Sort or Filter.\nShortcut to toggle filters: Ctrl+Shift+L",r:"Filter Priority to High to show T101 and T103.",e:"Keep headers and full rows selected so records remain aligned.",p:"Filter the table to show only closed tickets."
+},
+{
+t:"Excel Tables",d:"Excel Tables automatically expand, provide filters and support structured references.",h:"Online orders",
+cols:["Order","Units","Price"],rows:[["O1",2,100],["O2",3,150],["O3",1,400]],
+f:"Select data → Ctrl+T\nAdd Total column: =[@Units]*[@Price]",r:"Totals: 200, 450, 400",e:"Tables make formulas and datasets easier to maintain as new records are added.",p:"Convert the dataset to a table and add a Total column."
+},
+{
+t:"Conditional Formatting",d:"Conditional formatting changes cell appearance based on rules.",h:"Monthly performance",
+cols:["Employee","Achievement %"],rows:[["Aman",95],["Riya",55],["Neha",78]],
+f:"Home → Conditional Formatting → Highlight Cells Rules\nExample rule: cell value < 60",r:"Riya's achievement should be highlighted.",e:"Use colors to draw attention to low scores, duplicates or unusually high values.",p:"Highlight achievement percentages below 70."
+},
+{
+t:"Remove Duplicates",d:"Remove Duplicates keeps one instance of repeated records based on selected columns.",h:"Customer list",
+cols:["Customer ID","Name"],rows:[["C01","Aman"],["C02","Riya"],["C01","Aman"]],
+f:"Data → Remove Duplicates",r:"One repeated C01 record is removed when both columns are selected.",e:"Keep a backup first and carefully choose the columns used to identify duplicates.",p:"Explain why you should back up data before removing duplicates."
+},
+{
+t:"Data Validation",d:"Data Validation restricts which values users can enter in a cell.",h:"Expense approval",
+cols:["Expense","Approval"],rows:[["Travel","Approved"],["Food","Pending"],["Software","Rejected"]],
+f:"Data → Data Validation → Allow: List\nSource: Approved,Pending,Rejected",r:"A dropdown list lets users choose an allowed approval status.",e:"Validation improves consistency and reduces typing mistakes.",p:"Create a dropdown for Low, Medium and High priority."
+},
+{
+t:"Flash Fill",d:"Flash Fill detects a pattern from examples and fills the remaining values.",h:"Full names",
+cols:["Full Name","First Name"],rows:[["Aman Kumar","Aman"],["Riya Sharma","Riya"],["Neha Singh","Neha"]],
+f:"Type the first example → Ctrl+E",r:"Excel attempts to extract the first name for each row.",e:"Review results after Flash Fill, especially when names follow inconsistent patterns.",p:"Extract surnames into a new column."
+},
+{
+t:"PivotTable Basics",d:"A PivotTable summarizes large datasets without manually writing every aggregation.",h:"Store sales",
+cols:["Store","Category","Sales"],rows:[["A","Food",500],["A","Tech",900],["B","Food",700],["B","Tech",400]],
+f:"Insert → PivotTable\nRows: Store | Columns: Category | Values: Sum of Sales",r:"Store A total = 1400; Store B total = 1100.",e:"PivotTables group and aggregate records. Refresh after changing source data.",p:"Create a PivotTable showing total sales by category."
+},
+{
+t:"PivotTable with Multiple Dimensions",d:"Add more than one field to Rows, Columns or Filters to compare groups.",h:"Regional quarterly revenue",
+cols:["Region","Quarter","Revenue"],rows:[["North","Q1",1000],["North","Q2",1300],["South","Q1",900],["South","Q2",1200]],
+f:"Rows: Region\nColumns: Quarter\nValues: Sum of Revenue",r:"North Q1 = 1000; North Q2 = 1300.",e:"Multiple dimensions let managers compare categories and time periods.",p:"Identify which region has the higher Q2 revenue."
+},
+{
+t:"Charts",d:"Charts communicate comparisons, trends and distributions visually.",h:"Quarterly revenue",
+cols:["Quarter","Revenue"],rows:[["Q1",12000],["Q2",15000],["Q3",14000],["Q4",19000]],
+f:"Select data → Insert → Column Chart or Line Chart",r:"Q4 has the highest revenue in this dataset.",e:"Use line charts for trends over time and bars for category comparisons.",p:"Choose a chart to compare quarterly revenue."
+},
+{
+t:"KPI Analysis",d:"KPIs are measurable indicators used to track business performance.",h:"Monthly business KPIs",
+cols:["Metric","Target","Actual"],rows:[["Sales",100000,112000],["Orders",500,460],["Returns",30,22]],
+f:"Achievement %: =C2/B2\nVariance: =C2-B2",r:"Sales achievement = 112%; sales variance = 12000.",e:"Compare actual values with targets and explain why each KPI matters.",p:"Calculate order achievement percentage."
+},
+{
+t:"Power Query",d:"Power Query imports, cleans and transforms data through repeatable steps.",h:"Raw import records",
+cols:["Name","City","Amount"],rows:[[" Aman ","Delhi",100],["Riya","Delhi",200],["Aman","Mumbai",150]],
+f:"Data → Get Data → choose source\nIn Power Query: Trim/Clean, set data types, remove duplicates, Close & Load.",r:"A repeatable transformation process prepares the source data for analysis.",e:"Power Query is particularly useful when the same cleaning steps must be repeated.",p:"List three cleaning steps you would apply to this dataset."
+},
+{
+t:"Data Cleaning Project",d:"Prepare raw data by fixing blanks, duplicates, inconsistent text and data types.",h:"Raw customer records",
+cols:["Customer","City","Email"],rows:[[" Aman ","Delhi","aman@example.com"],["Riya","delhi","riya@example.com"],["Aman","Delhi","aman@example.com"],["Neha","","neha@example.com"]],
+f:"Useful tools: TRIM, CLEAN, Remove Duplicates, Filters, IF and Data Validation.",r:"Standardize city names, inspect duplicate records and review missing cities.",e:"Never delete questionable records without checking the business rules.",p:"Create a cleaning checklist for the four records."
+},
+{
+t:"Sales Analysis Project",d:"Analyze sales by product, region and time period to find opportunities.",h:"Product sales",
+cols:["Product","Region","Units","Price"],rows:[["Laptop","North",5,40000],["Phone","South",12,15000],["Laptop","South",3,40000],["Phone","North",8,15000]],
+f:"Revenue: =C2*D2\nTotal revenue: =SUM(E2:E5)\nUse PivotTables to compare products and regions.",r:"Calculate row-level revenue first, then summarize by product and region.",e:"A strong sales report includes totals, comparisons and a short business recommendation.",p:"Find which product generates more revenue."
+},
+{
+t:"Customer Analysis Project",d:"Use customer-level data to understand repeat purchases and customer value.",h:"Customer transactions",
+cols:["Customer","Orders","Spend"],rows:[["Aman",4,12000],["Riya",1,2500],["Neha",3,9000],["Aman",2,6000]],
+f:"Use SUMIF to total customer spend and COUNTIF to count matching records.",r:'Example: =SUMIF(A2:A5,"Aman",C2:C5) returns 18000.',e:"Aggregate transactions by customer before drawing conclusions about customer value.",p:"Calculate total spend for Neha."
+},
+{
+t:"Dashboard Project",d:"Build a dashboard that combines KPIs, charts and filters on one page.",h:"Dashboard source",
+cols:["Month","Sales","Orders"],rows:[["Jan",50000,200],["Feb",65000,240],["Mar",72000,280]],
+f:"1. Clean data\n2. Create PivotTables\n3. Calculate KPIs\n4. Insert charts\n5. Add slicers where supported\n6. Format a one-page dashboard.",r:"A dashboard should show the key numbers first and make comparisons easy.",e:"Use clear titles, consistent number formats and only visuals that answer business questions.",p:"Sketch a dashboard with three KPIs and two charts."
+},
+{
+t:"Excel Interview Questions",d:"Prepare to explain concepts and demonstrate formulas with small examples.",h:"Interview practice",
+cols:["Question","Skill"],rows:[["SUMIF vs SUMIFS","Conditional totals"],["VLOOKUP vs XLOOKUP","Lookup methods"],["What is a PivotTable?","Summarization"],["How do you remove duplicates?","Data cleaning"]],
+f:"Practice: SUM, IF, COUNTIF, SUMIFS, XLOOKUP, text functions, PivotTables and charts.",r:"Give a definition, a practical example and a business use case.",e:"Interviewers may ask you to solve a task, not only define a function.",p:"Explain the difference between COUNT and COUNTA in your own words."
+},
+{
+t:"Final Job-Ready Excel Project",d:"Combine cleaning, formulas, lookups, summaries and a dashboard into one business report.",h:"Final sales dataset",
+cols:["Order ID","Region","Product","Units","Unit Price"],rows:[["101","North","Laptop",2,40000],["102","South","Phone",5,15000],["103","North","Phone",3,15000],["104","West","Laptop",1,40000]],
+f:"Revenue column: =D2*E2\nTotal revenue: =SUM(F2:F5)\nUse SUMIFS by region, PivotTables by product, and charts for comparisons.",r:"Your final workbook should include a cleaned dataset, revenue calculation, summary report and dashboard.",e:"Explain your analysis, important findings, and recommendations as if presenting to a manager.",p:"Build the complete workbook and write three business insights."
 }
+];
 
+let current = 0;
+let completed = JSON.parse(localStorage.getItem("excelHubCompleted") || "[]");
 
-/* =================================
-   UPDATE PROGRESS
-================================= */
-
+function renderList(){
+ const q = document.getElementById("search").value.toLowerCase();
+ document.getElementById("lessons").innerHTML = lessons.map((l,i)=>
+ ({l,i})).filter(x=>x.l.t.toLowerCase().includes(q)).map(({l,i})=>
+ `<button class="lesson ${i===current?'active':''}" onclick="openLesson(${i})">${completed.includes(i)?'✅':'📘'} ${i+1}. ${l.t}</button>`
+ ).join("");
+}
 function updateProgress(){
-
-    const totalLessons = 30;
-
-    const completed =
-        completedDays.length;
-
-    const percentage =
-        Math.round(
-            (completed / totalLessons) * 100
-        );
-
-
-    /* Main progress bar */
-
-    document.getElementById(
-        "mainProgressFill"
-    ).style.width =
-        percentage + "%";
-
-
-    /* Percentage */
-
-    document.getElementById(
-        "progressPercent"
-    ).textContent =
-        percentage + "%";
-
-
-    /* Text */
-
-    document.getElementById(
-        "progressText"
-    ).textContent =
-        completed +
-        " of 30 lessons completed";
-
-
-    /* Lesson count */
-
-    document.getElementById(
-        "lessonCount"
-    ).textContent =
-        completed +
-        " / 30 Completed";
-
-
-    /* =================================
-       Update individual cards
-    ================================= */
-
-    document
-        .querySelectorAll(".day")
-        .forEach(function(card){
-
-            const day =
-                parseInt(
-                    card.dataset.day
-                );
-
-            if(
-                completedDays.includes(day)
-            ){
-
-                card.classList.add(
-                    "completed"
-                );
-
-            }else{
-
-                card.classList.remove(
-                    "completed"
-                );
-
-            }
-
-        });
-
-
-    /* =================================
-       Dashboard compatibility
-    =================================
-
-       Dashboard tracker already uses
-       excelLessons.
-
-       Keep it synchronized.
-    */
-
-    localStorage.setItem(
-        "excelLessons",
-        completed
-    );
-
+ document.getElementById("done").textContent=completed.length;
+ document.getElementById("percent").textContent=Math.round(completed.length/lessons.length*100)+"%";
+ document.getElementById("bar").style.width=(completed.length/lessons.length*100)+"%";
 }
-
-
-/* =================================
-   LOAD SAVED PROGRESS
-================================= */
-
-updateProgress();
-
+function openLesson(i){
+ current=Math.max(0,Math.min(i,lessons.length-1));
+ const l=lessons[current];
+ document.getElementById("lessonNumber").textContent="LESSON "+(current+1)+" OF "+lessons.length;
+ document.getElementById("title").textContent=l.t;
+ document.getElementById("description").textContent=l.d;
+ document.getElementById("dataset").innerHTML="<table><thead><tr>"+l.cols.map(c=>"<th>"+c+"</th>").join("")+"</tr></thead><tbody>"+l.rows.map(row=>"<tr>"+row.map(v=>"<td>"+v+"</td>").join("")+"</tr>").join("")+"</tbody></table>";
+ document.getElementById("formula").textContent=l.f;
+ document.getElementById("result").style.display="none";
+ document.getElementById("explanation").textContent=l.e;
+ document.getElementById("practice").textContent=l.p;
+ document.getElementById("answer").value=localStorage.getItem("excelNote"+current)||"";
+ document.getElementById("noteStatus").textContent="";
+ renderList();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function showResult(){
+ const l=lessons[current];
+ const box=document.getElementById("result");
+ box.style.display="block";
+ box.innerHTML="<strong>Expected result / guidance</strong><p>"+l.r+"</p><p class='muted'>This is a learning example, not a live Excel calculation engine.</p>";
+}
+function markComplete(){
+ if(!completed.includes(current))completed.push(current);
+ localStorage.setItem("excelHubCompleted",JSON.stringify(completed));
+ renderList();updateProgress();
+}
+function previousLesson(){openLesson(current-1)}
+function nextLesson(){openLesson(current+1)}
+function saveNotes(){
+ localStorage.setItem("excelNote"+current,document.getElementById("answer").value);
+ document.getElementById("noteStatus").textContent="Notes saved in this browser.";
+}
+document.getElementById("total").textContent=lessons.length;
+renderList();updateProgress();openLesson(0);
 </script>
-
-
 </body>
-
 </html>
