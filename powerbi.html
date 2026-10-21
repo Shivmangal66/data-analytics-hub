@@ -142,6 +142,65 @@ footer{text-align:center;padding:25px;color:var(--muted)}
 </div>
 </section>
 </main>
+  <!-- CERTIFICATE REQUEST SECTION -->
+<section id="certificateSection" class="panel"
+         style="margin:25px 4%;display:none">
+
+  <div class="badge">COURSE COMPLETION</div>
+  <h2>🎓 Power BI Course Certificate</h2>
+
+  <p class="muted">
+    Congratulations! You have completed all the Power BI course lessons.
+    Submit your details and a screenshot showing 100% completion to
+    request your certificate from Data Analytics Hub.
+  </p>
+
+  <div class="stat">
+    <strong>100% Required</strong>
+    <span>Course completion</span>
+  </div>
+
+  <form id="certificateForm">
+    <label for="studentName">Full Name (as on certificate)</label>
+    <input id="studentName" required maxlength="100"
+           placeholder="Enter your full name">
+
+    <label for="studentEmail">Email Address</label>
+    <input id="studentEmail" type="email" required
+           placeholder="Enter your email">
+
+    <label for="studentPhone">WhatsApp Number</label>
+    <input id="studentPhone" type="tel" required
+           placeholder="Enter your WhatsApp number">
+
+    <label for="completionPhoto">
+      Upload 100% Course Completion Screenshot
+    </label>
+    <input id="completionPhoto" type="file"
+           accept="image/*" required>
+
+    <p class="muted">
+      Certificate: Power BI Course<br>
+      Learning Duration: 1 Month<br>
+      Organization: Data Analytics Hub<br>
+      Issued by: Shiv Mangal, Owner
+    </p>
+
+    <div class="actions">
+      <button type="button" class="btn"
+              onclick="sendCertificateRequest('email')">
+        📧 Request via Email
+      </button>
+
+      <button type="button" class="btn secondary"
+              onclick="sendCertificateRequest('whatsapp')">
+        📱 Request via WhatsApp
+      </button>
+    </div>
+
+    <p id="certificateStatus" class="muted" aria-live="polite"></p>
+  </form>
+</section>
 
 <section id="dashboard" class="panel" style="margin:0 4% 25px">
 <div class="badge">INTERACTIVE PRACTICE</div>
