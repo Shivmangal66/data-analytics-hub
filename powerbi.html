@@ -1,0 +1,528 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Power BI Masterclass | Data Analytics Hub</title>
+<style>
+:root {
+  --bg:#0b1020;--panel:#141d30;--panel2:#19263b;
+  --border:#2c3a52;--text:#f2f6ff;--muted:#aab8d0;
+  --accent:#f2c811;--blue:#4da3ff;--green:#37d6a0;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+header{padding:15px 4%;background:#111a2b;border-bottom:1px solid var(--border)}
+nav{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+a{color:#f2d75b;text-decoration:none}
+.brand{font-weight:bold;font-size:20px}
+button,select,input,textarea{font:inherit}
+button{cursor:pointer}
+.btn{border:0;border-radius:8px;padding:11px 15px;background:var(--accent);color:#151515;font-weight:bold}
+.secondary{background:#26354d;color:white;border:1px solid var(--border)}
+.hero{padding:35px 5%;background:linear-gradient(120deg,#252d45,#111a2b)}
+.hero h1{font-size:clamp(30px,5vw,48px);margin:12px 0}
+.muted{color:var(--muted);line-height:1.7}
+main{padding:22px 4%;display:grid;grid-template-columns:270px minmax(0,1fr);gap:20px}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:13px;padding:18px;min-width:0}
+input,select,textarea{width:100%;padding:11px;margin:7px 0;background:#0b1425;border:1px solid var(--border);color:white;border-radius:8px}
+#lessonList{max-height:70vh;overflow:auto}
+.lesson{display:block;width:100%;text-align:left;background:none;color:white;border:0;border-bottom:1px solid var(--border);padding:12px;line-height:1.4}
+.lesson:hover,.lesson.active{background:#293752}
+.badge{font-size:12px;color:var(--accent);font-weight:bold;text-transform:uppercase;letter-spacing:1px}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}
+.stat{flex:1;min-width:120px;padding:14px;background:var(--panel);border:1px solid var(--border);border-radius:10px}
+.stat strong{display:block;font-size:24px;margin-bottom:6px;color:var(--accent)}
+.section{margin-top:25px}
+.table-wrap{overflow:auto}
+table{border-collapse:collapse;width:100%;min-width:500px;font-size:14px}
+th,td{padding:10px;border:1px solid var(--border);text-align:left}
+th{background:#293752}
+tr:nth-child(even) td{background:#172238}
+pre{white-space:pre-wrap;overflow:auto;background:#091222;padding:15px;border:1px solid var(--border);border-radius:8px;color:#d9e5ff}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+#dashboard{margin-top:20px}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi{background:#18243a;padding:16px;border:1px solid var(--border);border-radius:10px}
+.kpi small{color:var(--muted)}
+.kpi strong{display:block;font-size:25px;margin-top:9px;color:var(--accent)}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:15px}
+.chartbox{background:#101a2c;padding:15px;border:1px solid var(--border);border-radius:10px;min-width:0}
+canvas{width:100%;height:260px;display:block}
+footer{text-align:center;padding:25px;color:var(--muted)}
+@media(max-width:900px){
+ main{grid-template-columns:1fr}
+ #lessonList{max-height:320px}
+ .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .charts{grid-template-columns:1fr}
+}
+@media(max-width:450px){.kpis{grid-template-columns:1fr 1fr}.kpi strong{font-size:20px}}
+</style>
+</head>
+<body>
+
+<header>
+<nav>
+<a class="brand" href="index.html">📊 Data Analytics Hub</a>
+<div style="display:flex;gap:13px;flex-wrap:wrap">
+<a href="index.html">Home</a>
+<a href="excel.html">Excel</a>
+<a href="sql.html">SQL</a>
+<a href="python.html">Python</a>
+</div>
+<a class="btn" href="https://learn.microsoft.com/en-us/power-bi/" target="_blank" rel="noopener">Official Learning</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="badge">BEGINNER TO JOB READY</div>
+<h1>Power BI Masterclass</h1>
+<p class="muted">Learn data preparation, modeling, DAX, visualization, dashboard design and business reporting through practical lessons.</p>
+<div class="stats">
+<div class="stat"><strong id="total">0</strong>Lessons</div>
+<div class="stat"><strong id="completed">0</strong>Completed</div>
+<div class="stat"><strong id="progress">0%</strong>Progress</div>
+</div>
+<div style="height:7px;background:#344057;border-radius:8px;overflow:hidden">
+<div id="progressBar" style="height:100%;width:0;background:var(--accent)"></div>
+</div>
+</section>
+
+<main>
+<aside class="panel">
+<h2>Course Contents</h2>
+<input id="search" placeholder="Search lessons..." oninput="renderLessons()">
+<div id="lessonList"></div>
+</aside>
+
+<section class="panel">
+<div class="badge" id="lessonNumber"></div>
+<h2 id="lessonTitle"></h2>
+<p class="muted" id="lessonIntro"></p>
+
+<div class="section">
+<h3>1. Concept Explained</h3>
+<div id="lessonExplanation" class="muted"></div>
+</div>
+
+<div class="section">
+<h3>2. Practical Dataset</h3>
+<p class="muted" id="datasetDescription"></p>
+<div class="table-wrap" id="dataset"></div>
+</div>
+
+<div class="section">
+<h3>3. Example / DAX / Steps</h3>
+<pre id="example"></pre>
+</div>
+
+<div class="section">
+<h3>4. Expected Result</h3>
+<p id="expected" class="muted"></p>
+</div>
+
+<div class="section">
+<h3>5. Business Application</h3>
+<p id="business" class="muted"></p>
+</div>
+
+<div class="section">
+<h3>6. Practice Task</h3>
+<p id="practice"></p>
+<textarea id="notes" rows="4" placeholder="Write your answer or notes here..."></textarea>
+<button class="btn" onclick="saveNotes()">Save Notes</button>
+<span id="saveStatus" class="muted"></span>
+</div>
+
+<div class="actions">
+<button class="btn secondary" onclick="previousLesson()">← Previous</button>
+<button class="btn" onclick="markComplete()">✓ Mark Complete</button>
+<button class="btn secondary" onclick="nextLesson()">Next →</button>
+</div>
+</section>
+</main>
+
+<section id="dashboard" class="panel" style="margin:0 4% 25px">
+<div class="badge">INTERACTIVE PRACTICE</div>
+<h2>Sales Analytics Dashboard</h2>
+<p class="muted">This is a browser-based demonstration dashboard inspired by Power BI. Select filters to update the KPIs and charts.</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px">
+<div><label for="regionFilter">Region</label><select id="regionFilter" onchange="updateDashboard()"><option value="All">All Regions</option></select></div>
+<div><label for="productFilter">Product</label><select id="productFilter" onchange="updateDashboard()"><option value="All">All Products</option></select></div>
+<div><label for="channelFilter">Channel</label><select id="channelFilter" onchange="updateDashboard()"><option value="All">All Channels</option></select></div>
+</div>
+
+<div class="kpis" style="margin-top:15px">
+<div class="kpi"><small>Total Revenue</small><strong id="revenueKpi">₹0</strong></div>
+<div class="kpi"><small>Total Orders</small><strong id="ordersKpi">0</strong></div>
+<div class="kpi"><small>Units Sold</small><strong id="unitsKpi">0</strong></div>
+<div class="kpi"><small>Average Order Value</small><strong id="averageKpi">₹0</strong></div>
+</div>
+
+<div class="charts">
+<div class="chartbox"><h3>Revenue by Region</h3><canvas id="regionChart"></canvas></div>
+<div class="chartbox"><h3>Revenue by Product</h3><canvas id="productChart"></canvas></div>
+</div>
+<div class="section">
+<h3>Filtered Sales Records</h3>
+<div id="dashboardTable" class="table-wrap"></div>
+</div>
+<button class="btn secondary" onclick="resetDashboard()">Reset Dashboard Filters</button>
+</section>
+
+<footer>Data Analytics Hub · Power BI Learning Course</footer>
+
+<script>
+const lessons = [
+{
+title:"Introduction to Power BI",level:"Beginner",
+intro:"Power BI is a business intelligence platform used to transform data into interactive reports and dashboards.",
+explanation:"Power BI Desktop is used to connect to data, transform it, build a data model, create visualizations and publish reports. Power BI Service supports sharing and collaboration subject to account and licensing requirements.",
+headers:["Department","Monthly Sales","Target"],
+rows:[["Sales",150000,140000],["Marketing",80000,90000],["Operations",110000,100000]],
+example:"Typical workflow:\n1. Get Data\n2. Transform Data\n3. Model Data\n4. Create Visuals\n5. Publish and Share",
+expected:"You should understand the role of Desktop, the Service, reports, dashboards and datasets/semantic models.",
+business:"Organizations use Power BI for sales monitoring, finance reporting, operations and management decisions.",
+practice:"Explain the difference between a report and a dashboard in your own words."
+},
+{
+title:"Power BI Desktop Interface",level:"Beginner",
+intro:"Learn the main interface elements and how to navigate a report project.",
+explanation:"The main areas include the report canvas, Data view, Model view, Visualizations or visual-building options, Data/Fields pane and Power Query Editor. Interface labels may vary by Power BI version.",
+headers:["Page","Purpose","Typical Activity"],
+rows:[["Report view","Create report pages","Add charts and slicers"],["Data view","Inspect loaded tables","Review columns and values"],["Model view","Manage relationships","Connect fact and dimension tables"],["Power Query Editor","Transform data","Change types and remove errors"]],
+example:"Home → Get Data → choose a source\nHome → Transform Data\nReport view → add a visual",
+expected:"You should be able to locate the report canvas, table/model areas and Power Query Editor.",
+business:"Knowing the interface makes report development more efficient.",
+practice:"Open Power BI Desktop and identify Report view, Model view and Transform Data."
+},
+{
+title:"Connecting to Data Sources",level:"Beginner",
+intro:"Power BI can connect to spreadsheets, text files, databases and many online services.",
+explanation:"The Get Data experience allows you to choose a connector, preview available tables and load or transform data. Choose the correct connection and privacy settings for your source.",
+headers:["Source","Example Data","Typical Use"],
+rows:[["Excel workbook","Sales.xlsx","Department reports"],["CSV file","Orders.csv","Exported transactions"],["SQL database","Orders table","Operational systems"],["Web source","Published dataset","Online information"],["Folder","Monthly CSV files","Combine recurring files"]],
+example:"Home → Get Data → select connector\nPreview the data → Transform Data or Load",
+expected:"A source is connected and its tables can be inspected before loading.",
+business:"Reliable data connections reduce manual copying and improve refresh workflows.",
+practice:"Import an Excel workbook containing a Sales table."
+},
+{
+title:"Power Query Fundamentals",level:"Beginner",
+intro:"Power Query is the data preparation engine used to import, clean and reshape data before analysis.",
+explanation:"Power Query records transformations as applied steps. Examples include renaming columns, changing data types, filtering rows, trimming text and merging queries. The original source is not directly changed by these steps.",
+headers:["Raw Customer","City","Amount"],
+rows:[[" Aman ","delhi",1200],["Riya","NOIDA",1800],["Neha ","Jaipur",950],["Karan","DELHI",2100],["Priya","noida",1600]],
+example:"Transform Data → select Customer → Format → Trim\nSelect City → standardize case/values\nSet Amount data type to Whole Number or Decimal Number\nHome → Close & Apply",
+expected:"Customer names are trimmed, city values are standardized and Amount is stored as a numeric type.",
+business:"Power Query is valuable for repeatable data cleaning and monthly refresh processes.",
+practice:"Clean this dataset by trimming customer names and standardizing city names."
+},
+{
+title:"Data Types and Missing Values",level:"Beginner",
+intro:"Correct data types prevent calculations, sorting and relationships from behaving unexpectedly.",
+explanation:"Numbers, text, dates, Boolean values and currency-like numbers should use appropriate types. Blanks may mean unknown, not applicable or zero; do not automatically replace them without understanding the business meaning.",
+headers:["Order ID","Order Date","Quantity","Price","Customer"],
+rows:[["101","2026-10-01","2","1200","Aman"],["102","2026-10-02","3","850","Riya"],["103","2026-10-03","","600","Neha"],["104","2026-10-04","1","1500","Karan"],["105","2026-10-05","4","700","Priya"],["106","2026-10-06","2","900","Mohan"]],
+example:"Power Query:\n1. Set Order Date to Date.\n2. Set Quantity to Whole Number.\n3. Set Price to Decimal Number or Fixed Decimal.\n4. Investigate blanks before replacing them.",
+expected:"Dates and numeric fields have valid types. Missing quantities are investigated instead of silently assumed to be zero.",
+business:"Accurate data types are essential for date filtering, arithmetic and aggregation.",
+practice:"Identify all type errors and missing values in the sample data."
+},
+{
+title:"Append vs Merge Queries",level:"Intermediate",
+intro:"Append stacks rows from tables; Merge joins tables using matching key columns.",
+explanation:"Append is useful when January and February sales files share the same schema. Merge is useful when you need to add customer or product attributes to a transaction table using a key. Keys should be checked for duplicates and unmatched records.",
+headers:["Operation","Input A","Input B","Result"],
+rows:[["Append","January orders","February orders","More rows"],["Merge","Orders table","Customer lookup","More columns"],["Append","Same schema","Same schema","Combined records"],["Merge","Order ID","Order details","Matched fields"]],
+example:"Home → Append Queries\nHome → Merge Queries → choose matching columns → choose join type",
+expected:"Append increases the row set. Merge usually adds columns based on matches.",
+business:"These operations help combine monthly files and enrich transactions with master data.",
+practice:"Explain whether you would append two monthly sales tables or merge sales with customer details."
+},
+{
+title:"Data Modeling and Relationships",level:"Intermediate",
+intro:"A data model connects related tables so that filters and calculations work consistently across a report.",
+explanation:"A common model has a fact table containing transactions and dimension tables containing descriptive attributes. A relationship often connects a unique dimension key to repeated keys in the fact table. Avoid ambiguous relationship paths.",
+headers:["Table","Key","Example Columns"],
+rows:[["Sales","ProductID","OrderID, ProductID, Revenue"],["Products","ProductID","ProductName, Category"],["Customers","CustomerID","CustomerName, City"],["Date","Date","Year, Month, Quarter"],["Regions","RegionID","RegionName"]],
+example:"Model view:\nProducts[ProductID] 1 → * Sales[ProductID]\nCustomers[CustomerID] 1 → * Sales[CustomerID]\nDate[Date] 1 → * Sales[OrderDate]",
+expected:"Dimension tables have unique keys, and the fact table contains matching foreign keys.",
+business:"Good models reduce duplicate logic and support consistent slicing across multiple visuals.",
+practice:"Design relationships for Sales, Products, Customers and Date tables."
+},
+{
+title:"Star Schema",level:"Intermediate",
+intro:"A star schema places a central fact table around descriptive dimension tables.",
+explanation:"The fact table usually stores measurable events such as sales, quantity or cost. Dimensions describe the events through attributes such as product, customer, date and region. Dimension keys should be unique for one-to-many relationships.",
+headers:["Table Type","Example","Purpose"],
+rows:[["Fact","FactSales","Revenue, quantity, cost, keys"],["Dimension","DimProduct","Product name and category"],["Dimension","DimCustomer","Customer and segment"],["Dimension","DimDate","Year, month, date"],["Dimension","DimRegion","Region and territory"]],
+example:"FactSales[ProductKey] → DimProduct[ProductKey]\nFactSales[CustomerKey] → DimCustomer[CustomerKey]\nFactSales[DateKey] → DimDate[DateKey]",
+expected:"The model has one central fact table and separate descriptive dimensions.",
+business:"A star schema is often easier to understand, optimize and maintain than a flat collection of unrelated tables.",
+practice:"Create a star-schema diagram for an online retail business."
+},
+{
+title:"DAX Introduction and Measures",level:"Intermediate",
+intro:"DAX is the formula language used to create measures, calculated columns and calculated tables in Power BI.",
+explanation:"Measures calculate results based on the current filter context. Calculated columns are computed for rows during model processing. Measures are generally preferred for aggregations that must respond to report filters.",
+headers:["OrderID","Revenue","Cost"],
+rows:[["O101",5000,3200],["O102",3500,2100],["O103",4200,2700],["O104",6200,4000],["O105",2800,1600],["O106",7100,4700]],
+example:"Total Revenue = SUM(FactSales[Revenue])\nTotal Cost = SUM(FactSales[Cost])\nProfit = [Total Revenue] - [Total Cost]",
+expected:"The measures return totals for the currently selected rows and filters. Create them in Power BI Desktop using New measure.",
+business:"Measures power KPI cards, report totals, comparisons and interactive analysis.",
+practice:"Create Total Revenue, Total Cost and Profit measures in Power BI Desktop."
+},
+{
+title:"DAX Filter Context",level:"Intermediate",
+intro:"Filter context determines which rows are included when a measure is evaluated.",
+explanation:"Slicers, page filters, visual filters and rows or columns in a visual can all affect a measure. CALCULATE evaluates an expression under a modified filter context. Understanding context is central to writing reliable DAX.",
+headers:["Region","Product","Revenue"],
+rows:[["North","Laptop",50000],["North","Phone",18000],["South","Laptop",42000],["South","Phone",22000],["West","Laptop",39000],["West","Phone",21000]],
+example:"Total Revenue = SUM(FactSales[Revenue])\nNorth Revenue = CALCULATE([Total Revenue], DimRegion[RegionName] = \"North\")",
+expected:"Total Revenue responds to active report filters. North Revenue applies a North-region filter to the measure.",
+business:"Filter context lets a single measure provide different results for regions, products and time periods.",
+practice:"Explain how selecting North in a slicer changes Total Revenue."
+},
+{
+title:"CALCULATE, FILTER and DIVIDE",level:"Advanced",
+intro:"CALCULATE changes filter context, FILTER returns a filtered table, and DIVIDE safely handles division by zero.",
+explanation:"Use CALCULATE to evaluate a measure under a condition. FILTER is useful when a more complex row-by-row condition is needed. DIVIDE is safer than ordinary division when the denominator can be zero.",
+headers:["Region","Revenue","Target"],
+rows:[["North",150000,140000],["South",120000,130000],["West",90000,85000],["East",110000,100000],["Central",70000,75000],["Online",180000,170000],["Retail",95000,105000],["Export",65000,60000]],
+example:"Total Revenue = SUM(FactSales[Revenue])\nSales Above 100K = CALCULATE([Total Revenue], FILTER(FactSales, FactSales[Revenue] > 100000))\nAchievement % = DIVIDE([Total Revenue], [Total Target], 0)",
+expected:"The measures recalculate according to filter context and avoid a divide-by-zero error.",
+business:"Use these patterns for targets, thresholds and more advanced business measures.",
+practice:"Create a measure for revenue from transaction rows above ₹50,000."
+},
+{
+title:"Time Intelligence and Date Tables",level:"Advanced",
+intro:"Time intelligence supports year-to-date, previous-period and year-over-year analysis when the model has a suitable date table.",
+explanation:"Create a contiguous date table, relate its date column to the transaction date, and mark it as a date table where required. Time intelligence behavior depends on model configuration and date-column quality.",
+headers:["Date","Year","Month","Revenue"],
+rows:[["2025-01-01",2025,"Jan",100000],["2025-02-01",2025,"Feb",115000],["2025-03-01",2025,"Mar",120000],["2026-01-01",2026,"Jan",125000],["2026-02-01",2026,"Feb",140000],["2026-03-01",2026,"Mar",155000]],
+example:"Total Revenue = SUM(FactSales[Revenue])\nYTD Revenue = TOTALYTD([Total Revenue], DimDate[Date])\nPrevious Year Revenue = CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(DimDate[Date]))",
+expected:"YTD Revenue accumulates from the start of the year through the current date context. Previous Year Revenue evaluates the corresponding previous-year period.",
+business:"Time intelligence helps analyze seasonal patterns, year-to-date performance and year-over-year growth.",
+practice:"Build a Date table and compare revenue across the same month in two years."
+},
+{
+title:"Visuals, Slicers and Report Design",level:"Advanced",
+intro:"Report design turns model results into an interface that users can explore and understand.",
+explanation:"Use cards for important KPIs, bar charts for category comparisons, line charts for trends, tables for detailed records and slicers for interactive filtering. Keep visual hierarchy clear and avoid unnecessary decoration.",
+headers:["Question","Suggested Visual","Reason"],
+rows:[["What is total revenue?","Card","One prominent KPI"],["Which region leads?","Bar chart","Easy comparison"],["How is revenue changing?","Line chart","Shows trend"],["Which orders need review?","Table","Detailed records"],["Which product should I inspect?","Slicer","Interactive selection"]],
+example:"1. Add a card visual and assign Total Revenue.\n2. Add a bar chart with Region and Total Revenue.\n3. Add a line chart with Date and Total Revenue.\n4. Add a Region slicer.\n5. Test the interactions between visuals.",
+expected:"Selecting a region should filter connected visuals when their interactions are configured appropriately.",
+business:"A good report helps its audience answer specific business questions quickly.",
+practice:"Design a one-page report with revenue, orders, regional sales and a date slicer."
+},
+{
+title:"Row-Level Security and Publishing",level:"Advanced",
+intro:"Power BI provides publishing and security features to distribute reports to authorized users.",
+explanation:"Row-level security restricts which rows users can see based on roles and identity rules. Publishing and sharing capabilities depend on the workspace setup, license, tenant settings and organizational policy. Always test security as the intended viewer.",
+headers:["Role","Region Rule","Expected Access"],
+rows:[["North Manager","North","North records"],["South Manager","South","South records"],["West Manager","West","West records"],["Executive","Approved all-region rule","All permitted regions"]],
+example:"Power BI Desktop → Modeling → Manage roles\nDefine a table filter such as:\n[RegionName] = \"North\"\nValidate roles, then publish using the supported organizational workflow.",
+expected:"A user assigned to a restricted role should see only the records allowed by that role.",
+business:"RLS is useful when managers should access their own territories without seeing other regions.",
+practice:"Design separate region-based roles and list the checks needed before publishing."
+},
+{
+title:"Final Project: Sales Analytics",level:"Capstone",
+intro:"Build a complete sales reporting project using a fact table, dimensions, DAX measures and an interactive report.",
+explanation:"The final project combines data preparation, model design, measure creation, visualization and business storytelling. Start by validating the data, then build and test the model before designing the report.",
+headers:["OrderID","Region","Product","Channel","Revenue","Cost"],
+rows:[["O101","North","Laptop","Online",50000,38000],["O102","South","Phone","Store",18000,12000],["O103","North","Tablet","Online",22000,15000],["O104","West","Laptop","Store",45000,34000],["O105","East","Phone","Online",26000,17000],["O106","South","Tablet","Online",28000,19000],["O107","North","Phone","Store",24000,16000],["O108","West","Tablet","Online",31000,21000],["O109","East","Laptop","Store",47000,35000],["O110","South","Phone","Online",23000,15000],["O111","North","Laptop","Store",52000,39000],["O112","West","Phone","Online",27000,18000]],
+example:"Measures to create:\nTotal Revenue = SUM(FactSales[Revenue])\nTotal Cost = SUM(FactSales[Cost])\nProfit = [Total Revenue] - [Total Cost]\nProfit Margin = DIVIDE([Profit], [Total Revenue], 0)\nOrder Count = DISTINCTCOUNT(FactSales[OrderID])",
+expected:"The report should include validated data, a star schema, reusable measures, KPI cards, region and product analysis, slicers and documented findings.",
+business:"This project demonstrates an end-to-end BI workflow and provides a portfolio artifact to discuss in interviews.",
+practice:"Build the report in Power BI Desktop. Include at least four KPIs, two charts, two slicers, one detail table and three evidence-based business insights."
+}
+];
+
+const sales = [
+{order:"O1001",region:"North",product:"Laptop",channel:"Online",units:2,price:40000},
+{order:"O1002",region:"South",product:"Phone",channel:"Store",units:5,price:15000},
+{order:"O1003",region:"North",product:"Tablet",channel:"Online",units:3,price:20000},
+{order:"O1004",region:"West",product:"Monitor",channel:"Store",units:2,price:14000},
+{order:"O1005",region:"East",product:"Laptop",channel:"Online",units:1,price:40000},
+{order:"O1006",region:"South",product:"Phone",channel:"Online",units:4,price:15000},
+{order:"O1007",region:"North",product:"Keyboard",channel:"Store",units:8,price:900},
+{order:"O1008",region:"West",product:"Laptop",channel:"Online",units:2,price:40000},
+{order:"O1009",region:"East",product:"Tablet",channel:"Store",units:3,price:20000},
+{order:"O1010",region:"South",product:"Monitor",channel:"Online",units:2,price:14000},
+{order:"O1011",region:"North",product:"Phone",channel:"Store",units:6,price:15000},
+{order:"O1012",region:"West",product:"Tablet",channel:"Online",units:4,price:20000},
+{order:"O1013",region:"East",product:"Phone",channel:"Online",units:3,price:15000},
+{order:"O1014",region:"North",product:"Laptop",channel:"Store",units:1,price:40000},
+{order:"O1015",region:"South",product:"Keyboard",channel:"Online",units:10,price:900},
+{order:"O1016",region:"West",product:"Monitor",channel:"Store",units:3,price:14000},
+{order:"O1017",region:"East",product:"Laptop",channel:"Online",units:2,price:40000},
+{order:"O1018",region:"North",product:"Tablet",channel:"Store",units:5,price:20000},
+{order:"O1019",region:"South",product:"Phone",channel:"Online",units:6,price:15000},
+{order:"O1020",region:"West",product:"Laptop",channel:"Store",units:1,price:40000},
+{order:"O1021",region:"East",product:"Monitor",channel:"Online",units:2,price:14000},
+{order:"O1022",region:"North",product:"Phone",channel:"Online",units:4,price:15000},
+{order:"O1023",region:"South",product:"Tablet",channel:"Store",units:3,price:20000},
+{order:"O1024",region:"West",product:"Keyboard",channel:"Online",units:12,price:900}
+];
+
+function esc(v){
+ return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+let current=0;
+let completed=JSON.parse(localStorage.getItem("pbiCompleted")||"[]");
+
+function renderLessons(){
+ const q=document.getElementById("search").value.toLowerCase();
+ document.getElementById("lessonList").innerHTML=lessons.map((l,i)=>({l,i}))
+ .filter(x=>(x.l.title+" "+x.l.level).toLowerCase().includes(q))
+ .map(({l,i})=>`<button class="lesson ${i===current?"active":""}" onclick="openLesson(${i})">${completed.includes(i)?"✅":"📘"} ${i+1}. ${esc(l.title)}<br><small class="muted">${esc(l.level)}</small></button>`).join("");
+}
+
+function updateProgress(){
+ const p=Math.round(completed.length/lessons.length*100);
+ document.getElementById("total").textContent=lessons.length;
+ document.getElementById("completed").textContent=completed.length;
+ document.getElementById("progress").textContent=p+"%";
+ document.getElementById("progressBar").style.width=p+"%";
+}
+
+function openLesson(i){
+ current=Math.max(0,Math.min(i,lessons.length-1));
+ const l=lessons[current];
+ document.getElementById("lessonNumber").textContent=`Lesson ${current+1} of ${lessons.length} · ${l.level}`;
+ document.getElementById("lessonTitle").textContent=l.title;
+ document.getElementById("lessonIntro").textContent=l.intro;
+ document.getElementById("lessonExplanation").textContent=l.explanation;
+ document.getElementById("datasetDescription").textContent=`${l.rows.length} example records · ${l.headers.length} fields`;
+ document.getElementById("dataset").innerHTML="<table><thead><tr>"+l.headers.map(h=>"<th>"+esc(h)+"</th>").join("")+"</tr></thead><tbody>"+l.rows.map(row=>"<tr>"+row.map(v=>"<td>"+esc(v)+"</td>").join("")+"</tr>").join("")+"</tbody></table>";
+ document.getElementById("example").textContent=l.example;
+ document.getElementById("expected").textContent=l.expected;
+ document.getElementById("business").textContent=l.business;
+ document.getElementById("practice").textContent=l.practice;
+ document.getElementById("notes").value=localStorage.getItem("pbiNote"+current)||"";
+ document.getElementById("saveStatus").textContent="";
+ renderLessons();
+ updateProgress();
+}
+
+function markComplete(){
+ if(!completed.includes(current))completed.push(current);
+ localStorage.setItem("pbiCompleted",JSON.stringify(completed));
+ renderLessons();
+ updateProgress();
+}
+
+function saveNotes(){
+ localStorage.setItem("pbiNote"+current,document.getElementById("notes").value);
+ document.getElementById("saveStatus").textContent=" Notes saved in this browser.";
+}
+
+function previousLesson(){openLesson(current-1)}
+function nextLesson(){openLesson(current+1)}
+
+function initFilters(){
+ const configs=[
+ ["regionFilter","region"],["productFilter","product"],["channelFilter","channel"]
+ ];
+ configs.forEach(([id,key])=>{
+  const select=document.getElementById(id);
+  [...new Set(sales.map(r=>r[key]))].sort().forEach(value=>{
+   const opt=document.createElement("option");
+   opt.value=value;opt.textContent=value;select.appendChild(opt);
+  });
+ });
+}
+
+function filteredSales(){
+ const region=document.getElementById("regionFilter").value;
+ const product=document.getElementById("productFilter").value;
+ const channel=document.getElementById("channelFilter").value;
+ return sales.filter(r=>
+  (region==="All"||r.region===region)&&
+  (product==="All"||r.product===product)&&
+  (channel==="All"||r.channel===channel)
+ ).map(r=>({...r,revenue:r.units*r.price}));
+}
+
+function money(n){return "₹"+Math.round(n).toLocaleString("en-IN")}
+
+function updateDashboard(){
+ const data=filteredSales();
+ const revenue=data.reduce((s,r)=>s+r.revenue,0);
+ const units=data.reduce((s,r)=>s+r.units,0);
+ document.getElementById("revenueKpi").textContent=money(revenue);
+ document.getElementById("ordersKpi").textContent=data.length;
+ document.getElementById("unitsKpi").textContent=units;
+ document.getElementById("averageKpi").textContent=money(data.length?revenue/data.length:0);
+
+ document.getElementById("dashboardTable").innerHTML="<table><thead><tr><th>Order</th><th>Region</th><th>Product</th><th>Channel</th><th>Units</th><th>Revenue</th></tr></thead><tbody>"+
+ data.map(r=>`<tr><td>${esc(r.order)}</td><td>${esc(r.region)}</td><td>${esc(r.product)}</td><td>${esc(r.channel)}</td><td>${r.units}</td><td>${money(r.revenue)}</td></tr>`).join("")+
+ "</tbody></table>";
+
+ drawBarChart("regionChart",groupRevenue(data,"region"));
+ drawBarChart("productChart",groupRevenue(data,"product"));
+}
+
+function groupRevenue(data,key){
+ const result={};
+ data.forEach(r=>result[r[key]]=(result[r[key]]||0)+r.revenue);
+ return result;
+}
+
+function drawBarChart(id,values){
+ const canvas=document.getElementById(id);
+ const rect=canvas.getBoundingClientRect();
+ const dpr=window.devicePixelRatio||1;
+ canvas.width=Math.max(300,rect.width*dpr);
+ canvas.height=260*dpr;
+ const ctx=canvas.getContext("2d");
+ ctx.scale(dpr,dpr);
+ const w=canvas.width/dpr,h=260;
+ ctx.clearRect(0,0,w,h);
+ const entries=Object.entries(values).sort((a,b)=>b[1]-a[1]);
+ if(!entries.length){
+  ctx.fillStyle="#aab8d0";ctx.fillText("No data for selected filters",15,30);return;
+ }
+ const max=Math.max(...entries.map(e=>e[1]),1);
+ const left=10,right=45,top=12,bottom=35;
+ const chartW=w-left-right,chartH=h-top-bottom;
+ const rowH=chartH/entries.length;
+ entries.forEach(([name,value],i)=>{
+  const y=top+i*rowH+5;
+  const barH=Math.max(8,rowH-10);
+  const barW=(value/max)*chartW;
+  ctx.fillStyle="#f2c811";
+  ctx.fillRect(left,y,barW,barH);
+  ctx.fillStyle="#f2f6ff";
+  ctx.font="12px Arial";
+  ctx.fillText(name,left,y-1);
+  ctx.fillText(shortMoney(value),Math.min(left+barW+5,w-45),y+barH-1);
+ });
+}
+
+function shortMoney(n){
+ if(n>=100000)return "₹"+(n/100000).toFixed(1)+"L";
+ if(n>=1000)return "₹"+(n/1000).toFixed(1)+"K";
+ return "₹"+Math.round(n);
+}
+
+function resetDashboard(){
+ ["regionFilter","productFilter","channelFilter"].forEach(id=>document.getElementById(id).value="All");
+ updateDashboard();
+}
+
+window.addEventListener("resize",()=>updateDashboard());
+document.getElementById("total").textContent=lessons.length;
+initFilters();
+openLesson(0);
+updateDashboard();
+</script>
+</body>
+</html>
+```
