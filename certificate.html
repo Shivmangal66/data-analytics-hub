@@ -1,0 +1,290 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificates | Data Analytics Hub</title>
+  <meta name="description" content="Apply for your course completion certificate from Data Analytics Hub.">
+  <style>
+    :root {
+      --navy: #102542;
+      --blue: #1769aa;
+      --gold: #d6a943;
+      --light: #f3f6fb;
+      --text: #243247;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 28px 16px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 76px;
+      height: 76px;
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -2px;
+      margin-bottom: 8px;
+    }
+
+    header h1 { margin: 5px 0; font-size: 28px; }
+    header p { margin: 5px 0; color: #e3eaf5; }
+
+    main {
+      max-width: 850px;
+      margin: 30px auto;
+      padding: 0 16px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 26px;
+      margin-bottom: 22px;
+      box-shadow: 0 5px 22px rgba(16, 37, 66, 0.08);
+    }
+
+    h2 { color: var(--navy); margin-top: 0; }
+
+    label {
+      display: block;
+      margin: 16px 0 6px;
+      font-weight: 700;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font: inherit;
+      background: white;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid #9ac8f0;
+      border-color: var(--blue);
+    }
+
+    button, .button {
+      display: inline-block;
+      border: 0;
+      border-radius: 8px;
+      background: var(--blue);
+      color: white;
+      padding: 12px 18px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 18px;
+    }
+
+    button:hover, .button:hover { background: var(--navy); }
+
+    .notice {
+      background: #fff8e7;
+      border-left: 4px solid var(--gold);
+      padding: 13px;
+      border-radius: 5px;
+    }
+
+    .muted { color: #5d6b7d; font-size: 14px; }
+
+    .certificate {
+      display: none;
+      background: white;
+      border: 8px double var(--gold);
+      padding: 36px 24px;
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .certificate h2 {
+      font-family: Georgia, serif;
+      font-size: 32px;
+      color: var(--navy);
+    }
+
+    .certificate .student-name {
+      font: bold 30px Georgia, serif;
+      color: var(--blue);
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 12px;
+      color: #5d6b7d;
+    }
+
+    @media (max-width: 600px) {
+      .card { padding: 19px; }
+      header h1 { font-size: 24px; }
+    }
+
+    @media print {
+      body { background: white; }
+      header, main > .card, footer, .no-print { display: none !important; }
+      main { max-width: none; margin: 0; padding: 0; }
+      #certificatePreview {
+        display: block !important;
+        margin: 0;
+        min-height: 90vh;
+        border-width: 8px;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo" aria-label="Data Analytics Hub logo">DAH</div>
+    <h1>Data Analytics Hub</h1>
+    <p>Course Completion Certificate Portal</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Apply for Your Certificate</h2>
+      <p>Apna course successfully complete karne ke baad certificate ke liye application submit karein.</p>
+
+      <div class="notice">
+        <strong>Important:</strong> Application submit karna certificate approval ki guarantee nahi hai.
+        Course completion proof verify hone ke baad hi certificate issue hoga.
+      </div>
+
+      <form id="certificateForm">
+        <label for="fullName">Student's Full Name *</label>
+        <input id="fullName" name="fullName" type="text" maxlength="100"
+               autocomplete="name" required placeholder="Enter your full name">
+
+        <label for="email">Email Address *</label>
+        <input id="email" name="email" type="email" maxlength="150"
+               autocomplete="email" required placeholder="you@example.com">
+
+        <label for="whatsapp">WhatsApp Number *</label>
+        <input id="whatsapp" name="whatsapp" type="tel" maxlength="20"
+               autocomplete="tel" required placeholder="+91XXXXXXXXXX">
+
+        <label for="course">Course Completed *</label>
+        <select id="course" name="course" required>
+          <option value="">-- Select your course --</option>
+          <option>Excel</option>
+          <option>Python</option>
+          <option>Power BI</option>
+          <option>SQL</option>
+          <option>JavaScript</option>
+          <option>Java</option>
+          <option>Data Analytics</option>
+          <option>HTML</option>
+        </select>
+
+        <label for="proof">Completion Proof (optional at this stage)</label>
+        <textarea id="proof" name="proof" rows="3" maxlength="1000"
+                  placeholder="Describe your completed course or the proof you can provide. Do not enter passwords or sensitive information."></textarea>
+        <p class="muted">This initial form does not upload files or send applications yet. We will connect the free database in the next step.</p>
+
+        <button type="submit">Preview Certificate Design</button>
+      </form>
+
+      <p id="formMessage" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <h2>Certificate Verification</h2>
+      <p>Issued certificates will be verifiable through a unique certificate ID once the approval and verification system is connected.</p>
+      <p class="muted">A certificate is not officially issued merely by opening this page or previewing its design.</p>
+    </section>
+
+    <section id="certificatePreview" class="certificate">
+      <div class="logo">DAH</div>
+      <p style="letter-spacing:3px;color:#1769aa;font-weight:bold;">DATA ANALYTICS HUB</p>
+      <h2>Certificate of Completion</h2>
+      <p>This certificate recognizes that</p>
+      <div id="certificateStudent" class="student-name"></div>
+      <p>has completed the learning program in</p>
+      <h2 id="certificateCourse"></h2>
+      <p>Learning Duration: <strong>1 Month</strong></p>
+      <p>Issued by <strong>Shiv Mangal</strong>, Owner, Data Analytics Hub</p>
+      <p class="muted">Design preview only — not an issued certificate.</p>
+      <p id="certificateDate"></p>
+      <p id="certificateId"></p>
+    </section>
+
+    <div class="no-print" style="text-align:center;margin:20px 0;">
+      <button id="printButton" type="button" style="display:none;">Print Preview</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Data Analytics Hub</p>
+    <p>
+      Email: <a href="mailto:dataanalyticshiv666@gmail.com">dataanalyticshiv666@gmail.com</a><br>
+      WhatsApp: <a href="https://wa.me/919643955649" target="_blank" rel="noopener">Contact us</a>
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const form = document.getElementById("certificateForm");
+    const message = document.getElementById("formMessage");
+    const printButton = document.getElementById("printButton");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const fullName = document.getElementById("fullName").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const whatsapp = document.getElementById("whatsapp").value.trim();
+      const course = document.getElementById("course").value;
+
+      if (!fullName || !email || !whatsapp || !course) {
+        message.textContent = "Please complete all required fields.";
+        return;
+      }
+
+      document.getElementById("certificateStudent").textContent = fullName;
+      document.getElementById("certificateCourse").textContent = course;
+      document.getElementById("certificateDate").textContent =
+        "Preview date: " + new Date().toLocaleDateString("en-IN");
+      document.getElementById("certificateId").textContent =
+        "Certificate ID: NOT YET ISSUED";
+
+      document.getElementById("certificatePreview").style.display = "block";
+      printButton.style.display = "inline-block";
+      message.textContent =
+        "Preview ready. This is only a design preview, not an approved or valid certificate.";
+      document.getElementById("certificatePreview").scrollIntoView({
+        behavior: "smooth"
+      });
+    });
+
+    printButton.addEventListener("click", function () {
+      window.print();
+    });
+  </script>
+</body>
+</html>
+```
