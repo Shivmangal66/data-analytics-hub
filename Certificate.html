@@ -2,289 +2,431 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Certificates | Data Analytics Hub</title>
-  <meta name="description" content="Apply for your course completion certificate from Data Analytics Hub.">
-  <style>
-    :root {
-      --navy: #102542;
-      --blue: #1769aa;
-      --gold: #d6a943;
-      --light: #f3f6fb;
-      --text: #243247;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificates | Data Analytics Hub</title>
+<meta name="description" content="Take a course assessment and apply for a Data Analytics Hub completion certificate.">
 
-    * { box-sizing: border-box; }
+<style>
+:root {
+  --navy: #071c35;
+  --navy2: #12365c;
+  --gold: #dca832;
+  --gold-light: #f8df91;
+  --white: #fff;
+  --bg: #f2f5fa;
+  --text: #182b43;
+  --green: #147447;
+  --red: #b42318;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--light);
-      color: var(--text);
-      line-height: 1.6;
-    }
+* { box-sizing: border-box; }
 
-    header {
-      background: var(--navy);
-      color: white;
-      text-align: center;
-      padding: 28px 16px;
-    }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
 
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 76px;
-      height: 76px;
-      border: 3px solid var(--gold);
-      border-radius: 50%;
-      color: var(--gold);
-      font-size: 25px;
-      font-weight: 800;
-      letter-spacing: -2px;
-      margin-bottom: 8px;
-    }
+header {
+  background: linear-gradient(120deg, var(--navy), var(--navy2));
+  color: white;
+  text-align: center;
+  padding: 28px 16px;
+  border-bottom: 4px solid var(--gold);
+}
 
-    header h1 { margin: 5px 0; font-size: 28px; }
-    header p { margin: 5px 0; color: #e3eaf5; }
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  border: 3px solid var(--gold);
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: var(--gold-light);
+  background: var(--navy);
+  box-shadow: 0 0 0 4px rgba(220,168,50,.15);
+}
 
-    main {
-      max-width: 850px;
-      margin: 30px auto;
-      padding: 0 16px;
-    }
+header h1 {
+  margin: 12px 0 2px;
+  font-size: clamp(25px, 5vw, 38px);
+}
 
-    .card {
-      background: white;
-      border-radius: 14px;
-      padding: 26px;
-      margin-bottom: 22px;
-      box-shadow: 0 5px 22px rgba(16, 37, 66, 0.08);
-    }
+header p { margin: 4px 0; color: #e4eaf4; }
 
-    h2 { color: var(--navy); margin-top: 0; }
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  padding: 12px;
+  background: white;
+  border-bottom: 1px solid #e1e6ee;
+}
 
-    label {
-      display: block;
-      margin: 16px 0 6px;
-      font-weight: 700;
-    }
+nav a {
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    input, select, textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      font: inherit;
-      background: white;
-    }
+nav a:hover { color: #a66b00; }
 
-    input:focus, select:focus, textarea:focus {
-      outline: 2px solid #9ac8f0;
-      border-color: var(--blue);
-    }
+.container {
+  max-width: 960px;
+  padding: 20px 15px;
+  margin: auto;
+}
 
-    button, .button {
-      display: inline-block;
-      border: 0;
-      border-radius: 8px;
-      background: var(--blue);
-      color: white;
-      padding: 12px 18px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
-      margin-top: 18px;
-    }
+.card {
+  background: white;
+  padding: clamp(18px, 4vw, 30px);
+  border-radius: 14px;
+  box-shadow: 0 5px 22px rgba(7,28,53,.07);
+  margin: 20px 0;
+}
 
-    button:hover, .button:hover { background: var(--navy); }
+h2 { color: var(--navy); margin-top: 0; }
 
-    .notice {
-      background: #fff8e7;
-      border-left: 4px solid var(--gold);
-      padding: 13px;
-      border-radius: 5px;
-    }
+label {
+  display: block;
+  margin: 15px 0 6px;
+  font-weight: bold;
+}
 
-    .muted { color: #5d6b7d; font-size: 14px; }
+input, select, textarea {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #c7d0dd;
+  border-radius: 8px;
+  background: white;
+  font: inherit;
+  color: var(--text);
+}
 
-    .certificate {
-      display: none;
-      background: white;
-      border: 8px double var(--gold);
-      padding: 36px 24px;
-      text-align: center;
-      margin-top: 24px;
-    }
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid #a6cbed;
+  border-color: #1769aa;
+}
 
-    .certificate h2 {
-      font-family: Georgia, serif;
-      font-size: 32px;
-      color: var(--navy);
-    }
+button, .button {
+  display: inline-block;
+  background: var(--navy);
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 19px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 15px;
+}
 
-    .certificate .student-name {
-      font: bold 30px Georgia, serif;
-      color: var(--blue);
-      overflow-wrap: anywhere;
-    }
+button:hover, .button:hover { background: #1d4e7e; }
 
-    footer {
-      text-align: center;
-      padding: 24px 12px;
-      color: #5d6b7d;
-    }
+button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
 
-    @media (max-width: 600px) {
-      .card { padding: 19px; }
-      header h1 { font-size: 24px; }
-    }
+.gold-button {
+  background: #a66b00;
+  color: white;
+}
 
-    @media print {
-      body { background: white; }
-      header, main > .card, footer, .no-print { display: none !important; }
-      main { max-width: none; margin: 0; padding: 0; }
-      #certificatePreview {
-        display: block !important;
-        margin: 0;
-        min-height: 90vh;
-        border-width: 8px;
-        break-inside: avoid;
-      }
-    }
-  </style>
+.notice {
+  padding: 14px;
+  background: #fff8e5;
+  border-left: 4px solid var(--gold);
+  border-radius: 5px;
+  margin: 16px 0;
+}
+
+.muted { color: #607087; font-size: 14px; }
+
+.hidden { display: none !important; }
+
+.progress-track {
+  height: 9px;
+  background: #e3e8ef;
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: var(--gold);
+  transition: width .2s;
+}
+
+.question {
+  border: 1px solid #e0e6ee;
+  padding: 17px;
+  margin: 16px 0;
+  border-radius: 10px;
+}
+
+.question legend {
+  font-weight: bold;
+  padding: 0 6px;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 10px 0;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.option input {
+  width: auto;
+  margin-top: 6px;
+}
+
+.result {
+  border-radius: 10px;
+  padding: 18px;
+  margin-top: 18px;
+  background: #edf4fb;
+}
+
+.success {
+  background: #eaf7ef;
+  border-left: 4px solid var(--green);
+  padding: 14px;
+  border-radius: 5px;
+}
+
+.error {
+  background: #fff0ef;
+  border-left: 4px solid var(--red);
+  padding: 14px;
+  border-radius: 5px;
+}
+
+footer {
+  text-align: center;
+  padding: 28px 15px;
+  color: #53637a;
+  background: white;
+  border-top: 1px solid #e0e6ee;
+  margin-top: 35px;
+}
+
+footer a { color: var(--navy); }
+
+@media (max-width: 600px) {
+  nav { gap: 12px; }
+  .card { border-radius: 10px; }
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <div class="logo" aria-label="Data Analytics Hub logo">DAH</div>
-    <h1>Data Analytics Hub</h1>
-    <p>Course Completion Certificate Portal</p>
-  </header>
 
-  <main>
-    <section class="card">
-      <h2>Apply for Your Certificate</h2>
-      <p>Apna course successfully complete karne ke baad certificate ke liye application submit karein.</p>
+<header>
+  <div class="logo" aria-label="Data Analytics Hub logo">DAH</div>
+  <h1>Data Analytics Hub</h1>
+  <p>LEARN &nbsp; | &nbsp; ANALYZE &nbsp; | &nbsp; GROW</p>
+  <p>Course Assessment & Certificate Portal</p>
+</header>
 
-      <div class="notice">
-        <strong>Important:</strong> Application submit karna certificate approval ki guarantee nahi hai.
-        Course completion proof verify hone ke baad hi certificate issue hoga.
-      </div>
+<nav>
+  <a href="#courses">Courses</a>
+  <a href="#assessment">Assessment</a>
+  <a href="#application">Certificate Application</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-      <form id="certificateForm">
-        <label for="fullName">Student's Full Name *</label>
-        <input id="fullName" name="fullName" type="text" maxlength="100"
-               autocomplete="name" required placeholder="Enter your full name">
+<main class="container">
 
-        <label for="email">Email Address *</label>
-        <input id="email" name="email" type="email" maxlength="150"
-               autocomplete="email" required placeholder="you@example.com">
-
-        <label for="whatsapp">WhatsApp Number *</label>
-        <input id="whatsapp" name="whatsapp" type="tel" maxlength="20"
-               autocomplete="tel" required placeholder="+91XXXXXXXXXX">
-
-        <label for="course">Course Completed *</label>
-        <select id="course" name="course" required>
-          <option value="">-- Select your course --</option>
-          <option>Excel</option>
-          <option>Python</option>
-          <option>Power BI</option>
-          <option>SQL</option>
-          <option>JavaScript</option>
-          <option>Java</option>
-          <option>Data Analytics</option>
-          <option>HTML</option>
-        </select>
-
-        <label for="proof">Completion Proof (optional at this stage)</label>
-        <textarea id="proof" name="proof" rows="3" maxlength="1000"
-                  placeholder="Describe your completed course or the proof you can provide. Do not enter passwords or sensitive information."></textarea>
-        <p class="muted">This initial form does not upload files or send applications yet. We will connect the free database in the next step.</p>
-
-        <button type="submit">Preview Certificate Design</button>
-      </form>
-
-      <p id="formMessage" role="status" aria-live="polite"></p>
-    </section>
-
-    <section class="card">
-      <h2>Certificate Verification</h2>
-      <p>Issued certificates will be verifiable through a unique certificate ID once the approval and verification system is connected.</p>
-      <p class="muted">A certificate is not officially issued merely by opening this page or previewing its design.</p>
-    </section>
-
-    <section id="certificatePreview" class="certificate">
-      <div class="logo">DAH</div>
-      <p style="letter-spacing:3px;color:#1769aa;font-weight:bold;">DATA ANALYTICS HUB</p>
-      <h2>Certificate of Completion</h2>
-      <p>This certificate recognizes that</p>
-      <div id="certificateStudent" class="student-name"></div>
-      <p>has completed the learning program in</p>
-      <h2 id="certificateCourse"></h2>
-      <p>Learning Duration: <strong>1 Month</strong></p>
-      <p>Issued by <strong>Shiv Mangal</strong>, Owner, Data Analytics Hub</p>
-      <p class="muted">Design preview only — not an issued certificate.</p>
-      <p id="certificateDate"></p>
-      <p id="certificateId"></p>
-    </section>
-
-    <div class="no-print" style="text-align:center;margin:20px 0;">
-      <button id="printButton" type="button" style="display:none;">Print Preview</button>
-    </div>
-  </main>
-
-  <footer>
-    <p>© <span id="year"></span> Data Analytics Hub</p>
+  <section class="card" id="courses">
+    <h2>Earn Your Course Completion Certificate</h2>
     <p>
-      Email: <a href="mailto:dataanalyticshiv666@gmail.com">dataanalyticshiv666@gmail.com</a><br>
-      WhatsApp: <a href="https://wa.me/919643955649" target="_blank" rel="noopener">Contact us</a>
+      Select a course, complete its 15-question assessment, and achieve
+      at least 80% to become eligible to request a certificate.
     </p>
-  </footer>
+    <div class="notice">
+      <strong>Certificate policy:</strong> Passing the assessment makes you
+      eligible to apply. Every application must be reviewed and approved
+      by the Data Analytics Hub administrator before a certificate can be issued.
+    </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    <label for="courseSelect">Select Your Course</label>
+    <select id="courseSelect">
+      <option value="">-- Choose a course --</option>
+      <option value="Excel">Microsoft Excel</option>
+      <option value="Python">Python Programming</option>
+      <option value="Power BI">Power BI</option>
+      <option value="SQL">SQL</option>
+      <option value="JavaScript">JavaScript</option>
+      <option value="Java">Java Programming</option>
+      <option value="Data Analytics">Data Analytics</option>
+      <option value="HTML">HTML</option>
+    </select>
 
-    const form = document.getElementById("certificateForm");
-    const message = document.getElementById("formMessage");
-    const printButton = document.getElementById("printButton");
+    <p class="muted">
+      Each course has its own subject-specific assessment.
+      You must complete the test for the course you select.
+    </p>
 
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
+    <button id="startButton" type="button">Start Assessment</button>
+  </section>
 
-      const fullName = document.getElementById("fullName").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const whatsapp = document.getElementById("whatsapp").value.trim();
-      const course = document.getElementById("course").value;
+  <section class="card hidden" id="assessment">
+    <h2 id="assessmentTitle">Course Assessment</h2>
+    <p>Answer all 15 questions. Each question carries one mark.</p>
+    <p><strong>Passing score: 12/15 (80%)</strong></p>
 
-      if (!fullName || !email || !whatsapp || !course) {
-        message.textContent = "Please complete all required fields.";
-        return;
-      }
+    <div class="progress-track" aria-label="Assessment progress">
+      <div id="progressBar" class="progress-bar"></div>
+    </div>
+    <p id="progressText" class="muted">0 of 15 answered</p>
 
-      document.getElementById("certificateStudent").textContent = fullName;
-      document.getElementById("certificateCourse").textContent = course;
-      document.getElementById("certificateDate").textContent =
-        "Preview date: " + new Date().toLocaleDateString("en-IN");
-      document.getElementById("certificateId").textContent =
-        "Certificate ID: NOT YET ISSUED";
+    <form id="quizForm">
+      <div id="questions"></div>
+      <button type="submit">Submit Assessment</button>
+    </form>
 
-      document.getElementById("certificatePreview").style.display = "block";
-      printButton.style.display = "inline-block";
-      message.textContent =
-        "Preview ready. This is only a design preview, not an approved or valid certificate.";
-      document.getElementById("certificatePreview").scrollIntoView({
-        behavior: "smooth"
-      });
-    });
+    <div id="quizResult" class="result hidden" aria-live="polite"></div>
+  </section>
 
-    printButton.addEventListener("click", function () {
-      window.print();
-    });
-  </script>
-</body>
-</html>
-```
+  <section class="card hidden" id="application">
+    <h2>Certificate Application</h2>
+    <p>Congratulations on passing the assessment! Submit your details for review.</p>
+
+    <div class="notice">
+      <strong>Next step:</strong> Your application must be approved by the
+      administrator. Passing the assessment does not automatically issue a certificate.
+    </div>
+
+    <form id="applicationForm">
+      <label for="studentName">Full Name (as it should appear on the certificate) *</label>
+      <input id="studentName" name="studentName" maxlength="100"
+             autocomplete="name" required>
+
+      <label for="studentEmail">Email Address *</label>
+      <input id="studentEmail" name="studentEmail" type="email" maxlength="150"
+             autocomplete="email" required>
+
+      <label for="studentWhatsApp">WhatsApp Number *</label>
+      <input id="studentWhatsApp" name="studentWhatsApp" type="tel"
+             maxlength="25" autocomplete="tel" required>
+
+      <label for="applicationCourse">Course *</label>
+      <input id="applicationCourse" name="applicationCourse" readonly required>
+
+      <label for="applicationScore">Assessment Score</label>
+      <input id="applicationScore" name="applicationScore" readonly required>
+
+      <label for="studentMessage">Additional Information (optional)</label>
+      <textarea id="studentMessage" name="studentMessage" maxlength="1000"
+                rows="3" placeholder="Any additional information for the administrator"></textarea>
+
+      <button type="submit" class="gold-button">Request Certificate Approval</button>
+    </form>
+
+    <div id="applicationMessage" aria-live="polite"></div>
+  </section>
+
+  <section class="card">
+    <h2>Certificate Approval Process</h2>
+    <ol>
+      <li>Select the course you have completed.</li>
+      <li>Complete all 15 assessment questions.</li>
+      <li>Achieve a minimum score of 12 out of 15.</li>
+      <li>Submit your certificate application.</li>
+      <li>The administrator reviews the application.</li>
+      <li>After approval, your certificate can be issued and verified.</li>
+    </ol>
+    <p class="muted">
+      This initial version demonstrates the assessment and application interface.
+      Application storage, administrator authentication, secure approval,
+      certificate PDF generation, and online verification must be connected
+      before real certificates are issued.
+    </p>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <strong>Data Analytics Hub</strong>
+  <p>Email: <a href="mailto:dataanalyticshiv666@gmail.com">dataanalyticshiv666@gmail.com</a></p>
+  <p>WhatsApp: <a href="https://wa.me/919643955649" target="_blank" rel="noopener">Contact Us</a></p>
+  <p>&copy; <span id="year"></span> Data Analytics Hub. All rights reserved.</p>
+</footer>
+
+<script>
+"use strict";
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/*
+ * These questions run in the browser for the initial demonstration.
+ * This is not a secure examination system: answers and scoring code
+ * can be inspected by visitors. Secure verification will require a
+ * trusted backend or server-side validation.
+ *
+ * Each course contains exactly 15 questions.
+ * The correct answer is represented by the zero-based option index.
+ */
+
+const questionBank = {
+  "Excel": [
+    ["Which symbol begins an Excel formula?", ["#", "=", "@", "&"], 1],
+    ["Which function adds numbers?", ["COUNT", "SUM", "MAX", "IF"], 1],
+    ["What is a cell reference?", ["A worksheet name only", "A chart title", "A column letter and row number", "A file extension"], 2],
+    ["Which function calculates an arithmetic mean?", ["AVERAGE", "SUM", "MIN", "ROUND"], 0],
+    ["Which function counts numeric cells?", ["COUNTA", "COUNT", "SUM", "LEN"], 1],
+    ["Which reference remains fixed when copied?", ["A1", "A1:A5", "$A$1", "Sheet1"], 2],
+    ["What does a filter do?", ["Deletes every row", "Shows records matching conditions", "Changes all formulas", "Creates a new workbook"], 1],
+    ["Which feature summarizes and groups large datasets?", ["WordArt", "PivotTable", "Spell Check", "Page Color"], 1],
+    ["Which function tests a condition?", ["IF", "LEFT", "NOW", "CONCAT"], 0],
+    ["Which chart is often suitable for showing trends over time?", ["Line chart", "Pie chart only", "Doughnut chart only", "Radar chart only"], 0],
+    ["What is the intersection of a row and column called?", ["Workbook", "Range name", "Cell", "Ribbon"], 2],
+    ["Which function returns the largest value?", ["MIN", "MAX", "COUNT", "AVERAGE"], 1],
+    ["What does conditional formatting do?", ["Formats cells based on rules", "Deletes worksheets", "Sends emails", "Renames files"], 0],
+    ["Which function can search for a value in a table?", ["XLOOKUP", "TODAY", "RAND", "UPPER"], 0],
+    ["What is an Excel workbook?", ["A single cell", "A collection of worksheets saved in a file", "A chart axis", "A formula operator"], 1]
+  ],
+
+  "Python": [
+    ["Which keyword defines a function?", ["func", "define", "def", "function"], 2],
+    ["Which data type stores True or False?", ["str", "bool", "list", "dict"], 1],
+    ["Which symbol starts a single-line comment?", ["//", "<!--", "#", "**"], 2],
+    ["Which collection is ordered and mutable?", ["tuple", "list", "frozenset", "str"], 1],
+    ["What is the result of 3 ** 2?", ["5", "6", "9", "8"], 2],
+    ["Which function displays output?", ["input()", "print()", "type()", "range()"], 1],
+    ["Which keyword starts a conditional branch?", ["if", "loop", "caseonly", "repeat"], 0],
+    ["Which structure stores key-value pairs?", ["list", "tuple", "dict", "set"], 2],
+    ["Which keyword handles an exception?", ["catch", "except", "error", "rescue"], 1],
+    ["What does len('data') return?", ["3", "4", "5", "An error"], 1],
+    ["Which loop iterates over a sequence?", ["for", "define", "import", "withonly"], 0],
+    ["Which keyword imports a module?", ["include", "using", "import", "require"], 2],
+    ["Which value represents the absence of a value?", ["empty", "nullify", "None", "falsehood"], 2],
+    ["Which method adds an item to the end of a list?", ["push_back()", "append()", "insert_end_only()", "extendone()"], 1],
+    ["Which operator tests equality?", ["=", "==", "!=", ":="], 1]
+  ],
+
+  "Power BI": [
+    ["What is Power BI primarily used for?", ["Video editing", "Data analysis and visualization", "Operating systems", "Email hosting"], 1],
+    ["Which application is commonly used to create reports?", ["Power BI Desktop", "Notepad only", "Paint", "Calculator"], 0],
+    ["What does DAX stand for?", ["Data Analysis Expressions", "Digital Analytics XML", "Data Access Exchange", "Desktop Analysis Extension"], 0],
+    ["Which view is used to manage table relationships?", ["Reading view", "Model view", "Print view", "Mail view"], 1],
+    ["What is Power Query mainly used for?", ["Transforming and preparing data", "Designing logos", "Writing emails", "Managing passwords"], 0],
+    ["Which visual is suitable for comparing categories?", ["Bar chart", "Audio player", "Text editor", "Calendar only"], 0],
+    ["What does a slicer do?", ["Filters report data interactively", "Deletes the model", "Exports passwords", "Changes the operating system"], 0],
+    ["Which language is used for Power BI measures?", ["DAX", "HTML only", "CSS", "Bash only"], 0],
+    ["What is a relationship between tables used for?", ["Connecting related data", "Changing screen brightness", "Compressing images
