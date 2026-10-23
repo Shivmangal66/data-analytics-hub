@@ -142,4 +142,452 @@ footer{
 }
 footer a{color:var(--lightgold)}
 @media(max-width:950px){
-  .
+  .layout{grid-template-columns:1fr}
+  .courses{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media(max-width:680px){
+  header{justify-content:center}
+  .hero{grid-template-columns:1fr}
+  .courses{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .benefits{grid-template-columns:repeat(2,1fr)}
+  .benefit:nth-child(2){border-right:0}
+  .panel{padding:17px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="logo">DAH</div>
+    <div>
+      <h1>Data Analytics <span>Hub</span></h1>
+      <p class="tagline">LEARN | ANALYZE | GROW</p>
+    </div>
+  </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#courses">Courses</a>
+    <a href="#assessment">Assessment</a>
+    <a href="#application">Certificate</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div>
+      <h2>Earn Your Course Completion <span>Certificate</span></h2>
+      <p>Select a course, complete its 15-question assessment, and score at least 80% to become eligible to request your certificate.</p>
+      <p>Certificates are issued only after administrator approval.</p>
+    </div>
+    <div class="hero-art">
+      <div class="logo">DAH</div>
+      <strong>DATA ANALYTICS HUB</strong>
+      <p class="tagline">LEARN | ANALYZE | GROW</p>
+      <em>Better Skills, Brighter Future</em>
+    </div>
+  </section>
+
+  <div class="notice">
+    <strong>Certificate Policy:</strong>
+    Pass the assessment and submit your application. The administrator must approve it before a certificate can be issued.
+  </div>
+
+  <div class="layout">
+    <section class="panel" id="courses">
+      <h2>🎓 Select Your Course</h2>
+      <p class="subheading">Choose one course to begin your assessment.</p>
+
+      <div class="courses" id="courseList">
+        <button type="button" class="course" data-course="Excel"><span class="icon">📊</span>Microsoft Excel</button>
+        <button type="button" class="course" data-course="Python"><span class="icon">🐍</span>Python Programming</button>
+        <button type="button" class="course" data-course="Power BI"><span class="icon">📈</span>Power BI</button>
+        <button type="button" class="course" data-course="SQL"><span class="icon">🗄️</span>SQL</button>
+        <button type="button" class="course" data-course="JavaScript"><span class="icon">🟨</span>JavaScript</button>
+        <button type="button" class="course" data-course="Java"><span class="icon">☕</span>Java Programming</button>
+        <button type="button" class="course" data-course="Data Analytics"><span class="icon">📉</span>Data Analytics</button>
+        <button type="button" class="course" data-course="HTML"><span class="icon">🌐</span>HTML</button>
+      </div>
+
+      <p id="selection" class="subheading" aria-live="polite">No course selected.</p>
+      <button type="button" class="primary" id="start">▶ Start Assessment</button>
+    </section>
+
+    <aside class="panel">
+      <h2>How It Works</h2>
+      <ol class="steps">
+        <li data-n="1"><strong>Select a Course</strong>Choose one of the eight subjects.</li>
+        <li data-n="2"><strong>Complete the Test</strong>Answer 15 questions and score 12 or more.</li>
+        <li data-n="3"><strong>Apply for a Certificate</strong>Submit your details.</li>
+        <li data-n="4"><strong>Admin Review</strong>Your application is reviewed.</li>
+        <li data-n="5"><strong>Receive Your Certificate</strong>Available after approval and system integration.</li>
+      </ol>
+    </aside>
+  </div>
+
+  <section id="assessment" class="panel hidden">
+    <h2 id="testTitle">Course Assessment</h2>
+    <p>Answer all 15 questions. Passing score: <strong>12/15 (80%)</strong>.</p>
+    <div class="progress"><div id="progressBar"></div></div>
+    <p id="progressText" class="subheading">0 of 15 answered</p>
+    <form id="quizForm">
+      <div id="questionList"></div>
+      <button class="primary" type="submit">Submit Assessment</button>
+    </form>
+    <div id="quizResult" class="result hidden" aria-live="polite"></div>
+  </section>
+
+  <section id="application" class="panel hidden">
+    <h2>Certificate Application</h2>
+    <p>You passed the assessment. Fill in your details to request administrator approval.</p>
+    <div class="notice">Submitting this demo form does not send your application to the administrator. A database connection is still required.</div>
+    <form id="applicationForm">
+      <label class="form-label" for="fullName">Full Name *</label>
+      <input id="fullName" type="text" maxlength="100" required>
+      <label class="form-label" for="email">Email Address *</label>
+      <input id="email" type="email" maxlength="150" required>
+      <label class="form-label" for="whatsapp">WhatsApp Number *</label>
+      <input id="whatsapp" type="tel" maxlength="25" required>
+      <label class="form-label" for="courseField">Course</label>
+      <input id="courseField" type="text" readonly>
+      <label class="form-label" for="scoreField">Assessment Score</label>
+      <input id="scoreField" type="text" readonly>
+      <button class="primary" type="submit">Request Certificate Approval</button>
+    </form>
+    <div id="applicationResult" class="notice hidden" aria-live="polite"></div>
+  </section>
+
+  <section class="benefits">
+    <div class="benefit"><span>✦</span><strong>Quality Learning</strong><br><small>Useful skills</small></div>
+    <div class="benefit"><span>▥</span><strong>Knowledge Test</strong><br><small>15 questions</small></div>
+    <div class="benefit"><span>🏅</span><strong>Certificate</strong><br><small>After approval</small></div>
+    <div class="benefit"><span>∞</span><strong>Free Portal</strong><br><small>Learn at your pace</small></div>
+  </section>
+
+  <div class="notice">
+    <strong>Important:</strong> This version runs the quiz in your browser. Applications are not saved, administrator approval is not connected, and PDF certificate generation and online verification are not yet enabled.
+  </div>
+</main>
+
+<footer id="contact">
+  <div>© <span id="year"></span> Data Analytics Hub</div>
+  <div>
+    <a href="mailto:dataanalyticshiv666@gmail.com">dataanalyticshiv666@gmail.com</a>
+    &nbsp; | &nbsp;
+    <a href="https://wa.me/919643955649" target="_blank" rel="noopener">WhatsApp: +91 9643955649</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const questions = {
+"Excel":[
+["Which symbol starts a formula?",["=","#","@","&"],0],
+["Which function adds numbers?",["COUNT","SUM","MAX","IF"],1],
+["What is the intersection of a row and column?",["Workbook","Cell","Chart","Ribbon"],1],
+["Which function calculates the mean?",["AVERAGE","SUM","MIN","ROUND"],0],
+["Which function counts numeric cells?",["COUNTA","COUNT","SUM","LEN"],1],
+["Which is an absolute cell reference?",["A1","$A$1","A:A","1:1"],1],
+["What does a filter do?",["Deletes data","Shows matching records","Creates formulas","Renames files"],1],
+["Which feature summarizes large datasets?",["WordArt","PivotTable","Spell Check","Page Color"],1],
+["Which function tests a condition?",["IF","LEFT","NOW","CONCAT"],0],
+["Which chart is useful for trends over time?",["Line chart","Pie chart","Doughnut chart","Radar chart"],0],
+["Which function returns the largest value?",["MIN","MAX","COUNT","AVERAGE"],1],
+["What does conditional formatting do?",["Formats cells by rules","Deletes sheets","Sends emails","Renames files"],0],
+["Which function can search a table?",["XLOOKUP","TODAY","RAND","UPPER"],0],
+["What is a workbook?",["One cell","A file containing worksheets","A chart axis","A formula operator"],1],
+["Which feature arranges values in order?",["Sort","Wrap Text","Freeze Panes","Page Color"],0]
+],
+"Python":[
+["Which keyword defines a function?",["func","define","def","function"],2],
+["Which type stores True or False?",["str","bool","list","dict"],1],
+["Which symbol starts a comment?",["//","<!--","#","**"],2],
+["Which collection is ordered and mutable?",["tuple","list","frozenset","str"],1],
+["What is 3 ** 2?",["5","6","9","8"],2],
+["Which function displays output?",["input()","print()","type()","range()"],1],
+["Which keyword starts a condition?",["if","loop","define","repeat"],0],
+["Which structure stores key-value pairs?",["list","tuple","dict","set"],2],
+["Which keyword handles exceptions?",["catch","except","error","rescue"],1],
+["What does len('data') return?",["3","4","5","Error"],1],
+["Which loop iterates through a sequence?",["for","define","import","with"],0],
+["Which keyword imports a module?",["include","using","import","require"],2],
+["Which value represents no value?",["empty","nullify","None","falsehood"],2],
+["Which list method adds an item at the end?",["append()","remove()","clear()","count()"],0],
+["Which operator checks equality?",["=","==","!=",":"],1]
+],
+"Power BI":[
+["What is Power BI mainly used for?",["Video editing","Data analysis and visualization","Email hosting","Operating systems"],1],
+["Which application creates reports?",["Power BI Desktop","Paint","Calculator","Notepad"],0],
+["What does DAX stand for?",["Data Analysis Expressions","Digital Analytics XML","Data Access Exchange","Desktop Analysis Extension"],0],
+["Which view manages table relationships?",["Reading view","Model view","Print view","Mail view"],1],
+["What is Power Query used for?",["Transforming data","Designing logos","Writing emails","Managing passwords"],0],
+["Which visual compares categories?",["Bar chart","Audio player","Text editor","Inbox"],0],
+["What does a slicer do?",["Filters data interactively","Deletes the model","Exports passwords","Uninstalls Power BI"],0],
+["Which language is used for measures?",["DAX","HTML","CSS","Bash"],0],
+["Why create table relationships?",["Connect related data","Change brightness","Compress images","Send mail"],0],
+["What is a KPI?",["Key Performance Indicator","Keyboard Program Input","Key Processing Interface","Kernel Performance Index"],0],
+["What is a report page?",["Canvas containing visuals","Network cable","Computer part","Inbox"],0],
+["What does refreshing data do?",["Updates data from its source","Deletes visuals","Uninstalls the app","Changes measures to text"],0],
+["What is a measure used for?",["Calculating values","Changing fonts only","Saving images","Opening tabs"],0],
+["A Power BI dashboard is generally what?",["A collection of tiles","Python package","Spreadsheet cell","Database server"],0],
+["What is drill-through used for?",["Opening a detail page","Turning off a PC","Removing sources","Changing file types"],0]
+],
+"SQL":[
+["Which statement retrieves data?",["GET","SELECT","OPEN","FETCHFILE"],1],
+["Which clause filters rows?",["WHERE","ORDER BY","GROUP BY","AS"],0],
+["Which command inserts rows?",["ADD ROW","INSERT INTO","NEW RECORD","PUT TABLE"],1],
+["Which function counts rows?",["SUM()","COUNT()","TOTALROWS()","NUMBEROF()"],1],
+["Which clause sorts results?",["SORT","ORDER BY","ARRANGE","SEQUENCE"],1],
+["Which keyword removes duplicate results?",["UNIQUEONLY","DISTINCT","SINGLE","DEDUPLICATE"],1],
+["Which command updates existing rows?",["UPDATE","REPLACE TABLE","ALTER ROW","MODIFY DATABASE"],0],
+["Which join returns matching rows from both tables?",["INNER JOIN","CROSS JOIN","FULL OUTER JOIN","No join"],0],
+["Which clause groups rows?",["GROUP BY","ORDER BY","LIMIT","WHERE ONLY"],0],
+["How do you check for NULL?",["= NULL","IS NULL","EQUALS EMPTY","IS EMPTY STRING"],1],
+["Which command creates a table?",["MAKE TABLE","CREATE TABLE","NEW TABLE","BUILD DATA"],1],
+["Which command removes a table definition?",["DELETE TABLE","DROP TABLE","CLEAR TABLE","ERASE ROWS"],1],
+["What is a primary key?",["Unique row identifier","Chart type","Backup file","Duplicate field"],0],
+["Which operator matches a pattern?",["MATCHES","LIKE","PATTERN","SEARCHES"],1],
+["Which function returns the highest value?",["TOP()","HIGH()","MAX()","UPPER()"],2]
+],
+"JavaScript":[
+["Which keyword declares a reassignable block-scoped variable?",["let","const","fixed","static"],0],
+["Which method selects an element by ID?",["getElementById()","queryByName()","selectClass()","findTagId()"],0],
+["Which operator checks strict equality?",["=","==","===","=>"],2],
+["Which type represents true or false?",["String","Boolean","Array","Object"],1],
+["Which method adds an item to an array's end?",["appendEnd()","push()","attach()","addLastOnly()"],1],
+["Which keyword declares an asynchronous function?",["await","async","deferonly","promise"],1],
+["What does JSON.parse() do?",["Converts JSON text to a value","Creates CSS","Deletes objects","Encrypts strings"],0],
+["Which method converts a value to JSON text?",["JSON.stringify()","JSON.convert()","JSON.write()","JSON.html()"],0],
+["Which event occurs when a button is clicked?",["hovered","click","compiled","printed"],1],
+["Which syntax creates an arrow function?",["function =>","() =>","->()","func():"],1],
+["What does querySelector() return?",["First matching element","Every file","Only an image","A password"],0],
+["Which keyword exits a loop?",["stop","exitloop","break","finish"],2],
+["Which operator provides a fallback for null or undefined?",["??","%%","**","::"],0],
+["Which method transforms array elements?",["map()","sortOnly()","push()","pop()"],0],
+["Where can browser JavaScript errors be inspected?",["Developer console","Printer queue","Wallpaper settings","Recycle bin"],0]
+],
+"Java":[
+["Which keyword declares a class?",["class","define","structonly","object"],0],
+["What is the conventional Java entry-point method?",["start()","main()","runApp()","begin()"],1],
+["Which type stores a whole number?",["boolean","int","char","void"],1],
+["Which keyword creates an object?",["make","new","create","object"],1],
+["Which modifier permits broad access?",["private","protected","public","local"],2],
+["Which keyword inherits a class?",["implements","extends","inherits","superclass"],1],
+["Which primitive type stores true or false?",["bool","Boolean","boolean","bit"],2],
+["Which structure handles exceptions?",["try-catch","if-else only","switch only","for-while"],0],
+["Which collection stores unique elements?",["List","Set","ArrayList","Queue"],1],
+["Which keyword prevents overriding?",["static-only","fixed","final","constant"],2],
+["Which operator compares primitive values?",["==","===","=>",":="],0],
+["What does JVM stand for?",["Java Virtual Machine","Java Variable Method","Joint Visual Model","Java Version Manager"],0],
+["Which keyword refers to the current object?",["this","self","current","me"],0],
+["Which structure repeats while a condition is true?",["while loop","class","package","import"],0],
+["Which package contains many utility classes?",["java.util","java.image","java.browser","java.networkpage"],0]
+],
+"Data Analytics":[
+["What is the main goal of data analytics?",["Turn data into useful insights","Design hardware","Write fiction","Replace databases"],0],
+["What is data cleaning?",["Correcting data quality problems","Deleting all records","Creating logos","Changing screen size"],0],
+["Which measure represents the arithmetic center?",["Mean","Range","Maximum","Minimum"],0],
+["Which chart compares categories?",["Bar chart","Audio player","Map only","Network diagram"],0],
+["What does KPI mean?",["Key Performance Indicator","Known Program Interface","Key Processing Input","Kernel Performance Index"],0],
+["What does a database store?",["Organized data","Only pictures","Only web pages","Only operating systems"],0],
+["What is an outlier?",["An unusually distant observation","Column heading","Chart title","File extension"],0],
+["Descriptive analytics focuses on which question?",["What happened?","What must happen?","Who wrote an OS?","How is a keyboard made?"],0],
+["What does correlation describe?",["Association between variables","Proof of causation","File system","Missing table"],0],
+["What is a dashboard?",["Visual summary of information","Keyboard","Compiler","Cable"],0],
+["What is a sample?",["Subset of a population","Every possible population","Chart color","Formula error"],0],
+["What commonly follows data collection?",["Data preparation","Certificate printing","Hardware replacement","Deleting everything"],0],
+["What is data visualization?",["Representing data visually","Encrypting a keyboard","Deleting records","Writing passwords"],0],
+["What is a data-driven decision?",["A decision informed by evidence","Random guess only","Decision without context","Computer restart"],0],
+["Why protect personal information?",["Respect privacy and legal requirements","Make every record public","Stop all analysis","Avoid documentation"],0]
+],
+"HTML":[
+["What does HTML stand for?",["HyperText Markup Language","HighText Machine Language","Hyper Transfer Main Link","Home Tool Markup Language"],0],
+["Which element creates a hyperlink?",["<linkto>","<a>","<href>","<url>"],1],
+["Which element inserts an image?",["<image>","<picturefile>","<img>","<src>"],2],
+["Which element creates a paragraph?",["<p>","<paragraph>","<text>","<paraonly>"],0],
+["Which declaration identifies an HTML5 document?",["<!DOCTYPE html>","<html5>","<doctype=5>","<document html>"],0],
+["Which element creates a top-level heading?",["<head>","<h1>","<titleonly>","<heading>"],1],
+["Which attribute provides alternative image text?",["titleonly","alt","description","caption"],1],
+["Which element creates an unordered list?",["<ol>","<ul>","<li-only>","<list>"],1],
+["Which element creates a form?",["<input>","<form>","<fieldset-only>","<submit>"],1],
+["Which attribute uniquely identifies an element?",["class","style","id","name-only"],2],
+["Which element links an external CSS file?",["<css>","<style src>","<link>","<script>"],2],
+["Which element references JavaScript?",["<javascript>","<script>","<codefile>","<js>"],1],
+["Which element creates a line break?",["<break>","<lb>","<br>","<newline>"],2],
+["Which attribute specifies a link destination?",["src","href","targetonly","action-only"],1],
+["Which element contains visible page content?",["<head>","<meta>","<body>","<title>"],2]
+]
+};
+
+let selectedCourse = "";
+let passed = false;
+let lastScore = 0;
+
+const courseButtons = document.querySelectorAll(".course");
+const assessment = document.getElementById("assessment");
+const application = document.getElementById("application");
+const quizForm = document.getElementById("quizForm");
+const questionList = document.getElementById("questionList");
+const quizResult = document.getElementById("quizResult");
+
+courseButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    selectedCourse = button.dataset.course;
+    courseButtons.forEach(b => b.classList.remove("selected"));
+    button.classList.add("selected");
+    document.getElementById("selection").textContent = "Selected course: " + selectedCourse;
+    assessment.classList.add("hidden");
+    application.classList.add("hidden");
+    passed = false;
+  });
+});
+
+document.getElementById("start").addEventListener("click", () => {
+  if (!selectedCourse) {
+    document.getElementById("selection").textContent =
+      "Please select a course before starting the assessment.";
+    document.getElementById("courses").scrollIntoView({behavior:"smooth"});
+    return;
+  }
+
+  passed = false;
+  lastScore = 0;
+  document.getElementById("testTitle").textContent = selectedCourse + " Assessment";
+  quizResult.className = "result hidden";
+  application.classList.add("hidden");
+  assessment.classList.remove("hidden");
+  renderQuestions();
+  assessment.scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+function renderQuestions() {
+  questionList.replaceChildren();
+
+  questions[selectedCourse].forEach((q,i) => {
+    const field = document.createElement("fieldset");
+    field.className = "question";
+
+    const legend = document.createElement("legend");
+    legend.textContent = (i+1) + ". " + q[0];
+    field.appendChild(legend);
+
+    q[1].forEach((answer,j) => {
+      const label = document.createElement("label");
+      label.className = "option";
+
+      const radio = document.createElement("input");
+      radio.type = "radio";
+      radio.name = "q" + i;
+      radio.value = String(j);
+      radio.required = true;
+      radio.addEventListener("change", updateProgress);
+
+      const span = document.createElement("span");
+      span.textContent = answer;
+
+      label.append(radio,span);
+      field.appendChild(label);
+    });
+
+    questionList.appendChild(field);
+  });
+
+  updateProgress();
+}
+
+function updateProgress() {
+  const total = questions[selectedCourse].length;
+  const answered = new Set(
+    [...quizForm.querySelectorAll('input[type="radio"]:checked')]
+      .map(input => input.name)
+  ).size;
+
+  document.getElementById("progressText").textContent =
+    answered + " of " + total + " answered";
+  document.getElementById("progressBar").style.width =
+    (answered / total * 100) + "%";
+}
+
+quizForm.addEventListener("submit", event => {
+  event.preventDefault();
+
+  let score = 0;
+  const set = questions[selectedCourse];
+
+  for (let i=0;i<set.length;i++) {
+    const answer = quizForm.querySelector('input[name="q'+i+'"]:checked');
+    if (!answer) {
+      alert("Please answer all 15 questions.");
+      return;
+    }
+    if (Number(answer.value) === set[i][2]) score++;
+  }
+
+  lastScore = score;
+  passed = score >= 12;
+
+  quizResult.replaceChildren();
+  quizResult.className = "result " + (passed ? "good" : "bad");
+
+  const heading = document.createElement("h3");
+  heading.textContent = passed ? "Congratulations! You passed." : "Assessment not passed.";
+
+  const detail = document.createElement("p");
+  detail.textContent = "Your score: " + score + "/15 (" +
+    Math.round(score/15*100) + "%). " +
+    (passed ? "You may request certificate approval below." :
+    "You need at least 12 correct answers. Please try again.");
+
+  quizResult.append(heading,detail);
+
+  if (passed) {
+    document.getElementById("courseField").value = selectedCourse;
+    document.getElementById("scoreField").value =
+      score + "/15 (" + Math.round(score/15*100) + "%)";
+    application.classList.remove("hidden");
+    application.scrollIntoView({behavior:"smooth",block:"start"});
+  } else {
+    application.classList.add("hidden");
+
+    const retry = document.createElement("button");
+    retry.type = "button";
+    retry.className = "primary";
+    retry.textContent = "Try Again";
+    retry.addEventListener("click", () => {
+      quizResult.className = "result hidden";
+      renderQuestions();
+      assessment.scrollIntoView({behavior:"smooth"});
+    });
+    quizResult.appendChild(retry);
+    quizResult.scrollIntoView({behavior:"smooth",block:"center"});
+  }
+});
+
+document.getElementById("applicationForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  if (!passed || lastScore < 12 || !selectedCourse) {
+    alert("Pass the assessment before applying.");
+    return;
+  }
+
+  const name = document.getElementById("fullName").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const whatsapp = document.getElementById("whatsapp").value.trim();
+
+  if (!name || !email || !whatsapp) {
+    alert("Please complete all required fields.");
+    return;
+  }
+
+  const output = document.getElementById("applicationResult");
+  output.classList.remove("hidden");
+  output.textContent =
+    "Demo only: the form is working in this browser, but the application has not been sent or saved. Database and secure admin approval integration are required.";
+  output.scrollIntoView({behavior:"smooth",block:"center"});
+});
+</script>
+</body>
+</html>
