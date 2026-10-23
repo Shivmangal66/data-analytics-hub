@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,299 +6,156 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Data Analytics Hub | Certificate Portal</title>
 <style>
-:root {
-  --navy:#06172c;
-  --panel:#0b2541;
-  --gold:#f4bd4b;
-  --lightgold:#ffe5a0;
-  --white:#f8fbff;
-  --muted:#c5d5e8;
-  --border:#345474;
-}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
-  margin:0;
-  background:radial-gradient(ellipse at 80% 10%,#1a3c59,transparent 42%),var(--navy);
-  color:var(--white);
-  font-family:Arial,Helvetica,sans-serif;
-  line-height:1.6;
+ margin:0;font-family:Arial,sans-serif;color:#fff;
+ background:radial-gradient(ellipse at top right,#204568,#071629 65%);
+ min-height:100vh
 }
 header{
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:18px;padding:18px 5%;
-  background:#041326;border-bottom:2px solid #b8862e;
+ padding:22px 6%;background:#031020;border-bottom:2px solid #d8a63d;
+ display:flex;align-items:center;gap:15px;flex-wrap:wrap
 }
-.brand{display:flex;align-items:center;gap:13px}
 .logo{
-  display:grid;place-items:center;width:64px;height:64px;
-  border:3px solid var(--gold);border-radius:50%;
-  color:var(--gold);font-weight:900;font-size:21px;
-  box-shadow:0 0 18px #f4bd4b22;
+ border:2px solid #f6c75b;border-radius:50%;padding:14px;
+ font-size:24px;font-weight:900;color:#f6c75b
 }
-.brand h1{font-size:clamp(21px,3vw,29px);margin:0}
-.brand h1 span{color:var(--gold)}
-.tagline{color:var(--muted);letter-spacing:3px;font-size:11px;margin:0}
-nav{display:flex;flex-wrap:wrap;gap:7px}
-nav a{
-  color:white;text-decoration:none;padding:9px 12px;
-  border-radius:20px;font-size:13px
+h1{margin:0;font-size:25px}
+h1 span,h2 span{color:#f6c75b}
+header p{margin:5px 0 0;color:#b9cbe0;letter-spacing:3px;font-size:11px}
+main{max-width:1000px;margin:35px auto;padding:0 18px}
+.hero{text-align:center;margin-bottom:30px}
+.hero h2{font-family:Georgia,serif;font-size:clamp(30px,5vw,48px);margin-bottom:10px}
+.hero p{color:#d0deed;line-height:1.7}
+.card{
+ padding:25px;background:#0c2540;border:1px solid #496580;
+ border-radius:15px;margin:20px 0;box-shadow:0 10px 35px #0003
 }
-nav a:hover{background:var(--gold);color:var(--navy)}
-main{max-width:1250px;margin:auto;padding:28px 5%}
-.hero{
-  display:grid;grid-template-columns:1.15fr .85fr;
-  gap:25px;align-items:center;margin-bottom:25px
-}
-.hero h2{
-  font-family:Georgia,serif;font-size:clamp(31px,4.6vw,52px);
-  line-height:1.2;margin:0
-}
-.hero h2 span{display:block;color:var(--gold);font-size:1.2em}
-.hero p{color:var(--muted)}
-.hero-art{
-  min-height:240px;padding:25px;text-align:center;
-  border:1px solid #c69b42;border-radius:16px;
-  background:radial-gradient(circle,#173c5c,#06172c 75%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center
-}
-.hero-art .logo{width:115px;height:115px;font-size:35px;margin-bottom:12px}
-.hero-art strong{letter-spacing:2px}
-.hero-art em{color:var(--lightgold);font-family:Georgia,serif;font-size:20px}
-.notice{
-  background:#102d49;border-left:4px solid var(--gold);
-  padding:14px 17px;border-radius:7px;margin:18px 0;color:#e0eaf6;
-  overflow-wrap:anywhere
-}
-.notice strong{color:var(--gold)}
-.layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:20px}
-.panel{
-  background:linear-gradient(145deg,#0b2541,#06172b);
-  border:1px solid var(--border);border-radius:15px;
-  padding:24px;box-shadow:0 12px 32px #0002
-}
-.panel h2{margin:0 0 8px;font-size:24px}
-.subheading{color:var(--muted);font-size:14px}
-.courses{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:11px;margin:20px 0
-}
+.courses{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:22px 0}
 .course{
-  min-height:105px;text-align:left;padding:13px 10px;
-  color:white;background:#0a2946;border:1px solid #345474;
-  border-radius:10px;cursor:pointer;font-size:14px;
-  overflow-wrap:anywhere;transition:.2s
+ min-height:90px;background:#102f4e;color:white;border:1px solid #466580;
+ border-radius:10px;padding:15px 8px;cursor:pointer;font-size:15px
 }
-.course .icon{display:block;font-size:26px;margin-bottom:5px}
-.course:hover,.course.selected{
-  border-color:var(--gold);background:#153c5c;
-  box-shadow:0 0 14px #f4bd4b25
-}
-button:focus-visible,a:focus-visible,input:focus-visible{
-  outline:3px solid white;outline-offset:3px
-}
+.course:hover,.course.selected{border:2px solid #f6c75b;background:#194365}
+button:focus-visible{outline:3px solid white;outline-offset:3px}
 .primary{
-  display:block;width:100%;padding:15px;border:0;border-radius:9px;
-  color:#081a2e;background:linear-gradient(110deg,#ffe5a0,#f4bd4b);
-  font-size:17px;font-weight:bold;cursor:pointer
+ width:100%;padding:15px;border:0;border-radius:8px;
+ background:linear-gradient(100deg,#ffe4a0,#e5ac36);
+ color:#09192a;font-size:17px;font-weight:bold;cursor:pointer
 }
 .primary:hover{filter:brightness(1.08)}
-.steps{list-style:none;margin:20px 0 0;padding:0}
-.steps li{position:relative;padding:0 0 22px 45px;color:var(--muted)}
-.steps li:before{
-  content:attr(data-n);position:absolute;left:0;top:0;
-  width:30px;height:30px;border:2px solid var(--gold);
-  border-radius:50%;display:grid;place-items:center;color:var(--gold)
-}
-.steps strong{display:block;color:white}
-.hidden{display:none!important}
-#assessment,#application{margin-top:24px}
-.question{
-  padding:15px;margin:13px 0;border:1px solid var(--border);
-  border-radius:9px;min-width:0
-}
-.question legend{font-weight:bold;padding:0 6px}
-.option{display:flex;gap:10px;margin:10px 0;color:#dce7f5;cursor:pointer}
-.option input{accent-color:var(--gold);margin-top:5px}
-.progress{height:8px;background:#1d3953;border-radius:8px;overflow:hidden;margin:12px 0}
-.progress div{height:100%;width:0;background:var(--gold)}
-.result{margin-top:16px;padding:17px;background:#102d49;border:1px solid var(--border);border-radius:9px}
-.result.good{border-color:#48cf94}
-.result.bad{border-color:#ff8888}
-label.form-label{display:block;font-weight:bold;margin-top:13px}
+#status{color:#ffe09a;font-weight:bold;min-height:25px}
+.question{border:1px solid #3a5876;border-radius:8px;padding:15px;margin:15px 0}
+.question label{display:block;margin:12px 0;color:#dce7f5;cursor:pointer}
+.question input{margin-right:8px;accent-color:#f6c75b}
+.hidden{display:none}
 input[type=text],input[type=email],input[type=tel]{
-  width:100%;padding:12px;margin:6px 0;
-  background:#04182d;border:1px solid #456582;
-  color:white;border-radius:7px;font-size:15px
+ width:100%;padding:12px;margin:7px 0 15px;background:#07182b;
+ border:1px solid #466580;border-radius:7px;color:white
 }
-.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:25px 0}
-.benefit{text-align:center;padding:14px 8px;border-right:1px solid var(--border)}
-.benefit:last-child{border:0}
-.benefit span{display:block;font-size:27px;color:var(--gold)}
-.benefit small{color:var(--muted)}
-footer{
-  padding:25px 5%;background:#031122;border-top:1px solid #a87d32;
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:15px;
-  color:var(--muted);font-size:13px
-}
-footer a{color:var(--lightgold)}
-@media(max-width:950px){
-  .layout{grid-template-columns:1fr}
-  .courses{grid-template-columns:repeat(4,minmax(0,1fr))}
-}
-@media(max-width:680px){
-  header{justify-content:center}
-  .hero{grid-template-columns:1fr}
-  .courses{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .benefits{grid-template-columns:repeat(2,1fr)}
-  .benefit:nth-child(2){border-right:0}
-  .panel{padding:17px}
-}
+footer{text-align:center;padding:25px;color:#b9cbe0}
+a{color:#ffe09a}
+@media(max-width:650px){.courses{grid-template-columns:repeat(2,minmax(0,1fr))}.card{padding:17px}}
 </style>
 </head>
 <body>
-
 <header>
-  <div class="brand">
-    <div class="logo">DAH</div>
-    <div>
-      <h1>Data Analytics <span>Hub</span></h1>
-      <p class="tagline">LEARN | ANALYZE | GROW</p>
-    </div>
-  </div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#courses">Courses</a>
-    <a href="#assessment">Assessment</a>
-    <a href="#application">Certificate</a>
-    <a href="#contact">Contact</a>
-  </nav>
+ <div class="logo">DAH</div>
+ <div>
+  <h1>Data Analytics <span>Hub</span></h1>
+  <p>LEARN | ANALYZE | GROW</p>
+ </div>
 </header>
 
-<main id="home">
-  <section class="hero">
-    <div>
-      <h2>Earn Your Course Completion <span>Certificate</span></h2>
-      <p>Select a course, complete its 15-question assessment, and score at least 80% to become eligible to request your certificate.</p>
-      <p>Certificates are issued only after administrator approval.</p>
-    </div>
-    <div class="hero-art">
-      <div class="logo">DAH</div>
-      <strong>DATA ANALYTICS HUB</strong>
-      <p class="tagline">LEARN | ANALYZE | GROW</p>
-      <em>Better Skills, Brighter Future</em>
-    </div>
-  </section>
+<main>
+ <section class="hero">
+  <h2>Certificate of <span>Completion</span></h2>
+  <p>Select your course, complete the 15-question assessment and score at least 80%.<br>
+  Certificates require administrator approval.</p>
+ </section>
 
-  <div class="notice">
-    <strong>Certificate Policy:</strong>
-    Pass the assessment and submit your application. The administrator must approve it before a certificate can be issued.
+ <section class="card" id="courseSection">
+  <h2>🎓 Select Your Course</h2>
+  <p>Choose one course below.</p>
+  <div class="courses">
+   <button type="button" class="course" data-course="Excel">📊 Excel</button>
+   <button type="button" class="course" data-course="Python">🐍 Python</button>
+   <button type="button" class="course" data-course="Power BI">📈 Power BI</button>
+   <button type="button" class="course" data-course="SQL">🗄️ SQL</button>
+   <button type="button" class="course" data-course="JavaScript">🟨 JavaScript</button>
+   <button type="button" class="course" data-course="Java">☕ Java</button>
+   <button type="button" class="course" data-course="Data Analytics">📉 Data Analytics</button>
+   <button type="button" class="course" data-course="HTML">🌐 HTML</button>
   </div>
+  <p id="status" role="status" aria-live="polite">Please select a course.</p>
+  <button type="button" class="primary" id="startBtn">Start Assessment →</button>
+ </section>
 
-  <div class="layout">
-    <section class="panel" id="courses">
-      <h2>🎓 Select Your Course</h2>
-      <p class="subheading">Choose one course to begin your assessment.</p>
+ <section class="card hidden" id="quizSection">
+  <h2 id="quizTitle">Course Assessment</h2>
+  <p>Answer all 15 questions. Pass mark: 12/15.</p>
+  <form id="quizForm">
+   <div id="questions"></div>
+   <button class="primary" type="submit">Submit Answers</button>
+  </form>
+  <div id="result" role="status" aria-live="polite"></div>
+ </section>
 
-      <div class="courses" id="courseList">
-        <button type="button" class="course" data-course="Excel"><span class="icon">📊</span>Microsoft Excel</button>
-        <button type="button" class="course" data-course="Python"><span class="icon">🐍</span>Python Programming</button>
-        <button type="button" class="course" data-course="Power BI"><span class="icon">📈</span>Power BI</button>
-        <button type="button" class="course" data-course="SQL"><span class="icon">🗄️</span>SQL</button>
-        <button type="button" class="course" data-course="JavaScript"><span class="icon">🟨</span>JavaScript</button>
-        <button type="button" class="course" data-course="Java"><span class="icon">☕</span>Java Programming</button>
-        <button type="button" class="course" data-course="Data Analytics"><span class="icon">📉</span>Data Analytics</button>
-        <button type="button" class="course" data-course="HTML"><span class="icon">🌐</span>HTML</button>
-      </div>
+ <section class="card hidden" id="applicationSection">
+  <h2>Certificate Application</h2>
+  <p>You passed! Enter your details to request approval.</p>
+  <p><strong>Demo note:</strong> This form is not connected to the administrator yet.</p>
+  <form id="applicationForm">
+   <label for="fullName">Full Name</label>
+   <input id="fullName" type="text" required maxlength="100">
+   <label for="email">Email</label>
+   <input id="email" type="email" required maxlength="150">
+   <label for="whatsapp">WhatsApp Number</label>
+   <input id="whatsapp" type="tel" required maxlength="25">
+   <button class="primary" type="submit">Request Certificate Approval</button>
+  </form>
+  <p id="applicationStatus" role="status" aria-live="polite"></p>
+ </section>
 
-      <p id="selection" class="subheading" aria-live="polite">No course selected.</p>
-      <button type="button" class="primary" id="start">▶ Start Assessment</button>
-    </section>
-
-    <aside class="panel">
-      <h2>How It Works</h2>
-      <ol class="steps">
-        <li data-n="1"><strong>Select a Course</strong>Choose one of the eight subjects.</li>
-        <li data-n="2"><strong>Complete the Test</strong>Answer 15 questions and score 12 or more.</li>
-        <li data-n="3"><strong>Apply for a Certificate</strong>Submit your details.</li>
-        <li data-n="4"><strong>Admin Review</strong>Your application is reviewed.</li>
-        <li data-n="5"><strong>Receive Your Certificate</strong>Available after approval and system integration.</li>
-      </ol>
-    </aside>
-  </div>
-
-  <section id="assessment" class="panel hidden">
-    <h2 id="testTitle">Course Assessment</h2>
-    <p>Answer all 15 questions. Passing score: <strong>12/15 (80%)</strong>.</p>
-    <div class="progress"><div id="progressBar"></div></div>
-    <p id="progressText" class="subheading">0 of 15 answered</p>
-    <form id="quizForm">
-      <div id="questionList"></div>
-      <button class="primary" type="submit">Submit Assessment</button>
-    </form>
-    <div id="quizResult" class="result hidden" aria-live="polite"></div>
-  </section>
-
-  <section id="application" class="panel hidden">
-    <h2>Certificate Application</h2>
-    <p>You passed the assessment. Fill in your details to request administrator approval.</p>
-    <div class="notice">Submitting this demo form does not send your application to the administrator. A database connection is still required.</div>
-    <form id="applicationForm">
-      <label class="form-label" for="fullName">Full Name *</label>
-      <input id="fullName" type="text" maxlength="100" required>
-      <label class="form-label" for="email">Email Address *</label>
-      <input id="email" type="email" maxlength="150" required>
-      <label class="form-label" for="whatsapp">WhatsApp Number *</label>
-      <input id="whatsapp" type="tel" maxlength="25" required>
-      <label class="form-label" for="courseField">Course</label>
-      <input id="courseField" type="text" readonly>
-      <label class="form-label" for="scoreField">Assessment Score</label>
-      <input id="scoreField" type="text" readonly>
-      <button class="primary" type="submit">Request Certificate Approval</button>
-    </form>
-    <div id="applicationResult" class="notice hidden" aria-live="polite"></div>
-  </section>
-
-  <section class="benefits">
-    <div class="benefit"><span>✦</span><strong>Quality Learning</strong><br><small>Useful skills</small></div>
-    <div class="benefit"><span>▥</span><strong>Knowledge Test</strong><br><small>15 questions</small></div>
-    <div class="benefit"><span>🏅</span><strong>Certificate</strong><br><small>After approval</small></div>
-    <div class="benefit"><span>∞</span><strong>Free Portal</strong><br><small>Learn at your pace</small></div>
-  </section>
-
-  <div class="notice">
-    <strong>Important:</strong> This version runs the quiz in your browser. Applications are not saved, administrator approval is not connected, and PDF certificate generation and online verification are not yet enabled.
-  </div>
+ <section class="card">
+  <h2>How it works</h2>
+  <p>1. Select a course.</p>
+  <p>2. Start the assessment and answer 15 questions.</p>
+  <p>3. Score at least 80% to unlock the application form.</p>
+  <p>4. The administrator must review your application.</p>
+ </section>
 </main>
 
-<footer id="contact">
-  <div>© <span id="year"></span> Data Analytics Hub</div>
-  <div>
-    <a href="mailto:dataanalyticshiv666@gmail.com">dataanalyticshiv666@gmail.com</a>
-    &nbsp; | &nbsp;
-    <a href="https://wa.me/919643955649" target="_blank" rel="noopener">WhatsApp: +91 9643955649</a>
-  </div>
+<footer>
+ © <span id="year"></span> Data Analytics Hub<br>
+ <a href="mailto:dataanalyticshiv666@gmail.com">dataanalyticshiv666@gmail.com</a>
+ &nbsp; | &nbsp;
+ <a href="https://wa.me/919643955649">WhatsApp: +91 9643955649</a>
 </footer>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+(function(){
+"use strict";
 
-const questions = {
+var selectedCourse = "";
+var passed = false;
+
+var bank = {
 "Excel":[
-["Which symbol starts a formula?",["=","#","@","&"],0],
+["Which symbol starts an Excel formula?",["=","#","@","&"],0],
 ["Which function adds numbers?",["COUNT","SUM","MAX","IF"],1],
-["What is the intersection of a row and column?",["Workbook","Cell","Chart","Ribbon"],1],
+["What is a cell?",["A row only","Intersection of row and column","A chart","A workbook"],1],
 ["Which function calculates the mean?",["AVERAGE","SUM","MIN","ROUND"],0],
-["Which function counts numeric cells?",["COUNTA","COUNT","SUM","LEN"],1],
-["Which is an absolute cell reference?",["A1","$A$1","A:A","1:1"],1],
-["What does a filter do?",["Deletes data","Shows matching records","Creates formulas","Renames files"],1],
-["Which feature summarizes large datasets?",["WordArt","PivotTable","Spell Check","Page Color"],1],
-["Which function tests a condition?",["IF","LEFT","NOW","CONCAT"],0],
-["Which chart is useful for trends over time?",["Line chart","Pie chart","Doughnut chart","Radar chart"],0],
+["Which function counts numeric cells?",["COUNTA","COUNT","LEN","SUM"],1],
+["Which is an absolute reference?",["A1","$A$1","A:A","1:1"],1],
+["What does Filter do?",["Deletes data","Shows matching records","Renames files","Adds formulas"],1],
+["Which feature summarizes data?",["PivotTable","WordArt","Spell Check","Page Color"],0],
+["Which function tests a condition?",["IF","LEFT","NOW","SUM"],0],
+["Which chart shows trends over time?",["Line chart","Pie chart","Doughnut","Radar"],0],
 ["Which function returns the largest value?",["MIN","MAX","COUNT","AVERAGE"],1],
-["What does conditional formatting do?",["Formats cells by rules","Deletes sheets","Sends emails","Renames files"],0],
+["What does conditional formatting do?",["Formats cells based on rules","Deletes sheets","Sends email","Renames files"],0],
 ["Which function can search a table?",["XLOOKUP","TODAY","RAND","UPPER"],0],
-["What is a workbook?",["One cell","A file containing worksheets","A chart axis","A formula operator"],1],
+["What is a workbook?",["A cell","A file with worksheets","A chart axis","A formula"],1],
 ["Which feature arranges values in order?",["Sort","Wrap Text","Freeze Panes","Page Color"],0]
 ],
 "Python":[
@@ -318,20 +176,20 @@ const questions = {
 ["Which operator checks equality?",["=","==","!=",":"],1]
 ],
 "Power BI":[
-["What is Power BI mainly used for?",["Video editing","Data analysis and visualization","Email hosting","Operating systems"],1],
+["Power BI is mainly used for?",["Video editing","Data analysis and visualization","Email hosting","Operating systems"],1],
 ["Which application creates reports?",["Power BI Desktop","Paint","Calculator","Notepad"],0],
 ["What does DAX stand for?",["Data Analysis Expressions","Digital Analytics XML","Data Access Exchange","Desktop Analysis Extension"],0],
-["Which view manages table relationships?",["Reading view","Model view","Print view","Mail view"],1],
+["Which view manages relationships?",["Reading view","Model view","Print view","Mail view"],1],
 ["What is Power Query used for?",["Transforming data","Designing logos","Writing emails","Managing passwords"],0],
 ["Which visual compares categories?",["Bar chart","Audio player","Text editor","Inbox"],0],
-["What does a slicer do?",["Filters data interactively","Deletes the model","Exports passwords","Uninstalls Power BI"],0],
+["What does a slicer do?",["Filters data interactively","Deletes a model","Exports passwords","Uninstalls Power BI"],0],
 ["Which language is used for measures?",["DAX","HTML","CSS","Bash"],0],
-["Why create table relationships?",["Connect related data","Change brightness","Compress images","Send mail"],0],
+["Why create relationships?",["Connect related data","Change brightness","Compress images","Send mail"],0],
 ["What is a KPI?",["Key Performance Indicator","Keyboard Program Input","Key Processing Interface","Kernel Performance Index"],0],
 ["What is a report page?",["Canvas containing visuals","Network cable","Computer part","Inbox"],0],
-["What does refreshing data do?",["Updates data from its source","Deletes visuals","Uninstalls the app","Changes measures to text"],0],
+["What does refreshing data do?",["Updates data from source","Deletes visuals","Uninstalls app","Changes measures to text"],0],
 ["What is a measure used for?",["Calculating values","Changing fonts only","Saving images","Opening tabs"],0],
-["A Power BI dashboard is generally what?",["A collection of tiles","Python package","Spreadsheet cell","Database server"],0],
+["A dashboard is generally what?",["A collection of tiles","Python package","Spreadsheet cell","Database server"],0],
 ["What is drill-through used for?",["Opening a detail page","Turning off a PC","Removing sources","Changing file types"],0]
 ],
 "SQL":[
@@ -341,36 +199,36 @@ const questions = {
 ["Which function counts rows?",["SUM()","COUNT()","TOTALROWS()","NUMBEROF()"],1],
 ["Which clause sorts results?",["SORT","ORDER BY","ARRANGE","SEQUENCE"],1],
 ["Which keyword removes duplicate results?",["UNIQUEONLY","DISTINCT","SINGLE","DEDUPLICATE"],1],
-["Which command updates existing rows?",["UPDATE","REPLACE TABLE","ALTER ROW","MODIFY DATABASE"],0],
-["Which join returns matching rows from both tables?",["INNER JOIN","CROSS JOIN","FULL OUTER JOIN","No join"],0],
+["Which command updates rows?",["UPDATE","REPLACE TABLE","ALTER ROW","MODIFY DATABASE"],0],
+["Which join returns matching rows?",["INNER JOIN","CROSS JOIN","FULL OUTER JOIN","No join"],0],
 ["Which clause groups rows?",["GROUP BY","ORDER BY","LIMIT","WHERE ONLY"],0],
 ["How do you check for NULL?",["= NULL","IS NULL","EQUALS EMPTY","IS EMPTY STRING"],1],
 ["Which command creates a table?",["MAKE TABLE","CREATE TABLE","NEW TABLE","BUILD DATA"],1],
-["Which command removes a table definition?",["DELETE TABLE","DROP TABLE","CLEAR TABLE","ERASE ROWS"],1],
+["Which command removes a table?",["DELETE TABLE","DROP TABLE","CLEAR TABLE","ERASE ROWS"],1],
 ["What is a primary key?",["Unique row identifier","Chart type","Backup file","Duplicate field"],0],
 ["Which operator matches a pattern?",["MATCHES","LIKE","PATTERN","SEARCHES"],1],
 ["Which function returns the highest value?",["TOP()","HIGH()","MAX()","UPPER()"],2]
 ],
 "JavaScript":[
-["Which keyword declares a reassignable block-scoped variable?",["let","const","fixed","static"],0],
+["Which declares a reassignable block-scoped variable?",["let","const","fixed","static"],0],
 ["Which method selects an element by ID?",["getElementById()","queryByName()","selectClass()","findTagId()"],0],
 ["Which operator checks strict equality?",["=","==","===","=>"],2],
 ["Which type represents true or false?",["String","Boolean","Array","Object"],1],
-["Which method adds an item to an array's end?",["appendEnd()","push()","attach()","addLastOnly()"],1],
+["Which method adds to an array's end?",["appendEnd()","push()","attach()","addLastOnly()"],1],
 ["Which keyword declares an asynchronous function?",["await","async","deferonly","promise"],1],
 ["What does JSON.parse() do?",["Converts JSON text to a value","Creates CSS","Deletes objects","Encrypts strings"],0],
-["Which method converts a value to JSON text?",["JSON.stringify()","JSON.convert()","JSON.write()","JSON.html()"],0],
+["Which converts a value to JSON text?",["JSON.stringify()","JSON.convert()","JSON.write()","JSON.html()"],0],
 ["Which event occurs when a button is clicked?",["hovered","click","compiled","printed"],1],
 ["Which syntax creates an arrow function?",["function =>","() =>","->()","func():"],1],
 ["What does querySelector() return?",["First matching element","Every file","Only an image","A password"],0],
 ["Which keyword exits a loop?",["stop","exitloop","break","finish"],2],
-["Which operator provides a fallback for null or undefined?",["??","%%","**","::"],0],
+["Which operator provides a fallback for null?",["??","%%","**","::"],0],
 ["Which method transforms array elements?",["map()","sortOnly()","push()","pop()"],0],
 ["Where can browser JavaScript errors be inspected?",["Developer console","Printer queue","Wallpaper settings","Recycle bin"],0]
 ],
 "Java":[
 ["Which keyword declares a class?",["class","define","structonly","object"],0],
-["What is the conventional Java entry-point method?",["start()","main()","runApp()","begin()"],1],
+["What is Java's conventional entry method?",["start()","main()","runApp()","begin()"],1],
 ["Which type stores a whole number?",["boolean","int","char","void"],1],
 ["Which keyword creates an object?",["make","new","create","object"],1],
 ["Which modifier permits broad access?",["private","protected","public","local"],2],
@@ -383,17 +241,17 @@ const questions = {
 ["What does JVM stand for?",["Java Virtual Machine","Java Variable Method","Joint Visual Model","Java Version Manager"],0],
 ["Which keyword refers to the current object?",["this","self","current","me"],0],
 ["Which structure repeats while a condition is true?",["while loop","class","package","import"],0],
-["Which package contains many utility classes?",["java.util","java.image","java.browser","java.networkpage"],0]
+["Which package contains utility classes?",["java.util","java.image","java.browser","java.networkpage"],0]
 ],
 "Data Analytics":[
 ["What is the main goal of data analytics?",["Turn data into useful insights","Design hardware","Write fiction","Replace databases"],0],
 ["What is data cleaning?",["Correcting data quality problems","Deleting all records","Creating logos","Changing screen size"],0],
-["Which measure represents the arithmetic center?",["Mean","Range","Maximum","Minimum"],0],
+["Which measure is the arithmetic center?",["Mean","Range","Maximum","Minimum"],0],
 ["Which chart compares categories?",["Bar chart","Audio player","Map only","Network diagram"],0],
 ["What does KPI mean?",["Key Performance Indicator","Known Program Interface","Key Processing Input","Kernel Performance Index"],0],
 ["What does a database store?",["Organized data","Only pictures","Only web pages","Only operating systems"],0],
 ["What is an outlier?",["An unusually distant observation","Column heading","Chart title","File extension"],0],
-["Descriptive analytics focuses on which question?",["What happened?","What must happen?","Who wrote an OS?","How is a keyboard made?"],0],
+["Descriptive analytics asks what?",["What happened?","What must happen?","Who wrote an OS?","How is a keyboard made?"],0],
 ["What does correlation describe?",["Association between variables","Proof of causation","File system","Missing table"],0],
 ["What is a dashboard?",["Visual summary of information","Keyboard","Compiler","Cable"],0],
 ["What is a sample?",["Subset of a population","Every possible population","Chart color","Formula error"],0],
@@ -407,7 +265,7 @@ const questions = {
 ["Which element creates a hyperlink?",["<linkto>","<a>","<href>","<url>"],1],
 ["Which element inserts an image?",["<image>","<picturefile>","<img>","<src>"],2],
 ["Which element creates a paragraph?",["<p>","<paragraph>","<text>","<paraonly>"],0],
-["Which declaration identifies an HTML5 document?",["<!DOCTYPE html>","<html5>","<doctype=5>","<document html>"],0],
+["Which declaration identifies HTML5?",["<!DOCTYPE html>","<html5>","<doctype=5>","<document html>"],0],
 ["Which element creates a top-level heading?",["<head>","<h1>","<titleonly>","<heading>"],1],
 ["Which attribute provides alternative image text?",["titleonly","alt","description","caption"],1],
 ["Which element creates an unordered list?",["<ol>","<ul>","<li-only>","<list>"],1],
@@ -421,173 +279,100 @@ const questions = {
 ]
 };
 
-let selectedCourse = "";
-let passed = false;
-let lastScore = 0;
+var courseButtons = document.querySelectorAll(".course");
+var startBtn = document.getElementById("startBtn");
+var quizSection = document.getElementById("quizSection");
+var questionsBox = document.getElementById("questions");
+var quizForm = document.getElementById("quizForm");
+var result = document.getElementById("result");
+var applicationSection = document.getElementById("applicationSection");
 
-const courseButtons = document.querySelectorAll(".course");
-const assessment = document.getElementById("assessment");
-const application = document.getElementById("application");
-const quizForm = document.getElementById("quizForm");
-const questionList = document.getElementById("questionList");
-const quizResult = document.getElementById("quizResult");
+document.getElementById("year").textContent = new Date().getFullYear();
 
-courseButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    selectedCourse = button.dataset.course;
-    courseButtons.forEach(b => b.classList.remove("selected"));
-    button.classList.add("selected");
-    document.getElementById("selection").textContent = "Selected course: " + selectedCourse;
-    assessment.classList.add("hidden");
-    application.classList.add("hidden");
-    passed = false;
-  });
-});
-
-document.getElementById("start").addEventListener("click", () => {
-  if (!selectedCourse) {
-    document.getElementById("selection").textContent =
-      "Please select a course before starting the assessment.";
-    document.getElementById("courses").scrollIntoView({behavior:"smooth"});
-    return;
-  }
-
+courseButtons.forEach(function(button){
+ button.addEventListener("click",function(){
+  selectedCourse = button.getAttribute("data-course");
+  courseButtons.forEach(function(b){b.classList.remove("selected");});
+  button.classList.add("selected");
+  document.getElementById("status").textContent = "Selected: " + selectedCourse;
+  quizSection.classList.add("hidden");
+  applicationSection.classList.add("hidden");
   passed = false;
-  lastScore = 0;
-  document.getElementById("testTitle").textContent = selectedCourse + " Assessment";
-  quizResult.className = "result hidden";
-  application.classList.add("hidden");
-  assessment.classList.remove("hidden");
-  renderQuestions();
-  assessment.scrollIntoView({behavior:"smooth",block:"start"});
+ });
 });
 
-function renderQuestions() {
-  questionList.replaceChildren();
+startBtn.addEventListener("click",function(){
+ if(!selectedCourse){
+  document.getElementById("status").textContent = "Please select a course first.";
+  return;
+ }
+ passed = false;
+ document.getElementById("quizTitle").textContent = selectedCourse + " Assessment";
+ result.textContent = "";
+ applicationSection.classList.add("hidden");
+ questionsBox.replaceChildren();
 
-  questions[selectedCourse].forEach((q,i) => {
-    const field = document.createElement("fieldset");
-    field.className = "question";
+ bank[selectedCourse].forEach(function(question,index){
+  var field = document.createElement("fieldset");
+  field.className = "question";
+  var legend = document.createElement("legend");
+  legend.textContent = (index+1) + ". " + question[0];
+  field.appendChild(legend);
 
-    const legend = document.createElement("legend");
-    legend.textContent = (i+1) + ". " + q[0];
-    field.appendChild(legend);
-
-    q[1].forEach((answer,j) => {
-      const label = document.createElement("label");
-      label.className = "option";
-
-      const radio = document.createElement("input");
-      radio.type = "radio";
-      radio.name = "q" + i;
-      radio.value = String(j);
-      radio.required = true;
-      radio.addEventListener("change", updateProgress);
-
-      const span = document.createElement("span");
-      span.textContent = answer;
-
-      label.append(radio,span);
-      field.appendChild(label);
-    });
-
-    questionList.appendChild(field);
+  question[1].forEach(function(answer,choiceIndex){
+   var label = document.createElement("label");
+   var radio = document.createElement("input");
+   radio.type = "radio";
+   radio.name = "q" + index;
+   radio.value = choiceIndex;
+   radio.required = true;
+   label.appendChild(radio);
+   label.appendChild(document.createTextNode(answer));
+   field.appendChild(label);
   });
+  questionsBox.appendChild(field);
+ });
 
-  updateProgress();
-}
-
-function updateProgress() {
-  const total = questions[selectedCourse].length;
-  const answered = new Set(
-    [...quizForm.querySelectorAll('input[type="radio"]:checked')]
-      .map(input => input.name)
-  ).size;
-
-  document.getElementById("progressText").textContent =
-    answered + " of " + total + " answered";
-  document.getElementById("progressBar").style.width =
-    (answered / total * 100) + "%";
-}
-
-quizForm.addEventListener("submit", event => {
-  event.preventDefault();
-
-  let score = 0;
-  const set = questions[selectedCourse];
-
-  for (let i=0;i<set.length;i++) {
-    const answer = quizForm.querySelector('input[name="q'+i+'"]:checked');
-    if (!answer) {
-      alert("Please answer all 15 questions.");
-      return;
-    }
-    if (Number(answer.value) === set[i][2]) score++;
-  }
-
-  lastScore = score;
-  passed = score >= 12;
-
-  quizResult.replaceChildren();
-  quizResult.className = "result " + (passed ? "good" : "bad");
-
-  const heading = document.createElement("h3");
-  heading.textContent = passed ? "Congratulations! You passed." : "Assessment not passed.";
-
-  const detail = document.createElement("p");
-  detail.textContent = "Your score: " + score + "/15 (" +
-    Math.round(score/15*100) + "%). " +
-    (passed ? "You may request certificate approval below." :
-    "You need at least 12 correct answers. Please try again.");
-
-  quizResult.append(heading,detail);
-
-  if (passed) {
-    document.getElementById("courseField").value = selectedCourse;
-    document.getElementById("scoreField").value =
-      score + "/15 (" + Math.round(score/15*100) + "%)";
-    application.classList.remove("hidden");
-    application.scrollIntoView({behavior:"smooth",block:"start"});
-  } else {
-    application.classList.add("hidden");
-
-    const retry = document.createElement("button");
-    retry.type = "button";
-    retry.className = "primary";
-    retry.textContent = "Try Again";
-    retry.addEventListener("click", () => {
-      quizResult.className = "result hidden";
-      renderQuestions();
-      assessment.scrollIntoView({behavior:"smooth"});
-    });
-    quizResult.appendChild(retry);
-    quizResult.scrollIntoView({behavior:"smooth",block:"center"});
-  }
+ quizSection.classList.remove("hidden");
+ quizSection.scrollIntoView({behavior:"smooth"});
 });
 
-document.getElementById("applicationForm").addEventListener("submit", event => {
-  event.preventDefault();
+quizForm.addEventListener("submit",function(event){
+ event.preventDefault();
+ var score = 0;
+ var total = bank[selectedCourse].length;
 
-  if (!passed || lastScore < 12 || !selectedCourse) {
-    alert("Pass the assessment before applying.");
-    return;
+ for(var i=0;i<total;i++){
+  var answer = quizForm.querySelector('input[name="q'+i+'"]:checked');
+  if(!answer){
+   result.textContent = "Please answer every question.";
+   return;
   }
+  if(Number(answer.value) === bank[selectedCourse][i][2]) score++;
+ }
 
-  const name = document.getElementById("fullName").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const whatsapp = document.getElementById("whatsapp").value.trim();
+ passed = score >= 12;
+ result.textContent = "Your score: " + score + "/15. " +
+  (passed ? "Congratulations! You passed." : "You need at least 12 correct answers. Please try again.");
 
-  if (!name || !email || !whatsapp) {
-    alert("Please complete all required fields.");
-    return;
-  }
-
-  const output = document.getElementById("applicationResult");
-  output.classList.remove("hidden");
-  output.textContent =
-    "Demo only: the form is working in this browser, but the application has not been sent or saved. Database and secure admin approval integration are required.";
-  output.scrollIntoView({behavior:"smooth",block:"center"});
+ if(passed){
+  applicationSection.classList.remove("hidden");
+  applicationSection.scrollIntoView({behavior:"smooth"});
+ }else{
+  applicationSection.classList.add("hidden");
+ }
 });
+
+document.getElementById("applicationForm").addEventListener("submit",function(event){
+ event.preventDefault();
+ if(!passed){
+  document.getElementById("applicationStatus").textContent = "Pass the assessment first.";
+  return;
+ }
+ document.getElementById("applicationStatus").textContent =
+  "Demo only: your application has not been sent to the administrator. Secure database and approval integration are still required.";
+});
+})();
 </script>
 </body>
 </html>
