@@ -8,7 +8,7 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Data Analytics Hub | Learn Data Analytics - Happy Diwali Edition</title>
+<title>Data Analytics Hub | Learn Data Analytics - Happy Diwali Special</title>
 
 <meta name="description"
       content="Data Analytics Hub - Learn Excel, Python, SQL, Power BI, HTML, Java, JavaScript, Machine Learning and Data Analytics step by step.">
@@ -27,7 +27,7 @@
 
 
 /* =========================
-   BODY & DIWALI BACKGROUND
+   BODY & DIWALI NIGHT THEME
 ========================= */
 
 body{
@@ -37,7 +37,7 @@ body{
         Helvetica,
         sans-serif;
 
-    background:#060814;
+    background:#050714;
 
     color:#f8fafc;
 
@@ -49,7 +49,7 @@ body{
 
 }
 
-/* Ambient Diwali Festive Glow */
+/* Ambient Glowing Background Lights */
 body::before{
     content:"";
     position:fixed;
@@ -58,16 +58,104 @@ body::before{
     width:100%;
     height:100%;
     background:
-        radial-gradient(circle at 20% 20%, rgba(245, 158, 11, 0.15), transparent 40%),
-        radial-gradient(circle at 80% 30%, rgba(239, 68, 68, 0.15), transparent 45%),
-        radial-gradient(circle at 50% 80%, rgba(217, 119, 6, 0.12), transparent 50%);
+        radial-gradient(circle at 15% 20%, rgba(245, 158, 11, 0.2), transparent 45%),
+        radial-gradient(circle at 85% 30%, rgba(239, 68, 68, 0.2), transparent 45%),
+        radial-gradient(circle at 50% 75%, rgba(217, 119, 6, 0.18), transparent 55%);
     z-index:-2;
     pointer-events:none;
 }
 
 
 /* =========================
-   ANIMATED LIGHT STRING (TORAN)
+   FULL PAGE FLOATING DIYAS & SPARKS
+========================= */
+
+.diyas-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Individual Floating Diya Item */
+.floating-diya-item {
+    position: absolute;
+    bottom: -60px;
+    animation: floatUp 12s infinite linear;
+}
+
+.floating-diya-item:nth-child(1) { left: 5%; animation-duration: 10s; animation-delay: 0s; transform: scale(0.8); }
+.floating-diya-item:nth-child(2) { left: 20%; animation-duration: 14s; animation-delay: 2s; transform: scale(1.1); }
+.floating-diya-item:nth-child(3) { left: 38%; animation-duration: 11s; animation-delay: 5s; transform: scale(0.9); }
+.floating-diya-item:nth-child(4) { left: 55%; animation-duration: 13s; animation-delay: 1s; transform: scale(1.2); }
+.floating-diya-item:nth-child(5) { left: 72%; animation-duration: 9s; animation-delay: 4s; transform: scale(0.85); }
+.floating-diya-item:nth-child(6) { left: 88%; animation-duration: 15s; animation-delay: 3s; transform: scale(1.0); }
+
+@keyframes floatUp {
+    0% {
+        top: 105%;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        top: -10%;
+        opacity: 0;
+    }
+}
+
+/* Diya Structure & Animated Flame */
+.diya-base {
+    position: relative;
+    width: 44px;
+    height: 22px;
+    background: linear-gradient(180deg, #f59e0b, #78350f);
+    border-bottom-left-radius: 44px;
+    border-bottom-right-radius: 44px;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.6);
+}
+
+.diya-base::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 4px;
+    width: 36px;
+    height: 7px;
+    background: #b45309;
+    border-radius: 50%;
+}
+
+.live-flame {
+    position: absolute;
+    top: -22px;
+    left: 16px;
+    width: 12px;
+    height: 22px;
+    background: linear-gradient(0deg, #ef4444, #f59e0b, #fef08a);
+    border-radius: 50% 50% 20% 20%;
+    transform-origin: bottom center;
+    animation: liveFlicker 0.8s infinite alternate ease-in-out;
+    box-shadow: 0 0 12px #f59e0b, 0 0 22px #ef4444;
+}
+
+@keyframes liveFlicker {
+    0% { transform: scale(1) rotate(-3deg); opacity: 0.9; }
+    50% { transform: scale(1.15) rotate(3deg); opacity: 1; }
+    100% { transform: scale(0.95) rotate(-2deg); opacity: 0.85; }
+}
+
+
+/* =========================
+   LIGHT STRING (TORAN)
 ========================= */
 
 .light-string{
@@ -96,7 +184,7 @@ body::before{
 
 @keyframes glowLight {
     0% { opacity:0.3; transform:scale(0.8); }
-    100% { opacity:1; transform:scale(1.2); }
+    100% { opacity:1; transform:scale(1.25); }
 }
 
 
@@ -214,7 +302,7 @@ body::before{
 
 
 /* =========================
-   HERO & DIWALI BANNER
+   HERO BANNER
 ========================= */
 
 .hero{
@@ -246,14 +334,38 @@ body::before{
         #10182d;
 
     border:
-        1px solid rgba(245, 158, 11, 0.3);
+        1px solid rgba(245, 158, 11, 0.35);
 
     border-radius:28px;
 
     position:relative;
 
-    box-shadow:0 0 35px rgba(245, 158, 11, 0.15);
+    box-shadow:0 0 40px rgba(245, 158, 11, 0.2);
 
+    z-index: 2;
+
+}
+
+
+/* BIG HAPPY DIWALI TITLE */
+
+.diwali-main-heading {
+    font-size: clamp(40px, 8vw, 80px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #ffe58f, #f59e0b, #ef4444, #fbbf24);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+    animation: glowHeading 2s infinite alternate;
+}
+
+@keyframes glowHeading {
+    0% { filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.4)); }
+    100% { filter: drop-shadow(0 0 25px rgba(239, 68, 68, 0.8)); }
 }
 
 
@@ -264,7 +376,7 @@ body::before{
     display:inline-block;
 
     padding:
-        8px 18px;
+        8px 20px;
 
     border-radius:30px;
 
@@ -278,39 +390,35 @@ body::before{
 
     font-weight:700;
 
-    margin-bottom:20px;
+    margin-bottom:15px;
 
     letter-spacing:1px;
 
 }
 
 
-/* HERO TITLE */
+/* HERO SUB-TITLE */
 
-.hero h1{
+.hero h2{
 
     font-size:
-        clamp(
-            35px,
-            6vw,
-            60px
-        );
+        clamp(24px, 4vw, 42px);
 
-    line-height:1.15;
+    line-height:1.2;
 
-    margin-bottom:20px;
+    margin-bottom:18px;
+
+    color: #f8fafc;
 
 }
 
-
-.hero h1 span{
+.hero h2 span{
 
     background:
         linear-gradient(
             135deg,
-            #fbbf24,
-            #f97316,
-            #e11d48
+            #38bdf8,
+            #a855f7
         );
 
     -webkit-background-clip:text;
@@ -405,61 +513,6 @@ body::before{
 
 
 /* =========================
-   ANIMATED LIVE DIYA WIDGET
-========================= */
-
-.diya-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    margin: 25px 0 10px;
-}
-
-.diya {
-    position: relative;
-    width: 50px;
-    height: 25px;
-    background: linear-gradient(180deg, #d97706, #78350f);
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    box-shadow: 0 5px 15px rgba(217, 119, 6, 0.4);
-}
-
-.diya::before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: 5px;
-    width: 40px;
-    height: 8px;
-    background: #b45309;
-    border-radius: 50%;
-}
-
-.flame {
-    position: absolute;
-    top: -24px;
-    left: 19px;
-    width: 12px;
-    height: 24px;
-    background: linear-gradient(0deg, #ef4444, #f59e0b, #fef08a);
-    border-radius: 50% 50% 20% 20%;
-    transform-origin: bottom center;
-    animation: flicker 1.2s infinite alternate ease-in-out;
-    box-shadow: 0 0 15px #f59e0b, 0 0 25px #ef4444;
-}
-
-@keyframes flicker {
-    0% { transform: scale(1) rotate(-2deg); opacity: 0.9; }
-    25% { transform: scale(1.1) rotate(2deg); opacity: 1; }
-    50% { transform: scale(0.95) rotate(-1deg); opacity: 0.85; }
-    75% { transform: scale(1.05) rotate(1deg); opacity: 1; }
-    100% { transform: scale(1) rotate(-2deg); opacity: 0.9; }
-}
-
-
-/* =========================
    SECTION
 ========================= */
 
@@ -472,6 +525,10 @@ body::before{
 
     padding:
         0 20px;
+
+    position: relative;
+
+    z-index: 2;
 
 }
 
@@ -780,6 +837,10 @@ body::before{
 
     border-radius:25px;
 
+    position: relative;
+
+    z-index: 2;
+
 }
 
 .cta h2{
@@ -911,6 +972,10 @@ footer{
 
     margin-top:40px;
 
+    position: relative;
+
+    z-index: 2;
+
 }
 
 footer p{
@@ -969,6 +1034,12 @@ footer strong{
 
     }
 
+    .diwali-main-heading {
+
+        font-size: 38px;
+
+    }
+
     .section{
 
         padding:
@@ -990,6 +1061,28 @@ footer strong{
 
 
 <body>
+
+<!-- FULL SCREEN ANIMATED FLOATING DIYAS -->
+<div class="diyas-background">
+    <div class="floating-diya-item">
+        <div class="diya-base"><div class="live-flame"></div></div>
+    </div>
+    <div class="floating-diya-item">
+        <div class="diya-base"><div class="live-flame"></div></div>
+    </div>
+    <div class="floating-diya-item">
+        <div class="diya-base"><div class="live-flame"></div></div>
+    </div>
+    <div class="floating-diya-item">
+        <div class="diya-base"><div class="live-flame"></div></div>
+    </div>
+    <div class="floating-diya-item">
+        <div class="diya-base"><div class="live-flame"></div></div>
+    </div>
+    <div class="floating-diya-item">
+        <div class="diya-base"><div class="live-flame"></div></div>
+    </div>
+</div>
 
 <!-- TOP FESTIVE LIGHT STRING -->
 <div class="light-string">
@@ -1039,32 +1132,28 @@ footer strong{
 
 
 <!-- =========================
-     HERO WITH LIVE DIYAS
+     HERO BANNER
 ========================= -->
 
 <section class="hero">
 
-    <!-- LIVE DIYAS ANIMATION -->
-    <div class="diya-container">
-        <div class="diya"><div class="flame"></div></div>
-        <div class="diya"><div class="flame"></div></div>
-        <div class="diya"><div class="flame"></div></div>
+    <div class="diwali-main-heading">
+        🪔 HAPPY DIWALI 🪔
     </div>
 
     <span class="badge">
-        🪔 HAPPY DIWALI · DATA ANALYTICS HUB
+        DATA ANALYTICS HUB FESTIVE EDITION
     </span>
 
-    <h1>
-        Light Up Your Career with
+    <h2>
+        Light Up Your Skills in
         <span>
             Data Analytics
         </span>
-        Step by Step
-    </h1>
+    </h2>
 
     <p>
-        Master Excel, Python, SQL, Power BI, Java, JavaScript,
+        Learn Excel, Python, SQL, Power BI, Java, JavaScript,
         HTML, and Machine Learning through practical projects,
         interactive exercises, and beginner-friendly lessons.
     </p>
@@ -1183,7 +1272,7 @@ footer strong{
         <div class="course-card">
             <div class="course-icon">🪔</div>
             <h3>Data Analytics Full Course</h3>
-            <p>Complete Bundle: Excel + SQL + Python + Power BI with hands-on projects and interview prep.</p>
+            <p>Complete Bundle: Excel + SQL + Python + Power BI with hands-on projects and practical learning.</p>
             <span class="premium">PREMIUM · ₹11</span>
             <a href="https://rzp.io/rzp/yUd8pYbJ" target="_blank" class="card-button">Buy Now · ₹11</a>
         </div>
